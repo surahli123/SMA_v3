@@ -1,0 +1,17 @@
+{
+  "handoff_id": "sma-v3-task-migration-20260818",
+  "status": "in_progress",
+  "summary": "SMA v3 is registered as the new Codex project and the first isolated feature worktree is ready.",
+  "new_main_thread_id": "",
+  "active_feature_worktrees": [
+    "/private/tmp/SMA_v3-opus-m0"
+  ],
+  "evidence": [
+    "local main is clean at a6c1a528d910e3560b1e8ef1b917c26d498b0414",
+    "origin is https://github.com/surahli123/SMA_v3.git",
+    "authorized SMA v2 export roots contain no newer missing work",
+    "frozen packet, architecture, plan, sequencing, and accepted M0 aggregate hashes match"
+  ],
+  "next_step": "Commit and push the migration and execution handoffs, then create the SMA v3 main task and launch the bounded Opus 5 implementation session.",
+  "updated_at": "2026-08-18T14:33:32-07:00"
+}

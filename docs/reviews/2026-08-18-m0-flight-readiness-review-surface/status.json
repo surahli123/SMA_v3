@@ -1,0 +1,19 @@
+{
+  "handoff_id": "opus5-m0-review-surface-20260818",
+  "status": "not_started",
+  "verdict": "BLOCKED",
+  "summary": "Awaiting the bounded Claude Code Opus 5 implementation run.",
+  "input_bindings": {
+    "m0_packet": "sha256:82747da96d66dd8851c03edc837f38597264a07794a2b145cd530ca0a5f07b19",
+    "architecture": "sha256:9508b42979b5f708d3b0be7016ed414fd0b4c28d531b75fd0a4710eb46df8fc1",
+    "accepted_m0_package": "sha256:9eea3014cb74acc48e9bbd24a486d2b6a5a4a4f57ae76191f42d037a5988b19a"
+  },
+  "output_digest": "",
+  "changed_files": [],
+  "verification": [],
+  "coverage_gaps": [
+    "P3 live reviewer acceptance remains open"
+  ],
+  "next_step": "Launch one Opus 5 max-effort implementation session in the isolated SMA v3 feature worktree.",
+  "updated_at": "2026-08-18T14:33:32-07:00"
+}
