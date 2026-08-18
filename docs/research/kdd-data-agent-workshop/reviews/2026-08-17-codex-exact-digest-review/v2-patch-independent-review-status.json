@@ -1,0 +1,80 @@
+{
+  "handoff_id": "kdd-m0-v2-patch-independent-review-20260817",
+  "status": "done",
+  "verdict": "REJECT_CANDIDATE",
+  "summary": "The exact v2 patch applies cleanly in a fresh disposable copy and reproduces all five claimed post-apply digests. D1-D3 and the 26-ID ownership registry pass. The candidate is rejected because unpatched CE-plan, architecture-spec, and sequencing text still asserts current fixture-backed M0 authority, and the architecture/evaluation surfaces still encode a current independent-recomputation fixture or measurement instead of only a replaceable Check-14 seam pending the Owner/Fable ruling.",
+  "evidence": [
+    {
+      "kind": "patch_binding",
+      "path": "docs/research/kdd-data-agent-workshop/reviews/2026-08-17-codex-prefreeze-execution/candidate-canonical-writeback-v2.patch",
+      "sha256": "54b386f12d0fc9fc80dbc263404db1bcc7796f030fddddb5fda53c827602286b",
+      "git_apply_check_whitespace_error_all": "pass",
+      "disposable_apply": "pass"
+    },
+    {
+      "kind": "disposable_post_apply_digests",
+      "packet_sha256": "74d77bbb4fce84099d951c58f2f55cf695c3e9ffccb713e929e330e068ffd264",
+      "architecture_spec_sha256": "04285c0eb0a008f573a5c8b872ca7b184182413ea3b7b7dfa356cd2c7b0d09fa",
+      "sequencing_sha256": "ae8f935b24af65ef90b1a1a5e2d01e38c08bcb9dac1f6310f30c33151596e946",
+      "ce_plan_sha256": "da78980c2a1d5204c14e9f8ff824e60bd775cd12a0dcd604d813433c89e9d9d9",
+      "eval_acceptance_plan_sha256": "ff01fcd439b482d752f5766d6560faad819e113bc5719b142fd18137b63f5b91"
+    },
+    {
+      "kind": "rejection_finding",
+      "severity": "P0",
+      "title": "Current fixture-backed M0 authority remains asserted",
+      "anchors": [
+        "docs/plans/2026-08-12-001-feat-kdd-data-agent-greenfield-plan.md:9",
+        "docs/plans/2026-08-12-001-feat-kdd-data-agent-greenfield-plan.md:21",
+        "docs/plans/2026-08-12-001-feat-kdd-data-agent-greenfield-plan.md:38",
+        "docs/research/kdd-data-agent-workshop/final-architecture-spec.md:38",
+        "docs/research/kdd-data-agent-workshop/final-architecture-spec.md:1002",
+        "docs/research/kdd-data-agent-workshop/implementation-sequencing.md:203",
+        "docs/research/kdd-data-agent-workshop/implementation-sequencing.md:553"
+      ]
+    },
+    {
+      "kind": "rejection_finding",
+      "severity": "P1",
+      "title": "Check 14 is not represented only by a replaceable seam",
+      "anchors": [
+        "docs/research/kdd-data-agent-workshop/final-architecture-spec.md:793",
+        "docs/research/kdd-data-agent-workshop/final-architecture-spec.md:798",
+        "docs/research/kdd-data-agent-workshop/eval-acceptance-plan.md:148"
+      ]
+    },
+    {
+      "kind": "val_registry",
+      "packet_unique_id_count": 26,
+      "authoritative_mapping_row_count": 26,
+      "authoritative_mapping_unique_count": 26,
+      "exact_set_match": true,
+      "missing_ids": [],
+      "extra_ids": [],
+      "duplicate_mapping_ids": []
+    },
+    {
+      "kind": "preserved_open_state",
+      "d1_d2_d3": "pass",
+      "b3_open": true,
+      "m18_open": true,
+      "m19_open": true,
+      "m20_open": true,
+      "historical_2f1001_occurrence_count": 0,
+      "production_authorized": false,
+      "m1_m2_authorized": false,
+      "mutation_or_deployment_authorized": false,
+      "committee_acceptance": false
+    },
+    {
+      "kind": "scope_boundary",
+      "subagents_started": 0,
+      "m0_units_started": 0,
+      "canonical_or_phase_a_files_modified": 0,
+      "patch_or_prior_review_files_modified": 0,
+      "external_systems_accessed": 0
+    }
+  ],
+  "next_step": "Prepare a superseding unapplied patch against the same live base that removes every stale M0-authority assertion and qualifies all Check-14 fixture and measurement language as a replaceable, non-conformant seam pending the Owner/Fable ruling. Then rerun exact-digest disposable-copy review. Do not apply canonical writeback or start M0-F1-M0-F5 from this rejected candidate.",
+  "updated_at": "2026-08-17T20:38:06-07:00"
+}

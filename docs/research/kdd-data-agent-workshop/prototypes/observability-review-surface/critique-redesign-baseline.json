@@ -1,0 +1,19 @@
+{
+  "kind": "critique-panel",
+  "iteration": "evidence-dossier-rejected",
+  "score": 2.7,
+  "axes": {
+    "clarity": {"score": 3.1, "notes": "The current conclusion and contradiction are visible, but the oversized conclusion behaves like a marketing hero and pushes the evidence comparison below the fold."},
+    "hierarchy": {"score": 2.8, "notes": "Review, Claims, Verify, and Trace are separated, yet support, contradiction, freshness, and deployed proof are not aligned in one reviewable evidence ledger."},
+    "typography": {"score": 3.2, "notes": "Sans and mono roles are coherent, but the headline-to-detail scale jump is too theatrical for a forensic product surface."},
+    "motion": {"score": 2.4, "notes": "Selection and graph state changes exist, but spatial continuity between a claim row and its exact source proof is weak."},
+    "brand": {"score": 2.2, "notes": "The paper dossier language is restrained, but it still reads as an art-directed report rather than a fast operational review instrument."}
+  },
+  "why_replaced": [
+    "The first screen stages a conclusion instead of supporting a side-by-side verification task.",
+    "Evidence metadata is delayed until separate views instead of being available from the row under review.",
+    "The full graph consumes a large viewport even when a ledger or source inspector would answer the reviewer question faster.",
+    "Mobile Claims requires horizontal graph traversal before the reviewer can understand off-screen context.",
+    "The interaction model is page-mode driven rather than claim-and-evidence driven."
+  ]
+}

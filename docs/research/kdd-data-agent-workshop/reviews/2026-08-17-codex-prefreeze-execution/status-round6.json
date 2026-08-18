@@ -1,0 +1,51 @@
+{
+  "handoff_id": "kdd-m0-canonical-candidate-v6-20260818",
+  "status": "done",
+  "summary": "Produced the bounded superseding v6 unapplied documentation patch. It preserves accepted v5 bytes except the minimum V5-01 and V5-02 corrections, leaves live canonical and Git state unchanged, and is ready for a fresh independent exact-byte review.",
+  "verdict": "CANDIDATE_READY_FOR_INDEPENDENT_REVIEW",
+  "patch_path": "/Users/surahli/Documents/projects/SMA_v2/docs/research/kdd-data-agent-workshop/reviews/2026-08-17-codex-prefreeze-execution/candidate-canonical-writeback-v6.patch",
+  "patch_sha256": "cfbb39ad3a8adf9614b03fc00891ee83942701bf1499e763b20e3c10fd7952ca",
+  "disposition_path": "/Users/surahli/Documents/projects/SMA_v2/docs/research/kdd-data-agent-workshop/reviews/2026-08-17-codex-prefreeze-execution/round6-disposition.md",
+  "disposition_sha256": "8bd40ff93756de77d3234b55c1d5fcb14698b8cbbbac77f2d38374146999959e",
+  "input_digests": {
+    "docs/plans/2026-08-12-001-feat-kdd-data-agent-greenfield-plan.md": "52ce2763a365eb35ea884dfbc7f19b8b3d012b85edac544a21b356638126499c",
+    "docs/research/kdd-data-agent-workshop/enterprise-experiment-post-analysis-profile.md": "3da58196296c3eb164a598a67750e1d57bbc5936176edde2d743917b48d7f663",
+    "docs/research/kdd-data-agent-workshop/eval-acceptance-plan.md": "5dce10ca451f7ccbbf5d86896cefed2b8dd8a5b5cae480da4d3ea030d5603194",
+    "docs/research/kdd-data-agent-workshop/final-architecture-spec.md": "3b20c93859b78074b653d375fc29f60bd40993b3f3bcb4ee2ff481e8ba8706b8",
+    "docs/research/kdd-data-agent-workshop/implementation-sequencing.md": "1d42e67c0ba5e2a1799960a3e151b12fa847a419f13b7a9f63362366dc3a29ee",
+    "docs/research/kdd-data-agent-workshop/planning-decision-packet.md": "7e68ad675b988f2dfc3f53cf13e6e5e4bbd24194ce896c38df395e62b06bd37c",
+    "docs/research/kdd-data-agent-workshop/reviews/2026-08-16-opus5-m0-alignment/m0-m2-build-alignment-packet.md": "67c844d10dcafcf2637388bf579dfcd9866d7d69ea6f4d3b456fd6b6b15dfcfa"
+  },
+  "post_apply_digests": {
+    "docs/plans/2026-08-12-001-feat-kdd-data-agent-greenfield-plan.md": "2b4bbd3583e2f289303b8e47b255e3b53bd0f3307f0b699b33299b57aa9e1daf",
+    "docs/research/kdd-data-agent-workshop/enterprise-experiment-post-analysis-profile.md": "9a5823d02aa4d26f5fe472f0f90f2c07bc378d4ea745145f7494f749710cf77e",
+    "docs/research/kdd-data-agent-workshop/eval-acceptance-plan.md": "2d4612e319e7c8dce209eeaee228638ec0abf69a0ee70a01697c30b96b40e965",
+    "docs/research/kdd-data-agent-workshop/final-architecture-spec.md": "9508b42979b5f708d3b0be7016ed414fd0b4c28d531b75fd0a4710eb46df8fc1",
+    "docs/research/kdd-data-agent-workshop/implementation-sequencing.md": "8fec2f8c3c3d22aa9dc1b762769673789d007fd74dbbed9c34e5ea88fcd4725b",
+    "docs/research/kdd-data-agent-workshop/planning-decision-packet.md": "1ba07b2587a491a3c6e3e45a3b9af2ef7f701f0de32674a74d2bcac6a8109497",
+    "docs/research/kdd-data-agent-workshop/reviews/2026-08-16-opus5-m0-alignment/m0-m2-build-alignment-packet.md": "82747da96d66dd8851c03edc837f38597264a07794a2b145cd530ca0a5f07b19"
+  },
+  "corrections": [
+    {
+      "id": "V5-01",
+      "disposition": "implemented_in_patch",
+      "evidence": "The absolute blocked-Flight M1 prohibition and M0-pass edge are replaced by separate M1 authority plus the applicable publication ceiling; the blocked Flight remains non-decision-grade."
+    },
+    {
+      "id": "V5-02",
+      "disposition": "implemented_in_patch",
+      "evidence": "ce-unified-plan/v1 artifact_readiness is implementation-ready while execution, authority_state, Readiness, and Stop Conditions retain no-live-execution authority."
+    }
+  ],
+  "evidence": [
+    "v6 differs from the applied-v5 tree in exactly three lines across exactly three targets; all other accepted v5 bytes are preserved.",
+    "git apply --check --whitespace=error-all succeeds against a fresh disposable copy of the exact live target bytes.",
+    "Applied v6 output byte-matches the construction tree and git diff --no-index --check reports no whitespace errors.",
+    "Patch scope is exactly seven permitted targets with 269 insertions and 148 deletions.",
+    "All local Markdown links resolve; the acceptance registry has 26 rows, 26 unique owners, 26 referenced IDs, and zero unowned references.",
+    "Live canonical, Phase A, Fable artifacts, prior artifacts and reviews, branch, HEAD, index, and unrelated dirty state were not modified."
+  ],
+  "next_step": "Run a fresh independent exact-byte review of candidate-canonical-writeback-v6.patch. Do not apply or freeze it, create an implementation handoff, or start M0-F1-M0-F5 without the separately required approvals.",
+  "updated_at": "2026-08-18T01:18:31-07:00"
+}
+

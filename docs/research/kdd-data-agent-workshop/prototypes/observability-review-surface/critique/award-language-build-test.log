@@ -1,0 +1,17 @@
+PROTOTYPE / THROWAWAY
+
+node --check app.js
+exit 0
+
+No package.json or project-declared build, typecheck, lint, or test command exists in the prototype bundle.
+tests: skipped
+reason: dependency-free static HTML/CSS/JS prototype; equivalent static and live-browser checks were used.
+
+Browser: 1440x1000, all four routes captured.
+Browser: 390x844, all four routes captured in cycle 1; Claims and Verify recaptured after the cycle 2 fix.
+Review proof CTA: one click changed URL to ?view=verify.
+Physical F2, F3, F4, F1: URLs changed to claims, verify, trace, review.
+Claim C-09 selection: answer path and EV-IDX-02 source detail updated together.
+Show context: grouped context changed from hidden to visible.
+
+Owner acceptance: pending. Ticket remains open.

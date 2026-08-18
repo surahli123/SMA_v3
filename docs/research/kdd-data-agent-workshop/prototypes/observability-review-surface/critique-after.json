@@ -1,0 +1,16 @@
+{
+  "kind": "critique-panel",
+  "score": 4.2,
+  "axes": {
+    "clarity": {"score": 4.4, "notes": "One conclusion, one blocker, and one primary next action define the first screen."},
+    "hierarchy": {"score": 4.4, "notes": "Review, Claims, Verify, and Trace are task modes rather than competing dashboard widgets."},
+    "typography": {"score": 4.3, "notes": "A restrained sans and mono dossier system provides clear evidence roles and locators."},
+    "motion": {"score": 4.0, "notes": "Motion explains selection and graph changes and respects reduced motion."},
+    "brand": {"score": 4.1, "notes": "The interface reads as a precision evidence dossier rather than a generic AI dashboard."}
+  },
+  "remaining_gaps": [
+    "Mobile Claims uses an explicitly labeled, keyboard-focusable horizontal graph viewport. Navigation no longer overlays the graph and the page no longer overflows, but traversal of off-screen claim context still requires owner validation.",
+    "The synthetic fixed-position graph does not provide production-grade edge routing or collision avoidance.",
+    "Owner live review is still required before this prototype can support ticket closure."
+  ]
+}

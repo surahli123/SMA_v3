@@ -1,0 +1,33 @@
+{
+  "schema_version": "m0-fixture-read/v0",
+  "case_id": "m0-read-redaction-failure-001",
+  "declared_outcome": "redaction_failure",
+  "source": {
+    "source_id": "fixture-metric-store",
+    "source_kind": "synthetic_metric_store",
+    "locator": "synthetic://metric-store/exp-1008/primary-read",
+    "snapshot_id": "snap-2026-08-16-0008",
+    "owner": "synthetic-experiment-platform-team"
+  },
+  "authorization": {
+    "state": "authorized",
+    "recipient_scope": "m0-local-review",
+    "redaction": "failed"
+  },
+  "observed_interval": {
+    "start": "2026-08-01T00:00:00+00:00",
+    "end": "2026-08-15T00:00:00+00:00"
+  },
+  "recorded_at": "2026-08-16T00:00:00+00:00",
+  "body": {"__kdd__": "MISSING"},
+  "coverage_gaps": [
+    {
+      "kind": "unchecked_plane",
+      "reason": "The synthetic payload carried fields the redaction rule requires removing, and the redaction step did not complete, so the read was discarded before retention.",
+      "next_safe_check": "Fix the redaction rule for this source, re-read, and confirm the redaction receipt completes before any body is retained."
+    }
+  ],
+  "disagreements": [],
+  "expected_final_readiness": "alignment_pending",
+  "notes": "Redaction failure. The read reached a body and then dropped it: the receipt records that the read happened and why nothing was kept, and holds no field from the unredacted payload."
+}

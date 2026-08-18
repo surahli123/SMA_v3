@@ -1,0 +1,35 @@
+{
+  "handoff_id": "kdd-m0-exact-digest-review-20260817",
+  "status": "completed_reject_codex_advisory_only",
+  "summary": "One bounded report-only exact-digest review completed. Verdict: REJECT — CODEX_ADVISORY_ONLY. D1 and D3 are not propagated, D2 is partial, exhausted M0 authority is still presented as live, and the VAL namespace lacks complete implementation-unit ownership. No reviewed input drifted and no canonical document or Phase A artifact was modified.",
+  "evidence": {
+    "report": "docs/research/kdd-data-agent-workshop/reviews/2026-08-17-codex-exact-digest-review/exact-digest-review.md",
+    "reviewed_input_count": 11,
+    "digest_result": "all_readable_inputs_stable",
+    "missing_handoff_path": "docs/research/kdd-data-agent-workshop/reviews/2026-08-16-opus5-m0-alignment/00-final-review.md",
+    "resolved_38_finding_source": {
+      "path": "docs/research/kdd-data-agent-workshop/reviews/2026-08-15-opus5-enterprise-plan-review/00-final-review.md",
+      "sha256": "802b82a25f7163d4a4e6ccf36687cf2fa4e341d17bb62b9f9f80910aa24d803c"
+    },
+    "reconciliation_rows": 38,
+    "adopted_reviewer_roster": [
+      "feasibility",
+      "scope-guardian",
+      "coherence",
+      "security",
+      "adversarial-document"
+    ],
+    "reviewer_lane_count": 5,
+    "coordination_correction": "A sixth product_lens was initially dispatched in error. It was interrupted while running after the Owner clarified the five-lane limit. Its output was not read, cited, merged, or adopted; no replacement lane was started. The cumulative adopted reviewer roster is exactly five.",
+    "critical_findings": [
+      "D1 closed sufficiency contract is not propagated and post-hoc or achieved-power computation is not explicitly prohibited across implementation surfaces.",
+      "D3 is directly contradicted because the candidate still stores two readiness fields instead of one stored analysis_use state with derived eligibility.",
+      "D2 arm-parity fields exist but exact MISSING, NOT_APPLICABLE, and FAIL branches are not propagated.",
+      "The prior M0 continuation authorization is exhausted, but several implementation surfaces still describe the slice as currently authorized.",
+      "Twenty-six packet VAL IDs do not have a complete one-ID-to-one-unit or explicit-gate ownership table."
+    ],
+    "authority_boundary": "Advisory only; not Opus, Fable, Owner, Phase A, production, P2/P3/P4, M1/M2, or Committee approval."
+  },
+  "next_step": "An authorized canonical editor should reconcile D1-D3, replace all stale live-authorization language, add complete VAL ownership, and preserve B3/M18/M19/M20 as open. Then recompute new digests and obtain fresh Codex verification plus the required Opus, Fable, Owner, Phase A, production, and Committee gates as applicable.",
+  "updated_at": "2026-08-17T20:13:49-07:00"
+}

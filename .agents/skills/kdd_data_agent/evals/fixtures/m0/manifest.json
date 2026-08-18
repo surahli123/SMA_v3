@@ -1,0 +1,46 @@
+{
+  "schema_version": "m0-fixture-manifest/v0",
+  "description": "Representative raw source-read fixtures covering every typed M0 read outcome. Expected READ outcomes are settled; expected final READINESS is alignment_pending because the readiness decision rules are not frozen (SEAM-M0-01-READINESS-OUTCOME). All content is synthetic and contains no real, production, or de-identified company data.",
+  "cases": [
+    {
+      "case_id": "m0-read-trusted-001",
+      "expected_read_outcome": "trusted",
+      "expected_final_readiness": "alignment_pending"
+    },
+    {
+      "case_id": "m0-read-blocked-001",
+      "expected_read_outcome": "blocked",
+      "expected_final_readiness": "alignment_pending"
+    },
+    {
+      "case_id": "m0-read-partial-001",
+      "expected_read_outcome": "partial",
+      "expected_final_readiness": "alignment_pending"
+    },
+    {
+      "case_id": "m0-read-stale-001",
+      "expected_read_outcome": "stale",
+      "expected_final_readiness": "alignment_pending"
+    },
+    {
+      "case_id": "m0-read-conflicting-001",
+      "expected_read_outcome": "conflicting",
+      "expected_final_readiness": "alignment_pending"
+    },
+    {
+      "case_id": "m0-read-unauthorized-001",
+      "expected_read_outcome": "unauthorized",
+      "expected_final_readiness": "alignment_pending"
+    },
+    {
+      "case_id": "m0-read-unavailable-001",
+      "expected_read_outcome": "unavailable",
+      "expected_final_readiness": "alignment_pending"
+    },
+    {
+      "case_id": "m0-read-redaction-failure-001",
+      "expected_read_outcome": "redaction_failure",
+      "expected_final_readiness": "alignment_pending"
+    }
+  ]
+}

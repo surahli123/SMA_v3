@@ -1,0 +1,54 @@
+{
+  "handoff_id": "kdd-m0-fable-adversarial-steelman-delta-20260818",
+  "status": "done",
+  "summary": "Five two-way steelman attacks run against the current candidate 67c844d1, the current spec/sequencing/eval/CE bytes, and the facilitator ledger (D1-D6, S1-S8, F1-F22). All five land on one fact: no controlling document contains any S1-S8 vocabulary (0 grep hits for advisory/recommend_*, evidence_class, Query Success, core check, company laptop/PRODUCTION_BINDING_REQUIRED), and packet section 5.3 conflicts with Owner D3. Contract defects and production-binding gates are separated per attack. Phase I (sealed sha256 e4a63468...) was preserved immutably; the delta is a labelled section 5 of the final review. Overall task verdict remains BLOCKED (packet changed mid-review; current candidate superseded by later Owner decisions).",
+  "attack_dispositions": [
+    {
+      "attack": 1,
+      "title": "False M0 completion",
+      "disposition": "product-contract defect + P2 gate",
+      "required": "typed evidence_class on every packet/receipt rendered first-screen; typed m0_capability_state (fixture_ready | production_capability_proven | flight_eligible) proven only when core checks executed against real evidence; rename 'fixture-backed M0 MVP' (PDP:11,:98; packet:33; seq:505,:617) to a pre-production term; split V1 exit",
+      "falsifier": "reviewer cannot tell a fixture packet from a production packet from the first screen"
+    },
+    {
+      "attack": 2,
+      "title": "Core-check discretion",
+      "disposition": "product-contract defect (check IDs, core_check_set sealed in the production start receipt before the read, DS/Committee ownership, fail-closed MISSING/UNKNOWN); core-set content = Owner/DS decision; executability = P2",
+      "required": "CHK-01..CHK-19; delete 'minimum'; core_check_set field + sealing + ownership",
+      "falsifier": "a second start receipt with a different core set after results are visible must be rejected"
+    },
+    {
+      "attack": 3,
+      "title": "Unaccountable metric challenge",
+      "disposition": "product-contract defect (design)",
+      "required": "typed AdvisoryRevision distinct from Recommendation/Cause Verdict; challenge_evidence_lineage_class with derived_from_decision_metric_inputs inadmissible; preregistered blind rubric for human-judgment streams (P4-owned); rule-registration timestamps ordered before first read; DS challenge record and official result rendered beside the advisory",
+      "falsifier": "a component of the union re-labelled as independent evidence must be classified derived and force insufficient_evidence"
+    },
+    {
+      "attack": 4,
+      "title": "M1 without M2",
+      "disposition": "design gap in packet sections 6/7",
+      "required": "query_evidence_state absent|partial|present with typed Coverage Gap; falsifier_execution_status runnable_now|requires_m2|requires_p2; append-only advisory supersession",
+      "falsifier": "advisory with requires_m2 falsifier and no query_evidence_state must not render as review-ready"
+    },
+    {
+      "attack": 5,
+      "title": "Company-laptop boundary",
+      "disposition": "contract items (typed PRODUCTION_BINDING_REQUIRED sentinel; export manifest schema with keyed digests for confidential values, redaction receipt, recipient scope, human exporter) + production-binding/operational gates (laptop custody, dual attestation, continuity through leave)",
+      "required": "see final review section 5 attack 5",
+      "falsifier": "export containing a bare sha256 of a raw query must be rejected"
+    }
+  ],
+  "evidence": [
+    "grep counts over packet 67c844d1, final-architecture-spec.md (3b20c938), implementation-sequencing.md, eval-acceptance-plan.md, planning-decision-packet.md: 0 hits for recommend_pass|recommend_change|recommend_block|advisory; evidence_class|production_authorized; Query Success|TraditionalResultSuccess|AIAnswerSuccess; core material|core check; company laptop|PRODUCTION_BINDING_REQUIRED",
+    "packet 67c844d1 section 5.3:117-132 'two coordinated fields ... neither field takes precedence' vs ledger D3 'single stored analysis_use, derived projection'",
+    "planning-decision-packet.md:11,:98; packet:33; implementation-sequencing.md:505,:617 use 'fixture-backed (local) M0 MVP' vs Owner S1 'M0 MVP is not complete on fixtures alone'",
+    "packet 67c844d1 section 5.2:87 'The minimum check set'; grep CHK- = 0; materiality_rule_id occurs once corpus-wide",
+    "packet 67c844d1 section 11:240 VAL-M0-002 'Runtime insufficiency' vs CE plan:129 'runtime or preregistered-power/MDE insufficiency'",
+    "architecture-decision-ledger.md sections D and C.3 (D1-D6, S1-S8, F1-F22) read in full",
+    "final review: docs/research/kdd-data-agent-workshop/reviews/2026-08-17-fable5-m0-adversarial-review/fable5-final-adversarial-review.md section 5"
+  ],
+  "real_blocker": "FD-01: the current freeze candidate contains none of S1-S8, conflicts with D3, and omits D1/D4/D6 semantics; a new packet revision plus Owner-record entries for D1-D6/S1-S8 are required before any freeze",
+  "next_step": "Codex produces a new packet revision per final review section 8; Owner records D1-D6/S1-S8 durably; Opus 5 exact-digest review of the new bytes; new Owner start receipt before M0-F1",
+  "updated_at": "2026-08-18T07:31:25Z"
+}

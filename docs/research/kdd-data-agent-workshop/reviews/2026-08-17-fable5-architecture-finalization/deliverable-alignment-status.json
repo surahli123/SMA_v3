@@ -1,0 +1,119 @@
+{
+  "schema_version": "fable5-deliverable-alignment-status/v1",
+  "reviewer": "Claude Fable 5 (claude-fable-5), Claude Code session e8c60598-be86-4971-b887-09c20db86c2b",
+  "handoff": "deliverable-alignment-handoff.md",
+  "handoff_sha256": "5a5bac41c364d20127a66b46cf6cf359c0ed82870f8b41b46427a33098fd4b06",
+  "completed_at": "2026-08-18T19:47:07Z",
+  "metadata_corrected_at": "2026-08-18T19:57:27Z",
+  "metadata_correction": {
+    "corrected_by": "Codex main orchestrator",
+    "reason": "The original completion timestamps were future-dated relative to the live clock.",
+    "original_review_completed_at": "2026-08-18T20:05:00Z",
+    "original_status_completed_at": "2026-08-18T20:20:00Z",
+    "substantive_findings_changed": false,
+    "verdict_changed": false
+  },
+  "verdict": "ALIGNED_WITH_GAPS",
+  "verdict_basis": "All Owner decisions (O1-O6, D1-D8, S1-S14) and all proof boundaries are described consistently by the v3 drafts, the frozen packet/spec, and the shipped local M0 evidence package. Gaps: stale state statements in v3 (A1), one facilitator ruling that now contradicts the shipped CoverageGapKind registry (A2), one v3 VAL->unit table that conflicts with the authoritative sequencing registry (A3), field-name and binding-set drift (A4, A5), labelled facilitator extensions (A6-A8), and stale implementation-side documentation (A9) plus historical status lines inside frozen bytes (A10).",
+  "finding_counts": {
+    "IMPLEMENTATION_CONFLICT": 2,
+    "CANONICAL_CONTRACT_CONFLICT": 1,
+    "TERMINOLOGY_DRIFT": 4,
+    "DRAFT_ONLY_EXTENSION": 3,
+    "NO_CONFLICT": 2,
+    "PRODUCTION_BINDING_GAP_seam_notes": 2
+  },
+  "owner_decisions_contradicted": 0,
+  "proof_boundaries_contradicted": 0,
+  "git": {
+    "branch": "codex/kdd-data-agent-practices-research",
+    "local_head": "13e62af0a2755ae9c5ee739c5807c6136f5da742",
+    "origin_head": "13e62af0a2755ae9c5ee739c5807c6136f5da742",
+    "heads_equal": true
+  },
+  "reviewed_live_sha256": {
+    "docs/research/kdd-data-agent-workshop/reviews/2026-08-17-fable5-architecture-finalization/architecture-decision-ledger.md": "9ecd416d90f8c04501b1d91984bc163cb2a9621f83be16f52d537a5ece3d7167",
+    "docs/research/kdd-data-agent-workshop/reviews/2026-08-17-fable5-architecture-finalization/architecture-design-draft.md": "ef51b40f2263f45698581e601224abd096e3c5c37608dac8413ba8d23779da4a",
+    "docs/research/kdd-data-agent-workshop/reviews/2026-08-17-fable5-architecture-finalization/architecture-overview-draft.html": "6b25d1225d811b80899979a27f50ff87231b309561c1700523ac759c47896ea6",
+    "docs/research/kdd-data-agent-workshop/reviews/2026-08-17-fable5-architecture-finalization/m0-review-flow-draft.html": "dae33ad69977f7201de9ec954a79882f8667d0269d09057f7bbe2b95b34f8e4d",
+    "docs/research/kdd-data-agent-workshop/reviews/2026-08-17-fable5-architecture-finalization/steelman-owner-alignment-status.json": "6e65ca7150306922ca892dde9627d32104fe517cd3d91dc0370c6c38e99ec9f3",
+    "docs/research/kdd-data-agent-workshop/reviews/2026-08-17-fable5-architecture-finalization/architecture-finalization-status.json": "c9461896558c12f8b5ce054bbbfccab7e417b3f75614b877c209903e3f663b42",
+    "docs/research/kdd-data-agent-workshop/reviews/2026-08-17-fable5-architecture-finalization/steelman-owner-alignment-final.md": "2292460678bf1bb67f0876082d0a165dde800da4fe9eb1db880e6b9572274bc6",
+    "docs/research/kdd-data-agent-workshop/reviews/2026-08-17-fable5-architecture-finalization/steelman-owner-alignment-codex-continuation.md": "34683c35b8a63f6331be20addb59948e226f3568ffcc9fc867de9fcee7ea7c66",
+    "docs/research/kdd-data-agent-workshop/reviews/2026-08-16-opus5-m0-alignment/m0-m2-build-alignment-packet.md": "82747da96d66dd8851c03edc837f38597264a07794a2b145cd530ca0a5f07b19",
+    "docs/research/kdd-data-agent-workshop/final-architecture-spec.md": "9508b42979b5f708d3b0be7016ed414fd0b4c28d531b75fd0a4710eb46df8fc1",
+    "docs/plans/2026-08-12-001-feat-kdd-data-agent-greenfield-plan.md": "2b4bbd3583e2f289303b8e47b255e3b53bd0f3307f0b699b33299b57aa9e1daf",
+    "docs/research/kdd-data-agent-workshop/implementation-sequencing.md": "8fec2f8c3c3d22aa9dc1b762769673789d007fd74dbbed9c34e5ea88fcd4725b",
+    "docs/research/kdd-data-agent-workshop/reviews/2026-08-18-m0-canonical-freeze/m0-canonical-freeze-record.md": "d7fb219e8182a80fcd10e14933a5a965a577a1fe3ff554e68b5fec53c3d77aed",
+    "docs/research/kdd-data-agent-workshop/reviews/2026-08-18-m0-f1-f5-correction-round5/independent-review.md": "135fa7a93d18ee2aaf6163e918e7d21bff34c6419a9d72f433342d8bec1de46a",
+    "docs/research/kdd-data-agent-workshop/publication-verification-receipt.md": "681827e8b5f6bc2c037f43e08ae80944d3db14f15cea0c75d97a4c5a9d2945f0",
+    ".agents/skills/kdd_data_agent/README.md": "263add41a134a718141090951d3f36ff76839cb26fef0a66b226a5910b9a26b4",
+    ".agents/skills/kdd_data_agent/m0/contracts.py": "a24144e62111f19298596b8eb4f3f339208416690f4c7e969c2184c157a2099d",
+    ".agents/skills/kdd_data_agent/core/coverage_gap.py": "6cbb8d8ec36e3451c2ba1bbe6a8999d52f31ddac8dc8d0f039894d16de3decc5"
+  },
+  "package_aggregate": {
+    "method": "sha256 over sorted 'sha256  path' lines of git-tracked files under .agents/skills/kdd_data_agent (59 files)",
+    "file_count": 59,
+    "sha256": "9eea3014cb74acc48e9bbd24a486d2b6a5a4a4f57ae76191f42d037a5988b19a",
+    "matches_accepted_round5": true
+  },
+  "expected_bindings_matched": {
+    "frozen_packet_82747da9": true,
+    "frozen_spec_9508b429": true,
+    "ce_plan_2b4bbd35": true,
+    "sequencing_8fec2f8c": true,
+    "v3_ledger_9ecd416d": true,
+    "v3_design_ef51b40f": true,
+    "v3_overview_6b25d122": true,
+    "v3_flow_dae33ad6": true,
+    "steelman_status_6e65ca71": true
+  },
+  "byte_drift_during_review": false,
+  "completed_and_pushed": [
+    "freeze record m0-canonical-freeze-v1 (packet 82747da9..., spec 9508b429...)",
+    "M0-F1..F5 bounded local run kdd-m0-f1-f5-local-build-20260818-r1 -> COMPLETE_LOCAL_M0_EVIDENCE; five correction rounds; round-5 ACCEPT_LOCAL_M0_EVIDENCE on aggregate 9eea3014... (59 files, 370 tests)",
+    "third Phase A review PASS_WITH_GAPS on Phase A aggregate 2f1001b9... (not readjudicated for the 59-file package)",
+    "commits 5fa6d4c and 13e62af pushed to origin; publication receipt PUBLICATION_CHECKS_PASS"
+  ],
+  "uncommitted_recovered_drafts": [
+    "architecture-design-draft.md v3",
+    "architecture-decision-ledger.md v3",
+    "architecture-overview-draft.html v3",
+    "m0-review-flow-draft.html v3",
+    "architecture-finalization-status.json (v3 closeout)",
+    "steelman-owner-alignment-status.json (untracked)",
+    "deliverable-alignment-handoff.md (untracked)",
+    "this review's two outputs (untracked)"
+  ],
+  "production_bound": [
+    "D8 laptop-scoped receipt and authorization_scope=laptop_owner_entitlement packets; retention/export redaction policy; security/privacy notification",
+    "Query Success thresholds, timers, event schemas, table/catalog identities, owners (S2/S3)",
+    "per-arm index/alias/ACL/pipeline sources for CHK-05 parity (D2); achievable independence_class and reporting-transform digest (D4/D6); production core-set selection with Flight-specific applicability (S11)",
+    "P2 (V2+), P3 (VAL-UI-101), P4, M1/M2 implementation incl. FlightAdvisoryRevision and M0CapabilityRevision, Committee Acceptance, any real Flight outcome"
+  ],
+  "v3_disposition": "preserve_and_push_as_labelled_drafts_unrevised_with_this_review_as_errata",
+  "smallest_reconciliation_step": "Add a dated 'state as of 2026-08-18' pointer to docs/research/kdd-data-agent-workshop/deliverable-index.md: freeze record is authoritative; round-5 verdict on 9eea3014...; v3 drafts are DRAFT with stale §1.2/§13/§21; package README describes Phase A only and m0/ is the frozen-bound evaluator. Then apply findings A1-A8/A11 in a v4 revision under a new digest; A9 needs a bounded documentation-only package receipt.",
+  "accidental_write_repair": {
+    "occurred": true,
+    "files": [
+      "architecture-decision-ledger.md",
+      "architecture-finalization-status.json"
+    ],
+    "cause": "one queued python edit from this session (its Q3 record) executed after a ~17h job suspension at 2026-08-18T19:29:54Z and landed on both v3 files; the earlier E8-E11 edit (02:56Z) predates v3 and was absorbed by the author session",
+    "repair": "inverted exactly; restored bytes match the v3 author session's final digests (ledger 9ecd416d..., status c9461896...)",
+    "damaged_copies": "/Users/surahli/.claude/jobs/e8c60598/tmp/{ledger.damaged.md,status.damaged.json}"
+  },
+  "outputs": {
+    "deliverable-alignment-review.md": "e9b036ba4dcf78b01cc131764314bad2cbc56950cb0ef52a1d986f68d5c90585"
+  },
+  "boundaries": {
+    "code_tests_fixtures_modified": false,
+    "canonical_or_frozen_docs_modified": false,
+    "v3_source_artifacts_modified": false,
+    "git_modified": false,
+    "subagents_or_workflows_spawned": 0,
+    "production_or_external_access": false,
+    "phase_a_readjudicated": false,
+    "verdict_transferred_across_digests": false
+  }
+}

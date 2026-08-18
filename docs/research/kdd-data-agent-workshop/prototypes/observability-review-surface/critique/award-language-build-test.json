@@ -1,0 +1,27 @@
+{
+  "scope": "PROTOTYPE / THROWAWAY — award interaction-language redesign",
+  "build": "passing",
+  "tests": "skipped",
+  "reason": "This dependency-free static prototype has no package manifest, build script, typecheck script, lint script, or test runner. Equivalent syntax, browser, interaction, accessibility-tree, responsive, content, and repository checks were run instead.",
+  "commandsRun": [
+    {"command": "node --check app.js", "exitCode": 0},
+    {"command": "python3 -m http.server 8767", "exitCode": 0, "note": "Temporary isolated-worktree review server"},
+    {"command": "agent-browser press F1|F2|F3|F4", "exitCode": 0, "note": "Physical browser key events changed routes"},
+    {"command": "agent-browser screenshot at 1440x1000 and 390x844", "exitCode": 0},
+    {"command": "static content, asset, path, CJK, literal-backslash-n, overflow, and git diff checks", "exitCode": 0}
+  ],
+  "functionalEvidence": {
+    "reviewToExactProof": "One click: Open deployed proof → ?view=verify",
+    "claimSelection": "Selecting C-09 updated the selected answer path and adjacent detail to EV-IDX-02",
+    "contextDisclosure": "Show context revealed grouped metric, authority, and incomplete-context evidence; hidden by default",
+    "graphOperations": "Contradiction focus and re-layout controls are present; mobile uses a complete vertical typed path",
+    "traceBoundary": "Only cross-linked records open reviewed Evidence; remaining rows stay in Trace",
+    "keyboard": "F1–F4 verified with real agent-browser press commands",
+    "focus": "Native interactive controls plus explicit focus-visible outline",
+    "reducedMotion": "prefers-reduced-motion disables animation and transition duration",
+    "states": "ready, loading, empty, error, and permission-redacted routes remain available"
+  },
+  "failures": [],
+  "ownerAcceptance": "pending",
+  "ticketStatus": "open"
+}

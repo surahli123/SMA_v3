@@ -1,0 +1,51 @@
+{
+  "artifact": "PROTOTYPE / THROWAWAY",
+  "iteration": "faithful-owner-selected-reconstruction-m17-repair",
+  "status": "pass_with_owner_gate",
+  "tests": {
+    "project_build": {
+      "status": "skipped",
+      "reason": "This owned prototype is dependency-free static HTML, CSS, and JavaScript and has no package manifest or project-declared build command."
+    },
+    "project_lint": {
+      "status": "skipped",
+      "reason": "The prototype has no package manifest or project-declared lint command; equivalent syntax and source scans were run."
+    },
+    "project_tests": {
+      "status": "skipped",
+      "reason": "The prototype has no test runner; real browser interaction, responsive, state, console, and overflow checks were run instead."
+    },
+    "javascript_syntax": "pass: node --check app.js",
+    "desktop_routes": "pass: Review, Claims, Verify, Trace rendered at 1586x992 for same-aspect reference comparison",
+    "mobile_routes": "pass: Review, Claims, Verify, Trace rendered at 390x844",
+    "review_to_exact_proof": "pass: one real click on Open deployed proof changed ?view=review to ?view=verify",
+    "trace_to_evidence": "pass: one real click on Back to evidence in graph changed ?view=trace to ?view=claims",
+    "claims_node_inspection": "pass: selecting EV-DEP-17 updated the Evidence Inspector with exact deployed support details",
+    "m17_claim_separation": "pass: C-09 and C-22 opened their own Claim Inspector and never fell through to EV-DEP-17",
+    "m17_claim_paths": "pass: answer and evidence path controls exposed pressed state, graph mode, and live status",
+    "m17_verify_controls": "pass: Code, Diff, and Receipts focus real projections; Config and authorized expansion are visibly disabled as unavailable",
+    "m17_trace_filters": "pass: status reduced 9 events to 3 attention events; combined linked filter exposed the zero-result state; search retry returned one event; reset restored 9",
+    "physical_keyboard": "pass: real agent-browser press F1 through F4 navigated Review, Claims, Verify, and Trace",
+    "mobile_overflow": "pass: Claims innerWidth=390 and scrollWidth=390",
+    "desktop_overflow": "pass after width correction: Claims graph minimum reduced to fit 1440 canvas",
+    "literal_backslash_n": "pass: no visible code or raw-output pane contained a literal backslash-n sequence",
+    "states": "pass: loading, empty, error, and permission routes rendered",
+    "reduced_motion": "static pass; runtime emulation not claimed: prefers-reduced-motion CSS is present, but the current agent-browser media command did not make matchMedia report reduce",
+    "console": "pass: no browser errors reported",
+    "cjk_scan": "pass: zero CJK in durable artifact text",
+    "machine_local_path_scan": "pass: zero prohibited machine-local paths",
+    "forbidden_semantics_scan": "pass: no fake confidence, SLO, unsupported estimate, ambiguous No differences, or unrelated incident",
+    "git_diff_check": "pass"
+  },
+  "screenshots": {
+    "cycle_1": "review-artifacts/reconstruction-cycle-1-{review,claims,verify,trace}.png",
+    "cycle_2": "review-artifacts/reconstruction-cycle-2-{review,claims,verify,trace}.png",
+    "cycle_2_corrected_reload": "review-artifacts/reconstruction-cycle-2b-{review,claims,verify,trace}.png",
+    "final_desktop": "review-artifacts/reconstruction-final-desktop-{review,claims,verify,trace}.png",
+    "final_mobile": "review-artifacts/reconstruction-final-mobile-{review,claims,verify,trace}.png",
+    "reference_comparisons": "review-artifacts/reconstruction-comparison-{review,claims,verify,trace}.png",
+    "m17_before": "review-artifacts/m17-before-claim-fallback.png",
+    "m17_after": "review-artifacts/m17-after-{claim-detail,trace-filter}.png"
+  },
+  "remaining_gate": "Owner live acceptance is pending. Verify the fixed mobile route navigation during real Claims and Trace scrolling."
+}

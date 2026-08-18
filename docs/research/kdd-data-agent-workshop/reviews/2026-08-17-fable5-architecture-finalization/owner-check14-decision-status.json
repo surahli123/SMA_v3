@@ -1,0 +1,25 @@
+{
+  "handoff_id": "kdd-m0-owner-check14-decision-20260817",
+  "status": "done",
+  "summary": "Owner check-14 decision recorded as D6 (refining D4) in architecture-decision-ledger.md: same authoritative source snapshot + independently versioned Data-Agent-owned transform; shared-snapshot limit is a typed Coverage Gap; second source optional behind P2; comparison rule versioned and policy-owned; no tolerance, P2, implementation authority, or pass verdict invented. Minimum technology-neutral check-14 contract defined in architecture-design-draft.md (§6.2/§6.3 and F18) and will be carried into the final design.",
+  "files_changed": [
+    "docs/research/kdd-data-agent-workshop/reviews/2026-08-17-fable5-architecture-finalization/architecture-decision-ledger.md",
+    "docs/research/kdd-data-agent-workshop/reviews/2026-08-17-fable5-architecture-finalization/architecture-finalization-status.json",
+    "docs/research/kdd-data-agent-workshop/reviews/2026-08-17-fable5-architecture-finalization/owner-check14-decision-status.json"
+  ],
+  "check14_contract_minimum": {
+    "source_snapshot_identity": "immutable snapshot id + interval + scope + source receipt shared by primary read and recomputation",
+    "transform_independence": "independence_class in {independent_source, independent_transform, same_pipeline}; M0 minimum independent_transform; Data-Agent-owned, deterministic, versioned separately from reporting/scorecard transform",
+    "receipts": "input manifest, transform digest, output digest, recomputation receipt",
+    "deterministic_comparison": "versioned comparison_rule_id owned by DecisionMetricPolicy; no numeric tolerance invented here",
+    "fail_closed": "MISSING or conflicting snapshot identity, missing receipt, or same_pipeline -> check 14 UNKNOWN -> material -> analysis_use not_permitted, next_safe_action evidence_collection",
+    "shared_source_coverage_gap": "coverage_gap_kind shared_source_snapshot recorded on every M0 packet whose recomputation shares the primary snapshot"
+  },
+  "remaining_questions": [
+    "Q6 minimum content of the preregistered S1 core material-check set",
+    "Q7 preregistration of orthogonal evidence streams for the M1 advisory"
+  ],
+  "candidate_v4": "unapplied, not frozen, not edited by this job",
+  "next_lawful_step": "Continue Chinese one-question interview on remaining architecture-changing questions; then produce final-shaped artifacts labeled APPROVED_PENDING_GATE at most.",
+  "updated_at": "2026-08-18T07:40:00Z"
+}

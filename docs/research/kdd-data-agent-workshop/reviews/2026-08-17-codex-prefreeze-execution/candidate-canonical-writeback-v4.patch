@@ -1,0 +1,809 @@
+# Superseding unapplied candidate canonical writeback v4
+# Generated against unchanged live canonical bytes on 2026-08-17 America/Los_Angeles.
+# This patch supersedes candidate-canonical-writeback-v3.patch for review purposes.
+# It is not a freeze, acceptance, implementation start, or Owner/Opus/Fable authorization.
+# The prior continuation receipt is exhausted; M0-F1-M0-F5 require a new exact-digest bounded Owner start receipt.
+# Check 14 remains pending; only a replaceable, explicitly non-conformant candidate-recomputation seam is described.
+
+diff --git a/docs/plans/2026-08-12-001-feat-kdd-data-agent-greenfield-plan.md b/docs/plans/2026-08-12-001-feat-kdd-data-agent-greenfield-plan.md
+index eba1919..03eb653 100644
+--- a/docs/plans/2026-08-12-001-feat-kdd-data-agent-greenfield-plan.md
++++ b/docs/plans/2026-08-12-001-feat-kdd-data-agent-greenfield-plan.md
+@@ -3,39 +3,41 @@ title: "feat: Build the fixture-backed M0 MVP and sequence the M0-M2 validation
+ date: 2026-08-12
+ type: feat
+ artifact_contract: ce-unified-plan/v1
+-artifact_readiness: implementation-ready
++artifact_readiness: planning-only-awaiting-exact-digest-start-receipt
+ product_contract_source: owner-alignment-record
+-execution: code
+-authority_state: owner-aligned-m0-m2-program; local-fixture-m0-authorized
++execution: none-until-new-owner-start-receipt
++authority_state: owner-aligned-m0-m2-program; prior-continuation-exhausted; local-fixture-m0-planned-not-authorized
+ ---
+ 
+ # feat: Build the Fixture-Backed M0 MVP and Sequence the M0-M2 Validation Slice
+ 
+ ## Goal Capsule
+ 
+-- **Objective:** Complete the local fixture-backed M0 Flight Readiness MVP: freeze an `ExperimentReadContract`, verify whether the Experiment setup and decision-metric read are trustworthy, and seal an immutable `FlightReadinessPacket` with blockers, disagreements, Coverage Gaps, and the next safe action. Preserve the dependency-ordered path for the same authorized Flight to continue through M1 and M2.
+-- **Program boundary:** M0 is the first gate and main deliverable within one Owner-aligned M0-M2 Validation Slice for one real authorized Flight. Current executable authority is narrower: local fixture-backed M0 only. Production access, M1/M2 implementation, and Scenario B are not authorized by this plan or the current start receipt.
++- **Planned objective:** After a new exact-digest Owner start receipt exists, complete the local fixture-backed M0 Flight Readiness MVP: freeze an `ExperimentReadContract`, verify whether the Experiment setup and decision-metric read are trustworthy, and seal an immutable `FlightReadinessPacket` with blockers, disagreements, Coverage Gaps, and the next safe action. Preserve the dependency-ordered path for the same authorized Flight to continue through M1 and M2. This objective is not current execution authority.
++- **Program boundary:** M0 is the first gate and main deliverable within one Owner-aligned M0-M2 Validation Slice for one real authorized Flight. The first planned implementation scope is local fixture-backed M0, but no current start receipt exists. Production access, M1/M2 implementation, and Scenario B are not authorized by this plan.
+ - **Authority order:** Owner decisions in `docs/research/kdd-data-agent-workshop/reviews/2026-08-16-opus5-m0-alignment/owner-alignment-record.md`; the digest-bound M0 alignment packet once frozen; closed Wayfinder resolutions; source facts in the research audits; engineering proposals in this plan; explicit unknown owner gates.
+ - **Execution authority:** The agent may use bounded, allowlisted read-only tools. It may never mutate production, apply a diff, commit, deploy, roll back, send a message, or publish a document.
+-- **Readiness:** The Owner has separately authorized `M0-F0`–`M0-F5` against local hermetic fixtures. Semantic units must bind to the exact frozen M0 packet path, revision, and SHA-256 digest. This plan does not authorize production access or M1/M2 implementation. P2-P4 remain open; production reads, live review acceptance, and blind/pilot exits must stop at their named gates.
+-- **Stop conditions:** The current M0 start receipt must name an implementation lead, active-time cap, run/read/tool cap, and expiry. Halt immediately if a fail-closed default is bypassed; a file appears under `adapters/production/` before P2; a test needs network, a secret, a production credential, or an undeclared external path; identical clean runs produce different packet bytes/digests; fixtures cannot fail SRM, CUPED-mode mismatch, decision-metric mismatch, and pre-runtime cases; or the cap/expiry is missing or exceeded without a green hermetic command and reviewable partial packet. Later promotion also stops when production identity or source authority is missing, mapping is unresolved, evidence is stale or contradictory without resolution, ACL/security checks fail, a human gate is unacknowledged, or a hard evaluation veto fires.
++- **Readiness:** The prior `m0-codex-continuation-20260817` authorization is exhausted. `M0-F1`-`M0-F5` require a new exact-digest Owner authorization and bounded start receipt binding the accepted packet path, revision, SHA-256, active-time cap, run/read/tool cap, expiry, and halt owner. This plan does not authorize implementation, production access, or M1/M2 work. P2-P4 remain open; production reads, live review acceptance, and blind/pilot exits must stop at their named gates.
++- **Stop conditions:** Any future M0 start receipt must name an implementation lead, active-time cap, run/read/tool cap, and expiry. No receipt is currently live. After authorization, halt immediately if a fail-closed default is bypassed; a file appears under `adapters/production/` before P2; a test needs network, a secret, a production credential, or an undeclared external path; identical clean runs produce different packet bytes/digests; fixtures cannot fail SRM, CUPED-mode mismatch, decision-metric mismatch, and pre-runtime cases; or the cap/expiry is missing or exceeded without a green hermetic command and reviewable partial packet. Later promotion also stops when production identity or source authority is missing, mapping is unresolved, evidence is stale or contradictory without resolution, ACL/security checks fail, a human gate is unacknowledged, or a hard evaluation veto fires.
+ 
+ ---
+ 
+-## Current Authorized M0 Work Plan
++## Planned M0 Work Plan Awaiting a New Start Receipt
+ 
+-This section is the current executable implementation plan. The later R1-R37 and U1-U13 material is the dependency-ordered M1/M2 continuation of the same Owner-aligned validation program, but it cannot be treated as executable backlog without its named gates and a separate implementation-start receipt.
++This section defines the next bounded M0 implementation plan but is not currently executable. The later R1-R37 and U1-U13 material is the dependency-ordered M1/M2 continuation of the same Owner-aligned validation program, but it cannot be treated as executable backlog without its named gates and a separate implementation-start receipt.
+ 
+ | Unit | Build | Verification |
+ | --- | --- | --- |
+ | `M0-F0` | Select the isolated package/test/schema seam; expose no production, network, legacy runtime, arbitrary execution, or write capability. | One hermetic enum/schema test and an import/capability receipt. |
+-| `M0-F1` | Encode `ExperimentReadContract`, decision-metric policy, `M0CheckResult`, source/read/derivation receipts, Coverage Gaps, immutable revision rules, typed `NextSafeAction`, `InvalidExperimentRemediation`, and `FlightReadinessPacket`. Encode coordinated `post_analysis_eligibility = eligible | blocked` and `analysis_use = decision_grade | directional_only | not_permitted` fields. Encode `material | non_material | unknown`; stored unknown/unclassified materiality applies a material ceiling without rewriting the stored value, while `non_material` and `NOT_APPLICABLE` require versioned rules. | Missing identity, assignment/analysis unit, estimator, source, authorization, named Experiment Owner, Independent DS Consultant, Committee route, digest, or materiality rule fails closed. Only `eligible + decision_grade`, `blocked + directional_only`, and `blocked + not_permitted` are legal; every other pair is rejected rather than interpreted. Runtime or preregistered-power/MDE insufficiency is material but directional when no other blocker applies. |
+-| `M0-F2` | Add fixture-only read adapters, append-only Evidence admission, independent recomputation receipts, partial/error/pagination behavior, and typed redaction failure. | Trusted, blocked, partial, stale, conflicting, and unauthorized reads return typed receipts with no raw leakage. |
+-| `M0-F3` | Add the frozen deterministic check inventory for identity/runtime, decision-metric registration/version/policy, assignment and analysis units, exposure and arm parity across index generation/serving alias/ACL snapshot/effective pipeline, SRM/compositional SRM, scope, numerator/denominator/grain/join/unit/ratio/relative-percent/percentage-point handling, completeness/freshness/partial reads, estimator/variance, CUPED identity, source/lineage/owner, primary-source versus scorecard/UI, independent recomputation, source-change revalidation, authorization/ACL/redaction/retention/load/halt, attribution, disagreement/Coverage Gap closure, and preregistered power/MDE sufficiency. | Frozen inputs reproduce byte-stable outcomes; material fail/unknown cannot become eligible. Pre-runtime or preregistered-power/MDE insufficiency is exactly `blocked + directional_only` when no other material blocker applies; CUPED substitution, arm-parity divergence, metric-version decoys, and unit/ratio-estimator mismatch are caught, and material validity failures map to `blocked + not_permitted`. |
+-| `M0-F4` | Seal and render the packet-centered M0 review artifact with both readiness fields, blockers, disagreements, Coverage Gaps, receipts, typed next safe action, and named human state. | Every conclusion resolves to a receipt; M1/M2 claims, product-logic candidates, rankings, Win/Loss labels, and Trace-as-Evidence are rejected; an optional remediation link resolves only to R20a. `VAL-UI-001` is synthetic proof only; `VAL-UI-101` remains P3-gated. |
++| `M0-F1` | Encode `ExperimentReadContract`, decision-metric policy, `M0CheckResult`, source/read/derivation receipts, Coverage Gaps, immutable revision rules, typed `NextSafeAction`, `InvalidExperimentRemediation`, and `FlightReadinessPacket`. Store only `analysis_use = decision_grade | directional_only | not_permitted`; derive `post_analysis_eligibility = eligible | blocked` at render time. Encode `sufficiency_rule.kind = runtime_only | runtime_and_sample`, preregistered thresholds/inputs, and no post-hoc or achieved-power computation. Encode `material | non_material | unknown`; stored unknown/unclassified materiality applies a material ceiling without rewriting the stored value, while `non_material` and `NOT_APPLICABLE` require versioned rules. | Missing identity, assignment/analysis unit, estimator, source, authorization, named Experiment Owner, Independent DS Consultant, Committee route, digest, materiality rule, or required `runtime_and_sample` input fails closed. The eligibility projection is never independently settable. Failure of declared runtime or sample/unit sufficiency is directional when no other blocker applies; missing declared sample inputs is `not_permitted` with `contract_correction`. |
++| `M0-F2` | Add fixture-only read adapters, append-only Evidence admission, a replaceable, explicitly non-conformant candidate-recomputation receipt seam pending the Owner/Fable check-14 architecture ruling, partial/error/pagination behavior, and typed redaction failure. | Trusted, blocked, partial, stale, conflicting, and unauthorized reads return typed receipts with no raw leakage; this unit cannot select a source- or transform-independence topology or claim check-14 conformance until the ruling is digest-bound. |
++| `M0-F3` | Add the frozen deterministic check inventory except for the unresolved architecture of check 14: identity/runtime, decision-metric registration/version/policy, assignment and analysis units, exposure and arm parity across index generation/serving alias/ACL snapshot/effective pipeline, SRM/compositional SRM, scope, numerator/denominator/grain/join/unit/ratio/relative-percent/percentage-point handling, completeness/freshness/partial reads, estimator/variance, CUPED identity, source/lineage/owner, primary-source versus scorecard/UI, a replaceable check-14 seam, source-change revalidation, authorization/ACL/redaction/retention/load/halt, attribution, disagreement/Coverage Gap closure, and declared runtime/sample sufficiency. | Frozen inputs reproduce byte-stable outcomes; material fail/unknown cannot become eligible. Failure of declared runtime or sample/unit sufficiency is exactly `blocked + directional_only` when no other material blocker applies and uses no post-hoc power. Missing declared sample inputs is `blocked + not_permitted` plus `contract_correction`. Missing required arm-parity evidence is `blocked + not_permitted` plus `evidence_collection`; a versioned applicability rule may yield `NOT_APPLICABLE`, while divergence is a material `FAIL`. CUPED substitution, metric-version decoys, and unit/ratio-estimator mismatch are caught. Check 14 remains pending and cannot be reported as passed. |
++| `M0-F4` | Seal the packet-centered M0 artifact with stored `analysis_use` and render derived `post_analysis_eligibility` together with blockers, disagreements, Coverage Gaps, receipts, typed next safe action, and named human state. | Eligibility cannot be persisted or independently set. Every conclusion resolves to a receipt; M1/M2 claims, product-logic candidates, rankings, Win/Loss labels, and Trace-as-Evidence are rejected; an optional remediation link resolves only to R20a. `VAL-UI-001` is synthetic proof only; `VAL-UI-101` remains P3-gated. |
+ | `M0-F5` | Add threshold-free M0 fixtures and review checks for trusted, pre-runtime directional, invalid, materially unknown, conflicting, stale, partial, unauthorized, superseded, and reviewer-conflict cases. Preregister always-ready and always-blocked evaluators, adversarial metric-version/CUPED/source decoys, and fixture-author/evaluator independence or conflicts. | False readiness and security/ACL leakage are hard NO-GO. Reject the suite before Agent scoring unless planted truth contradicts both trivial evaluators and all required decoys are caught. Only the sealed packet digest may be reviewed or accepted. |
+ 
+-Explicitly excluded from the current M0 implementation authority: production-cause Claims, production change discovery or ranking, deployed symbol attribution, product-logic candidate diffs, query-level Win/Loss evidence, production adapters without P2, a final UI without P3, numeric GO thresholds without P4, Scenario B, and every mutation or publication path. A separately typed invalid-Experiment remediation contract may expose guidance now and may later attach a correct syntactically valid `not_applied` validity/instrumentation/data-quality diff only after the frozen exact-target and safety gates pass.
++Every check-14 seam reference in `M0-F2` and `M0-F3` means the same replaceable, explicitly non-conformant candidate-recomputation seam. It selects no source- or transform-independence topology and cannot produce a check-14 outcome or readiness transition before the Owner/Fable ruling is digest-bound.
++
++Even a future local fixture-backed M0 receipt would explicitly exclude production-cause Claims, production change discovery or ranking, deployed symbol attribution, product-logic candidate diffs, query-level Win/Loss evidence, production adapters without P2, a final UI without P3, numeric GO thresholds without P4, Scenario B, and every mutation or publication path. No M0 implementation authority is currently live. A separately typed invalid-Experiment remediation contract may expose guidance only within a duly authorized slice and may later attach a correct syntactically valid `not_applied` validity/instrumentation/data-quality diff only after the frozen exact-target and safety gates pass.
+ 
+ ```mermaid
+ flowchart LR
+@@ -69,7 +71,7 @@ Coverage Gaps, and a fresh-context rehearsal. If no builder continues during
+ leave, calendar progress pauses. On return, the recorded path must restore
+ effective work within half a day.
+ 
+-Current M0 package boundary plus digest-gated Phase B additions. Python remains
++Planned M0 package boundary plus digest-gated Phase B additions, non-executable until a new exact-digest Owner start receipt. Python remains
+ provisional; a superseding toolchain decision must preserve these logical
+ ports and behavioral tests rather than silently changing product meaning:
+ 
+@@ -120,13 +122,13 @@ ports and behavioral tests rather than silently changing product meaning:
+     test_m0_hard_vetoes.py           # Phase B
+ ```
+ 
+-Canonical acceptance-registry entries for the current M0 build:
++Canonical acceptance-registry entries for the planned M0 slice, executable only after a new exact-digest start receipt:
+ 
+ - `VAL-FLT-001`: multiple rollout/run/window observations remain under one Experiment/Flight identity.
+ - `VAL-MET-001`: the default one-metric policy is accepted without hard-coding singular cardinality.
+ - `VAL-MET-002`: an approved preregistered co-primary policy freezes combination/conflict behavior; an unapproved second metric cannot gate the decision.
+ - `VAL-M0-001`: a trusted complete Flight read produces a review-ready M0 packet with stable receipts and digest.
+-- `VAL-M0-002`: runtime or preregistered-power/MDE insufficiency with no other material blocker maps exactly to `blocked + directional_only`; a material validity, source, ACL, isolation, or evidence failure maps exactly to `blocked + not_permitted`. Neither state produces M1/M2 output.
++- `VAL-M0-002`: failure of the preregistered runtime threshold or, under `runtime_and_sample`, the preregistered sample/unit threshold with no other material blocker maps exactly to `blocked + directional_only`; missing required sample inputs maps to `blocked + not_permitted` plus `contract_correction`; a material validity, source, ACL, isolation, or evidence failure maps exactly to `blocked + not_permitted`. No post-hoc or achieved-power computation is allowed, and neither state produces M1/M2 output.
+ - `VAL-PRE-001`: a pre-runtime valid read returns `blocked + directional_only`, cannot pass the decision metric, and cannot start M1 causal promotion.
+ - `VAL-CUP-001`: a CUPED-mode mismatch preserves both reads and returns `blocked + not_permitted`; no silent substitution is legal.
+ - `VAL-UNIT-001`: a ratio metric with inconsistent assignment/analysis units or no named valid variance estimator fails materially and the packet is `blocked + not_permitted`.
+@@ -140,7 +142,7 @@ Canonical acceptance-registry entries for the current M0 build:
+ - `VAL-CON-001`: a fresh context runs the implementation and starts the next bounded task without oral context.
+ - `VAL-APR-001`: review-ready technical packets remain distinct from pending Committee Acceptance.
+ - `VAL-SEC-001`: any write, cross-tenant, secret, unsafe-redaction, or unauthorized delivery reachability is hard NO-GO.
+-- `VAL-UI-001`: a pre-P3 synthetic projection reaches exact source and recomputation receipts without implying a cause.
++- `VAL-UI-001`: a pre-P3 synthetic projection reaches the exact source receipt and replaceable candidate-recomputation seam receipt without implying a cause, check-14 conformance, or P3 closure.
+ - `VAL-UI-101`: a named live-review receipt binds the accepted first-screen interaction only after P3.
+ - `VAL-BASE-001`: always-ready and always-blocked evaluators are each contradicted by sealed planted truth, or the suite is rejected before Agent scoring.
+ - `VAL-DECOY-001`: adversarial metric-version, CUPED-mode, and source-identity decoys are caught by their exact validators.
+@@ -155,7 +157,7 @@ identifier with a different meaning.
+ 
+ ### Summary
+ 
+-The current M0 slice starts from a frozen Metric Question and `ExperimentReadContract`, validates the Experiment setup and decision-metric read, and returns a `FlightReadinessPacket`. It stops before system-cause investigation. The same one-Flight validation program then plans to narrow the miss across enterprise-search evidence planes in M1, tie candidate mechanisms to deployed production scope, and use M2 query-level Win/Loss evidence to make supported mechanisms concrete. Those later units require their named gates and separate implementation-start receipts.
++The planned local M0 slice would start from a frozen Metric Question and `ExperimentReadContract`, validate the Experiment setup and decision-metric read, and return a `FlightReadinessPacket` only after a new exact-digest Owner start receipt. It stops before system-cause investigation. The same one-Flight validation program then plans to narrow the miss across enterprise-search evidence planes in M1, tie candidate mechanisms to deployed production scope, and use M2 query-level Win/Loss evidence to make supported mechanisms concrete. Those later units require their named gates and separate implementation-start receipts.
+ 
+ The product is a greenfield redesign. Old SMA, KDD competition code, workshop systems, and award repositories are evidence and reference material only. They create no compatibility, migration, module, language, storage, framework, or schema obligation. Protected legacy paths are read-only references: the new package may independently validate domain assets and clean-room reimplement selected mechanisms behind new contracts, but it must not edit protected paths, import legacy runtime code, copy legacy stages/schemas/thresholds, or claim production authority. Direct reuse requires an explicit interface, provenance, tests, security, license, source, owner, and access receipts.
+ 
+@@ -194,8 +196,8 @@ A useful answer must distinguish a valid experiment from an invalid one, product
+ 
+ - R1. Freeze every case as an isolated `case_id + generation` bound to one Flight, where one Flight is one A/B Experiment. Include the Metric Question, decision-metric set and `DecisionMetricPolicy`, metric definitions/versions, population, window, surface/component, tenant/role/source authorization, and source snapshot set. Rollout, exposure, analysis-window, and run-attempt observations remain revisions under that Flight.
+ - R2. Support multiple concurrent cases without mixing authorization, evidence, derivations, claims, ranking state, budget state, packet state, or acknowledgements.
+-- R3. Validate decision-metric registration/version/policy, assignment and analysis units, estimator and ratio variance where applicable, CUPED identity and non-interchangeability, SRM/compositional SRM, exposure, trigger/ramp, runtime, sample window, numerator/denominator/grain/join/unit/ratio/relative-percent/percentage-point interpretation, completeness, freshness, primary-source versus scorecard/UI reconciliation, independent recomputation, source-change meaning/coverage/attribution, interference, and metric lineage before investigating system causes. M0 defaults to one decision metric; a co-primary set is valid only under an approved preregistered combination, conflict, and stop policy.
+-- R4. Encode coordinated M0 fields `post_analysis_eligibility = eligible | blocked` and `analysis_use = decision_grade | directional_only | not_permitted`. Only `eligible + decision_grade`, `blocked + directional_only`, and `blocked + not_permitted` are legal; every other pair is rejected rather than interpreted, and triage uses `analysis_use` with `NextSafeAction.kind`, never eligibility alone. Each `M0CheckResult` records `material | non_material | unknown`; identity/policy, assignment/exposure, population/scope, numerator/denominator/join/unit, estimator/CUPED, authoritative source, and authorization/isolation failures are always material. Stored unknown/unclassified materiality remains visible while applying a material ceiling; `non_material` and `NOT_APPLICABLE` require versioned rules. A valid pre-runtime or preregistered-power/MDE-insufficient read is material but maps to `blocked + directional_only` when no other blocker applies and cannot enter M1 causal promotion. When an Experiment is invalid or materially unknown, emit only a typed `NextSafeAction` of `evidence_collection | contract_correction | validity_fix | instrumentation_fix | data_quality_fix` plus a reopen condition. The action carries no exact target or diff. Discovered system hypotheses may be retained only as non-ranked, non-publishable blocked leads and must be excluded from production-cause and product-logic candidate output.
++- R3. Validate decision-metric registration/version/policy, assignment and analysis units, estimator and ratio variance where applicable, CUPED identity and non-interchangeability, SRM/compositional SRM, exposure, trigger/ramp, runtime, sample window, numerator/denominator/grain/join/unit/ratio/relative-percent/percentage-point interpretation, completeness, freshness, primary-source versus scorecard/UI reconciliation, the replaceable and explicitly non-conformant check-14 candidate-recomputation seam pending the Owner/Fable architecture ruling, source-change meaning/coverage/attribution, interference, and metric lineage before investigating system causes. The seam selects no independence topology. M0 defaults to one decision metric; a co-primary set is valid only under an approved preregistered combination, conflict, and stop policy.
++- R4. Store `analysis_use = decision_grade | directional_only | not_permitted` as the single M0 readiness state. Derive `post_analysis_eligibility = eligible | blocked` only at render time (`decision_grade -> eligible`; otherwise `blocked`) and never persist or independently set it; scenario wording may keep the three familiar pair forms. Triage uses `analysis_use` with `NextSafeAction.kind`, never eligibility alone. `DecisionMetricPolicy` declares `sufficiency_rule.kind = runtime_only | runtime_and_sample` with preregistered thresholds and inputs. Runtime and, when declared, sample/unit sufficiency compare observed values only with those inputs; post-hoc or achieved-power computation is forbidden. A failed declared threshold is directional when no other blocker applies; missing required `runtime_and_sample` inputs is contract-incomplete and `not_permitted` with `contract_correction`. Each `M0CheckResult` records `material | non_material | unknown`; identity/policy, assignment/exposure, population/scope, numerator/denominator/join/unit, estimator/CUPED, authoritative source, and authorization/isolation failures are always material. Stored unknown/unclassified materiality remains visible while applying a material ceiling; `non_material` and `NOT_APPLICABLE` require versioned rules. Missing required arm-parity evidence is `MISSING` and `not_permitted` with `evidence_collection`; a versioned applicability rule may make the check `NOT_APPLICABLE`, while divergent arms are a material `FAIL`. When an Experiment is invalid or materially unknown, emit only a typed `NextSafeAction` of `evidence_collection | contract_correction | validity_fix | instrumentation_fix | data_quality_fix` plus a reopen condition. The action carries no exact target or diff. Discovered system hypotheses may be retained only as non-ranked, non-publishable blocked leads and must be excluded from production-cause and product-logic candidate output.
+ 
+ #### Evidence and production grounding
+ 
+@@ -312,7 +314,7 @@ A useful answer must distinguish a valid experiment from an invalid one, product
+ 
+ ### Authority Classification
+ 
+-- **owner_decision:** M0 Flight Readiness is the first gate and main deliverable within one M0-M2 Validation Slice for one authorized Flight. Current executable authority is local fixture-backed M0 only. M1/M2 remain planned program work that requires their named gates and separate implementation-start receipts. O1-O6 in `owner-alignment-record.md` govern product meaning; immutable history, fail-closed Evidence, hard NO-GO outcomes, and no-mutation authority remain unchanged.
++- **owner_decision:** M0 Flight Readiness is the first gate and main deliverable within one M0-M2 Validation Slice for one authorized Flight. The next planned scope is local fixture-backed M0, but it requires a new exact-digest Owner authorization and bounded start receipt. M1/M2 remain planned program work that requires their named gates and separate implementation-start receipts. O1-O6 in `owner-alignment-record.md` govern product meaning; immutable history, fail-closed Evidence, hard NO-GO outcomes, and no-mutation authority remain unchanged.
+ - **source_fact:** The audited reference systems demonstrate bounded stages, narrow read-only tools, deterministic checks, retry/trace patterns, source or schema graph interactions in Team 1286/1401, and trace/matrix views in the fourth-place repository. No audited work proves the complete production causal chain.
+ - **engineering_proposal:** Package layout, Python/Pytest use, schema encoding, service boundaries, object names, ranking implementation, durable workspace mechanics, adapter interface, and projection implementation.
+ - **unknown_owner_gate:** Authoritative production sources, mapping ownership, retention/redaction, tenant/ACL policy, calibrated numeric thresholds, concrete interaction acceptance, and language/storage/vendor/framework selection. JSON/schema encoding of the closed policy contract is an engineering proposal, not an owner gate.
+@@ -331,14 +333,14 @@ The eight separately adjudicated findings use these controlling dispositions:
+ 
+ | Finding | Controlling disposition |
+ | --- | --- |
+-| `B2` | M0 is the first gate and main deliverable; one M0-M2 Validation Slice remains the broader Owner-aligned program. Current authority is fixture-backed M0 only. |
+-| `B3` | Protected old SMA paths are read-only. Their domain assets may be inspected and independently validated, but they are never production authority or runtime dependencies. |
++| `B2` | M0 is the first gate and main deliverable; one M0-M2 Validation Slice remains the broader Owner-aligned program. The next fixture-backed M0 work requires a new exact-digest start receipt. |
++| `B3` | **OPEN:** protected old SMA paths are read-only, and a per-asset reuse inventory with interface, provenance, tests, security, license, source, owner, and access evidence is required before direct reuse or `M0-F1`. |
+ | `B11` | Missing built fixtures was not a planning blocker before implementation authorization. Baseline, difficulty, adversarial decoy, leakage, and author/evaluator independence-or-conflict controls are required now. |
+ | `M1` | A `confirmed` VerdictEvent is immutable. Contradiction in an active generation appends superseding Claim/VerdictEvent revisions; contradiction after closure or packet sealing opens a new linked generation. |
+ | `M3` | Candidate diffs stay syntactically valid and independently reviewable, always `not_applied`, human-review-only, capability-isolated, and unavailable to apply/commit/PR/deploy/rollback/webhook/queue/polling consumers. |
+-| `M18` | Confidential or low-entropy values cannot rely on a bare hash. This does not prohibit full-file or image digests when policy, entropy, retention, access, and recipient handling are appropriate. |
+-| `M19` | Initial Trace capture is limited to Data Agent-owned, enterprise-managed runtime activity; it does not collect unrelated engineer IDE activity or employee monitoring. |
+-| `M20` | Trace is not mandatory for every packet. A missing optional Trace is a visible Coverage Gap; only a predeclared Trace-dependent assertion requires a valid capture/pin receipt. |
++| `M18` | **OPEN / external-sharing action:** confidential or low-entropy values cannot rely on a bare hash. Complete the affected sharing/security inventory before external distribution; this does not prohibit full-file or image digests when policy, entropy, retention, access, and recipient handling are appropriate. |
++| `M19` | **OPEN / separate authority action:** initial Trace capture is limited to Data Agent-owned, enterprise-managed runtime activity and remains off for employee endpoints unless privacy/labor and query-authority receipts are obtained. |
++| `M20` | **OPEN / implementation-proof action:** Trace is not mandatory for every packet, but every predeclared Trace-dependent assertion requires a frozen capture/pin predicate and fail-closed unsupported-host test before dependent publication. |
+ 
+ ### Key Technical Decisions
+ 
+@@ -363,7 +365,7 @@ The eight separately adjudicated findings use these controlling dispositions:
+ 
+ ### Planned M1/M2 Scenario A Dependency Graph
+ 
+-This graph is the dependency-ordered continuation of the same Owner-aligned validation program. It is not the current executable M0 graph; the authorized local graph is in `Current Authorized M0 Work Plan` above.
++This graph is the dependency-ordered continuation of the same Owner-aligned validation program. It is not the planned M0 graph; the not-yet-authorized local graph is in `Planned M0 Work Plan Awaiting a New Start Receipt` above.
+ 
+ ```mermaid
+ flowchart LR
+@@ -574,7 +576,7 @@ These planning prerequisites use `P1-P4` exclusively. They are project-decision
+ 
+ ## Planned M1/M2 Scenario A Implementation Units
+ 
+-The D0/U1-U13 units below define the dependency-ordered M1/M2 continuation of the same validation program. They are not part of the current fixture-backed M0 start receipt and must not start until the relevant M0 permission, named gates, and a separate implementation-start receipt exist.
++The D0/U1-U13 units below define the dependency-ordered M1/M2 continuation of the same validation program. No fixture-backed M0 start receipt is currently live, and these later units must not start until the relevant M0 permission, named gates, and a separate implementation-start receipt exist.
+ 
+ ### D0. Record Engineering Choices Without Changing Product Meaning
+ 
+@@ -843,7 +845,7 @@ The D0/U1-U13 units below define the dependency-ordered M1/M2 continuation of th
+ 
+ | Gate | Applies to | Required outcome |
+ |---|---|---|
+-| Current local M0 slice | `M0-F0`-`M0-F5` | A frozen `ExperimentReadContract` produces deterministic readiness checks and an immutable `FlightReadinessPacket`; false readiness and security/ACL leakage fail hard; no M1/M2 output or mutation capability exists; invalid-Experiment remediation follows R20a. |
++| Planned local M0 slice | `M0-F0`-`M0-F5` | After a new exact-digest Owner start receipt exists, a frozen `ExperimentReadContract` produces deterministic readiness checks and an immutable `FlightReadinessPacket`; false readiness and security/ACL leakage fail hard; no M1/M2 output or mutation capability exists; invalid-Experiment remediation follows R20a. |
+ | Engineering decision proof | D0 | The chosen toolchain validates one closed enum, runs one hermetic test, and imports no legacy implementation. |
+ | Contract and skeleton validation | U1-U2 | Closed enums, policy, identities, and the thin packet seam reject unknown or invalid states fail closed. |
+ | Deterministic foundation | U3-U7 | Frozen fixture inputs reproduce admission receipts, dependency closure, mapping, normalization, ranking, policy explanations, and bounded-worker outcomes. |
+@@ -861,9 +863,9 @@ The D0/U1-U13 units below define the dependency-ordered M1/M2 continuation of th
+ 
+ ## Definition of Done
+ 
+-### Current local M0 Flight Readiness milestone
++### Planned local M0 Flight Readiness milestone
+ 
+-- `M0-F0`-`M0-F5` pass in a hermetic environment under the current local implementation authorization and exact frozen-packet binding.
++- `M0-F0`-`M0-F5` pass in a hermetic environment only after a new local implementation receipt binds the exact accepted packet path, revision, and digest.
+ - `ExperimentReadContract` freezes experiment, metric, assignment/exposure, population, window, estimator, unit, source, and named human roles.
+ - Every required M0 check has an outcome, rule source, inputs, receipt, materiality, and Coverage Gap behavior.
+ - `FlightReadinessPacket` is immutable, digest-bound, reviewable, and limited to readiness, blockers, disagreements, gaps, and next safe action.
+@@ -928,7 +930,7 @@ The D0/U1-U13 units below define the dependency-ordered M1/M2 continuation of th
+ | ACL or tenant context leaks across cases | owner_decision | Case-generation scope, adapter enforcement, projection filtering, and hard NO-GO tests. |
+ | Human override silently erases history | owner_decision | Append new scoped revisions with `supersedes/invalidates`; recompute dependency closure. |
+ | Graph hides competing claims or becomes decorative | owner_decision | Local graph shows coverage and competing-claim entry; use non-graph views when clearer; require P3 live review. |
+-| Current M0 authorization silently expands into production, M1/M2 execution, or Scenario B | owner_decision | Keep `M0-F0`-`M0-F5` limited to fixture-backed Flight Readiness; require the named gates and a separate implementation-start receipt for each later unit. |
++| A future M0 authorization silently expands into production, M1/M2 execution, or Scenario B | owner_decision | Keep `M0-F0`-`M0-F5` limited to fixture-backed Flight Readiness; require the named gates and a separate implementation-start receipt for each later unit. |
+ | Existing dirty or protected files are overwritten | active repo constraint | Create only the new package and this plan; do not modify `.agents/skills/sma/`, `.agents/skills/sma_rewrite/evals/`, or current user-owned untracked content. |
+ 
+ ---
+diff --git a/docs/research/kdd-data-agent-workshop/eval-acceptance-plan.md b/docs/research/kdd-data-agent-workshop/eval-acceptance-plan.md
+index 2ec4e10..165686e 100644
+--- a/docs/research/kdd-data-agent-workshop/eval-acceptance-plan.md
++++ b/docs/research/kdd-data-agent-workshop/eval-acceptance-plan.md
+@@ -1,13 +1,13 @@
+ # Greenfield Data Agent Evaluation and Acceptance Plan
+ 
+ Status: canonical evaluation design for the Owner-aligned M0-M2 Validation Slice; thresholds and production progression remain open human gates
+-Scope: local fixture-backed M0 evaluation is separately authorized; this document does not authorize production access, M1/M2 implementation, shadow-read, publication, or mutation
++Scope: local fixture-backed M0 evaluation is planned but not currently authorized; a new exact-digest Owner authorization and bounded start receipt are required before `M0-F1`-`M0-F5`; this document does not authorize production access, M1/M2 implementation, shadow-read, publication, or mutation
+ 
+ ## 1. Acceptance Goal
+ 
+-The current executable evaluation goal is M0 Flight Readiness: determine whether a frozen `ExperimentReadContract` and decision-metric read produce a correct, reproducible, fail-closed `FlightReadinessPacket`. The packet must be useful to a human reviewer, reproducible from authorized Evidence, explicit about disagreements and Coverage Gaps, and contain no M1/M2 causal output.
++The first planned evaluation goal is M0 Flight Readiness: determine whether a frozen `ExperimentReadContract` and decision-metric read produce a correct, reproducible, fail-closed `FlightReadinessPacket`. Execution requires the new digest-bound M0 start receipt. The packet must be useful to a human reviewer, reproducible from authorized Evidence, explicit about disagreements and Coverage Gaps, and contain no M1/M2 causal output.
+ 
+-The authorized local M0 corpus is a hermetic fixture set covering trusted, invalid, materially unknown, conflicting, stale, partial, unavailable, redaction-failed, and unauthorized reads. It must exercise experiment identity, runtime completion, decision-metric registration and policy, assignment, exposure, SRM, joins, completeness, freshness, estimator, unit, lineage, and reported-versus-recomputed consistency. False readiness and security/ACL leakage are hard NO-GO.
++The planned local M0 corpus is a hermetic fixture set covering trusted, invalid, materially unknown, conflicting, stale, partial, unavailable, redaction-failed, and unauthorized reads. It may execute only after the new M0 start receipt. It must exercise experiment identity, runtime completion, decision-metric registration and policy, assignment, exposure, SRM, joins, completeness, freshness, estimator, unit, lineage, and reported-versus-candidate-recomputation consistency through a replaceable seam. The Owner/Fable choice between source- and transform-independence models remains open; fixtures are explicitly non-conformant for check 14 until that ruling is digest-bound and may not select a topology. False readiness and security/ACL leakage are hard NO-GO.
+ 
+ The planned M1/M2 Scenario A evaluation corpus is:
+ 
+@@ -26,7 +26,7 @@ Evaluation results never authorize the Agent to apply a diff, write production d
+ 
+ Each contract has its own inputs, authority, evidence, exit receipt, and failure boundary. Passing one contract does not imply passing the next.
+ 
+-The current local M0 slice uses the de-identified fixture contract only, restricted to `ExperimentReadContract`, M0 checks, `FlightReadinessPacket`, and the separately typed invalid-Experiment remediation contract. A real M0 production read requires the exact P2 authority; live reviewer acceptance requires P3; blind or pilot exit decisions require P4. Sections 3.2-3.4 govern planned M1/M2 evaluation work in the same validation program but are not executable under the current M0 start receipt.
++The next authorized local M0 slice, if approved, will use the de-identified fixture contract only, restricted to `ExperimentReadContract`, M0 checks, `FlightReadinessPacket`, and the separately typed invalid-Experiment remediation contract. No such start receipt is currently live. A real M0 production read requires the exact P2 authority; live reviewer acceptance requires P3; blind or pilot exit decisions require P4. Sections 3.2-3.4 govern planned M1/M2 evaluation work in the same validation program and require their own later authority.
+ 
+ ### 3.1 De-identified fixture contract
+ 
+@@ -145,7 +145,7 @@ Metrics remain a vector. Report them per case, class, assertion, evaluation cont
+ - required-candidate coverage by inspected depth, acceptable precision, forbidden-candidate incidence, rank, and causal-role correctness;
+ - exact deployed target: environment, SHA or artifact version, repo/file/symbol/line where applicable, scope/interval/rollout, and proposed-delta consistency;
+ - material-claim entailment, Evidence coverage, unsupported-claim incidence, counterevidence handling, alternative coverage, and executable falsifiers;
+-- provenance completeness and independent numeric recomputability; and
++- provenance completeness and candidate numeric reproducibility through the replaceable seam, recorded as explicitly non-conformant for check 14; independence is not measured or scored until the Owner/Fable architecture ruling is digest-bound; and
+ - dual-axis, GateReceipt, ceiling, and policy-matrix correctness;
+ - experiment assignment/analysis-unit, ratio-metric variance, compositional-SRM, arm-parity, zero-result, segment/multiplicity, click-bias/interleaving, and offline-online judgment correctness;
+ - symbol-attribution provenance and correct G2 inconclusive behavior for file-only identity; and
+@@ -202,23 +202,24 @@ Failures remain evaluation Evidence. They are not deleted or averaged away.
+ 
+ ## 8. Threshold-Free Acceptance Sequence
+ 
+-### M0. Current local Flight Readiness acceptance
++### M0. Planned local Flight Readiness acceptance after a new start receipt
+ 
+ Before any M1/M2 evaluation, the M0 suite must prove:
+ 
+ - each required `ExperimentReadContract` field is frozen and validated;
+ - every readiness check records inputs, rule source, result, `material | non_material | unknown`, materiality rule, receipt, affected decision metric/scope/window, and reopen condition;
+ - identity/policy, assignment/exposure, population/scope, numerator/denominator/join/unit, estimator/CUPED, authoritative source, and authorization/isolation failures are always material; stored unknown/unclassified materiality remains visible while applying a material ceiling; `non_material` and `NOT_APPLICABLE` each require their own versioned rule and rationale;
+-- only `eligible + decision_grade`, `blocked + directional_only`, and `blocked + not_permitted` are legal `post_analysis_eligibility + analysis_use` combinations; every other pair is rejected rather than interpreted;
+-- a valid pre-runtime or preregistered-power/MDE-insufficient read is exactly `blocked + directional_only` when no other material blocker applies, cannot pass the decision metric, and cannot enter M1 causal promotion;
+-- treatment/control arm parity across index generation, serving alias, ACL snapshot, and effective pipeline is checked before decision-grade use;
++- `analysis_use = decision_grade | directional_only | not_permitted` is the single stored readiness state; `post_analysis_eligibility` is derived only at render time (`decision_grade -> eligible`; otherwise `blocked`) and is never persisted or independently set; scenario assertions may retain the three familiar pair forms;
++- `DecisionMetricPolicy` declares `sufficiency_rule.kind = runtime_only | runtime_and_sample`; observed runtime and, when declared, sample/units are compared only with preregistered thresholds and inputs, never with post-hoc or achieved power;
++- failure of a declared runtime or sample/unit threshold is exactly `blocked + directional_only` when no other material blocker applies, cannot pass the decision metric, and cannot enter M1 causal promotion; missing required `runtime_and_sample` inputs is `blocked + not_permitted` with `contract_correction`;
++- treatment/control arm parity across index generation, serving alias, ACL snapshot, and effective pipeline is checked before decision-grade use; missing required evidence is `MISSING` and `blocked + not_permitted` with `evidence_collection`, a versioned applicability rule may yield `NOT_APPLICABLE`, and divergent applicable arms are a material `FAIL`;
+ - CUPED-adjusted and unadjusted reads are never substituted, and a mismatch preserves both values and returns `blocked + not_permitted`;
+ - numerator, denominator, grain, join keys, unit, ratio estimator, relative-percent, and percentage-point interpretation are checked explicitly;
+-- primary-source, scorecard/UI, reported, and independently recomputed values retain separate identities and reconciliation receipts;
++- primary-source, scorecard/UI, reported, and candidate recomputation values retain separate identities and seam receipts; the candidate seam is explicitly non-conformant, and what qualifies as independent for check 14 remains pending the Owner/Fable ruling;
+ - source changes trigger versioned revalidation of meaning, coverage, owner, and attribution;
+-- primary and independent recomputation disagreement remains visible and blocks readiness when material;
++- primary and candidate-recomputation disagreement remains visible as a pending seam artifact; it cannot produce a check-14 pass, fail, materiality ruling, readiness transition, or conformance claim until the Owner/Fable architecture ruling is digest-bound;
+ - trusted, pre-runtime directional, invalid, materially unknown, conflicting, stale, partial, unauthorized, superseded, and reviewer-conflict fixtures produce the expected deterministic packet;
+-- `FlightReadinessPacket` contains both readiness fields, blockers, disagreements, Coverage Gaps, typed `NextSafeAction`, and named human state, but no production Cause Claim, production candidate, ranking, product-logic Recommendation, or Win/Loss label;
++- `FlightReadinessPacket` contains stored `analysis_use`, blockers, disagreements, Coverage Gaps, typed `NextSafeAction`, and named human state; its renderer derives `post_analysis_eligibility` without persisting a second readiness field, and the packet contains no production Cause Claim, production candidate, ranking, product-logic Recommendation, or Win/Loss label;
+ - `NextSafeAction.kind` is exactly one of `evidence_collection | contract_correction | validity_fix | instrumentation_fix | data_quality_fix`, has a reopen condition, and carries no exact production target or diff;
+ - an invalid Experiment returns typed validity/instrumentation/data-quality guidance and a reopen condition; a correct syntactically valid `not_applied` remediation diff is permitted only when the frozen exact-target, authority, validator, risk, recipient, and no-write gates all pass, and guidance remains the fallback;
+ - preregistered always-ready and always-blocked evaluators are each contradicted by at least one sealed planted-truth fixture; otherwise the suite is rejected before Agent scoring;
+diff --git a/docs/research/kdd-data-agent-workshop/final-architecture-spec.md b/docs/research/kdd-data-agent-workshop/final-architecture-spec.md
+index 6f2675d..8c3b390 100644
+--- a/docs/research/kdd-data-agent-workshop/final-architecture-spec.md
++++ b/docs/research/kdd-data-agent-workshop/final-architecture-spec.md
+@@ -1,8 +1,8 @@
+ # Greenfield Search Metric Data Agent: Canonical Architecture Specification
+ 
+ Date: 2026-08-12
+-Status: canonical logical specification for the owner-aligned M0-M2 Validation Slice with a currently authorized fixture-backed M0 MVP and three explicit open human gates
+-Scope: this document does not itself broaden implementation authority; the current local fixture-backed M0 authorization is recorded in the Owner alignment record; production access, M1/M2 implementation, mutation, commit, push, deployment, rollback, messaging, and publication remain unauthorized
++Status: canonical logical specification for the owner-aligned M0-M2 Validation Slice with a planned fixture-backed M0 MVP awaiting a new exact-digest start receipt and three explicit open human gates
++Scope: this document does not itself grant implementation authority; the prior local continuation authorization is exhausted, and `M0-F1`-`M0-F5` require a new Owner authorization and bounded receipt; production access, M1/M2 implementation, mutation, commit, push, deployment, rollback, messaging, and publication remain unauthorized
+ 
+ ## 1. Authority and Conformance
+ 
+@@ -29,13 +29,13 @@ Normative terms:
+ 
+ ## 2. Product Outcome
+ 
+-The target architecture answers two specific production questions. The current build/funding authorization is narrower.
++The target architecture answers two specific production questions. Any future build/funding authorization is narrower.
+ 
+-### First gate and current executable slice — M0 Flight Readiness
++### First gate and next planned slice — M0 Flight Readiness
+ 
+-The first gate and main deliverable is M0 Flight Readiness. It accepts a versioned `ExperimentReadContract`, performs deterministic and independently receipted checks of the Experiment setup and decision-metric read, and seals an immutable `FlightReadinessPacket` with coordinated `post_analysis_eligibility = eligible | blocked` and `analysis_use = decision_grade | directional_only | not_permitted` fields. Only `eligible + decision_grade`, `blocked + directional_only`, and `blocked + not_permitted` are legal combinations; any other stored pair is invalid and rejected rather than interpreted.
++The first gate and main deliverable is M0 Flight Readiness. After a new exact-digest start receipt exists, it accepts a versioned `ExperimentReadContract`, performs the settled deterministic checks of the Experiment setup and decision-metric read, records only a replaceable non-conformant candidate-recomputation seam for check 14 pending the Owner/Fable ruling, and seals an immutable `FlightReadinessPacket` with one stored readiness state, `analysis_use = decision_grade | directional_only | not_permitted`. Renderers derive `post_analysis_eligibility = eligible | blocked` from that state and never store or independently set it: `decision_grade -> eligible`; `directional_only | not_permitted -> blocked`. Scenario wording may retain `eligible + decision_grade`, `blocked + directional_only`, and `blocked + not_permitted` as shorthand for those projections.
+ 
+-The currently executable scope is a local fixture-backed M0 MVP. M0 does not explain metric movement, rank product-logic production changes, make causal claims, or collect query-level win/loss examples. An invalid Experiment may produce a correct unapplied `InvalidExperimentRemediation` diff only after exact-target, authority, validation, capability-isolation, and human-only delivery gates pass; typed guidance plus a reopen condition remains the first path and permanent fallback.
++The next local fixture-backed M0 MVP is planned only and is not currently executable. The prior continuation receipt is exhausted; `M0-F1`-`M0-F5` require a new exact-digest Owner authorization and bounded start receipt. M0 does not explain metric movement, rank product-logic production changes, make causal claims, or collect query-level win/loss examples. Within a future authorized slice, an invalid Experiment may produce a correct unapplied `InvalidExperimentRemediation` diff only after exact-target, authority, validation, capability-isolation, and human-only delivery gates pass; typed guidance plus a reopen condition remains the first path and permanent fallback.
+ 
+ M1 Metric Movement and Production Grounding and M2 Win/Loss Evidence belong to the same one-Flight M0-M2 Validation Slice, planned for four to six active engineering weeks with two builders. They require their named gates and separate implementation authorizations. Technical completion means review-ready M0, M1, and M2 packets, not Experiment Review Committee acceptance.
+ 
+@@ -43,11 +43,11 @@ M1 Metric Movement and Production Grounding and M2 Win/Loss Evidence belong to t
+ 
+ Determine whether an experiment observation is valid. If it is valid, explain why the target metric missed expectations and narrow the explanation to ranked deployed `code | config | flag | model | data` candidates. When evidence supports an exact bounded proposal, the Agent may generate a candidate diff marked `not_applied`.
+ 
+-Scenario A remains the broader target product outcome. Its M1 production-grounding behavior is planned in the validation program but is not part of the currently authorized fixture-backed M0 slice.
++Scenario A remains the broader target product outcome. Its M1 production-grounding behavior is planned in the validation program but is not part of the not-yet-authorized fixture-backed M0 slice.
+ 
+ ### Scenario B — SEV metric drop
+ 
+-Confirm a metric drop, onset, and affected scope; find production changes that reached that scope; and prepare a rollback-ready packet for a human incident workflow. Scenario B is deferred. It reuses the shared case, evidence, runtime identity, typed change, claim, gate, ranking, packet, and projection substrate. It does not broaden the current fixture-backed M0 authorization or the Owner-aligned Scenario A scope.
++Confirm a metric drop, onset, and affected scope; find production changes that reached that scope; and prepare a rollback-ready packet for a human incident workflow. Scenario B is deferred. It reuses the shared case, evidence, runtime identity, typed change, claim, gate, ranking, packet, and projection substrate. It is not authorized by a future fixture-backed M0 receipt or the Owner-aligned Scenario A scope.
+ 
+ ### Required result
+ 
+@@ -70,12 +70,12 @@ No part of the chain grants execution authority.
+ 
+ ## 3. Scope and Non-goals
+ 
+-### 3.1 In scope for the current fixture-backed M0 slice
++### 3.1 In scope for the planned fixture-backed M0 slice after a new start receipt
+ 
+ - A versioned `ExperimentReadContract` with frozen experiment, metric, assignment/exposure, population, window, estimator, unit, source, and named human roles.
+ - Read-only fixture adapters and, only after P2 authority, the specifically approved primary-read source path.
+-- Source-read receipts, deterministic numeric derivations, independent recomputation, and append-only Evidence/Coverage Gap history.
+-- Deterministic checks for experiment identity, runtime completion, metric registration, assignment, exposure, SRM, joins, completeness, freshness, estimator, unit, lineage, and primary-versus-recomputed consistency.
++- Source-read receipts, deterministic numeric derivations, a replaceable and explicitly non-conformant candidate-recomputation seam, and append-only Evidence/Coverage Gap history. The Owner/Fable ruling must define the check-14 source- or transform-independence model; this specification selects neither.
++- Deterministic checks for experiment identity, runtime completion, metric registration, assignment, exposure, SRM, joins, completeness, freshness, estimator, unit, and lineage. Check 14 exposes only a replaceable, explicitly non-conformant candidate-recomputation consistency seam until the Owner/Fable ruling is digest-bound.
+ - Explicit `PASS | FAIL | MISSING | UNKNOWN | NOT_APPLICABLE` check outcomes with fail-closed materiality.
+ - An immutable `FlightReadinessPacket` with the readiness decision, blocking reasons, disagreements, next safe action, named review/approval state, authorization/redaction manifest, and no production-cause conclusion.
+ - A read-only packet-centered M0 review projection and hermetic fixtures for trusted, invalid, materially unknown, conflicting, stale, partial, and unauthorized cases.
+@@ -196,7 +196,7 @@ flowchart TB
+ | Evidence Admission | Source identity, authorization, freshness, digest, scope, validator, and materiality checks | Tool success alone cannot admit Evidence; zero reads never becomes `observed` |
+ | Append-only Case Workspace | Stable entities, revisions, typed relationships, dependency edges, and current projections | No mutable update/delete API; case and authorization isolation is mandatory |
+ | Deterministic Derivation Engine | Metric computations, numeric lineage, completeness, validity checks, and reproducible transforms | Every numeric output names nonzero SourceRead IDs, units, timezone, transform version, and receipt |
+-| Flight Readiness Evaluator | `ExperimentReadContract` validation, required M0 checks, per-check outcome/materiality, disagreement, Coverage Gaps, `post_analysis_eligibility`, and `analysis_use` | Pure deterministic evaluation; material fail/unknown blocks eligibility; pre-runtime or preregistered-power/MDE-insufficient valid reads are `blocked + directional_only` when no other material blocker applies; emits no Cause Claim, production candidate, product-logic Recommendation, diff, or Win/Loss label |
++| Flight Readiness Evaluator | `ExperimentReadContract` validation, required M0 checks, per-check outcome/materiality, disagreement, Coverage Gaps, and stored `analysis_use`; `post_analysis_eligibility` is derived only for rendering | Pure deterministic evaluation; material fail/unknown blocks eligibility; failure of declared preregistered runtime or sample/unit sufficiency is `blocked + directional_only` when no other material blocker applies; missing required `runtime_and_sample` inputs is `blocked + not_permitted` with `contract_correction`; emits no Cause Claim, production candidate, product-logic Recommendation, diff, or Win/Loss label |
+ | Runtime Mapping Resolver | Metric/surface/runtime/artifact relationships, precedence, cardinality, and conflicts | Keyword or heuristic links create candidates only; unknown/conflict is retained |
+ | Symbol Attribution Resolver | Build provenance, source maps, debug information, package manifests, and runtime stack/profile observations that derive deployed code locators | A model-read diff or keyword proximity cannot establish symbol/line identity; file-only attribution leaves G2 inconclusive |
+ | Typed Change Normalizer | Uniform code/config/flag/model/data revisions and candidate groups | Declared, reachable, and observed impact remain separate |
+@@ -268,10 +268,10 @@ Every request and response carries `case_id`, `generation_id`, schema/policy ver
+ | `RankingRevision` | Full candidate set, feature cards, eligibility/ceilings, policy version, ordering, stable tie rules, candidate groups, calibration state |
+ | `HumanRuling` | Role, actor, conflict declaration, reviewed snapshot/digest, decision, citations restricted to `EvidenceRevision | DerivedFactRevision | GateReceipt`, reason, expiry; cannot cite Trace as support or replace hard Evidence |
+ | `SegmentationContract` | Preregistered segment set, weighting basis, minimum-size and per-segment detectability rule, multiplicity-control method, decision metric, scope, owner, version, and receipt; unset numeric values remain an owner/pilot gate |
+-| `ExperimentReadContract` | Flight identity; decision-metric set and versioned policy; one default decision metric for the first M0 or approved preregistered co-primary metrics; assignment and analysis units; estimator and ratio-metric variance method; preregistered and observed runtime; preregistered power/MDE sufficiency inputs and directional-use policy; exposure/join/metric roles; numerator, denominator, grain, unit, relative-percent/percentage-point interpretation; CUPED identity; arm parity fields for index generation, serving alias, ACL snapshot, and effective pipeline; compositional-SRM plan; authoritative source, scorecard/UI reconciliation, independent recomputation, source-change revalidation, authorization and version receipts; legal readiness-combination policy; and named Experiment Owner, Independent DS Consultant, and Experiment Review Committee route |
+-| `M0CheckResult` | Check ID/version, `PASS | FAIL | MISSING | UNKNOWN | NOT_APPLICABLE`, `materiality = material | non_material | unknown`, materiality rule, affected decision metric/scope/window, input Evidence and receipt IDs, reason, and reopen condition; identity/policy, assignment/exposure, population/scope, numerator/denominator/join/unit, estimator/CUPED, authoritative source, and authorization/isolation failures are always material; runtime or preregistered-power/MDE insufficiency is material but maps to `blocked + directional_only` when no other blocker applies; unknown/unclassified remains stored as `unknown` while the applied decision ceiling treats it as material; `NOT_APPLICABLE` requires a versioned applicability rule |
++| `ExperimentReadContract` | Flight identity; decision-metric set and versioned policy; one default decision metric for the first M0 or approved preregistered co-primary metrics; assignment and analysis units; estimator and ratio-metric variance method; preregistered and observed runtime; `sufficiency_rule.kind = runtime_only | runtime_and_sample` with preregistered runtime and, when declared, sample/unit thresholds and inputs; no post-hoc or achieved-power computation; exposure/join/metric roles; numerator, denominator, grain, unit, relative-percent/percentage-point interpretation; CUPED identity; arm parity fields for index generation, serving alias, ACL snapshot, and effective pipeline plus a versioned applicability rule; compositional-SRM plan; authoritative source, scorecard/UI reconciliation, a versioned, replaceable, explicitly non-conformant candidate-recomputation receipt seam pending the Owner/Fable check-14 architecture ruling, source-change revalidation, authorization and version receipts; legal readiness-projection policy; and named Experiment Owner, Independent DS Consultant, and Experiment Review Committee route |
++| `M0CheckResult` | Check ID/version, `PASS | FAIL | MISSING | UNKNOWN | NOT_APPLICABLE`, `materiality = material | non_material | unknown`, materiality rule, affected decision metric/scope/window, input Evidence and receipt IDs, reason, and reopen condition; identity/policy, assignment/exposure, population/scope, numerator/denominator/join/unit, estimator/CUPED, authoritative source, and authorization/isolation failures are always material; failure of declared runtime or sample/unit sufficiency is material but maps to `directional_only` when no other blocker applies; missing declared `runtime_and_sample` inputs is contract-incomplete and maps to `not_permitted` plus `contract_correction`; missing required arm-parity evidence maps to `not_permitted` plus `evidence_collection`, while `NOT_APPLICABLE` requires a versioned applicability rule; unknown/unclassified remains stored as `unknown` while the applied decision ceiling treats it as material |
+ | `NextSafeAction` | Exactly one kind from `evidence_collection | contract_correction | validity_fix | instrumentation_fix | data_quality_fix`, affected checks and Coverage Gaps, named owner, required receipts, and reopen condition; carries no exact production target and no diff |
+-| `FlightReadinessPacket` | Frozen `ExperimentReadContract` revision, source-read and derivation receipts, per-check `PASS | FAIL | MISSING | UNKNOWN | NOT_APPLICABLE` outcomes, materiality, disagreements, Coverage Gaps, coordinated `post_analysis_eligibility` and `analysis_use`, blocking reasons, typed `NextSafeAction`, named human state, authorization/redaction manifest, packet digest, expiry, and supersession link; legal combinations are only `eligible + decision_grade`, `blocked + directional_only`, and `blocked + not_permitted`, with every other pair rejected rather than interpreted; contains no Cause Claim, causal verdict, production candidate, ranking, product-logic Recommendation, Win/Loss label, or Trace-only fact; it may link to a separately typed, gated `InvalidExperimentRemediation` artifact |
++| `FlightReadinessPacket` | Frozen `ExperimentReadContract` revision, source-read and derivation receipts, per-check `PASS | FAIL | MISSING | UNKNOWN | NOT_APPLICABLE` outcomes, materiality, disagreements, Coverage Gaps, stored `analysis_use`, blocking reasons, typed `NextSafeAction`, named human state, authorization/redaction manifest, packet digest, expiry, and supersession link; `post_analysis_eligibility` is a render-time projection derived from `analysis_use` and is never independently settable; scenario wording may use the three familiar pair forms; contains no Cause Claim, causal verdict, production candidate, ranking, product-logic Recommendation, Win/Loss label, or Trace-only fact; it may link to a separately typed, gated `InvalidExperimentRemediation` artifact |
+ | `InvalidExperimentRemediation` | Typed validity, instrumentation, or data-quality guidance, reopen condition, and optional exact unapplied candidate diff; the diff requires exact-target, authority, validation, capability-isolation, and human-only delivery receipts and never becomes a production-cause or product-logic recommendation |
+ | `AttributionRevision` | Deployed artifact, affected component, exact file/symbol/line or generated-source locator, admissible provenance class, source receipt, confidence status, conflict, and validator |
+ | `JudgmentEvidenceRevision` | Proposed E15 offline-evaluation or relevance judgment with query-set version, rubric, judge identity class, judgment date, and tenant/query-class coverage; source authority remains P2/P4-gated |
+@@ -411,7 +411,7 @@ G4 uses two separate fields. `challenge_execution_status = pending | complete |
+ | Gate | Required inputs and executor | Pass condition | Failure ceiling and reopen |
+ | --- | --- | --- | --- |
+ | **G0 Claim contract** | Change/condition, effect, scope/window, mechanism, predictions, falsifiers, alternatives. Deterministic schema validator; semantic worker drafts only. | Complete and falsifiable with no forbidden shortcut. | Fail/inconclusive: Cause=`unassessed`; production readiness≤`blocked`. Reopen on scoped claim revision. |
+-| **G1 Observation and validity** | Metric/version, source reads, freshness/completeness, effect interval; Scenario A also assignment and analysis units, variance estimator, SRM and compositional SRM, exposure, trigger/ramp/power, joins, interference, arm parity for index generation/serving alias/ACL snapshot/effective pipeline, zero-result delta, preregistered segmentation/multiplicity control, window stability, and guardrails. Deterministic numeric/data validators; Experiment Owner rules only on business semantics. | Nonzero read set and every critical check has value, rule source, result, and reason and passes. Assignment, exposure, join, metric-definition, and unit/variance mismatches are material by construction; unclassified validity gaps default to material. | Critical invalidity: effect Cause≤`inconclusive`; production Recommendation=`not_applicable`; only validity/instrumentation/data-quality fixes. Arm-parity divergence caps Cause at `suspected` and blocks query comparability. Reopen with repaired data and refrozen snapshot, normally a new generation. |
++| **G1 Observation and validity** | Metric/version, source reads, freshness/completeness, effect interval; Scenario A also assignment and analysis units, variance estimator, SRM and compositional SRM, exposure, trigger/ramp/power, joins, interference, arm parity for index generation/serving alias/ACL snapshot/effective pipeline, zero-result delta, preregistered segmentation/multiplicity control, window stability, and guardrails. Deterministic numeric/data validators; Experiment Owner rules only on business semantics. | Nonzero read set and every critical check has value, rule source, result, and reason and passes. Assignment, exposure, join, metric-definition, and unit/variance mismatches are material by construction; unclassified validity gaps default to material. Arm parity may be `NOT_APPLICABLE` only under a versioned policy rule; otherwise missing required per-arm identity is `MISSING`, and divergent applicable arms are a material `FAIL`. | Critical invalidity: effect Cause≤`inconclusive`; production Recommendation=`not_applicable`; only validity/instrumentation/data-quality fixes. Arm-parity divergence caps Cause at `suspected` and blocks query comparability. Reopen with repaired data and refrozen snapshot, normally a new generation. |
+ | **G2 Runtime identity and reachability** | Environment, tenant/role/surface, deployed versions, interval, rollout, mapping, and provenance-backed attribution. Deterministic matcher, mapping resolver, and Symbol Attribution Resolver. | `in`, or policy-accepted `partial`, with exact identity and locator; conflicts resolved. A code target requires admissible file/symbol/line attribution, not a model-read diff. | `out`: candidate=`ruled_out`. File-only attribution, `unknown`, or conflict makes G2=`inconclusive`, caps Cause at `suspected`, and sets readiness=`blocked`. Reopen with runtime/mapping/attribution receipt or scoped human semantic ruling. |
+ | **G3 Mechanism coherence** | Code/config/data path, effect direction/shape, intermediate observations, candidate group, and the estimator basis for behavioral signals. Deterministic identity/numeric validation; semantic worker drafts mechanism. | At least one runtime observation matches a prediction and no validated impossibility exists. Click-derived support is admissible only with a named position-bias/propensity correction source or an authorized interleaving design. | Fail: `ruled_out` or claim revision. Inconclusive: Cause≤`suspected`; causally linked action≤`proposal_ready`. Reopen with mechanism Evidence, replay, or claim revision. |
+ | **G4 Independent causal challenge** | Predeclared prediction, scope/window, criterion, and receipt for replay, holdout/control, negative control, interleaving, discriminating test, or externally authorized paired action. | At least one challenge is complete with `challenge_result=supports` and a valid receipt. Its SourceRead set is disjoint from G3 support, or it is a predeclared counterfactual such as a control, holdout, or negative control. | Complete/falsifies: G4=`fail`, Claim=`falsified`, Cause=`ruled_out`. Reused G3 support, nondiscriminating evidence, or blocked/failed execution makes G4=`inconclusive`, Cause≤`suspected`; independently justified safe mitigation may still follow the matrix. Reopen with a new test; never reinterpret the old result. |
+@@ -423,7 +423,7 @@ There is one path to Cause=`confirmed`: every applicable Gate 0–7 condition is
+ 
+ ## 10. Planned Scenario A M1 Workflow
+ 
+-This section specifies the M1 continuation within the Owner-aligned validation program. The current fixture-backed M0 implementation ends after `intake_and_freeze` and `validity_and_observation`, then seals a `FlightReadinessPacket`; it must not enter `production_identity_and_scope` or any later causal stage. M1 starts only after M0 passes, P2 and the applicable gates cover its production path, and a separate M1 implementation authorization is recorded.
++This section specifies the M1 continuation within the Owner-aligned validation program. The planned fixture-backed M0 implementation ends after `intake_and_freeze` and `validity_and_observation`, then seals a `FlightReadinessPacket`; it must not enter `production_identity_and_scope` or any later causal stage. M0 itself requires a new exact-digest start receipt. M1 starts only after M0 passes, P2 and the applicable gates cover its production path, and a separate M1 implementation authorization is recorded.
+ 
+ ### 10.1 Stage contract
+ 
+@@ -466,7 +466,7 @@ intended treatment
+   -> metric
+ ```
+ 
+-CTR alone MUST NOT be treated as relevance, and aggregate lift MUST NOT hide tenant, tail, locale, component, or ACL regression. A valid-but-underpowered read may be labeled `directional_only` only when the ExperimentReadContract permits it; this does not expand Scenario A outcome scope or satisfy a causal gate.
++CTR alone MUST NOT be treated as relevance, and aggregate lift MUST NOT hide tenant, tail, locale, component, or ACL regression. A read may be labeled `directional_only` only according to the preregistered sufficiency rule declared in the `ExperimentReadContract`: `runtime_only` compares observed runtime with the preregistered runtime threshold; `runtime_and_sample` also compares observed sample/units with preregistered inputs. The Agent never computes or substitutes post-hoc or achieved power. Missing required `runtime_and_sample` inputs is contract-incomplete and yields `not_permitted` plus `contract_correction`, not `directional_only`. This does not expand Scenario A outcome scope or satisfy a causal gate.
+ 
+ ### 10.3 Invalid-experiment branch
+ 
+@@ -596,11 +596,11 @@ The ranking explanation MUST state which validated feature, gate, conflict, or g
+ 
+ The append-only workspace and immutable packet are the system of record. Evidence Graph, table, timeline, diff, and receipt are read-only packet projections. Trace is a separately collected, noncanonical diagnostic store rendered under the same authorization context. No UI action creates a source fact, changes Claim state, changes either canonical axis, or modifies source state. When Trace and canonical Evidence diverge, Evidence controls; the divergence is a diagnostic anomaly and Coverage Gap, never Evidence or counterevidence.
+ 
+-For the current fixture-backed M0 slice, the first screen is fixed at the product level:
++For a future authorized fixture-backed M0 slice, the first screen is fixed at the product level:
+ 
+ - the Flight Readiness question and current packet/review state;
+ - blocking, failed, missing, unknown, and conflicting checks before passed checks;
+-- primary-versus-recomputed disagreement and its materiality;
++- primary-versus-candidate-recomputation disagreement and its pending, explicitly non-conformant check-14 seam state; no check-14 materiality or outcome is claimed before the Owner/Fable ruling;
+ - Coverage Gaps, next safe action, and named reviewer/approver state; and
+ - direct entry to the exact source-read, derivation, authorization, and check receipts.
+ 
+@@ -782,7 +782,7 @@ de-identified offline fixtures
+ 
+ Each rung has independent evidence and human authority. Passing an earlier rung does not imply permission or readiness for a later one. Shadow output is visible only to named reviewers and cannot enter formal experiment decisions, Slack, documents, commits, PRs, deployments, rollbacks, or action workflows.
+ 
+-The current fixture-backed M0 slice uses only de-identified Flight Readiness fixtures unless a later, exact P2/P3/P4 authorization permits a named M0 production read, live review, or pilot. The blind causal case, production-like replay, shadow-read, ranking, and M1/M2 measurements belong to the validation program but remain unauthorized until their specific gates and implementation starts are recorded.
++A future authorized fixture-backed M0 slice would use only de-identified Flight Readiness fixtures unless a later, exact P2/P3/P4 authorization permits a named M0 production read, live review, or pilot. No local M0 start receipt is currently live. The blind causal case, production-like replay, shadow-read, ranking, and M1/M2 measurements belong to the validation program but remain unauthorized until their specific gates and implementation starts are recorded.
+ 
+ The evaluation OPEN GATE is a governing procedure while it remains open, not a prerequisite that must already be closed before evidence can be collected. Its prepared threshold-free contract permits a specifically authorized evaluation run only when the Evaluation Owner seals the case and rung authorization, names reviewers, records handling and blinding controls, seals any `pilot_ranking_policy`, and does so before reviewers see Agent output. De-identified fixtures require their sealed fixture authority. A production-grounded blind historical case additionally requires either P2 closure or a narrower archival-snapshot authority receipt for that exact case. The narrow receipt binds source and snapshot digests, permitted fields, deployment/mapping authority, tenant/ACL handling, named reviewers, retention/redaction/deletion, expiry, prohibited reuse, and an explicit ban on live adapters or broader production authority. If exact deployed identity is unavailable, the case may evaluate abstention and workflow behavior but cannot count toward exact-target or production-grounding acceptance. Production-like replay additionally requires the production-authority OPEN GATE to have closed and explicit Engineering plus security/privacy authorization for that rung. Narrow shadow-read additionally requires its own named scope, reviewers, isolated output channel, retention/redaction, load, stop, and exit authorization.
+ 
+@@ -790,12 +790,12 @@ Those runs create the blind-case, fixture, replay, pilot-distribution, human-bas
+ 
+ ### 19.1 Required case classes
+ 
+-Current M0 fixtures:
++Planned M0 fixture classes, non-executable until a new exact-digest start receipt exists:
+ 
+ - Trusted, complete, internally consistent Experiment and decision-metric read.
+ - Invalid experiment through assignment, exposure, SRM, join, metric-definition, unit, estimator, or lineage failure.
+ - Materially unknown result through missing authority, missing required field, unsupported source, or unclassified validity gap.
+-- Primary-source versus independent-recomputation disagreement.
++- Primary-source versus candidate-recomputation disagreement exercised only through the replaceable seam. This fixture is explicitly non-conformant for check 14 until the Owner/Fable architecture ruling is digest-bound and does not select a source- or transform-independence topology.
+ - Stale, partial, paginated-failure, unavailable, or redaction-failed source read.
+ - Unauthorized or cross-case/tenant access attempt.
+ - Deterministic replay and packet-digest reproduction.
+@@ -821,14 +821,14 @@ Gold is immutable and set-valued: `required | acceptable | forbidden | unknown`.
+ 
+ ### 19.2 Required measurements
+ 
+-Current M0 measurements:
++Planned M0 measurements, collectable only after a new exact-digest start receipt:
+ 
+ - contract completeness and invalid-field detection;
+ - per-check correctness, materiality, and false-readiness rate;
+-- primary-versus-recomputed disagreement preservation;
++- primary-versus-candidate-recomputation disagreement preservation through the replaceable seam, without scoring check-14 conformance or selecting an independence topology;
+ - Coverage Gap correctness for partial, stale, unavailable, unauthorized, and redaction-failed reads;
+ - deterministic check and packet-digest reproduction;
+-- reviewer correctness and time to locate a blocking check and its source/recomputation receipt;
++- reviewer correctness and time to locate a blocking check and its source or candidate-recomputation seam receipt; check 14 remains non-conformant pending the Owner/Fable ruling;
+ - false inclusion of any M1/M2 Claim, candidate, ranking, Recommendation, diff, or Win/Loss label; and
+ - authorization, ACL, redaction, latency, tokens, source reads, and fixture resource use without numeric GO thresholds.
+ 
+@@ -856,7 +856,7 @@ Model graders may assist semantic comparison but cannot establish numeric recomp
+ 
+ | Scenario | Required evidence and result |
+ | --- | --- |
+-| M0 trusted read | Frozen valid contract, complete authorized source receipts, matching independent recomputation, every required check explicit, immutable `FlightReadinessPacket` with `eligible + decision_grade`, and no M1/M2 object |
++| M0 trusted read | Frozen valid contract, complete authorized source receipts, every settled required check explicit, immutable `FlightReadinessPacket` with `eligible + decision_grade`, and no M1/M2 object. The candidate-recomputation seam is recorded but remains explicitly non-conformant for check 14 until the Owner/Fable ruling is digest-bound. |
+ | M0 pre-runtime read | Frozen valid contract whose observed runtime is shorter than the preregistered runtime; packet is `blocked + directional_only`, cannot pass the decision metric, and cannot enter M1 causal promotion |
+ | M0 invalid or materially unknown read | Exact failed or unavailable check, rule source, materiality, affected scope, Coverage Gap, blocker, typed `NextSafeAction`, and reopen condition; packet is `blocked + not_permitted`; no cause or product-logic candidate; an optional `InvalidExperimentRemediation` diff requires its full exact-target and safety receipts |
+ | M0 CUPED-mode mismatch | Adjusted and unadjusted values and mode identities remain visible; silent substitution is impossible; packet is `blocked + not_permitted` |
+@@ -887,9 +887,9 @@ Model graders may assist semantic comparison but cannot establish numeric recomp
+ 
+ ### 19.4 Milestone acceptance
+ 
+-**Current fixture-backed M0 Flight Readiness:** a hermetic M0 path accepts `ExperimentReadContract`, records read and recomputation receipts, evaluates every required readiness check, preserves disagreement and Coverage Gaps, and seals a `FlightReadinessPacket` with no M1/M2 output or mutation authority. The Owner has authorized this local fixture-backed implementation. Production-source execution still requires P2; live review acceptance still requires P3; evaluation exits still require P4.
++**Planned fixture-backed M0 Flight Readiness:** a hermetic M0 path accepts `ExperimentReadContract`, records source-read receipts plus a replaceable, non-conformant candidate-recomputation seam receipt, evaluates every settled readiness check, preserves disagreement and Coverage Gaps, and seals a `FlightReadinessPacket` with no M1/M2 output or mutation authority. Check 14 remains pending the Owner/Fable architecture ruling and cannot be claimed complete by this specification. The prior local continuation authorization is exhausted; `M0-F1`-`M0-F5` require a new exact-digest Owner authorization and bounded start receipt. Production-source execution still requires P2; live review acceptance still requires P3; evaluation exits still require P4.
+ 
+-**Planned validation-program foundation beyond M0:** contracts, append-only workspace, deterministic mapping/policy, a thin Scenario A causal fixture path, full Evidence Graph/Trace projections, candidate ranking, and causal-evaluation hooks belong to the M1/M2 program. They are not part of the current M0 implementation authorization and must wait for their named gates and start decisions.
++**Planned validation-program foundation beyond M0:** contracts, append-only workspace, deterministic mapping/policy, a thin Scenario A causal fixture path, full Evidence Graph/Trace projections, candidate ranking, and causal-evaluation hooks belong to the M1/M2 program. They are not part of any M0 implementation authorization and must wait for their named gates and start decisions.
+ 
+ **Evaluation evidence-collection milestone:** the evaluation ticket remains open. Its prepared threshold-free contract and a sealed rung-specific human authorization permit the authorized fixtures, blind historical case, and only those later rungs whose separate production/security prerequisites are satisfied. These runs collect the receipts needed to resolve the ticket; they cannot emit a production GO decision while the ticket remains open.
+ 
+@@ -937,7 +937,7 @@ This specification selects logical contracts and failure behavior, not a vendor
+ 5. `V4` completes M2 query-level Win/Loss Evidence under its authorized replay and review contracts.
+ 6. `V5` seals the review-ready M0/M1/M2 handoff for the Experiment Review Committee. Committee Acceptance remains external.
+ 
+-The current authorization covers only fixture-backed work through `V1`. Within the later authorized slices, the dependency order remains contract-first and Scenario A first:
++No current authorization covers `V1`; the prior continuation receipt is exhausted. A new exact-digest Owner receipt is required for `M0-F1`-`M0-F5`. Within any later authorized slices, the dependency order remains contract-first and Scenario A first:
+ 
+ Before 2026-08-24, `V0` MUST also seal a reproducible Continuity Checkpoint that another builder can run without oral history. If no builder works during the primary builder's leave from 2026-08-24 through 2026-09-14, calendar progress pauses. On return, the checkpoint MUST support effective restart within half a day.
+ 
+@@ -999,4 +999,4 @@ An implementation conforms only when all applicable statements are true:
+ - [`creative-team1286-practices.md`](creative-team1286-practices.md), [`creative-team1401-practices.md`](creative-team1401-practices.md), [`champion-repo-reverse-audit.md`](champion-repo-reverse-audit.md), and [`fourth-place-repo-reverse-audit.md`](fourth-place-repo-reverse-audit.md) — graph, orchestration, trace, and source limitations.
+ - [`rca-sev-causal-confirmation-practices.md`](rca-sev-causal-confirmation-practices.md), [`enterprise-search-experiment-failure-practices.md`](enterprise-search-experiment-failure-practices.md), and [`experiment-analysis-agent-evaluation-practices.md`](experiment-analysis-agent-evaluation-practices.md) — external-practice basis for causality, search diagnosis, and evaluation.
+ 
+-This specification preserves the full logical target and the Owner-aligned one-Flight M0-M2 Validation Slice. M0 Flight Readiness is the first gate and main deliverable. The current implementation authority is limited to the local fixture-backed M0 MVP; M1/M2 and production access remain gated. The system is not production-ready until the applicable OPEN GATES have evidence-backed closure and the Experiment Review Committee has made its separate decision.
++This specification preserves the full logical target and the Owner-aligned one-Flight M0-M2 Validation Slice. M0 Flight Readiness is the first gate and main deliverable. No local fixture-backed M0 implementation authority is currently live: the prior continuation receipt is exhausted, and `M0-F1`-`M0-F5` require a new exact-digest Owner authorization and bounded start receipt. M1/M2 and production access remain gated. The system is not production-ready until the applicable OPEN GATES have evidence-backed closure and the Experiment Review Committee has made its separate decision.
+diff --git a/docs/research/kdd-data-agent-workshop/implementation-sequencing.md b/docs/research/kdd-data-agent-workshop/implementation-sequencing.md
+index 23fc509..dc1c727 100644
+--- a/docs/research/kdd-data-agent-workshop/implementation-sequencing.md
++++ b/docs/research/kdd-data-agent-workshop/implementation-sequencing.md
+@@ -4,7 +4,7 @@
+ 
+ This document defines the dependency order for a future implementation. It does not start `ce-work`, create implementation files, access production, apply a candidate diff, commit, deploy, roll back production, send a message, or publish a decision.
+ 
+-The Owner-confirmed first gate and main deliverable is **M0 — Flight Readiness**. M1 Metric Movement and Production Grounding and M2 Win/Loss Evidence belong to the same one-Flight M0-M2 Validation Slice. The program target is four to six active engineering weeks with two builders. The current executable scope is narrower: the Owner has authorized a local fixture-backed M0 MVP only. Production access, M1/M2 implementation, and Scenario B remain unauthorized.
++The Owner-confirmed first gate and main deliverable is **M0 — Flight Readiness**. M1 Metric Movement and Production Grounding and M2 Win/Loss Evidence belong to the same one-Flight M0-M2 Validation Slice. The program target is four to six active engineering weeks with two builders. The first planned implementation scope is a local fixture-backed M0 MVP, but the prior continuation authorization is exhausted. `M0-F1`-`M0-F5` require a new exact-digest Owner authorization and bounded start receipt. Production access, M1/M2 implementation, and Scenario B remain unauthorized.
+ 
+ The target is a new, isolated Data Agent package. Old SMA, the KDD workshop, and the audited competition repositories are references only. Their code, package layout, architecture, languages, schemas, storage, and behavior are not compatibility requirements.
+ 
+@@ -40,25 +40,27 @@ Scenario B is not part of the M0-M2 Scenario A validation program. A later plan
+ 
+ ### Delivery path
+ 
+-The current executable path stops at fixture-backed M0. It is contract-first but not a large horizontal build: a thin fixture-backed path freezes one `ExperimentReadContract`, reads and independently recomputes the decision metric, evaluates readiness checks, and seals one immutable `FlightReadinessPacket`. It does not create a Cause Claim, product-logic production candidate, ranking, causal Gate 2–7 path, or M1/M2 output. It may create a separately typed `InvalidExperimentRemediation` with an exact unapplied diff only after the frozen M0 policy's exact-target and safety gates pass.
++The first planned implementation path stops at fixture-backed M0. It is contract-first but not a large horizontal build: a thin fixture-backed path freezes one `ExperimentReadContract`, reads the decision metric, records a replaceable, explicitly non-conformant candidate-recomputation receipt seam pending the Owner/Fable check-14 architecture ruling, evaluates the settled readiness checks, and seals one immutable `FlightReadinessPacket`. The seam selects neither a source- nor transform-independence topology. The path does not create a Cause Claim, product-logic production candidate, ranking, causal Gate 2–7 path, or M1/M2 output. It may create a separately typed `InvalidExperimentRemediation` with an exact unapplied diff only after the frozen M0 policy's exact-target and safety gates pass. This path is planned, not currently executable.
+ 
+-The later U1–U13 sequence is the planned implementation path for M1/M2 in the same validation program. It may inform replaceable interface seams, but no M1/M2 unit may enter the current fixture-backed M0 backlog without its named gates and a separate implementation-start receipt.
++The later U1–U13 sequence is the planned implementation path for M1/M2 in the same validation program. It may inform replaceable interface seams, but no M1/M2 unit may enter a future fixture-backed M0 backlog without its named gates and a separate implementation-start receipt. No local M0 backlog is currently executable.
+ 
+ There is no migration from old SMA or a KDD repository. Protected legacy paths are read-only references, not migration targets. The new package may read and independently validate domain assets and may clean-room reimplement selected mechanisms behind new greenfield contracts. It must not edit protected paths, import or depend on legacy runtime code, copy legacy stages, schemas, or thresholds, or claim production authority without current owner, license, source, and access receipts. Any direct component reuse requires an explicit interface, provenance, test, security, and license review. Screenshot-observed or unmanifested components are unavailable until those receipts exist; local visibility is not copying authority.
+ 
+-## Current authorized fixture-backed M0 slice
++## Planned fixture-backed M0 slice awaiting a new start receipt
+ 
+-The following units are the entire current executable backlog. Names remain distinct from the planned U1–U13 M1/M2 sequence.
++The following units define the next bounded backlog but are not currently executable. Before `M0-F1`-`M0-F5`, the Owner must issue a new start authorization and receipt binding the accepted packet path, revision, SHA-256, active-time cap, run/read/tool cap, expiry, and halt owner. Names remain distinct from the planned U1–U13 M1/M2 sequence.
+ 
+ | Unit | Required work | Required exit evidence |
+ | --- | --- | --- |
+ | `M0-F0` | Record technology choices and define the isolated package boundary without selecting production sources, vendors, thresholds, or a final UI framework. | One hermetic test validates a closed M0 enum and proves no legacy runtime or write capability is reachable. |
+-| `M0-F1` | Encode `ExperimentReadContract`, decision-metric policy, `M0CheckResult`, source/read/derivation receipts, Coverage Gaps, typed `NextSafeAction`, `InvalidExperimentRemediation`, and `FlightReadinessPacket`. Encode coordinated `post_analysis_eligibility = eligible | blocked` and `analysis_use = decision_grade | directional_only | not_permitted`; allow only `eligible + decision_grade`, `blocked + directional_only`, and `blocked + not_permitted`, rejecting every other pair rather than interpreting it. `M0CheckResult.materiality` is `material | non_material | unknown`; stored unknown/unclassified materiality remains visible while applying a material ceiling, `non_material` requires a preregistered rule, and `NOT_APPLICABLE` requires a versioned applicability rule. Reuse canonical revision, authorization, redaction, and immutable-history rules only where M0 needs them. | Schemas reject missing identity, assignment/analysis unit, estimator, source, authorization, named Experiment Owner, Independent DS Consultant, Committee route, or digest and preserve `UNKNOWN` rather than guessing. Illegal readiness combinations and permissive materiality defaults fail closed. Runtime or preregistered-power/MDE insufficiency is material but maps to `blocked + directional_only` when no other blocker applies. `NextSafeAction.kind` accepts only `evidence_collection | contract_correction | validity_fix | instrumentation_fix | data_quality_fix` and carries no exact target or diff. |
+-| `M0-F2` | Implement fixture-only read adapters, append-only Evidence admission, independent recomputation receipts, pagination/partial/error behavior, and redaction-failure handling. | Trusted, blocked, partial, stale, conflicting, unavailable, redaction-failed, and unauthorized fixture reads produce typed receipts without network, secret, production, or mutation access. |
+-| `M0-F3` | Implement the frozen deterministic check inventory: Flight/contract identity; runtime; decision-metric registration/version/policy; assignment and analysis units; treatment/control exposure plus arm parity for index generation, serving alias, ACL snapshot, and effective pipeline; SRM and compositional SRM; population/scope; numerator/denominator/grain/join/unit/ratio/relative-percent/percentage-point handling; completeness/freshness/partial reads; estimator/variance method; CUPED-mode identity and non-interchangeability; source/lineage/owner identity; primary-source versus scorecard/UI reconciliation; independent recomputation; source-change revalidation; authorization/ACL/redaction/retention/load/halt; attribution/scope; disagreement/Coverage Gap closure; and preregistered power/MDE sufficiency. | Identical frozen inputs reproduce identical check and packet digests; material failure or unknown state cannot become eligible. A pre-runtime or preregistered-power/MDE-insufficient valid read is exactly `blocked + directional_only` when no other material blocker applies. CUPED-mode substitution, arm-parity divergence, metric-version decoys, and unit/ratio-estimator mismatch are caught; material validity failures become `blocked + not_permitted`. |
+-| `M0-F4` | Seal the immutable `FlightReadinessPacket` and render a packet-centered read-only review projection showing both readiness fields, blockers, disagreements, Coverage Gaps, receipts, typed next safe action, and named human state. | No M1 claim, product-logic production candidate, ranking, Recommendation, Win/Loss label, or Trace fact appears as M0 Evidence; an optional remediation link resolves only to a gated `InvalidExperimentRemediation`; every visible conclusion resolves to a receipt. `VAL-UI-001` proves only the synthetic pre-P3 path; `VAL-UI-101` cannot pass until P3 supplies a named live-review receipt. |
++| `M0-F1` | Encode `ExperimentReadContract`, decision-metric policy, `M0CheckResult`, source/read/derivation receipts, Coverage Gaps, typed `NextSafeAction`, `InvalidExperimentRemediation`, and `FlightReadinessPacket`. Store only `analysis_use = decision_grade | directional_only | not_permitted`; derive `post_analysis_eligibility = eligible | blocked` at render time using the fixed projection. Encode `sufficiency_rule.kind = runtime_only | runtime_and_sample`, preregistered thresholds/inputs, and the prohibition on post-hoc or achieved power. `M0CheckResult.materiality` is `material | non_material | unknown`; stored unknown/unclassified materiality remains visible while applying a material ceiling, `non_material` requires a preregistered rule, and `NOT_APPLICABLE` requires a versioned applicability rule. Reuse canonical revision, authorization, redaction, and immutable-history rules only where M0 needs them. | Schemas reject missing identity, assignment/analysis unit, estimator, source, authorization, named Experiment Owner, Independent DS Consultant, Committee route, digest, or declared `runtime_and_sample` input and preserve `UNKNOWN` rather than guessing. The eligibility projection is never independently settable. Failure of a declared runtime or sample/unit threshold is material but maps to `blocked + directional_only` when no other blocker applies; missing declared sample inputs maps to `blocked + not_permitted` with `contract_correction`. `NextSafeAction.kind` accepts only `evidence_collection | contract_correction | validity_fix | instrumentation_fix | data_quality_fix` and carries no exact target or diff. |
++| `M0-F2` | Implement fixture-only read adapters, append-only Evidence admission, a replaceable, explicitly non-conformant candidate-recomputation receipt seam pending the Owner/Fable check-14 architecture ruling, pagination/partial/error behavior, and redaction-failure handling. | Trusted, blocked, partial, stale, conflicting, unavailable, redaction-failed, and unauthorized fixture reads produce typed receipts without network, secret, production, or mutation access. This unit cannot select an independence topology or claim check-14 conformance until the ruling is digest-bound. |
++| `M0-F3` | Implement the frozen deterministic check inventory except for the unresolved architecture of check 14: Flight/contract identity; runtime; decision-metric registration/version/policy; assignment and analysis units; treatment/control exposure plus arm parity for index generation, serving alias, ACL snapshot, and effective pipeline; SRM and compositional SRM; population/scope; numerator/denominator/grain/join/unit/ratio/relative-percent/percentage-point handling; completeness/freshness/partial reads; estimator/variance method; CUPED-mode identity and non-interchangeability; source/lineage/owner identity; primary-source versus scorecard/UI reconciliation; a replaceable check-14 seam; source-change revalidation; authorization/ACL/redaction/retention/load/halt; attribution/scope; disagreement/Coverage Gap closure; and declared runtime/sample sufficiency. | Identical frozen inputs reproduce identical check and packet digests; material failure or unknown state cannot become eligible. Failure of a preregistered runtime threshold or, under `runtime_and_sample`, sample/unit threshold is exactly `blocked + directional_only` when no other material blocker applies, without post-hoc power. Missing required sample inputs is `blocked + not_permitted` plus `contract_correction`. Missing required arm-parity evidence is `blocked + not_permitted` plus `evidence_collection`; a versioned rule may make arm parity `NOT_APPLICABLE`, while divergence is a material `FAIL`. CUPED-mode substitution, metric-version decoys, and unit/ratio-estimator mismatch are caught. Check 14 remains pending and cannot be reported as passed. |
++| `M0-F4` | Seal the immutable `FlightReadinessPacket` with stored `analysis_use` and render a packet-centered read-only projection that derives `post_analysis_eligibility` while showing blockers, disagreements, Coverage Gaps, receipts, typed next safe action, and named human state. | The renderer cannot set or persist eligibility independently. No M1 claim, product-logic production candidate, ranking, Recommendation, Win/Loss label, or Trace fact appears as M0 Evidence; an optional remediation link resolves only to a gated `InvalidExperimentRemediation`; every visible conclusion resolves to a receipt. `VAL-UI-001` proves only the synthetic pre-P3 path; `VAL-UI-101` cannot pass until P3 supplies a named live-review receipt. |
+ | `M0-F5` | Build threshold-free M0 fixtures and review checks for trusted, pre-runtime directional, invalid, materially unknown, conflicting, stale, partial, unauthorized, superseded, and reviewer-conflict cases. Preregister always-ready and always-blocked evaluators, adversarial metric-version/CUPED/source decoys, and fixture-author/evaluator independence or disclosed conflicts. Measure review correctness and resource use without inventing numeric GO thresholds. | False readiness and security/ACL leakage are hard NO-GO. Reject the suite before Agent scoring unless planted truth contradicts both trivial evaluators and each required decoy is caught. Local fixture reviewers act only on the sealed packet digest; the Experiment Review Committee remains the sole final decision authority for a real Flight. |
+ 
++Every check-14 seam reference in `M0-F2` and `M0-F3` means the same replaceable, explicitly non-conformant candidate-recomputation seam. It selects no source- or transform-independence topology and cannot produce a check-14 outcome or readiness transition before the Owner/Fable ruling is digest-bound.
++
+ ```mermaid
+ flowchart LR
+   F0["M0-F0 Isolated engineering seam"] --> F1["M0-F1 M0 contracts"]
+@@ -71,7 +73,7 @@ flowchart LR
+   M1D -. "review-ready plus M2 authority" .-> M2D["M2 planned slice"]
+ ```
+ 
+-M0 completion does not close P2, P3, or P4 globally. The local fixture-only M0 implementation is authorized and may proceed before those gates. Any production read requires the exact P2 authority for that source; final live interaction acceptance requires P3; blind or pilot exit criteria require P4.
++M0 completion would not close P2, P3, or P4 globally. The local fixture-only M0 implementation may proceed before those gates only after the new exact-digest Owner start receipt exists. Any production read requires the exact P2 authority for that source; final live interaction acceptance requires P3; blind or pilot exit criteria require P4.
+ 
+ ## Validation-slice delivery checkpoints
+ 
+@@ -80,8 +82,8 @@ broadening today's implementation authority:
+ 
+ | Checkpoint | Outcome | Start boundary |
+ | --- | --- | --- |
+-| `V0` | Continuity-ready fixture foundation with replaceable interfaces, deterministic receipts, and a fresh-context runbook | Authorized now through `M0-F0` and the pre-alignment foundation handoff |
+-| `V1` | Local fixture-backed M0 Flight Readiness MVP | Authorized now through `M0-F1`-`M0-F5`, bound to the frozen M0 packet digest |
++| `V0` | Continuity-ready fixture foundation with replaceable interfaces, deterministic receipts, and a fresh-context runbook | Prior foundation work is historical; any further execution requires a new bounded receipt |
++| `V1` | Local fixture-backed M0 Flight Readiness MVP | Requires a new exact-digest Owner authorization and start receipt for `M0-F1`-`M0-F5` |
+ | `V2` | One least-privilege production source and deployed-identity path | Requires P2 closure and a separate implementation-start receipt |
+ | `V3` | M1 Metric Movement and Production Grounding for the same Flight | Requires M0 permission to proceed, V2 authority, and a separate implementation-start receipt |
+ | `V4` | M2 Win/Loss Evidence linked to the supported M1 mechanism | Requires review-ready M1 and its replay/SBS, ACL, comparability, and human-label authority |
+@@ -97,6 +99,39 @@ let the primary builder resume effective work within half a day on or after
+ envelope; if nobody continues, calendar progress pauses rather than being
+ reported as engineering progress.
+ 
++### Authoritative `VAL-*` ownership registry
++
++This is the single ownership mapping for the 26 active acceptance IDs defined by the packet. Packet and CE-plan scenario text define meanings but do not assign competing owners. “Evidence” below is either the proving test/receipt or the open-gate evidence that must exist; an open external gate is not an implementation pass.
++
++| Active ID | Sole owner | Proving test/receipt or open-gate evidence |
++| --- | --- | --- |
++| `VAL-FLT-001` | `M0-F1` | `tests/test_m0_contracts.py`: one Experiment/Flight retains multiple rollout, run, and window observations |
++| `VAL-MET-001` | `M0-F1` | `tests/test_m0_contracts.py`: default one-metric policy without a singular-cardinality schema |
++| `VAL-MET-002` | `M0-F1` | `tests/test_m0_contracts.py`: preregistered co-primary combination/conflict rule and rejection of an unapproved second metric |
++| `VAL-M0-001` | `M0-F4` | `tests/test_m0_packet.py`: trusted complete read seals a stable review-ready packet digest |
++| `VAL-M0-002` | `M0-F3` | `tests/test_m0_readiness_checks.py`: exact directional, contract-correction, and not-permitted branches with no post-hoc power |
++| `VAL-PRE-001` | `M0-F3` | `tests/test_m0_readiness_checks.py`: preregistered runtime shortfall yields `directional_only` and blocks M1 |
++| `VAL-CUP-001` | `M0-F3` | `tests/test_m0_readiness_checks.py`: CUPED-mode mismatch preserves both reads and yields `not_permitted` |
++| `VAL-UNIT-001` | `M0-F3` | `tests/test_m0_readiness_checks.py`: unit/ratio-variance mismatch is a material block |
++| `VAL-SRC-001` | `M0-F3` | `tests/test_m0_readiness_checks.py`: metric-definition/source-version decoy is detected |
++| `VAL-SUP-001` | `M0-F4` | `tests/test_m0_packet.py`: corrected read creates a superseding packet and invalidates acknowledgement without history edit |
++| `VAL-CONF-001` | `M0-F4` | `tests/test_m0_packet.py`: unresolved named-reviewer materiality conflict remains visible and blocked |
++| `VAL-REM-001` | `M0-F4` | `tests/test_m0_packet.py`: invalid Flight without exact target emits typed guidance and no diff |
++| `VAL-REM-002` | `M0-F4` | `tests/test_m0_packet.py`: gated exact remediation is syntactically valid, `not_applied`, and has no automation consumer |
++| `VAL-M1-001` | `U8` | `A-001`: exact deployed-bound fixture mapping yields ranked mechanism Claims and an unapplied candidate |
++| `VAL-M1-002` | `U8` | `A-003`: unknown production mapping caps Cause and blocks exact recommendation |
++| `VAL-M2-001` | `U8` | Planned `tests/scenarios/experiment_miss.*` receipt for comparable treatment/control query evidence; M2 start and replay authority remain open |
++| `VAL-M2-002` | `U8` | Planned `tests/scenarios/experiment_miss.*` receipt for missing ACL/replay/counterfactual/comparability yielding `not_comparable` or Coverage Gap; M2 start remains open |
++| `VAL-ROL-001` | external Experiment Review Committee gate | Open role-separation receipt: Experiment Owner preparation, Independent DS challenge, and Committee pass/change/block ruling |
++| `VAL-OLD-001` | external `P2` production-authority gate | Open source/definition-owner receipt proving current production authority and recorded legacy drift |
++| `VAL-CON-001` | `M0-F0` | Continuity Checkpoint fresh-context rehearsal receipt with exact revision, command, manifest, ledger, and next bounded task |
++| `VAL-APR-001` | external Experiment Review Committee gate | Open Committee decision receipt; technical review-ready state alone is explicit non-evidence of Acceptance |
++| `VAL-SEC-001` | `M0-F5` | `tests/test_m0_hard_vetoes.py`: write, cross-tenant, secret, unsafe-redaction, or unauthorized-delivery reachability is hard NO-GO |
++| `VAL-UI-001` | `M0-F4` | `tests/test_m0_review_projection.py`: synthetic packet projection reaches the source receipt and replaceable candidate-recomputation seam receipt without implying cause, check-14 conformance, or P3 closure |
++| `VAL-UI-101` | external `P3` interaction-acceptance gate | Open named-reviewer live interaction receipt bound to the accepted first-screen hierarchy |
++| `VAL-BASE-001` | `M0-F5` | `tests/test_m0_hard_vetoes.py`: planted truth contradicts both always-ready and always-blocked evaluators before Agent scoring |
++| `VAL-DECOY-001` | `M0-F5` | `tests/test_m0_readiness_checks.py`: metric-version, CUPED-mode, and source-identity decoys are caught by exact validators |
++
+ ## Two kinds of gates
+ 
+ The implementation must keep planning prerequisites separate from runtime causal gates.
+@@ -167,7 +202,7 @@ U3–U5 may overlap after U2 proves the shared object boundary. U9 and U10 may o
+ 
+ ## Proposed package map
+ 
+-The following paths allocate later Scenario A responsibility within the Owner-aligned M0-M2 Validation Slice. They do not expand the current fixture-backed M0 implementation authority, freeze file extensions, or select a toolchain. The M0 slice uses only the minimum corresponding contract, fixture adapter, evidence, validator, packet, presenter, evaluation, and test paths selected by `M0-F0`. `<schema>` and `<source>` are selected by D0 before their dependent unit starts.
++The following paths allocate later Scenario A responsibility within the Owner-aligned M0-M2 Validation Slice. They do not grant fixture-backed M0 implementation authority, freeze file extensions, or select a toolchain. The prior continuation receipt is exhausted; a future M0 slice could use only the minimum corresponding contract, fixture adapter, evidence, validator, packet, presenter, evaluation, and test paths selected by `M0-F0` after a new exact-digest Owner start receipt exists. `<schema>` and `<source>` are selected by D0 before their dependent unit starts.
+ 
+ ```text
+ .agents/skills/kdd_data_agent/                 # proposed isolated package root
+@@ -225,7 +260,7 @@ The future implementation must not edit `.agents/skills/sma/` or `.agents/skills
+ 
+ ## Planned dependency-ordered M1/M2 implementation units
+ 
+-The D0/U1-U13 units below describe the planned M1/M2 continuation of the same one-Flight validation program. They are not part of the current fixture-backed M0 authorization. The only units that may execute now are `M0-F0`-`M0-F5`; every later unit requires its named prerequisite and a separate implementation-start receipt, but no new Owner decision is needed merely to restate that M1/M2 belong to the accepted program.
++The D0/U1-U13 units below describe the planned M1/M2 continuation of the same one-Flight validation program. No local M0 receipt is live. No unit may execute now: `M0-F1`-`M0-F5` first require the new exact-digest receipt, and every later unit requires its named prerequisite and a separate implementation-start receipt. No new Owner decision is needed merely to restate that M1/M2 belong to the accepted program.
+ 
+ ### D0. Record engineering choices without changing product meaning
+ 
+@@ -502,11 +537,11 @@ The D0/U1-U13 units below describe the planned M1/M2 continuation of the same on
+ 
+ | Work | May start now in a future authorized implementation? | Must wait |
+ | --- | --- | --- |
+-| `M0-F0`–`M0-F5` against hermetic fixtures | Yes. The Owner has authorized the local fixture-backed M0 MVP; every semantic unit must bind to the frozen M0 packet revision and digest. | Any product-meaning change, production source, final UI choice, or numeric threshold returns to its named gate. |
++| `M0-F0`–`M0-F5` against hermetic fixtures | Not currently. `M0-F1`-`M0-F5` require a new Owner authorization and start receipt binding the accepted packet path, revision, SHA-256, caps, expiry, and halt owner. | Any product-meaning change, production source, final UI choice, or numeric threshold returns to its named gate. |
+ | M0 production read path | No. | The exact P2 source, credential, ACL, retention, redaction, load, and halt authority must close first. |
+ | M0 live review acceptance | No. | P3 must accept the packet-centered M0 review interaction with real reviewers. |
+ | M0 blind/pilot acceptance | No. | P4 must authorize the exact rung, case, reviewers, handling, and exit decision. |
+-| Planned U1–U10 M1/M2 foundation | Not under the current M0 start receipt. | The relevant M0 permission, dependency gates, and a separate implementation-start receipt; program membership is already Owner-aligned. |
++| Planned U1–U10 M1/M2 foundation | Not authorized. | The relevant M0 permission, dependency gates, and a separate implementation-start receipt; program membership is already Owner-aligned. |
+ | Production adapters and exact deployed mapping | No. | P2 must close; then U11 starts with one bounded path. |
+ | Production-like replay or narrow shadow-read | No. | Both P2 authority and P4 rung-specific approval are required. |
+ | Final review UI | No. | P3 must close after live human review. |
+@@ -515,9 +550,9 @@ The D0/U1-U13 units below describe the planned M1/M2 continuation of the same on
+ 
+ No open prerequisite may be closed by repository inference, a model opinion, a prototype screenshot, or a mechanically green test.
+ 
+-## Current M0 deterministic halt contract
++## Deterministic halt contract for a future authorized M0 slice
+ 
+-The current fixture-backed M0 start receipt must name its implementation lead, active-time cap, run/read/tool cap, and expiry. The local M0 slice halts immediately when any of these occurs:
++No fixture-backed M0 start receipt is currently live. Any future exact-digest Owner receipt must name its implementation lead, active-time cap, run/read/tool cap, expiry, and halt owner. After that receipt exists, the local M0 slice halts immediately when any of these occurs:
+ 
+ 1. a fail-closed default is bypassed by an enum alias, unenumerated value, or permissive default branch;
+ 2. any file appears under `adapters/production/` before P2 and a separate start receipt;
+@@ -549,19 +584,19 @@ Do not use destructive reset against a dirty worktree. Do not modify protected o
+ 
+ ## Human decisions and milestone exits
+ 
+-### Current local M0 Flight Readiness exit
++### Planned local M0 Flight Readiness exit after a new start receipt
+ 
+ Required evidence:
+ 
+ - `M0-F0`–`M0-F5` pass in a hermetic environment;
+-- the sealed `FlightReadinessPacket` binds the frozen `ExperimentReadContract`, every required check, source/read/derivation receipts, disagreements, Coverage Gaps, legal `post_analysis_eligibility + analysis_use` combination, typed `NextSafeAction`, and named human state;
++- the sealed `FlightReadinessPacket` binds the frozen `ExperimentReadContract`, every required check, source/read/derivation receipts, disagreements, Coverage Gaps, stored `analysis_use`, typed `NextSafeAction`, and named human state; review projections derive `post_analysis_eligibility` without persisting or independently setting it;
+ - trusted, pre-runtime directional, invalid, materially unknown, conflicting, stale, partial, unauthorized, superseded, and reviewer-conflict fixtures produce the expected fail-closed outcomes;
+ - CUPED-mode non-interchangeability, primary-source versus scorecard/UI reconciliation, numerator/denominator/unit/ratio/relative-percent/percentage-point handling, and source-change revalidation are individually receipted;
+ - always-ready and always-blocked evaluators are each contradicted by sealed planted truth, all required adversarial decoys are caught, and fixture-author/evaluator independence or conflict is recorded;
+ - false readiness and security/ACL leakage are hard NO-GO; and
+ - no M1 cause, production candidate, ranking, product-logic recommendation, Win/Loss label, production mutation, or publication capability exists in the local M0 slice; a separately typed invalid-Experiment remediation link is allowed only under the frozen exact-target and no-write gates.
+ 
+-Human decision: the Owner and independent local reviewer may accept or reject the fixture-backed M0 deliverable. For a real Flight, the Experiment Owner prepares evidence, the Independent DS Consultant challenges it, and the Experiment Review Committee alone decides pass/change/block. Local acceptance does not close P2/P3/P4, start M1/M2 implementation, authorize production use, or authorize mutation.
++Human decision after the new exact-digest start receipt and authorized work: the Owner and independent local reviewer may accept or reject the fixture-backed M0 deliverable. For a real Flight, the Experiment Owner prepares evidence, the Independent DS Consultant challenges it, and the Experiment Review Committee alone decides pass/change/block. Local acceptance does not close P2/P3/P4, start M1/M2 implementation, authorize production use, or authorize mutation.
+ 
+ ### Planned M1/M2 foundation exit
+ 
+@@ -614,4 +649,4 @@ Scenario B starts only after a full Scenario A decision and a new owner-approved
+ 
+ ## Start instruction
+ 
+-Do not run `ce-work` from this planning task. The Owner has separately authorized the local fixture-backed M0 MVP, and its implementation lane may continue through `M0-F0`–`M0-F5` after binding each semantic unit to the frozen M0 packet path, revision, and SHA-256 digest. Do not start planned U1–U13, M1 production grounding, M2 Win/Loss, production access, or Scenario B from the M0 authorization.
++Do not run `ce-work` from this planning task. The prior continuation authorization is exhausted. Do not start `M0-F1`-`M0-F5` unless the Owner issues a new bounded receipt binding the accepted packet path, revision, SHA-256, active-time cap, run/read/tool cap, expiry, and halt owner. Do not start planned U1–U13, M1 production grounding, M2 Win/Loss, production access, or Scenario B from that future M0 receipt.
+diff --git a/docs/research/kdd-data-agent-workshop/reviews/2026-08-16-opus5-m0-alignment/m0-m2-build-alignment-packet.md b/docs/research/kdd-data-agent-workshop/reviews/2026-08-16-opus5-m0-alignment/m0-m2-build-alignment-packet.md
+index fe4cb60..31227ee 100644
+--- a/docs/research/kdd-data-agent-workshop/reviews/2026-08-16-opus5-m0-alignment/m0-m2-build-alignment-packet.md
++++ b/docs/research/kdd-data-agent-workshop/reviews/2026-08-16-opus5-m0-alignment/m0-m2-build-alignment-packet.md
+@@ -30,7 +30,7 @@ M0 is the first gate and main deliverable. M1 cannot start for a blocked Flight.
+ 
+ Scenario B SEV analysis, M3+ self-serve productization, generalized multi-source expansion, and autonomous action remain outside this slice.
+ 
+-The current executable slice is the fixture-backed M0 MVP. M1, M2, and the real production Flight path remain planned parts of the validation program, not permissions conferred by this packet.
++The first planned executable slice is the fixture-backed M0 MVP. No M0 implementation unit is currently authorized: `M0-F1`-`M0-F5` require the new exact-digest Owner authorization and bounded start receipt defined in Sections 1 and 9. M1, M2, and the real production Flight path remain planned parts of the validation program, not permissions conferred by this packet.
+ 
+ ## 3. Canonical Flight and Decision Metric Contract
+ 
+@@ -42,6 +42,7 @@ A `Flight` is one A/B `Experiment`. Rollout, exposure, analysis window, and run
+ - Co-primary metrics require an approved, preregistered policy that defines their combination, conflict, and stop behavior.
+ - Monitoring and guardrail metrics do not silently become decision metrics.
+ - The policy must bind metric definition version, unit, estimator, assignment and analysis units, source, window, population, and owner.
++- The policy must declare exactly one preregistered `sufficiency_rule.kind`: `runtime_only | runtime_and_sample`. The rule binds the preregistered runtime threshold and, for `runtime_and_sample`, the preregistered sample/unit threshold and inputs. M0 compares observed runtime and sample/units only to those declared inputs; it never computes or substitutes post-hoc or achieved power.
+ 
+ ## 4. Human Responsibility Contract
+ 
+@@ -72,7 +73,7 @@ The frozen `ExperimentReadContract` must include or explicitly mark unknown:
+ - source identity, snapshot/version, lineage, freshness rule, and authoritative production owner;
+ - expected assignment/exposure and SRM or compositional-SRM plan;
+ - treatment/control arm-parity identities for index generation, serving alias, ACL snapshot, and effective pipeline;
+-- preregistered power/MDE sufficiency rule, inputs, and directional-use policy;
++- preregistered `sufficiency_rule.kind = runtime_only | runtime_and_sample`, its runtime threshold, and, when `runtime_and_sample`, its preregistered sample/unit threshold and inputs;
+ - legal readiness-combination policy;
+ - authorization, tenant/ACL, redaction, retention, recipient, load, and halt boundaries;
+ - named Experiment Owner, Independent DS Consultant, and Experiment Review Committee route;
+@@ -99,43 +100,46 @@ The minimum check set covers:
+ 11. CUPED-mode identity and non-interchangeability, including preservation of both adjusted and unadjusted values when they disagree;
+ 12. source, lineage, metric-definition, and source-owner identity;
+ 13. primary-source versus scorecard or UI reconciliation;
+-14. reported decision-metric read versus an independently versioned recomputation path;
++14. reported decision-metric read versus a replaceable candidate-recomputation receipt seam; the seam is explicitly non-conformant until the Owner/Fable architecture ruling defines the required independence model;
+ 15. source-change revalidation for meaning, coverage, and attribution;
+ 16. authorization, tenant/ACL, recipient, redaction, retention, load, and halt state;
+ 17. attribution, freshness, and scope consistency across every source and derived read; and
+ 18. disagreements, contradictions, and Coverage Gap closure state; and
+-19. preregistered power/MDE sufficiency for the decision metric.
++19. preregistered sample/unit sufficiency for the decision metric when `sufficiency_rule.kind = runtime_and_sample`; this check is `NOT_APPLICABLE` only under a versioned `runtime_only` rule.
++
++**Pending check-14 architecture ruling.** Check 14 remains pending an explicit Owner/Fable decision on the required source- or transform-independence model. The wording above is a review requirement placeholder, not a frozen architecture choice or implementation instruction. Until the ruling is digest-bound, `M0-F2` and `M0-F3` may define only a replaceable, explicitly non-conformant candidate-recomputation receipt seam and fixtures after a new start receipt; they may not claim check-14 conformance or resolve the topology by implementation convention.
+ 
+ **Check-outcome rule.** Each check stores exactly one outcome from `PASS | FAIL | MISSING | UNKNOWN | NOT_APPLICABLE`. `NOT_APPLICABLE` requires a versioned applicability rule and rationale; without both, the stored check outcome is `UNKNOWN`.
+ 
+-**Materiality rule.** Each check separately stores `materiality = material | non_material | unknown`, `materiality_rule_id`, affected decision metric/scope/window, and ruling actor or deterministic rule. A result is material when it can change decision-metric meaning, value, uncertainty, eligibility, population, attribution, authority, coverage, or security/privacy handling. Flight identity, decision-metric identity/policy, assignment/exposure, population/scope, numerator/denominator/join/unit, estimator/CUPED, authoritative source identity, and authorization/isolation failures are always material. Runtime or power/MDE insufficiency is material but maps specifically to `blocked + directional_only` when all other validity checks permit the read. `non_material` requires a preregistered versioned rule and evidence that the affected field cannot change the decision; reviewer convenience is not a rule. `unknown` and unclassified values remain stored as `unknown`, preserving the reviewable classification gap, while the applied decision ceiling treats them as material until a versioned ruling supersedes them.
++For arm parity, missing required per-arm index-generation, serving-alias, ACL-snapshot, or effective-pipeline identity yields `MISSING` and, under the fail-closed materiality rule, `blocked + not_permitted` with `next_safe_action.kind = evidence_collection`. A versioned `DecisionMetricPolicy` applicability rule may declare the check `NOT_APPLICABLE`, for example for a single-index non-search Flight; divergent applicable arms are a material `FAIL`.
++
++For sufficiency, check 2 compares observed runtime with the preregistered runtime threshold. Check 19 compares observed sample/units with preregistered inputs only when `sufficiency_rule.kind = runtime_and_sample`; it never computes post-hoc or achieved power. Under `runtime_only`, check 19 is `NOT_APPLICABLE` by that versioned rule. Under `runtime_and_sample`, missing declared sample fields yields `MISSING`, making the contract incomplete and producing `blocked + not_permitted` with `next_safe_action.kind = contract_correction`.
++
++**Materiality rule.** Each check separately stores `materiality = material | non_material | unknown`, `materiality_rule_id`, affected decision metric/scope/window, and ruling actor or deterministic rule. A result is material when it can change decision-metric meaning, value, uncertainty, eligibility, population, attribution, authority, coverage, or security/privacy handling. Flight identity, decision-metric identity/policy, assignment/exposure, population/scope, numerator/denominator/join/unit, estimator/CUPED, authoritative source identity, and authorization/isolation failures are always material. Preregistered runtime or sample/unit insufficiency is material but maps specifically to `directional_only` when all other validity checks permit the read. `non_material` requires a preregistered versioned rule and evidence that the affected field cannot change the decision; reviewer convenience is not a rule. `unknown` and unclassified values remain stored as `unknown`, preserving the reviewable classification gap, while the applied decision ceiling treats them as material until a versioned ruling supersedes them.
+ 
+ Adjusted and unadjusted reads are never silently substituted, and a scorecard/UI value is a reconciliation surface rather than production authority.
+ 
+ ### 5.3 Readiness outcome contract
+ 
+-M0 records two coordinated fields rather than overloading a single `ready` label:
++M0 stores exactly one readiness state:
+ 
+-- `post_analysis_eligibility = eligible | blocked`;
+ - `analysis_use = decision_grade | directional_only | not_permitted`.
+ 
+-The only legal combinations are:
++`post_analysis_eligibility = eligible | blocked` is a render-time projection derived only from `analysis_use`; it is never stored or independently settable:
+ 
+-| `post_analysis_eligibility` | `analysis_use` | Meaning |
++| Stored `analysis_use` | Derived `post_analysis_eligibility` | Meaning |
+ | --- | --- | --- |
+-| `eligible` | `decision_grade` | The frozen M0 checks permit decision-grade post-analysis. This does not itself start M1 or imply Committee Acceptance. |
+-| `blocked` | `directional_only` | The read is valid enough to inspect but the preregistered runtime or another frozen sufficiency rule is incomplete. It cannot pass the decision metric or enter M1 causal promotion. |
+-| `blocked` | `not_permitted` | A material validity, authority, isolation, or evidence failure forbids post-analysis. |
+-
+-`eligible + directional_only` and `eligible + not_permitted` are invalid states. `directional_only` is not a softer form of M1 authorization, and it cannot be promoted by a renderer, reviewer preference, or Committee outcome.
++| `decision_grade` | `eligible` | The frozen M0 checks permit decision-grade post-analysis. This does not itself start M1 or imply Committee Acceptance. |
++| `directional_only` | `blocked` | The read is valid enough to inspect but the declared preregistered sufficiency rule is incomplete. It cannot pass the decision metric or enter M1 causal promotion. |
++| `not_permitted` | `blocked` | A material validity, authority, isolation, contract-completeness, or evidence failure forbids post-analysis. |
+ 
+-A packet whose stored pair is not one of the three legal rows is invalid and must be rejected, not interpreted or repaired. Neither field takes precedence over the other. Review triage keys on `analysis_use` together with `next_safe_action.kind`, never on `post_analysis_eligibility` alone.
++Scenario and review wording may retain `eligible + decision_grade`, `blocked + directional_only`, and `blocked + not_permitted` as shorthand for these three projections. `directional_only` is not a softer form of M1 authorization, and it cannot be promoted by a renderer, reviewer preference, or Committee outcome. Review triage keys on the stored `analysis_use` together with `next_safe_action.kind`, never on the derived eligibility projection alone.
+ 
+ ### 5.4 M0 output and invalid-experiment behavior
+ 
+-`FlightReadinessPacket` contains the frozen contract revision, source and derivation receipts, all checks, disagreements, Coverage Gaps, both readiness fields, blockers, typed next safe action, human state, authorization/redaction manifest, digest, expiry, and supersession link.
++`FlightReadinessPacket` contains the frozen contract revision, source and derivation receipts, all checks, disagreements, Coverage Gaps, the stored `analysis_use` state, blockers, typed next safe action, human state, authorization/redaction manifest, digest, expiry, and supersession link. Renderers derive `post_analysis_eligibility` from `analysis_use` without persisting a second readiness field.
+ 
+-A trusted Flight may proceed to M1 only after its separate implementation-start and production gates also pass. A pre-runtime or preregistered-power/MDE-insufficient Flight is `blocked + directional_only` when no other material blocker applies. A pre-runtime packet's reopen condition names the preregistered runtime end as its trigger, and its `expiry` must not exceed that time; reaching the trigger requires a new read and superseding packet rather than mutating the sealed packet. A materially invalid, unauthorized, or isolated Flight is `blocked + not_permitted`. A critically invalid Flight cannot produce a production-cause Claim, product-logic recommendation, production-change candidate, or M1/M2 output.
++A trusted Flight may proceed to M1 only after its separate implementation-start and production gates also pass. A Flight that fails the preregistered runtime threshold or, under `runtime_and_sample`, the preregistered sample/unit threshold is `blocked + directional_only` when no other material blocker applies. A pre-runtime packet's reopen condition names the preregistered runtime end as its trigger, and its `expiry` must not exceed that time; reaching the trigger requires a new read and superseding packet rather than mutating the sealed packet. Missing required `runtime_and_sample` inputs is contract-incomplete rather than directional: it is `blocked + not_permitted` with `contract_correction`. A materially invalid, unauthorized, or isolated Flight is `blocked + not_permitted`. A critically invalid Flight cannot produce a production-cause Claim, product-logic recommendation, production-change candidate, or M1/M2 output.
+ 
+ `next_safe_action` is a typed guidance field with exactly one kind:
+ 
+@@ -197,7 +201,7 @@ The new package does not import or depend on old SMA runtime or architecture. Di
+ - Part-time Experiment Owner, Independent DS Consultant, Experiment Review Committee, production/Engineering owner, and security/privacy support when their gate requires it.
+ - Primary builder leave from 2026-08-24 through 2026-09-14 does not count as active engineering time.
+ - End of September is a stretch target. It is not a promise of technical completion or Committee Acceptance.
+-- Every implementation start receipt must also bind a slice-specific active-time cap, run/read/tool cap, expiry, and halt owner. An unset or exceeded cap halts that slice; it is never converted into silent extra scope. The current fixture-backed M0 execution is bounded by handoff `m0-codex-continuation-20260817`: one non-recurring implementation-continuation task, the explicitly enumerated local read/edit/test surface, expiry after that task's one run, and halt authority retained by the Owner and main orchestrator. It does not create a date-based or renewable budget. The four-to-six-week active-time envelope governs the complete M0-M2 validation program.
++- Every implementation start receipt must also bind a slice-specific active-time cap, run/read/tool cap, expiry, and halt owner. An unset or exceeded cap halts that slice; it is never converted into silent extra scope. Handoff `m0-codex-continuation-20260817` was a one-run, non-recurring continuation and is exhausted; it supplies no current execution budget. The next `M0-F1`-`M0-F5` start receipt must bind the accepted packet path, revision, SHA-256, active-time cap, run/read/tool cap, expiry, and halt owner. The four-to-six-week active-time envelope governs the complete M0-M2 validation program but is not itself a start budget.
+ 
+ ### 9.2 Continuity Checkpoint due before 2026-08-24
+ 
+@@ -229,7 +233,7 @@ V0 and V1 precede V3. V2 must close before a real M1 or M2 production claim. V4
+ 
+ ## 11. Acceptance Scenarios
+ 
+-The `VAL-*` entries in this packet and the CE plan are one registry. This section extends that registry; an identifier has one meaning and may not be reused by another plan, fixture, or test.
++The `VAL-*` entries below define scenario meaning only. The single authoritative ownership registry is [Implementation Sequencing, "Authoritative `VAL-*` ownership registry"](../../implementation-sequencing.md#authoritative-val--ownership-registry). That table assigns every active ID exactly once to an `M0-F*` unit, later `U*` unit, or explicit external gate and names its proving test/receipt or open-gate evidence. This packet does not duplicate ownership; an identifier has one meaning and may not be reused by another plan, fixture, or test.
+ 
+ | ID | Scenario | Required result |
+ | --- | --- | --- |
+@@ -237,7 +241,7 @@ The `VAL-*` entries in this packet and the CE plan are one registry. This sectio
+ | `VAL-MET-001` | Default one-metric policy | Contract is accepted without hard-coding singular cardinality |
+ | `VAL-MET-002` | Approved co-primary policy | Combination/conflict rule is frozen before the read; an unapproved second metric cannot gate the decision |
+ | `VAL-M0-001` | Trusted complete Flight read | M0 packet is review-ready with stable receipts and digest |
+-| `VAL-M0-002` | SRM, CUPED, unit, source, ACL, freshness, or runtime failure | Runtime insufficiency with no other material blocker is exactly `blocked + directional_only`; a material validity, source, ACL, isolation, or evidence failure is `blocked + not_permitted`. Neither state produces M1/M2 output. |
++| `VAL-M0-002` | Preregistered runtime/sample insufficiency or a material validity, source, ACL, isolation, evidence, or contract-completeness failure | Failure of the preregistered runtime threshold or, under `runtime_and_sample`, the preregistered sample/unit threshold with no other material blocker is exactly `blocked + directional_only`. Missing required `runtime_and_sample` fields is `blocked + not_permitted` with `contract_correction`; any other material validity, source, ACL, isolation, or evidence failure is `blocked + not_permitted`. No post-hoc or achieved-power computation is permitted, and neither state produces M1/M2 output. |
+ | `VAL-PRE-001` | Observed runtime is shorter than the preregistered runtime | Packet is `blocked + directional_only`; the decision metric cannot pass and M1 causal promotion cannot start |
+ | `VAL-CUP-001` | Reported and recomputed reads use different CUPED modes | Packet is `blocked + not_permitted`; both values and modes remain visible and no substitution occurs |
+ | `VAL-UNIT-001` | Assignment and analysis units differ for a ratio metric without a named valid variance estimator | The applicable unit/estimator check fails materially and the packet is `blocked + not_permitted` |
+@@ -255,7 +259,7 @@ The `VAL-*` entries in this packet and the CE plan are one registry. This sectio
+ | `VAL-CON-001` | Fresh context checks out the implementation before leave | It runs the current path, explains state, and starts the next bounded task without oral context |
+ | `VAL-APR-001` | All technical packets are review-ready but Committee has not ruled | Technical state is complete/review-ready; Committee Acceptance remains pending |
+ | `VAL-SEC-001` | Any write, cross-tenant, secret, unsafe-redaction, or unauthorized delivery path is reachable | Hard NO-GO; no packet promotion or external action |
+-| `VAL-UI-001` | Pre-P3 synthetic packet projection | A reviewer reaches the exact source and recomputation receipts from the readiness decision without any implied cause; this is mechanical proof only |
++| `VAL-UI-001` | Pre-P3 synthetic packet projection | A reviewer reaches the exact source receipt and the replaceable candidate-recomputation seam receipt without any implied cause; this is mechanical projection proof only and cannot establish check-14 conformance |
+ | `VAL-UI-101` | Post-P3 named-reviewer interaction | The accepted first-screen hierarchy and review behavior are bound to a named live-review receipt; this cannot pass before P3 |
+ | `VAL-BASE-001` | Always-ready and always-blocked evaluators run against the M0 fixture suite | Each trivial evaluator is contradicted by at least one sealed planted-truth fixture; otherwise the suite is rejected before Agent scoring |
+ | `VAL-DECOY-001` | Adversarial metric-version, CUPED-mode, or source-identity decoy | The planted mismatch remains hidden from superficial consistency checks but is caught by the exact required validator |
+@@ -272,13 +276,13 @@ Every sealed fixture receipt records the fixture author, evaluator or reviewer,
+ 
+ | Contract or scenario | Local fixture-backed M0 | Additional gate for broader claim |
+ | --- | --- | --- |
+-| Checks 1-12, 14-15, 17-19 | Synthetic, de-identified receipts may exercise deterministic behavior now | P2 before any result is treated as current production truth; P4 before blind/pilot exit claims |
+-| Check 13, primary-source versus scorecard/UI | Synthetic primary and presentation surfaces may be reconciled now | P2 before reading or trusting a real source or enterprise UI |
+-| Check 16, authorization/ACL/redaction/retention/load/halt | Synthetic allow/deny principals and no-body failures only | P2 must name real credentials, tenants, ACLs, retention, redaction, load ceilings, and halt owner |
+-| `VAL-FLT-*`, `VAL-MET-*`, `VAL-M0-*`, `VAL-PRE-*`, `VAL-CUP-*`, `VAL-UNIT-*`, `VAL-SRC-*`, `VAL-SUP-*`, `VAL-CONF-*`, `VAL-REM-*`, `VAL-CON-*`, `VAL-SEC-*`, `VAL-BASE-*`, `VAL-DECOY-*` | May run against hermetic fixtures now | P2 for any production input; P4 for sealed blind/pilot acceptance |
+-| `VAL-UI-001` | May run as a synthetic technology-neutral projection now | It does not close P3 |
++| Checks 1-12, 14-15, 17-19 | Synthetic, de-identified receipts may exercise deterministic behavior only after the new M0 start receipt; check 14 remains a replaceable, explicitly non-conformant candidate seam pending the Owner/Fable architecture ruling | P2 before any result is treated as current production truth; P4 before blind/pilot exit claims |
++| Check 13, primary-source versus scorecard/UI | Synthetic primary and presentation surfaces may be reconciled only after the new M0 start receipt | P2 before reading or trusting a real source or enterprise UI |
++| Check 16, authorization/ACL/redaction/retention/load/halt | Synthetic allow/deny principals and no-body failures only after the new M0 start receipt | P2 must name real credentials, tenants, ACLs, retention, redaction, load ceilings, and halt owner |
++| `VAL-FLT-*`, `VAL-MET-*`, `VAL-M0-*`, `VAL-PRE-*`, `VAL-CUP-*`, `VAL-UNIT-*`, `VAL-SRC-*`, `VAL-SUP-*`, `VAL-CONF-*`, `VAL-REM-*`, `VAL-CON-*`, `VAL-SEC-*`, `VAL-BASE-*`, `VAL-DECOY-*` | May run against hermetic fixtures only after the new exact-digest M0 start receipt | P2 for any production input; P4 for sealed blind/pilot acceptance |
++| `VAL-UI-001` | May run as a synthetic technology-neutral projection only after the new M0 start receipt | It does not close P3 |
+ | `VAL-UI-101` | Cannot pass locally without named live-review evidence | P3 required |
+-| `VAL-M1-*`, `VAL-M2-*`, `VAL-ROL-*`, `VAL-OLD-*` | Contract tests may exist, but no M1/M2 or production claim may run under the current receipt | Separate implementation start plus P2; P3/P4 where the scenario depends on live review or calibrated evaluation |
++| `VAL-M1-*`, `VAL-M2-*`, `VAL-ROL-*`, `VAL-OLD-*` | Contract planning may exist, but no M1/M2 or production claim has a current receipt | Separate implementation start plus P2; P3/P4 where the scenario depends on live review or calibrated evaluation |
+ | `VAL-APR-001` | May prove technical-state separation | Committee Acceptance is an external human ruling, not a P2/P3/P4 substitute |
+ 
+ Fixture authorization means only that the case is synthetic or de-identified, contains no secret or production credential, stays inside the isolated package, names its fixture owner and recipient, and passes the no-network/no-write boundary. It is not evidence of a real production ACL.
+@@ -331,3 +335,3 @@ Any change to milestone questions, input authority, packet meaning, role authori
+ ## 14. Explicit Non-Authorization
+ 
+-This packet does not broaden the separate local fixture-backed M0 authorization. It does not grant production access, start M1/M2 implementation, approve a source, close P2/P3/P4, approve a Flight, establish a deadline, commit code, push a branch, open a PR, deploy, roll back, send a message, publish a document, or apply a candidate diff.
++This packet itself grants no implementation authority. The prior continuation authorization is exhausted, and any future local fixture-backed M0 slice requires a new exact-digest Owner start receipt. It does not grant production access, start M1/M2 implementation, approve a source, close P2/P3/P4, approve a Flight, establish a deadline, commit code, push a branch, open a PR, deploy, roll back, send a message, publish a document, or apply a candidate diff.

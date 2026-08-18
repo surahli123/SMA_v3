@@ -1,0 +1,104 @@
+{
+  "handoff_id": "kdd-m0-v4-patch-independent-review-20260817",
+  "status": "done",
+  "verdict": "ACCEPT_CANDIDATE_FOR_OWNER_WRITEBACK_REVIEW",
+  "summary": "The exact v4 patch passes strict live-base and fresh-disposable application checks and reproduces all five claimed post-apply digests. Independent v3-versus-v4 disposable-tree comparison found exactly one replaced packet sentence and no other changed candidate byte. The replacement removes the v3 live-authorization presupposition while preserving D1-D3, the pending non-conformant Check-14 seam without topology, the exact 26-ID registry, open gates, historical-digest boundary, future exact-digest receipt mechanism, all non-authorizations, and mechanical usability. This is advisory candidate acceptance only and grants no writeback or implementation authority.",
+  "evidence": [
+    {
+      "kind": "patch_binding",
+      "path": "docs/research/kdd-data-agent-workshop/reviews/2026-08-17-codex-prefreeze-execution/candidate-canonical-writeback-v4.patch",
+      "sha256": "348252dcbd22d814fec8af4c6a441f46a9ba42b116fe2a895c16882fe489fa3c",
+      "line_count": 809,
+      "patched_file_count": 5,
+      "insertions": 168,
+      "deletions": 126,
+      "live_git_apply_check_whitespace_error_all": "pass",
+      "fresh_disposable_check": "pass",
+      "fresh_disposable_apply": "pass"
+    },
+    {
+      "kind": "disposable_post_apply_digests",
+      "ce_plan_sha256": "e8b97b9224c39bbfd2ee1ec25059556febc0cc529e95e4244e6a338c3366b6c4",
+      "eval_acceptance_plan_sha256": "2785fc7f9eab6c20dd030b1b6ab9c0f89a768a2163b52e3884b27fd8db535516",
+      "architecture_spec_sha256": "75bf5f12463e7c686e2bae737754b9437d54600e870b67d634ddadbe93d87507",
+      "sequencing_sha256": "311a4a4aa781029253f764847189b817e9a05d973ce9245035b00001f12bc109",
+      "packet_sha256": "30723c521e5ee67596af56ef2b2bfcb8b71cd2b069b6627fe28f5acf91912009",
+      "round4_claims_all_match": true
+    },
+    {
+      "kind": "v3_v4_exact_tree_comparison",
+      "differing_file_count": 1,
+      "changed_file": "docs/research/kdd-data-agent-workshop/reviews/2026-08-16-opus5-m0-alignment/m0-m2-build-alignment-packet.md",
+      "removed_line_count": 1,
+      "added_line_count": 1,
+      "removed_text": "This packet does not broaden the separate local fixture-backed M0 authorization. It does not grant production access, start M1/M2 implementation, approve a source, close P2/P3/P4, approve a Flight, establish a deadline, commit code, push a branch, open a PR, deploy, roll back, send a message, publish a document, or apply a candidate diff.",
+      "replacement_text": "This packet itself grants no implementation authority. The prior continuation authorization is exhausted, and any future local fixture-backed M0 slice requires a new exact-digest Owner start receipt. It does not grant production access, start M1/M2 implementation, approve a source, close P2/P3/P4, approve a Flight, establish a deadline, commit code, push a branch, open a PR, deploy, roll back, send a message, publish a document, or apply a candidate diff.",
+      "other_candidate_bytes_changed": false,
+      "first_four_file_digests_equal_v3": true,
+      "v3_packet_sha256": "4b3c5293a79536f2a75f7070d4de700a21c507a5e6eb86058357f183f559affc",
+      "v4_packet_sha256": "30723c521e5ee67596af56ef2b2bfcb8b71cd2b069b6627fe28f5acf91912009"
+    },
+    {
+      "kind": "regression_results",
+      "v3_rejection_removed_without_equivalent_presupposition": true,
+      "d1_d2_d3_all_five_documents": "pass",
+      "check14_pending_nonconformant_seam_all_five_documents": true,
+      "source_or_transform_independence_topology_selected": false,
+      "planning_goal_m0_main_deliverable_and_future_receipt_preserved": true,
+      "m0_f1_f5_authorized": false,
+      "production_authorized": false,
+      "m1_m2_authorized": false,
+      "mutation_deployment_or_publication_authorized": false,
+      "committee_acceptance_granted": false
+    },
+    {
+      "kind": "val_registry",
+      "packet_row_count": 26,
+      "packet_unique_id_count": 26,
+      "authoritative_mapping_row_count": 26,
+      "authoritative_mapping_unique_count": 26,
+      "exact_set_match": true,
+      "missing_ids": [],
+      "extra_ids": [],
+      "duplicate_mapping_ids": []
+    },
+    {
+      "kind": "open_state_and_mechanical_checks",
+      "b3_open": true,
+      "m18_open": true,
+      "m19_open": true,
+      "m20_open": true,
+      "historical_2f1001_occurrence_count": 0,
+      "local_markdown_links_checked": 69,
+      "local_markdown_link_failures": 0,
+      "headings_metadata_and_terminology_usable": true
+    },
+    {
+      "kind": "live_inputs_unchanged",
+      "ce_plan_sha256": "52ce2763a365eb35ea884dfbc7f19b8b3d012b85edac544a21b356638126499c",
+      "eval_acceptance_plan_sha256": "5dce10ca451f7ccbbf5d86896cefed2b8dd8a5b5cae480da4d3ea030d5603194",
+      "architecture_spec_sha256": "3b20c93859b78074b653d375fc29f60bd40993b3f3bcb4ee2ff481e8ba8706b8",
+      "sequencing_sha256": "1d42e67c0ba5e2a1799960a3e151b12fa847a419f13b7a9f63362366dc3a29ee",
+      "packet_sha256": "67c844d10dcafcf2637388bf579dfcd9866d7d69ea6f4d3b456fd6b6b15dfcfa"
+    },
+    {
+      "kind": "prior_artifacts_unchanged",
+      "v3_independent_review_sha256": "775069ece61268ff369b318885f4af02ae23e03c2e292d9d2cc5ab78ee8904f4",
+      "v3_independent_review_status_sha256": "fdd94a6375bb9da63f3e3f06f7ed481ac03e8e76e9efbfef15129be589cb5759",
+      "round4_disposition_sha256": "acd863cb7537a43361a496aafb28d8ce24501a458cd366d0c84137434af6d07d",
+      "status_round4_sha256": "f3c9ae991aaabc3765f2d494e1554aab6124c7f24019682afbf29da8ddeb5748"
+    },
+    {
+      "kind": "scope_boundary",
+      "subagents_or_reviewer_lanes_started_by_this_run": 0,
+      "m0_units_started": 0,
+      "canonical_or_phase_a_files_modified": 0,
+      "patches_or_prior_artifacts_modified": 0,
+      "git_state_modified": false,
+      "external_systems_accessed": 0,
+      "disposable_copies_removed": true
+    }
+  ],
+  "next_step": "The Owner may review the exact v4 candidate for canonical writeback. Do not apply it without separate Owner authority. Canonical writeback would still not start M0-F1-M0-F5; a new bounded exact-digest Owner start receipt remains required, and Check 14 remains pending.",
+  "updated_at": "2026-08-17T21:12:24-07:00"
+}

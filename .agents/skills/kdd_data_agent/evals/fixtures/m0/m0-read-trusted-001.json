@@ -1,0 +1,65 @@
+{
+  "schema_version": "m0-fixture-read/v0",
+  "case_id": "m0-read-trusted-001",
+  "declared_outcome": "trusted",
+  "source": {
+    "source_id": "fixture-metric-store",
+    "source_kind": "synthetic_metric_store",
+    "locator": "synthetic://metric-store/exp-1001/primary-read",
+    "snapshot_id": "snap-2026-08-16-0001",
+    "owner": "synthetic-experiment-platform-team"
+  },
+  "authorization": {
+    "state": "authorized",
+    "recipient_scope": "m0-local-review",
+    "redaction": "not_required"
+  },
+  "observed_interval": {
+    "start": "2026-08-01T00:00:00+00:00",
+    "end": "2026-08-15T00:00:00+00:00"
+  },
+  "recorded_at": "2026-08-16T00:00:00+00:00",
+  "body": {
+    "experiment_id": "exp-1001",
+    "variant_ids": ["control", "treatment"],
+    "metric_name": "synthetic_click_through_rate",
+    "metric_definition_version": "v3",
+    "source_version": "fixture-source/v1",
+    "cuped_mode": "unadjusted",
+    "numerator": 128400,
+    "denominator": 1004000,
+    "value": 0.1278884462151394,
+    "unit": "ratio",
+    "assignment_unit": "user",
+    "analysis_unit": "user",
+    "estimator": "difference_in_means",
+    "variance_method": "delta_method",
+    "exposure_counts": {"control": 502100, "treatment": 501900},
+    "window": {"start": "2026-08-01T00:00:00+00:00", "end": "2026-08-15T00:00:00+00:00"},
+    "check_observations": {
+      "CHK-01": {"flight_id": "flight-fixture-001", "contract_version": "experiment-read-contract/v1"},
+      "CHK-02": {"observed_runtime_units": 10},
+      "CHK-03": {"metric_id": "synthetic_click_through_rate", "definition_version": "v3", "role": "decision", "policy_id": "decision-metric-policy/v1"},
+      "CHK-04": {"assignment_unit": "user", "analysis_unit": "user", "metric_unit": "ratio", "variance_method": "delta_method/v1"},
+      "CHK-05": {"arm_ids": ["control", "treatment"], "exposure_counts": {"control": 502100, "treatment": 501900}},
+      "CHK-06": {"observed_counts": {"control": 502100, "treatment": 501900}, "expected_proportions": {"control": 0.5, "treatment": 0.5}, "preregistered_alpha": 0.05},
+      "CHK-07": {"population": "eligible fixture queries", "eligibility": "preregistered fixture eligibility/v1", "exclusions": ["bot traffic"], "tenant_scope": "fixture-tenant", "surface": "fixture-search", "locale": "en-US"},
+      "CHK-08": {"numerator": 128400, "denominator": 1004000, "value": 0.1278884462151394, "operation": "numerator_over_denominator", "join_keys": ["query_id"], "unit": "ratio"},
+      "CHK-09": {"page_count": 1, "expected_page_count": 1, "partial_read": false, "late_arrival_count": 0, "snapshot_id": "snap-2026-08-16-0001"},
+      "CHK-10": {"estimator": "difference_in_means", "variance_method": "delta_method/v1"},
+      "CHK-11": {"reported_cuped_mode": "unadjusted", "registered_cuped_mode": "unadjusted"},
+      "CHK-12": {"source_id": "fixture-metric-store", "snapshot_id": "snap-2026-08-16-0001", "source_version": "fixture-source/v1", "source_owner": "synthetic-experiment-platform-team", "metric_owner": "metric-owner"},
+      "CHK-13": {"primary_value": 0.1278884462151394, "scorecard_value": 0.1278884462151394, "unit": "ratio"},
+      "CHK-14": {"comparison_rule_id": "m0-comparison-rule/v1", "independence_class": "independent_transform"},
+      "CHK-15": {"contract_source_version": "fixture-source/v1", "observed_source_version": "fixture-source/v1", "change_event_ids": []},
+      "CHK-16": {"recipient_scope": "m0-local-review", "retention_rule_id": "fixture-retention/v1", "load_limit_rule_id": "fixture-load/v1", "halt_rule_id": "fixture-halt/v1", "export_rule_id": "fixture-export/v1"},
+      "CHK-17": {"source_id": "fixture-metric-store", "snapshot_id": "snap-2026-08-16-0001", "window": {"start": "2026-08-01T00:00:00+00:00", "end": "2026-08-15T00:00:00+00:00"}, "tenant_scope": "fixture-tenant"},
+      "CHK-18": {"open_disagreement_ids": [], "open_gap_check_ids": []},
+      "CHK-19": {"sufficiency_kind": "runtime_only", "applicability_rule_id": "m0-alignment-v1#runtime-only-applicability"}
+    }
+  },
+  "coverage_gaps": [],
+  "disagreements": [],
+  "expected_final_readiness": "alignment_pending",
+  "notes": "Complete authorized read of a synthetic primary metric. The body is a raw source payload, not an ExperimentReadContract; the contract field set is SEAM-M0-04-CONTRACT-FIELDS."
+}

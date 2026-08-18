@@ -1,0 +1,30 @@
+<!doctype html>
+<!-- PROTOTYPE / THROWAWAY — visual QA evidence only. -->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reference / implementation comparison</title>
+  <style>
+    * { box-sizing: border-box; }
+    html, body { margin: 0; min-height: 100%; background: #e9e7e1; color: #202326; font-family: "Avenir Next", Arial, sans-serif; }
+    header { height: 50px; padding: 0 18px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #c9c6be; background: #fbfaf7; }
+    h1 { margin: 0; font-size: 14px; }
+    header span { font: 9px "SF Mono", monospace; color: #666; }
+    main { height: calc(100vh - 50px); padding: 12px; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    figure { min-width: 0; margin: 0; display: grid; grid-template-rows: 24px minmax(0, 1fr); border: 1px solid #c9c6be; background: #fbfaf7; }
+    figcaption { padding: 6px 9px; border-bottom: 1px solid #c9c6be; color: #555; font: 9px "SF Mono", monospace; }
+    img { width: 100%; height: 100%; display: block; object-fit: contain; object-position: top center; background: white; }
+  </style>
+</head>
+<body>
+  <header><h1>Owner-selected contract / final implementation</h1><span id="route-label"></span></header>
+  <main><figure><figcaption>REFERENCE</figcaption><img id="reference" alt="Owner-selected route reference"></figure><figure><figcaption>IMPLEMENTATION · 1586 × 992</figcaption><img id="implementation" alt="Final route implementation"></figure></main>
+  <script>
+    const route = ["review", "claims", "verify", "trace"].includes(new URLSearchParams(location.search).get("route")) ? new URLSearchParams(location.search).get("route") : "review";
+    document.querySelector("#route-label").textContent = route.toUpperCase();
+    document.querySelector("#reference").src = `reference-assets/owner-selected-iteration/${route}.png?rev=3`;
+    document.querySelector("#implementation").src = `review-artifacts/reconstruction-final-desktop-${route}.png?rev=3`;
+  </script>
+</body>
+</html>

@@ -1,0 +1,127 @@
+{
+  "reviewer": "Claude Code Fable 5 (lead adversarial reviewer)",
+  "model": "claude-fable-5",
+  "effort": "high",
+  "status": "done_blocked",
+  "verdict": "BLOCKED",
+  "reviewed_packet_path": "docs/research/kdd-data-agent-workshop/reviews/2026-08-16-opus5-m0-alignment/m0-m2-build-alignment-packet.md",
+  "reviewed_packet_sha256": "40c7234f3c0d85f18ebfba656e7aec2ab5ab71b86451a077ecad340eac779396",
+  "packet_changed_during_review": {
+    "observed_at_local": "2026-08-17T19:44:57-07:00",
+    "new_sha256": "67c844d10dcafcf2637388bf579dfcd9866d7d69ea6f4d3b456fd6b6b15dfcfa",
+    "new_size_bytes": 31232,
+    "other_controlling_files_changed": [
+      "docs/research/kdd-data-agent-workshop/reviews/2026-08-16-opus5-m0-alignment/owner-alignment-record.md",
+      "docs/research/kdd-data-agent-workshop/planning-decision-packet.md",
+      "docs/research/kdd-data-agent-workshop/eval-acceptance-plan.md",
+      "docs/research/kdd-data-agent-workshop/implementation-sequencing.md",
+      "docs/research/kdd-data-agent-workshop/final-architecture-spec.md",
+      "docs/plans/2026-08-12-001-feat-kdd-data-agent-greenfield-plan.md"
+    ],
+    "new_bytes_reviewed": false
+  },
+  "branch": "codex/kdd-data-agent-practices-research",
+  "head": "28cbbda6e4d4d7f08134952d38433e52d3ee8768",
+  "phase_a_package_sha256": "2f1001b93b19b2318c4c6419205ed2f7778ac23c02533e78a0c0899f15bf7d1e",
+  "phase_a_package_sha256_method": "sha256 over sorted lines '<sha256>  <repo-relative path>\\n' for the 42 files under .agents/skills/kdd_data_agent excluding __pycache__ and .pytest_cache",
+  "phase_a_reproduced": {
+    "tests": "225 passed from repo root, package root, and external cwd",
+    "replay": "run sha256:7837c3e6819052870299c7e0f82362680834562fb6d2e8c0f69310721c044375, log sha256:7221d8a458fb810839706a95e59d4004baa3d4048e4ac068a114bca8e8579ce2, build receipt sha256:63ba40745a6caca6f24bc7d20b29e38a18cc385c1976173c90ead7a1a6be95b1 identical across PYTHONHASHSEED 0/1/12345/987654321"
+  },
+  "phase1_report_path": "docs/research/kdd-data-agent-workshop/reviews/2026-08-17-fable5-m0-adversarial-review/fable5-phase1-independent-findings.md",
+  "phase1_report_sha256": "e4a634686f9a01796a73102228742495793e1c16d1c9207969bdf751f4492654",
+  "phase1_sealed_at": "2026-08-18T07:21:42Z",
+  "subagents_used": 5,
+  "workflow_lanes_used": 0,
+  "subagent_roster": [
+    {
+      "lane": "lane1-mechanical",
+      "model": "sonnet",
+      "status": "delivered"
+    },
+    {
+      "lane": "lane2-contract",
+      "model": "opus",
+      "status": "delivered"
+    },
+    {
+      "lane": "lane3-phasea",
+      "model": "opus",
+      "status": "no_report_delivered_session_limit; scripts re-run by Fable"
+    },
+    {
+      "lane": "lane4-stats-eval",
+      "model": "opus",
+      "status": "delivered_after_nudge"
+    },
+    {
+      "lane": "lane5-workflow-transfer",
+      "model": "opus",
+      "status": "no_report_delivered_session_limit; scope performed by Fable"
+    }
+  ],
+  "severity_counts_phase1": {
+    "BLOCKER": 4,
+    "MAJOR": 16,
+    "MINOR": 11,
+    "NOTE": 10
+  },
+  "opus_comparison_status": "completed; opus_review=m0-freeze-opus5-adversarial-review.md (session_01YAshweqBjaqSc7S2SfufFS, ACCEPT_WITH_CHANGES on 40c7234f, 3 BLOCKER/7 MAJOR); all three Opus BLOCKERs are inside the Fable set (FB-03, FB-04, FB-01); Fable-only coverage: FB-05 scanner escapes, FB-02, FB-07, FB-08, FB-10, FB-11, FB-13..FB-18; conflicts resolved: arm parity ruled M0 by Owner D2 (Opus position); severity-only differences on MAJOR-3/MAJOR-5",
+  "blocked_by": [
+    "packet bytes changed during review (40c7234f -> 67c844d1 at 2026-08-17T19:44:57-07:00) together with owner record, PDP, spec, sequencing, eval plan and CE plan; no verdict transferred across the change",
+    "current candidate 67c844d1 predates and does not encode Owner decisions D1-D6 and S1-S8 (architecture-decision-ledger.md); a new packet revision is required before any freeze",
+    "new Owner start authorization required for M0-F1..M0-F5 (the packet itself now says so)"
+  ],
+  "allowed_writes": [
+    "docs/research/kdd-data-agent-workshop/reviews/2026-08-17-fable5-m0-adversarial-review/fable5-phase1-independent-findings.md",
+    "docs/research/kdd-data-agent-workshop/reviews/2026-08-17-fable5-m0-adversarial-review/fable5-final-adversarial-review.md",
+    "docs/research/kdd-data-agent-workshop/reviews/2026-08-17-fable5-m0-adversarial-review/fable5-review-status.json",
+    "docs/research/kdd-data-agent-workshop/reviews/2026-08-17-fable5-m0-adversarial-review/steelman-owner-decisions-review-status.json (authorized by handoff kdd-m0-fable-adversarial-steelman-delta-20260818)"
+  ],
+  "forbidden_actions": [
+    "modify product or agent source code",
+    "modify .agents/skills/kdd_data_agent/",
+    "modify tests or fixtures",
+    "modify controlling architecture, planning, policy, evaluation, or sequencing documents",
+    "modify Git state, branches, commits, remotes, or pull requests",
+    "access production systems, credentials, datasets, or external services",
+    "freeze the packet, authorize implementation, or start M0-F1 through M0-F5"
+  ],
+  "disclosures": [
+    "artifacts authored under the job scratch directory and copied into the review directory with cp because the background-session guard blocks Write/Edit without a worktree, and a worktree would change Git state and lack the untracked review directory",
+    "OMC hook created .omc/state files inside .agents/skills/kdd_data_agent during Bash cd (this session and one lane); removed by Fable; package aggregate unchanged before and after",
+    "one line of m0-freeze-opus5-review-status.json reached Fable via a lane-1 grep before sealing (B3 open, MAJOR-6); ~10 grep lines of m0-freeze-codex-fix-handoff.md reached lane 2; disclosed in the Phase I report"
+  ],
+  "updated_at": "2026-08-18T07:32:56Z",
+  "verdict_detail": {
+    "on_40c7234f": "not freezable as written; ACCEPT_WITH_CHANGES conditional on FB-01..FB-04 fixes plus Owner decisions (now met by D3/D5) and a new start authorization",
+    "on_67c844d1": "not a freeze candidate: superseded by Owner D1-D6/S1-S8; conflicts with D3; none of S1-S8 present; residual FB-01/07/08/09/10/11/18/19 open",
+    "phase_a": "PASS_WITH_GAPS confirmed independently (Fable and Opus); scanner claim must be narrowed (FB-05); four unwired guards; not production authorization, not Committee acceptance"
+  },
+  "final_report_path": "docs/research/kdd-data-agent-workshop/reviews/2026-08-17-fable5-m0-adversarial-review/fable5-final-adversarial-review.md",
+  "severity_counts_delta": {
+    "BLOCKER": 1,
+    "MAJOR": 5,
+    "MINOR": 1
+  },
+  "second_review_note": "a second freeze review by the Phase A author session b9d777ba (m0-freeze-codex-fix-handoff.md, 'zero blockers', COI-declined Q11/Q12) was overwritten at the same paths; its 8 edits plus the Opus blocker fixes were applied by the orchestrator to produce 67c844d1",
+  "owner_decisions_unresolved": [
+    "first-Flight core material-check set content and ownership (F20 pending Owner Q6)",
+    "revalidation owner on source/definition migration (profile item 3)",
+    "admissible human-judgment challenge streams and rubric owner",
+    "Committee-facing statement that decision_grade asserts validity only",
+    "commit authorization for the Continuity Checkpoint before 2026-08-24",
+    "confirmation of facilitator rulings F1-F22 at freeze"
+  ],
+  "remaining_gates": [
+    "P2",
+    "P3",
+    "P4",
+    "Experiment Review Committee acceptance",
+    "new Owner start receipt for M0-F1..M0-F5",
+    "S1 production-backed M0 completion run on the company laptop",
+    "B3 inventory rows, M18, M19, M20"
+  ],
+  "delta_handoff_status_path": "docs/research/kdd-data-agent-workshop/reviews/2026-08-17-fable5-m0-adversarial-review/steelman-owner-decisions-review-status.json",
+  "final_report_sha256": "70ce33c69751cd7e34a107a157c6dd13a69e7af8f4913f51014b6d87e19a30ec"
+}

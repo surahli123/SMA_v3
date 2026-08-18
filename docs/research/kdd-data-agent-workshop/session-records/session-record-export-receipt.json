@@ -1,0 +1,107 @@
+{
+  "schema_version": "1.0",
+  "source_thread_id": "019ff3f9-ee51-7e32-937a-85fd9be2226a",
+  "planning_task_id": "019ff40c-ce33-7b71-83c6-61b6b24e5b8c",
+  "export_date": "2026-08-12",
+  "coverage": {
+    "available_timestamp_start_utc": "2026-08-12T03:38:27.787Z",
+    "available_timestamp_end_utc_at_audit_request": "2026-08-12T15:44:08Z",
+    "full_record_scope": "Substantive Grill discussion through explicit Owner confirmation that Grill ended, followed by bounded Wayfinder charting, canonical-contract resolution, and remaining-frontier routing.",
+    "source_parse": {
+      "parse_errors": 0,
+      "user_or_delegated_input_events": 69,
+      "assistant_text_events_observed_before_export_work": 116,
+      "same_task_session_files_audited": 8,
+      "authoritative_timeline_source": "The main consolidated Planning-task session file, supplemented only by visible task history where explicitly marked.",
+      "continuation_file_result": "Seven same-task continuation files were audited. They were overlapping replays or bounded continuations and did not supply a safe replacement timeline.",
+      "note": "The consolidated session continued during export and audit, so later recounts may contain additional events. Counts above describe the initial inventory used to establish extraction coverage."
+    },
+    "turn_numbers_available": false,
+    "event_timestamps_available": true
+  },
+  "outputs": [
+    "docs/research/kdd-data-agent-workshop/session-records/grill-me-full-session-record.md",
+    "docs/research/kdd-data-agent-workshop/session-records/grill-me-decision-log.md",
+    "docs/research/kdd-data-agent-workshop/session-records/session-record-export-receipt.json"
+  ],
+  "omitted_categories": [
+    "hidden chain-of-thought and internal reasoning",
+    "tool calls, tool results, and tool-internal traces",
+    "system and developer prompts unrelated to the product decisions",
+    "secrets, credentials, environment variables, and authentication material",
+    "machine-local home paths, temporary paths, raw audio paths, and transcript file paths",
+    "unrelated coordination after the bounded Wayfinder follow-through",
+    "repeated restatements that did not change a question, answer, correction, or decision"
+  ],
+  "coverage_gaps": [
+    {
+      "kind": "missing_intervening_owner_event",
+      "description": "At least one facilitator turn records an Owner confirmation although the immediately preceding Owner reply is absent from the consolidated skeleton. The Markdown record marks material instances and does not invent a quotation or timestamp."
+    },
+    {
+      "kind": "visible_history_not_in_consolidated_skeleton",
+      "description": "The explicit Owner request to confirm that the Grill was finished is present in the visible task history supplied to this task but absent from the consolidated JSONL skeleton. The record preserves the available wording and marks the source limitation."
+    },
+    {
+      "kind": "overlapping_continuation_files",
+      "description": "Seven additional files share the Planning task identity. They contain overlapping replay or bounded continuation content and cannot be concatenated without duplication or false timestamps."
+    },
+    {
+      "kind": "event_level_not_turn_level",
+      "description": "The source provides event timestamps but no stable human-readable turn numbering."
+    },
+    {
+      "kind": "consolidated_repetition",
+      "description": "Repeated prompts interrupted by delegated research updates are consolidated while preserving the substantive question, recommendation, correction, answer, and ruling."
+    },
+    {
+      "kind": "bounded_wayfinder_scope",
+      "description": "The full chronological treatment ends at Grill closure. Later Wayfinder content is limited to map creation, the canonical contract resolution, and routing of the remaining frontier."
+    }
+  ],
+  "checks": {
+    "english_only": {
+      "status": "pass",
+      "method": "CJK code-point scan across all three outputs"
+    },
+    "absolute_home_path_scrub": {
+      "status": "pass",
+      "method": "Scan for macOS absolute home prefixes, tilde-home prefixes, and local file URI prefixes"
+    },
+    "obvious_secret_scan": {
+      "status": "pass",
+      "method": "Pattern scan for common token, key, password, authorization, and private-key forms"
+    },
+    "json_parse": {
+      "status": "pass"
+    },
+    "markdown_local_links": {
+      "status": "pass"
+    },
+    "git_diff_check": {
+      "status": "pass"
+    }
+  },
+  "content_guarantees": {
+    "canonical_decisions_changed": false,
+    "wayfinder_ticket_statuses_changed": false,
+    "implementation_changed": false,
+    "commit_push_or_pr_performed": false,
+    "protected_agent_paths_touched": false
+  },
+  "audit": {
+    "audit_date": "2026-08-12",
+    "result": "updated",
+    "substantive_additions": [
+      "primary-source and competition-practice research corrections",
+      "human-gate timeout fail-closed decision",
+      "strict Gate 0-7 discussion and authority boundary",
+      "ASR evidence correction",
+      "Champion and fourth-place graph and control findings",
+      "hard evaluation failure examples",
+      "explicit four-ticket Wayfinder frontier",
+      "source coverage across the consolidated and continuation records"
+    ],
+    "ticket_states_changed": false
+  }
+}

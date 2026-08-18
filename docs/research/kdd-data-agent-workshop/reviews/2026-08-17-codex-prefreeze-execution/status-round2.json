@@ -1,0 +1,91 @@
+{
+  "handoff_id": "kdd-m0-prefreeze-execution-round2-20260817",
+  "status": "completed_unapplied_candidate_not_authorized",
+  "summary": "Completed one bounded Round 2 follow-up. Produced a superseding unapplied patch and disposition that preserve D1-D3, remove stale live-authorization claims, require a new exact-digest Owner start receipt before M0-F1-M0-F5, add one authoritative ownership mapping for all 26 active VAL IDs, keep B3/M18/M19/M20 open, and leave check 14 pending the Owner/Fable architecture ruling. No canonical document, code, test, fixture, Git state, Round 1 artifact, production state, or external state was changed.",
+  "repository": {
+    "branch": "codex/kdd-data-agent-practices-research",
+    "head": "28cbbda6e4d4d7f08134952d38433e52d3ee8768",
+    "dirty_worktree_preserved": true
+  },
+  "authority_boundary": {
+    "candidate_applied": false,
+    "freeze_or_acceptance": false,
+    "implementation_authorized": false,
+    "production_authorized": false,
+    "required_next_start": "A new Owner authorization and bounded receipt binding the accepted packet path, revision, SHA-256, active-time cap, run/read/tool cap, expiry, and halt owner is required before M0-F1-M0-F5.",
+    "check_14": "pending Owner/Fable decision on the independent-recomputation architecture"
+  },
+  "observed_live_digests": {
+    "packet_sha256": "67c844d10dcafcf2637388bf579dfcd9866d7d69ea6f4d3b456fd6b6b15dfcfa",
+    "architecture_spec_sha256": "3b20c93859b78074b653d375fc29f60bd40993b3f3bcb4ee2ff481e8ba8706b8",
+    "ce_plan_sha256": "52ce2763a365eb35ea884dfbc7f19b8b3d012b85edac544a21b356638126499c",
+    "sequencing_sha256": "1d42e67c0ba5e2a1799960a3e151b12fa847a419f13b7a9f63362366dc3a29ee",
+    "eval_acceptance_plan_sha256": "5dce10ca451f7ccbbf5d86896cefed2b8dd8a5b5cae480da4d3ea030d5603194",
+    "canonical_live_digests_unchanged": true,
+    "round1_patch_sha256": "6c17123aacfff7d1c867f3fee33d9873cf3d13195b89328b846b67f2cc309845",
+    "round1_artifacts_changed": false
+  },
+  "digest_contract": {
+    "historical_phase_a_aggregate_prefix": "2f1001",
+    "current_observed_truth": false,
+    "mismatch": "The historical aggregate is not reproducible from the prior published command as a current binding algorithm.",
+    "future_start_binding": "unresolved pending Opus Q11/Q12 and a newly specified exact manifest algorithm",
+    "historical_value_present_in_candidate_canonical_bytes": false
+  },
+  "candidate_post_apply_digests": {
+    "packet_sha256": "74d77bbb4fce84099d951c58f2f55cf695c3e9ffccb713e929e330e068ffd264",
+    "architecture_spec_sha256": "04285c0eb0a008f573a5c8b872ca7b184182413ea3b7b7dfa356cd2c7b0d09fa",
+    "sequencing_sha256": "ae8f935b24af65ef90b1a1a5e2d01e38c08bcb9dac1f6310f30c33151596e946",
+    "ce_plan_sha256": "da78980c2a1d5204c14e9f8ff824e60bd775cd12a0dcd604d813433c89e9d9d9",
+    "eval_acceptance_plan_sha256": "ff01fcd439b482d752f5766d6560faad819e113bc5719b142fd18137b63f5b91"
+  },
+  "outputs": {
+    "candidate_patch": {
+      "path": "docs/research/kdd-data-agent-workshop/reviews/2026-08-17-codex-prefreeze-execution/candidate-canonical-writeback-v2.patch",
+      "sha256": "54b386f12d0fc9fc80dbc263404db1bcc7796f030fddddb5fda53c827602286b",
+      "applied": false
+    },
+    "disposition": {
+      "path": "docs/research/kdd-data-agent-workshop/reviews/2026-08-17-codex-prefreeze-execution/round2-disposition.md",
+      "sha256": "c96904583b0ba836691cf77046aaa2499d376deb9140d79f16a4112067193d1d"
+    },
+    "status": {
+      "path": "docs/research/kdd-data-agent-workshop/reviews/2026-08-17-codex-prefreeze-execution/status-round2.json"
+    }
+  },
+  "verification": {
+    "git_apply_check_whitespace_error_all": "pass",
+    "disposable_copy_apply": "pass",
+    "post_apply_digest_manifest_recorded": true,
+    "active_packet_val_id_count": 26,
+    "active_packet_val_id_unique_count": 26,
+    "authoritative_mapping_row_count": 26,
+    "authoritative_mapping_unique_count": 26,
+    "authoritative_mapping_exact_set_match": true,
+    "authoritative_mapping_missing_ids": [],
+    "authoritative_mapping_extra_ids": [],
+    "authoritative_mapping_duplicate_ids": [],
+    "stale_live_authorization_exact_phrase_count": 0,
+    "check_14_pending_owner_fable_explicit": true,
+    "b3_open": true,
+    "m18_open": true,
+    "m19_open": true,
+    "m20_open": true,
+    "canonical_live_digests_unchanged": true,
+    "tests_run": false,
+    "tests_not_run_reason": "This bounded run produced review-only documents and prohibited product, test, and fixture changes."
+  },
+  "remaining_gates": [
+    "Independent review of the exact v2 candidate bytes",
+    "Owner/Fable ruling on check 14 independent recomputation architecture",
+    "Opus Q11/Q12 resolution of the future Phase A digest and manifest contract",
+    "New exact-digest Owner authorization and bounded start receipt for M0-F1-M0-F5",
+    "B3 per-asset reuse inventory",
+    "M18 external-sharing security action",
+    "M19 privacy/labor and query-authority action if endpoint collection is pursued",
+    "M20 frozen capture/pin predicate and fail-closed unsupported-host proof",
+    "P2 production authority, P3 interaction acceptance, P4 evaluation/gold/calibration, M1/M2 starts, and Committee Acceptance"
+  ],
+  "next_step": "Review the exact v2 patch and disposition. Do not apply or implement from this package. Resolve check 14 and Opus Q11/Q12, then obtain a new exact-digest bounded Owner start receipt before any M0-F1-M0-F5 work.",
+  "updated_at": "2026-08-17T20:30:43-07:00"
+}

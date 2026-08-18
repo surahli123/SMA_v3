@@ -1,0 +1,38 @@
+{
+  "schema_version": "m0-f1-f5-implementation-status/v1",
+  "terminal_status": "COMPLETE_LOCAL_M0_EVIDENCE",
+  "started_at": "2026-08-18T01:30:04-07:00",
+  "completed_at": "2026-08-18T01:53:30-07:00",
+  "binding": {
+    "packet_revision": "m0-alignment-v1",
+    "packet_sha256": "82747da96d66dd8851c03edc837f38597264a07794a2b145cd530ca0a5f07b19",
+    "architecture_revision": "kdd-data-agent-architecture-v1",
+    "architecture_sha256": "9508b42979b5f708d3b0be7016ed414fd0b4c28d531b75fd0a4710eb46df8fc1"
+  },
+  "package": {
+    "before_aggregate_sha256": "2f1001b93b19b2318c4c6419205ed2f7778ac23c02533e78a0c0899f15bf7d1e",
+    "after_aggregate_sha256": "30d6b47ca55f1444ef8ba596aedabd90db5f21af58e60d53ad2320a5fc94c196",
+    "trusted_packet_sha256": "51b7bc3bdeebb9422d022dcf293b63bb29d10d21a34b305bbc7a6a8e44a4f0f9",
+    "trusted_packet_bytes": 18740
+  },
+  "verification": {
+    "tests_passed": 314,
+    "working_directories": 3,
+    "hash_seed_processes": 5,
+    "full_suite_invocations": 5,
+    "production_reads": 0,
+    "tool_interactions_manual_count": 60
+  },
+  "authority_not_established": [
+    "production_authorization",
+    "production_backed_m0_capability",
+    "P2",
+    "P3",
+    "P4",
+    "M1",
+    "M2",
+    "deployment",
+    "publication",
+    "committee_acceptance"
+  ]
+}

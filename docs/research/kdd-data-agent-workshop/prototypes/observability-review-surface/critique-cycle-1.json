@@ -1,0 +1,24 @@
+{
+  "kind": "critique-panel",
+  "iteration": 1,
+  "score": 3.7,
+  "screenshots": {
+    "desktop_review": "review-artifacts/cycle-1-desktop-review.png",
+    "mobile_review": "review-artifacts/cycle-1-mobile-review.png",
+    "desktop_claims": "review-artifacts/cycle-1-desktop-claims.png",
+    "desktop_verify": "review-artifacts/cycle-1-desktop-verify.png"
+  },
+  "axes": {
+    "clarity": {"score": 4.0, "notes": "Review has one obvious action and exposes the blocking contradiction. Claims loses clarity because the full production chain is compressed."},
+    "hierarchy": {"score": 4.0, "notes": "Verdict, blocker, action, and answer path read in order. Prototype state controls remain too visually prominent."},
+    "typography": {"score": 4.1, "notes": "Sans and mono roles are disciplined and the headline breathes. Some graph labels are too small and collide."},
+    "motion": {"score": 3.2, "notes": "Selection feedback exists, but graph re-layout and mobile navigation need refinement."},
+    "brand": {"score": 3.4, "notes": "The evidence-dossier direction is coherent, but the cramped graph and exposed demo controls weaken the precision-instrument character."}
+  },
+  "changes_required": [
+    "Give the graph a wider primary work area and reduce side-column widths.",
+    "Preserve readable graph labels on mobile through horizontal pan.",
+    "Move prototype state examples behind a disclosure.",
+    "Use a fixed mobile mode bar with reserved content space."
+  ]
+}

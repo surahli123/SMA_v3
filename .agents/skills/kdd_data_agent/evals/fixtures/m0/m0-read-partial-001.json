@@ -1,0 +1,49 @@
+{
+  "schema_version": "m0-fixture-read/v0",
+  "case_id": "m0-read-partial-001",
+  "declared_outcome": "partial",
+  "source": {
+    "source_id": "fixture-metric-store",
+    "source_kind": "synthetic_metric_store",
+    "locator": "synthetic://metric-store/exp-1003/primary-read",
+    "snapshot_id": "snap-2026-08-16-0003",
+    "owner": "synthetic-experiment-platform-team"
+  },
+  "authorization": {
+    "state": "authorized",
+    "recipient_scope": "m0-local-review",
+    "redaction": "not_required"
+  },
+  "observed_interval": {
+    "start": "2026-08-01T00:00:00+00:00",
+    "end": "2026-08-09T00:00:00+00:00"
+  },
+  "recorded_at": "2026-08-16T00:00:00+00:00",
+  "body": {
+    "experiment_id": "exp-1003",
+    "variant_ids": ["control", "treatment"],
+    "metric_name": "synthetic_click_through_rate",
+    "metric_definition_version": "v3",
+    "numerator": 61250,
+    "denominator": 502400,
+    "value": 0.12191878980891719,
+    "unit": "ratio",
+    "assignment_unit": "user",
+    "analysis_unit": "user",
+    "estimator": "difference_in_means",
+    "variance_method": "delta_method",
+    "exposure_counts": {"control": 251400, "treatment": 251000},
+    "window": {"start": "2026-08-01T00:00:00+00:00", "end": "2026-08-09T00:00:00+00:00"},
+    "pagination": {"pages_returned": 4, "pages_expected": 7, "next_page_token": "page-5"}
+  },
+  "coverage_gaps": [
+    {
+      "kind": "unchecked_plane",
+      "reason": "Pagination stopped after 4 of 7 pages, so the read covers 2026-08-01 to 2026-08-09 instead of the full requested window through 2026-08-15.",
+      "next_safe_check": "Resume from page-5 and re-read the remaining window before comparing against any reported value."
+    }
+  ],
+  "disagreements": [],
+  "expected_final_readiness": "alignment_pending",
+  "notes": "Authorized but incomplete read. The observed interval reflects what was actually covered, not what was requested."
+}

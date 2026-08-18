@@ -1,0 +1,71 @@
+{
+  "schema_version": "m0-f1-f5-correction-round4-status/v1",
+  "terminal_implementation_state": "CORRECTED_LOCAL_INTEGRITY_EVIDENCE_READY_FOR_INDEPENDENT_REREVIEW",
+  "completed_at": "2026-08-18T04:09:39-07:00",
+  "binding": {
+    "input_package_aggregate_sha256": "f32404705d3c32a9b1e09ba932db080ae1b1e63b6a55132c526457cec9e7c8ab",
+    "corrected_package_aggregate_sha256": "29040a66a97a50a21b02178bf494d378f709bc991aefc6b36ac8ba10294f0a02",
+    "manifest_file_count": 59,
+    "frozen_packet_sha256": "82747da96d66dd8851c03edc837f38597264a07794a2b145cd530ca0a5f07b19",
+    "frozen_architecture_sha256": "9508b42979b5f708d3b0be7016ed414fd0b4c28d531b75fd0a4710eb46df8fc1",
+    "ce_plan_sha256": "2b4bbd3583e2f289303b8e47b255e3b53bd0f3307f0b699b33299b57aa9e1daf",
+    "sequencing_sha256": "8fec2f8c3c3d22aa9dc1b762769673789d007fd74dbbed9c34e5ea88fcd4725b"
+  },
+  "finding_disposition": {
+    "IR-M0-01-RR": "CORRECTED_PENDING_INDEPENDENT_REREVIEW",
+    "IR-M0-TEST-RR": "CORRECTED_PENDING_INDEPENDENT_REREVIEW",
+    "IR-M0-03-RR": "PRESERVED_CORRECTED_IN_LIVE_EVALUATOR",
+    "IR-M0-02": "PRESERVED_CORRECTED",
+    "IR-M0-04": "PRESERVED_CORRECTED",
+    "IR-M0-05": "PLUMBING_PRESERVED_WITH_CORRECTED_SERIALIZATION_DEPENDENCY_PENDING_REREVIEW",
+    "IR-M0-06": "PRESERVED_CORRECTED"
+  },
+  "verification": {
+    "tests_passed": 365,
+    "working_directories": 3,
+    "round3_test_count": 358,
+    "round4_test_count": 365,
+    "round4_cases_added": 7,
+    "tests_removed": 0,
+    "focused_packet_tests_passed": 41,
+    "hash_seeds": ["0", "1", "42", "99991", "random"],
+    "serialized_packet_bytes": 47075,
+    "serialized_packet_sha256": "7327bdb9b280a4b89212bf217b2f6addb40ac8dbd6ba6d46a171ffeb0bfac9cc",
+    "internal_packet_digest": "sha256:652a3d9f18ff980dbd56059e7d699d6914826847f4d675555137ffa2f5b4caa0",
+    "named_semantic_validators": 19,
+    "sealed_corpus_cases": 19,
+    "copied_package_mutation_failures": 5,
+    "capability_tests_passed": 61,
+    "production_reads": 0,
+    "production_capability_expansion": false
+  },
+  "admitted_evidence_integrity": {
+    "typed_payload_serialized": true,
+    "identity_recomputed_at_public_boundary": true,
+    "source_contract_output_observed_relation_verified": true,
+    "none_symmetry_enforced": true,
+    "validator_evidence_binds_verified_payload": true,
+    "secret_or_signature_added": false,
+    "authority_claimed": false
+  },
+  "proof_states": {
+    "phase_a_evidence": "PRESERVED_SEPARATE_NOT_READJUDICATED",
+    "corrected_local_fixture_backed_m0": "READY_FOR_INDEPENDENT_REREVIEW",
+    "production_authorization": "NOT_ESTABLISHED",
+    "production_m0_capability": "NOT_DEMONSTRATED",
+    "P2": "OPEN",
+    "P3": "OPEN",
+    "P4": "OPEN",
+    "M1": "NOT_AUTHORIZED_OR_COMPLETED",
+    "M2": "NOT_AUTHORIZED_OR_COMPLETED",
+    "deployment": "NOT_PERFORMED_OR_AUTHORIZED",
+    "publication": "NOT_PERFORMED_OR_AUTHORIZED",
+    "committee_acceptance": "NOT_ESTABLISHED"
+  },
+  "independent_acceptance_claimed": false,
+  "reviewer_started": false,
+  "git_mutated": false,
+  "commit_created": false,
+  "push_or_pr_performed": false,
+  "external_or_production_access": false
+}

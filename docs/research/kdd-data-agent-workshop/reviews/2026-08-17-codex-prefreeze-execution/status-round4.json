@@ -1,0 +1,115 @@
+{
+  "handoff_id": "kdd-m0-prefreeze-execution-round4-20260817",
+  "status": "completed_unapplied_candidate_not_authorized",
+  "summary": "Completed one bounded Round 4 pre-freeze follow-up. Produced a superseding unapplied v4 patch that is identical to v3 except for the minimum packet correction required by the v3 independent review: the packet itself grants no implementation authority, the prior continuation authorization is exhausted, and any future local fixture-backed M0 slice requires a new exact-digest Owner start receipt. Strict live-base and fresh-disposable application checks passed; all v3 passing areas remain preserved; no semantic assertion or presupposition of live local fixture-backed M0 authority remains. No canonical, Phase A, code, test, fixture, v1-v3 artifact, prior review, Git, production, or external state was changed, and no subagent or M0 unit was started.",
+  "evidence": [
+    {
+      "kind": "repository_binding",
+      "branch": "codex/kdd-data-agent-practices-research",
+      "head": "28cbbda6e4d4d7f08134952d38433e52d3ee8768",
+      "git_state_modified": false
+    },
+    {
+      "kind": "outputs",
+      "candidate_patch": {
+        "path": "docs/research/kdd-data-agent-workshop/reviews/2026-08-17-codex-prefreeze-execution/candidate-canonical-writeback-v4.patch",
+        "sha256": "348252dcbd22d814fec8af4c6a441f46a9ba42b116fe2a895c16882fe489fa3c",
+        "applied": false
+      },
+      "disposition": {
+        "path": "docs/research/kdd-data-agent-workshop/reviews/2026-08-17-codex-prefreeze-execution/round4-disposition.md",
+        "sha256": "acd863cb7537a43361a496aafb28d8ce24501a458cd366d0c84137434af6d07d"
+      },
+      "status_path": "docs/research/kdd-data-agent-workshop/reviews/2026-08-17-codex-prefreeze-execution/status-round4.json"
+    },
+    {
+      "kind": "minimum_correction",
+      "v3_v4_disposable_tree_difference_count": 1,
+      "changed_candidate_file": "docs/research/kdd-data-agent-workshop/reviews/2026-08-16-opus5-m0-alignment/m0-m2-build-alignment-packet.md",
+      "removed_text": "This packet does not broaden the separate local fixture-backed M0 authorization.",
+      "replacement_rule": "This packet itself grants no implementation authority; the prior continuation authorization is exhausted; any future local fixture-backed M0 slice requires a new exact-digest Owner start receipt.",
+      "other_candidate_bytes_changed_from_v3": false
+    },
+    {
+      "kind": "patch_verification",
+      "line_count": 809,
+      "patched_file_count": 5,
+      "insertions": 168,
+      "deletions": 126,
+      "git_apply_check_whitespace_error_all": "pass",
+      "fresh_disposable_check": "pass",
+      "fresh_disposable_apply": "pass",
+      "disposable_copies_removed": true
+    },
+    {
+      "kind": "disposable_post_apply_digests",
+      "ce_plan_sha256": "e8b97b9224c39bbfd2ee1ec25059556febc0cc529e95e4244e6a338c3366b6c4",
+      "eval_acceptance_plan_sha256": "2785fc7f9eab6c20dd030b1b6ab9c0f89a768a2163b52e3884b27fd8db535516",
+      "architecture_spec_sha256": "75bf5f12463e7c686e2bae737754b9437d54600e870b67d634ddadbe93d87507",
+      "sequencing_sha256": "311a4a4aa781029253f764847189b817e9a05d973ce9245035b00001f12bc109",
+      "packet_sha256": "30723c521e5ee67596af56ef2b2bfcb8b71cd2b069b6627fe28f5acf91912009"
+    },
+    {
+      "kind": "live_input_digests_unchanged",
+      "packet_sha256": "67c844d10dcafcf2637388bf579dfcd9866d7d69ea6f4d3b456fd6b6b15dfcfa",
+      "architecture_spec_sha256": "3b20c93859b78074b653d375fc29f60bd40993b3f3bcb4ee2ff481e8ba8706b8",
+      "ce_plan_sha256": "52ce2763a365eb35ea884dfbc7f19b8b3d012b85edac544a21b356638126499c",
+      "sequencing_sha256": "1d42e67c0ba5e2a1799960a3e151b12fa847a419f13b7a9f63362366dc3a29ee",
+      "eval_acceptance_plan_sha256": "5dce10ca451f7ccbbf5d86896cefed2b8dd8a5b5cae480da4d3ea030d5603194"
+    },
+    {
+      "kind": "prior_artifact_digests_unchanged",
+      "v1_patch_sha256": "6c17123aacfff7d1c867f3fee33d9873cf3d13195b89328b846b67f2cc309845",
+      "v2_patch_sha256": "54b386f12d0fc9fc80dbc263404db1bcc7796f030fddddb5fda53c827602286b",
+      "round2_disposition_sha256": "c96904583b0ba836691cf77046aaa2499d376deb9140d79f16a4112067193d1d",
+      "status_round2_sha256": "b2192c1cefc26ae751f1019e330c918733fcef95fa2807dc5cfb481755e1f51f",
+      "v3_patch_sha256": "f85cae49ad6c3b1b2d24b7c217c54c9b4c204fabd111668a76447b31f1f24407",
+      "round3_disposition_sha256": "a8b5e63a6a1f95fd472b5e58871ab84af86e827a0e25fd8dd17b79f902f00115",
+      "status_round3_sha256": "77f9089596925e8836589444296101941e6901c202a331a657c4398499304a0f",
+      "v3_independent_review_sha256": "775069ece61268ff369b318885f4af02ae23e03c2e292d9d2cc5ab78ee8904f4",
+      "v3_independent_review_status_sha256": "fdd94a6375bb9da63f3e3f06f7ed481ac03e8e76e9efbfef15129be589cb5759"
+    },
+    {
+      "kind": "contract_regression",
+      "v3_passing_areas_preserved_by_exact_tree_comparison": true,
+      "d1_d2_d3_preserved": true,
+      "active_packet_val_row_count": 26,
+      "active_packet_val_unique_count": 26,
+      "authoritative_mapping_row_count": 26,
+      "authoritative_mapping_unique_count": 26,
+      "authoritative_mapping_exact_set_match": true,
+      "missing_val_ids": [],
+      "extra_val_ids": [],
+      "duplicate_mapping_ids": [],
+      "b3_open": true,
+      "m18_open": true,
+      "m19_open": true,
+      "m20_open": true,
+      "historical_2f1001_occurrence_count": 0
+    },
+    {
+      "kind": "semantic_scan",
+      "positive_live_local_fixture_m0_authority_assertions_or_presuppositions": 0,
+      "packet_explicit_non_grant_present": true,
+      "packet_prior_continuation_exhausted_present": true,
+      "packet_future_exact_digest_owner_receipt_required_present": true,
+      "check14_pending_owner_fable_in_all_five_documents": true,
+      "check14_candidate_recomputation_seam_in_all_five_documents": true,
+      "check14_explicitly_non_conformant_in_all_five_documents": true,
+      "source_or_transform_independence_topology_selected": false
+    },
+    {
+      "kind": "scope_boundary",
+      "subagents_started": 0,
+      "m0_units_started": 0,
+      "canonical_or_phase_a_files_modified": 0,
+      "code_test_or_fixture_files_modified": 0,
+      "v1_v3_artifacts_modified": 0,
+      "prior_reviews_modified": 0,
+      "external_systems_accessed": 0,
+      "product_tests_run": false
+    }
+  ],
+  "next_step": "Independently review the exact v4 patch and its post-apply digests. Do not apply canonical writeback or start M0-F1-M0-F5 from this candidate. Check 14 remains pending the Owner/Fable architecture ruling, and a new exact-digest Owner start receipt remains required before implementation.",
+  "updated_at": "2026-08-17T21:07:52-07:00"
+}

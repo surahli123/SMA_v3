@@ -1,0 +1,122 @@
+{
+  "schema_version": "m0-f1-f5-correction-round3-independent-rereview-status/v1",
+  "verdict": "REJECT_LOCAL_M0_EVIDENCE",
+  "reviewed_package_aggregate_sha256": "f32404705d3c32a9b1e09ba932db080ae1b1e63b6a55132c526457cec9e7c8ab",
+  "drift_gate": {
+    "required_sha256": "f32404705d3c32a9b1e09ba932db080ae1b1e63b6a55132c526457cec9e7c8ab",
+    "recomputed_sha256": "f32404705d3c32a9b1e09ba932db080ae1b1e63b6a55132c526457cec9e7c8ab",
+    "manifest_file_count": 59,
+    "manifest_matches_after_file_byte_for_byte": true,
+    "result": "PASS"
+  },
+  "supporting_bindings": {
+    "frozen_packet_sha256": "82747da96d66dd8851c03edc837f38597264a07794a2b145cd530ca0a5f07b19",
+    "architecture_sha256": "9508b42979b5f708d3b0be7016ed414fd0b4c28d531b75fd0a4710eb46df8fc1",
+    "ce_plan_sha256": "2b4bbd3583e2f289303b8e47b255e3b53bd0f3307f0b699b33299b57aa9e1daf",
+    "sequencing_plan_sha256": "8fec2f8c3c3d22aa9dc1b762769673789d007fd74dbbed9c34e5ea88fcd4725b"
+  },
+  "verification": {
+    "full_suite": [
+      {"working_directory": "repository_root", "result": "358 passed in 1.12s"},
+      {"working_directory": "package_root", "result": "358 passed in 1.13s"},
+      {"working_directory": "unrelated_private_tmp", "result": "358 passed in 1.11s"}
+    ],
+    "capability_suite": "61 passed in 0.21s",
+    "test_count_reconciliation": {
+      "round2": 344,
+      "round3": 358,
+      "added": 14,
+      "removed": 0,
+      "prior_semantic_test_removed_or_weakened": false
+    },
+    "hash_seeds": ["0", "1", "42", "99991", "random"],
+    "serialized_byte_count": 46628,
+    "serialized_byte_sha256": "47a3e56a7de91895087d2a7ce4437aae48daf39b2abdaf027390d4cc44676ddd",
+    "internal_packet_digest": "sha256:9a421e1c3d003db70e14c6c9a0f4cc0263111e5c31c926b269b2948a8ebf4838",
+    "named_semantic_validators": 19,
+    "all_19_absent_observations_never_pass": true,
+    "all_19_malformed_observations_never_pass": true,
+    "all_19_garbage_observations_never_pass": true,
+    "unique_check_evidence_ids": 19,
+    "unique_validator_receipt_ids": 19,
+    "unauthorized_no_body_result": "CHK-16_FAIL_AND_NOT_PERMITTED",
+    "typed_disagreement_result": "CHK-14_FAIL_AND_NOT_PERMITTED",
+    "same_pipeline_result": "CHK-14_UNKNOWN_AND_NOT_PERMITTED",
+    "sealed_corpus_cases": 19,
+    "sealed_corpus_outcomes": {"decision_grade": 1, "directional_only": 1, "not_permitted": 17},
+    "trivial_baselines_contradicted": true,
+    "decoys_passed": 3,
+    "reviewer_conflict_blocked": true,
+    "typed_hard_vetoes_passed": 6,
+    "fixture_byte_mutation_killed": true,
+    "planted_truth_mutation_killed": true,
+    "trusted_digest_verifier_mutation_killed": true,
+    "relation_verifier_mutation_killed": true,
+    "gap_verifier_mutation_killed": true,
+    "production_adapter_path_absent": true,
+    "declared_capabilities": ["fixture_read", "local_deterministic_compute", "in_memory_append"]
+  },
+  "adversarial_results": {
+    "missing_expected_digest_rejected": true,
+    "mismatched_expected_digest_rejected": true,
+    "fully_resealed_chk05_promotion_against_original_digest_rejected": true,
+    "present_but_wrong_validator_rejected": true,
+    "enumerated_validator_relation_mutations_rejected": 8,
+    "arbitrary_check_evidence_lineage_rejected": true,
+    "gap_field_mutations_rejected": 5,
+    "attacker_admitted_evidence_id_rejected": false
+  },
+  "findings": [
+    {
+      "id": "IR-M0-01-RR",
+      "severity": "BLOCKER",
+      "title": "Serialized admitted-evidence lineage is syntactic, not relationally bound",
+      "anchors": [
+        ".agents/skills/kdd_data_agent/m0/packet.py:314-328",
+        ".agents/skills/kdd_data_agent/m0/packet.py:388-425",
+        ".agents/skills/kdd_data_agent/m0/corrected_evaluator.py:118-136",
+        ".agents/skills/kdd_data_agent/m0/corrected_evaluator.py:485-510"
+      ],
+      "impact": "An attacker-digest packet can make a false typed claim about the admitted evidence record while passing public deserialization.",
+      "minimal_correction": "Serialize and recompute the admitted evidence identity from exact typed fields, or remove the unverifiable claim; bind it into validator evidence identity and add authorized and unauthorized fully resealed regressions."
+    },
+    {
+      "id": "IR-M0-TEST-RR",
+      "severity": "MAJOR",
+      "title": "The Round 3 relational matrix omits admitted-evidence identity",
+      "anchors": [
+        ".agents/skills/kdd_data_agent/tests/test_m0_packet.py:241-292",
+        ".agents/skills/kdd_data_agent/m0/packet.py:389-425"
+      ],
+      "impact": "All 358 tests pass while one mandatory serialized evidence-lineage field remains attacker-controlled under the attacker digest.",
+      "minimal_correction": "Add public-deserializer attacks for arbitrary admitted_evidence_id replacement and unauthorized None-to-digest replacement and require rejection."
+    }
+  ],
+  "finding_disposition": {
+    "IR-M0-01-RR": "REJECTED",
+    "IR-M0-TEST-RR": "REJECTED",
+    "IR-M0-02": "PRESERVED_CORRECTED",
+    "IR-M0-03-RR": "PRESERVED_CORRECTED",
+    "IR-M0-04": "PRESERVED_CORRECTED",
+    "IR-M0-05": "PLUMBING_PRESERVED_WITH_REJECTING_SERIALIZATION_DEPENDENCY",
+    "IR-M0-06": "PRESERVED_CORRECTED"
+  },
+  "proof_boundaries": {
+    "phase_a_evidence": "PRESERVED_SEPARATE_NOT_READJUDICATED",
+    "local_fixture_backed_m0": "REJECTED",
+    "production_authorization": "NOT_ESTABLISHED",
+    "production_m0_capability": "NOT_DEMONSTRATED",
+    "P2": "OPEN",
+    "P3": "OPEN",
+    "P4": "OPEN",
+    "M1": "NOT_AUTHORIZED_OR_COMPLETED",
+    "M2": "NOT_AUTHORIZED_OR_COMPLETED",
+    "deployment": "NOT_PERFORMED_OR_AUTHORIZED",
+    "publication": "NOT_PERFORMED_OR_AUTHORIZED",
+    "committee_acceptance": "NOT_ESTABLISHED"
+  },
+  "implementation_edited": false,
+  "git_mutated": false,
+  "external_or_production_access": false,
+  "independent_acceptance_claimed": false
+}

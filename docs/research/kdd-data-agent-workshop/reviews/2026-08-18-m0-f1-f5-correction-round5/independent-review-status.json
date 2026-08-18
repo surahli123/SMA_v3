@@ -1,0 +1,99 @@
+{
+  "schema_version": "m0-f1-f5-correction-round5-independent-review-status/v1",
+  "completed_at": "2026-08-18T04:43:17-07:00",
+  "verdict": "ACCEPT_LOCAL_M0_EVIDENCE",
+  "scope": "exact_round5_local_fixture_backed_m0_value_integrity_relation_only",
+  "hard_gate": {
+    "manifest_file_count": 59,
+    "package_aggregate_sha256": "9eea3014cb74acc48e9bbd24a486d2b6a5a4a4f57ae76191f42d037a5988b19a",
+    "before_review_manifest_byte_identical": true,
+    "after_review_manifest_byte_identical": true,
+    "frozen_packet_sha256": "82747da96d66dd8851c03edc837f38597264a07794a2b145cd530ca0a5f07b19",
+    "frozen_architecture_sha256": "9508b42979b5f708d3b0be7016ed414fd0b4c28d531b75fd0a4710eb46df8fc1",
+    "ce_plan_sha256": "2b4bbd3583e2f289303b8e47b255e3b53bd0f3307f0b699b33299b57aa9e1daf",
+    "sequencing_plan_sha256": "8fec2f8c3c3d22aa9dc1b762769673789d007fd74dbbed9c34e5ea88fcd4725b",
+    "drift_detected": false
+  },
+  "trust_model": {
+    "transient_canonical_source_body_valid_local_out_of_band_anchor": true,
+    "frozen_contract_makes_packet_output_authoritative_without_source_body": false,
+    "canonical_body_digest_bound_to_admitted_source_receipt": true,
+    "admitted_source_receipt_reference_verified": true,
+    "metric_output_recomputed_through_shared_projection": true,
+    "recomputed_output_compared_exactly": true,
+    "body_serialized": false,
+    "body_returned": false,
+    "cryptographic_authentication_claimed": false,
+    "production_authority_claimed": false
+  },
+  "fresh_attacks": {
+    "required_cases": 6,
+    "rejected_cases": 6,
+    "checked_in_round5_relation_tests_passed": 5,
+    "unexpected_body_symmetry_rejected": true,
+    "independent_projection_mutant_detected": true,
+    "verifier_bypass_mutant_failures": 4,
+    "verifier_bypass_mutant_passes": 1,
+    "fully_resealed_value_attack_survived_verifier_bypass": true
+  },
+  "verification": {
+    "repository_root_tests_passed": 370,
+    "package_root_tests_passed": 370,
+    "unrelated_tmp_tests_passed": 370,
+    "working_directories": 3,
+    "round4_collected_tests": 365,
+    "round5_collected_tests": 370,
+    "node_ids_added": 5,
+    "node_ids_removed": 0,
+    "capability_tests_passed": 61,
+    "focused_preservation_tests_passed": 103,
+    "production_adapter_present": false,
+    "named_semantic_validators": 19,
+    "sealed_corpus_cases_declared": 19,
+    "sealed_corpus_cases_executed": 19,
+    "hard_veto_kinds": 6,
+    "hash_seeds": ["0", "1", "42", "99991", "random"],
+    "hash_seed_outputs_identical": true,
+    "canonical_builder": "kdd_data_agent.tests.canonical_packet_builder:canonical_packet_evidence",
+    "serialized_packet_bytes": 47075,
+    "serialized_packet_sha256": "7327bdb9b280a4b89212bf217b2f6addb40ac8dbd6ba6d46a171ffeb0bfac9cc",
+    "internal_packet_digest": "sha256:652a3d9f18ff980dbd56059e7d699d6914826847f4d675555137ffa2f5b4caa0"
+  },
+  "preserved_relations": {
+    "nineteen_validators": true,
+    "sealed_corpus": true,
+    "trivial_baselines": true,
+    "three_decoys": true,
+    "conflict_and_provenance_cases": true,
+    "six_hard_vetoes": true,
+    "exact_gap_graph": true,
+    "trusted_expected_digest_boundary": true,
+    "round4_admitted_lineage_relations": true
+  },
+  "findings": {
+    "critical": [],
+    "required_changes": [],
+    "residual_in_scope_gaps": []
+  },
+  "proof_boundaries": {
+    "phase_a": "NOT_READJUDICATED",
+    "production_authorization": "NOT_ESTABLISHED",
+    "production_m0_capability": "NOT_DEMONSTRATED",
+    "P2": "OPEN",
+    "P3": "OPEN",
+    "P4": "OPEN",
+    "M1": "NOT_AUTHORIZED_OR_COMPLETED",
+    "M2": "NOT_AUTHORIZED_OR_COMPLETED",
+    "deployment": "NOT_PERFORMED_OR_AUTHORIZED",
+    "publication": "NOT_PERFORMED_OR_AUTHORIZED",
+    "committee_acceptance": "NOT_ESTABLISHED"
+  },
+  "mutations": {
+    "implementation_bytes_modified": false,
+    "frozen_or_canonical_docs_modified": false,
+    "prior_artifacts_modified": false,
+    "git_modified": false,
+    "network_or_external_system_accessed": false,
+    "authorized_report_files_written": 2
+  }
+}

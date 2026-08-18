@@ -1,0 +1,31 @@
+{
+  "schema_version": "m0-executable-corpus/v1",
+  "fixture_byte_sha256": {
+    "m0-read-trusted-001": "4229478fdb45dfd9def7f14db601d807ef66308d73fa0e6a32e457ff4f11b6a4",
+    "m0-read-conflicting-001": "e2693be47f199110dff7e73188a6498204cf566c367eea699612382c3e15d948",
+    "m0-read-stale-001": "1c946222b6be5e1b8360c2382c8340616c36a2438f45911cc72092962e604732",
+    "m0-read-partial-001": "c973487297e8c47c961b056681b3f77a96d75a8d7e552c9001b5e31f1a802221",
+    "m0-read-unauthorized-001": "fbc12db70c155244d52908aebd7e35acc10d208078a0051bf5aa49dd3e1efaff"
+  },
+  "cases": [
+    {"case_id":"m0-trusted","base_fixture":"m0-read-trusted-001","mutation":"none","scenario":"trusted","expected_analysis_use":"decision_grade","provenance":"independent"},
+    {"case_id":"m0-directional","base_fixture":"m0-read-trusted-001","mutation":"pre_runtime","scenario":"pre-runtime directional","expected_analysis_use":"directional_only","provenance":"independent"},
+    {"case_id":"m0-invalid","base_fixture":"m0-read-trusted-001","mutation":"arm_divergence","scenario":"material validity failure","expected_analysis_use":"not_permitted","provenance":"independent"},
+    {"case_id":"m0-materially-unknown","base_fixture":"m0-read-trusted-001","mutation":"missing_check_evidence","scenario":"materiality unknown","expected_analysis_use":"not_permitted","provenance":"independent"},
+    {"case_id":"m0-conflicting","base_fixture":"m0-read-conflicting-001","mutation":"none","scenario":"conflicting reads","expected_analysis_use":"not_permitted","provenance":"independent"},
+    {"case_id":"m0-stale","base_fixture":"m0-read-stale-001","mutation":"none","scenario":"stale read","expected_analysis_use":"not_permitted","provenance":"independent"},
+    {"case_id":"m0-partial","base_fixture":"m0-read-partial-001","mutation":"none","scenario":"partial read","expected_analysis_use":"not_permitted","provenance":"independent"},
+    {"case_id":"m0-unauthorized","base_fixture":"m0-read-unauthorized-001","mutation":"none","scenario":"unauthorized read","expected_analysis_use":"not_permitted","provenance":"independent"},
+    {"case_id":"m0-superseded","base_fixture":"m0-read-trusted-001","mutation":"source_mismatch","scenario":"superseded packet","expected_analysis_use":"not_permitted","provenance":"independent"},
+    {"case_id":"m0-reviewer-conflict","base_fixture":"m0-read-trusted-001","mutation":"reviewer_conflict","scenario":"reviewer materiality conflict","expected_analysis_use":"not_permitted","provenance":"conflict_disclosed"},
+    {"case_id":"m0-decoy-metric-version","base_fixture":"m0-read-trusted-001","mutation":"decoy_metric_version","scenario":"metric version decoy","expected_analysis_use":"not_permitted","provenance":"independent","decoy_kind":"metric_definition_version"},
+    {"case_id":"m0-decoy-cuped","base_fixture":"m0-read-trusted-001","mutation":"decoy_cuped","scenario":"CUPED mode decoy","expected_analysis_use":"not_permitted","provenance":"independent","decoy_kind":"cuped_mode"},
+    {"case_id":"m0-decoy-source","base_fixture":"m0-read-trusted-001","mutation":"decoy_source","scenario":"source identity decoy","expected_analysis_use":"not_permitted","provenance":"independent","decoy_kind":"source_identity"},
+    {"case_id":"m0-veto-false-readiness","base_fixture":"m0-read-trusted-001","mutation":"veto:false_readiness","scenario":"false readiness hard veto","expected_analysis_use":"not_permitted","provenance":"independent"},
+    {"case_id":"m0-veto-cross-tenant","base_fixture":"m0-read-trusted-001","mutation":"veto:cross_case_or_tenant_leakage","scenario":"cross tenant hard veto","expected_analysis_use":"not_permitted","provenance":"independent"},
+    {"case_id":"m0-veto-secret","base_fixture":"m0-read-trusted-001","mutation":"veto:secret_exposure","scenario":"secret exposure hard veto","expected_analysis_use":"not_permitted","provenance":"independent"},
+    {"case_id":"m0-veto-redaction","base_fixture":"m0-read-trusted-001","mutation":"veto:unsafe_redaction","scenario":"unsafe redaction hard veto","expected_analysis_use":"not_permitted","provenance":"independent"},
+    {"case_id":"m0-veto-write","base_fixture":"m0-read-trusted-001","mutation":"veto:write_reachability","scenario":"write reachability hard veto","expected_analysis_use":"not_permitted","provenance":"independent"},
+    {"case_id":"m0-veto-delivery","base_fixture":"m0-read-trusted-001","mutation":"veto:unauthorized_delivery","scenario":"unauthorized delivery hard veto","expected_analysis_use":"not_permitted","provenance":"independent"}
+  ]
+}

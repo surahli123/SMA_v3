@@ -1,0 +1,33 @@
+{
+  "schema_version": "m0-fixture-read/v0",
+  "case_id": "m0-read-blocked-001",
+  "declared_outcome": "blocked",
+  "source": {
+    "source_id": "fixture-metric-store",
+    "source_kind": "synthetic_metric_store",
+    "locator": "synthetic://metric-store/exp-1002/primary-read",
+    "snapshot_id": {"__kdd__": "UNKNOWN"},
+    "owner": "synthetic-experiment-platform-team"
+  },
+  "authorization": {
+    "state": "not_evaluated",
+    "recipient_scope": "m0-local-review",
+    "redaction": {"__kdd__": "UNKNOWN"}
+  },
+  "observed_interval": {
+    "start": {"__kdd__": "UNKNOWN"},
+    "end": {"__kdd__": "UNKNOWN"}
+  },
+  "recorded_at": "2026-08-16T00:00:00+00:00",
+  "body": {"__kdd__": "MISSING"},
+  "coverage_gaps": [
+    {
+      "kind": "unchecked_plane",
+      "reason": "The synthetic source refused the read because no named data owner has granted M0 access to this experiment's metric snapshot.",
+      "next_safe_check": "Obtain a named owner grant for the snapshot, then re-read and record a new receipt."
+    }
+  ],
+  "disagreements": [],
+  "expected_final_readiness": "alignment_pending",
+  "notes": "Blocked read. No body is retained and the snapshot id stays UNKNOWN rather than being inferred from the locator."
+}

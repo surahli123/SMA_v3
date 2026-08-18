@@ -1,0 +1,21 @@
+{
+  "handoff_id": "m0-codex-continuation-20260817",
+  "status": "blocked",
+  "summary": "Phase A independently passes with gaps after adversarial hardening: 225 cases pass from the repository root, package root, and /private/tmp; 13 local-review findings were corrected; deterministic outputs match across three hash seeds. The one-run execution cap is exhausted. Phase B and M0-F1 through M0-F5 are blocked because no exact frozen packet path, revision label, and SHA-256 binding has been supplied. Opus 5 review did not start due exhausted Claude quota, so no Opus verdict exists.",
+  "evidence": [
+    "Handoff: docs/research/kdd-data-agent-workshop/reviews/2026-08-16-opus5-m0-alignment/m0-codex-continuation-handoff.md",
+    "Receipt: docs/research/kdd-data-agent-workshop/reviews/2026-08-16-opus5-m0-alignment/m0-codex-continuation-receipt.md",
+    "Implementation root: .agents/skills/kdd_data_agent/",
+    "Starting branch: codex/kdd-data-agent-practices-research",
+    "Starting and preserved HEAD: 28cbbda6e4d4d7f08134952d38433e52d3ee8768",
+    "Three-location suite: 225 passed at repo root, package root, and /private/tmp",
+    "Cross-seed run digest: sha256:7837c3e6819052870299c7e0f82362680834562fb6d2e8c0f69310721c044375",
+    "Cross-seed revision log digest: sha256:7221d8a458fb810839706a95e59d4004baa3d4048e4ac068a114bca8e8579ce2",
+    "Cross-seed build receipt digest: sha256:63ba40745a6caca6f24bc7d20b29e38a18cc385c1976173c90ead7a1a6be95b1",
+    "Package aggregate unchanged across final verification: 2f1001b93b19b2318c4c6419205ed2f7778ac23c02533e78a0c0899f15bf7d1e",
+    "One-run cap accounting: 12 full-suite invocations (3 initial reproduction, 1 pre-review hardening checkpoint, 5 evidenced regression checkpoints, 3 final acceptance)",
+    "Opus 5 review: not started due exhausted Claude quota; no verdict exists"
+  ],
+  "next_step": "Stop this task. A new Owner authorization and handoff are required for any resumed or second task. Only after the main orchestrator supplies all three exact Phase B binding values together (frozen packet path, revision label, and sha256:<64 lowercase hex>) may a separately authorized task implement M0-F1 through M0-F5 or any named semantic seam.",
+  "updated_at": "2026-08-17T07:07:31Z"
+}

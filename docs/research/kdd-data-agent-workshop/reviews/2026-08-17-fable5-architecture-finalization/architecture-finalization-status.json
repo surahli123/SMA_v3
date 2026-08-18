@@ -1,0 +1,175 @@
+{
+  "status": "DRAFT",
+  "phase": "1-closeout (Owner budget closeout; Phase 2 not performed)",
+  "facilitator": "Claude Fable 5 (claude-fable-5), Claude Code background job 05b209ef",
+  "started_at": "2026-08-18T02:40:00Z",
+  "updated_at": "2026-08-18T17:15:00Z",
+  "repository": "/Users/surahli/Documents/projects/SMA_v2",
+  "branch": "codex/kdd-data-agent-practices-research",
+  "head": "28cbbda6e4d4d7f08134952d38433e52d3ee8768",
+  "freeze_candidate": {
+    "path": "docs/research/kdd-data-agent-workshop/reviews/2026-08-16-opus5-m0-alignment/m0-m2-build-alignment-packet.md",
+    "sha256_at_dispatch": "40c7234f3c0d85f18ebfba656e7aec2ab5ab71b86451a077ecad340eac779396",
+    "sha256_recomputed_now": "67c844d10dcafcf2637388bf579dfcd9866d7d69ea6f4d3b456fd6b6b15dfcfa",
+    "note": "Post-edit candidate (v4). No verdict may be copied from the old digest. Not frozen."
+  },
+  "active_reviews": {
+    "opus5_freeze_review_671d8db1": {
+      "state": "done",
+      "verdict": "ACCEPT_WITH_CHANGES",
+      "review_path": "docs/research/kdd-data-agent-workshop/reviews/2026-08-16-opus5-m0-alignment/m0-freeze-opus5-adversarial-review.md",
+      "review_sha256": "aa0a3b5dd4bc59aede5f9f109cca48384e62dd8905ae9b61170a78691e048ad8",
+      "status_sha256": "8071c93f69d3bed9890df1296fb45c6082c4d2fa52f5fccb4c3b86f8c46f4655",
+      "blockers": [
+        "BLOCKER-1",
+        "BLOCKER-2",
+        "BLOCKER-3"
+      ],
+      "majors": 7,
+      "applies_to_digest_only": "40c7234f3c0d85f18ebfba656e7aec2ab5ab71b86451a077ecad340eac779396"
+    },
+    "opus5_main_session_b9d777ba_review": {
+      "state": "overwritten_on_disk_recovered_from_transcript",
+      "note": "Session b9d777ba wrote its own review to the same two output paths at 02:31-02:32Z; job 671d8db1 overwrote them at 02:34-02:38Z. Only m0-freeze-codex-fix-handoff.md (sha256 e55b7273...) survives on disk. Its 'zero blockers' framing conflicts with the 671d8db1 verdict.",
+      "recovered_copy": "/Users/surahli/.claude/jobs/05b209ef/tmp/b9d777ba-m0-freeze-opus5-adversarial-review.md",
+      "verdict": "ACCEPT_WITH_CHANGES (Q1-Q10, Q13 only; Q11/Q12 declined for conflict of interest)"
+    },
+    "fable5_adversarial_review_4bda4e93": {
+      "state": "phase1_sealed_final_pending",
+      "outputs_present": [
+        "handoff.md",
+        "fable5-phase1-independent-findings.md",
+        "steelman-owner-decisions-review-handoff.md"
+      ],
+      "phase1_verdict": "BLOCKED (packet changed during review); provisional ACCEPT_WITH_CHANGES on design; 4 BLOCKER / 16 MAJOR / 11 MINOR / 10 NOTE against 40c7234f",
+      "required_outputs_missing": [
+        "fable5-final-adversarial-review.md",
+        "fable5-review-status.json"
+      ]
+    },
+    "opus5_phase_a_independent_61ce23e2": {
+      "state": "in_progress",
+      "scope": "Q11/Q12 Phase A independent verification",
+      "handoff": "docs/research/kdd-data-agent-workshop/reviews/2026-08-17-phase-a-independent-verification/handoff.md",
+      "phase_a_cleared": false
+    },
+    "phase_a_independent_verification_third_reviewer": {
+      "state": "handoff_only",
+      "path": "docs/research/kdd-data-agent-workshop/reviews/2026-08-17-phase-a-independent-verification/handoff.md"
+    }
+  },
+  "owner_questions": {
+    "asked": 7,
+    "resolved": 7,
+    "log": [
+      {
+        "q": "Q1 M0 decision boundary: validity + preregistered sufficiency vs validity-only",
+        "answer": "D1 include preregistered sufficiency (recommended)"
+      },
+      {
+        "q": "Q2 arm parity M0 vs M1",
+        "answer": "D2 M0 setup-integrity check; fields may be MISSING (blocking) or NOT_APPLICABLE by versioned rule"
+      },
+      {
+        "q": "Q3 readiness representation",
+        "answer": "D3 analysis_use single stored state; eligibility derived projection"
+      },
+      {
+        "q": "Q4 recomputation independence",
+        "answer": "D4 independence_class enum; minimum independent_transform"
+      },
+      {
+        "q": "Q5 may M0 fixtures derive from old SMA assets",
+        "answer": "D5 NO - fully prohibited (recommendation not adopted)"
+      },
+      {
+        "q": "Q6 core material-check set for production M0 DoD",
+        "answer": "D7 preregistered subset with fixed floor"
+      },
+      {
+        "q": "Q7 minimum authorization for first real Flight",
+        "answer": "D8 laptop-scoped M0 authorization receipt; full P2 for V2"
+      }
+    ],
+    "cross_thread_owner_decisions_integrated": [
+      "D6 check-14",
+      "S1-S11 (steelman handoff 1-11)",
+      "S12-S14 (Codex continuation S9-S11)",
+      "S-close"
+    ]
+  },
+  "artifacts": {
+    "architecture-design-draft.md": {
+      "sha256_working_tree": "ef51b40f2263f45698581e601224abd096e3c5c37608dac8413ba8d23779da4a"
+    },
+    "architecture-decision-ledger.md": {
+      "sha256_working_tree": "9ecd416d90f8c04501b1d91984bc163cb2a9621f83be16f52d537a5ece3d7167"
+    },
+    "architecture-overview-draft.html": {
+      "sha256_working_tree": "6b25d1225d811b80899979a27f50ff87231b309561c1700523ac759c47896ea6"
+    },
+    "m0-review-flow-draft.html": {
+      "sha256_working_tree": "dae33ad69977f7201de9ec954a79882f8667d0269d09057f7bbe2b95b34f8e4d"
+    },
+    "owner-check14-decision-status.json": {
+      "sha256_working_tree": "1638e186bcbf3a0209863b7ca627a8df80e76a9925024dc37f0189d92c5f9e4e"
+    }
+  },
+  "observed_hazards": [
+    "docs/research/ and .agents/skills/kdd_data_agent/ are entirely untracked in git; the Continuity Checkpoint requires a committed revision.",
+    ".agents/skills/kdd_data_agent/.omc/state/sessions/4bda4e93-.../*.json exist inside the package (written by the Fable adversarial job's harness); any aggregate that includes .json under the package will drift from 2f1001b9...",
+    "m0-freeze-codex-fix-handoff.md (b9d777ba) directs Codex to freeze after 8 edits and states 'Zero blockers'; the completed 671d8db1 review names 3 blockers, two of which need Owner decisions. Codex must not act on the fix handoff alone."
+  ],
+  "forbidden_actions_observed": "no product code, tests, fixtures, git state, canonical docs, or external systems modified",
+  "coordination_inputs": [
+    "coordination-update-2026-08-17.md"
+  ],
+  "gates_open": [
+    "fresh exact-digest review of packet 67c844d1… and spec 3b20c938…",
+    "Phase A independent verification (61ce23e2)",
+    "Fable adversarial review (4bda4e93)",
+    "Owner acknowledgement of final packet/spec binding",
+    "new Owner start receipt for M0-F1..F5",
+    "P2",
+    "P3",
+    "P4",
+    "Committee Acceptance",
+    "B3 inventory; M18/M19/M20 actions; full 30-finding reconciliation PARTIAL"
+  ],
+  "final_state_ceiling": "DRAFT — Owner closed the steelman discussion but did not approve the design; no APPROVED_PENDING_GATE or FROZEN claim is made",
+  "controlling_digests_now": {
+    "final-architecture-spec.md": "3b20c93859b78074b653d375fc29f60bd40993b3f3bcb4ee2ff481e8ba8706b8",
+    "implementation-sequencing.md": "1d42e67c0ba5e2a1799960a3e151b12fa847a419f13b7a9f63362366dc3a29ee",
+    "eval-acceptance-plan.md": "5dce10ca451f7ccbbf5d86896cefed2b8dd8a5b5cae480da4d3ea030d5603194",
+    "ce-plan": "52ce2763a365eb35ea884dfbc7f19b8b3d012b85edac544a21b356638126499c"
+  },
+  "lanes_used": {
+    "count": 2,
+    "cap": 5,
+    "list": [
+      "evidence-lane-research (Sonnet) - no report returned",
+      "opus-arch-challenge (Opus) - failed: Claude session limit"
+    ],
+    "self_verification": [
+      "architecture/domain-model/statistical challenge",
+      "diagram taste gate",
+      "mechanical checks (diff --check, CJK, HTML balance, links)",
+      "browser render at 1280/480"
+    ]
+  },
+  "head_now": "13e62af0a2755ae9c5ee739c5807c6136f5da742",
+  "head_note": "HEAD moved from 28cbbda6 to 13e62af0 via Codex commits 5fa6d4c (M0 evidence package) and 13e62af (research docs incl. v2 drafts) pushed to origin per Owner S-close; this job made no git changes",
+  "artifacts_at_head_13e62af": {
+    "architecture-design-draft.md": "70a4fd230f5ce41137fb5d2c266098c6bf37a948a8739031cd0c03d077097f4e",
+    "architecture-decision-ledger.md": "0723b7d4f2441ee8…",
+    "architecture-overview-draft.html": "fd2cfc6d463556355221f88bc9890e5133392ac5ea4a093eb2849ef27b3e9935",
+    "m0-review-flow-draft.html": "a612663070f1d778bbd150b7ee25b220625f91ab2a13650cc02c3772ba402f8a"
+  },
+  "design_revision": "arch-final-draft-3 (DRAFT)",
+  "external_review_dependencies": [
+    "Fable adversarial final review + status (job 4bda4e93; Phase I sealed)",
+    "third independent Phase A reviewer (Q11/Q12) - handoff only",
+    "exact-digest review of packet 67c844d1… / spec 3b20c938… or Codex superseding candidate"
+  ],
+  "closeout": "fable5-budget-closeout-handoff.md executed: ledger, design v3, both diagrams, this status, steelman status written and mechanically checked; Fable session stops"
+}

@@ -1,0 +1,60 @@
+{
+  "schema_version": "m0-fixture-read/v0",
+  "case_id": "m0-read-conflicting-001",
+  "declared_outcome": "conflicting",
+  "source": {
+    "source_id": "fixture-metric-store",
+    "source_kind": "synthetic_metric_store",
+    "locator": "synthetic://metric-store/exp-1005/primary-read",
+    "snapshot_id": "snap-2026-08-16-0005",
+    "owner": "synthetic-experiment-platform-team"
+  },
+  "authorization": {
+    "state": "authorized",
+    "recipient_scope": "m0-local-review",
+    "redaction": "not_required"
+  },
+  "observed_interval": {
+    "start": "2026-08-01T00:00:00+00:00",
+    "end": "2026-08-15T00:00:00+00:00"
+  },
+  "recorded_at": "2026-08-16T00:00:00+00:00",
+  "body": {
+    "experiment_id": "exp-1005",
+    "variant_ids": ["control", "treatment"],
+    "metric_name": "synthetic_click_through_rate",
+    "metric_definition_version": "v3",
+    "numerator": 130100,
+    "denominator": 1002500,
+    "value": 0.12977556109725686,
+    "unit": "ratio",
+    "assignment_unit": "user",
+    "analysis_unit": "user",
+    "estimator": "difference_in_means",
+    "variance_method": "delta_method",
+    "exposure_counts": {"control": 501000, "treatment": 501500},
+    "window": {"start": "2026-08-01T00:00:00+00:00", "end": "2026-08-15T00:00:00+00:00"}
+  },
+  "coverage_gaps": [
+    {
+      "kind": "unknown_mapping",
+      "reason": "The metric store and the scorecard surface report different values for the same experiment, metric, and window, and neither is marked authoritative.",
+      "next_safe_check": "Ask the named metric owner which surface is authoritative for this definition version, and record the ruling as evidence."
+    }
+  ],
+  "disagreements": [
+    {
+      "disagreement_kind": "value_mismatch",
+      "left_source_id": "fixture-metric-store",
+      "left_value": 0.12977556109725686,
+      "right_source_id": "fixture-scorecard-surface",
+      "right_value": 0.1274,
+      "metric_name": "synthetic_click_through_rate",
+      "window_start": "2026-08-01T00:00:00+00:00",
+      "window_end": "2026-08-15T00:00:00+00:00",
+      "resolved": false
+    }
+  ],
+  "expected_final_readiness": "alignment_pending",
+  "notes": "Both sides of the disagreement are preserved verbatim. Nothing here picks a winner: resolution is a named-owner ruling, not an engineering default."
+}

@@ -1,0 +1,87 @@
+{
+  "kind": "critique-panel",
+  "artifact": "PROTOTYPE / THROWAWAY",
+  "review_target": "http://127.0.0.1:8765/?view=review|claims|verify|trace",
+  "review_basis": {
+    "desktop": "1440x1000 live browser renders of all four routes",
+    "mobile": "390x844 live browser renders of all four routes",
+    "screenshots": "review-artifacts/owner-critique-2026-08-12-{review,claims,verify,trace}.png and mobile equivalents"
+  },
+  "score": 2.1,
+  "supersedes": "All prior 4.x agent self-scores. Mockup similarity is not owner acceptance or product-quality evidence.",
+  "axes": {
+    "clarity": {
+      "score": 2.2,
+      "notes": "The conclusion is readable, but the interface explains its evidence machinery more often than it answers the reviewer's immediate question. Labels such as CURRENT CONCLUSION, STRONGEST SUPPORT, STRONGEST MOBILE CONTRADICTION, STALE CORPUS GAP, CASE FACTS, and PERSISTENT PROOF DOCK restate the information architecture instead of helping the reviewer decide what matters next. Review shows four mechanisms with almost equal visual weight. Claims exposes graph ontology and controls before establishing the question being tested. Verify presents implementation metadata before stating the authority conflict in plain language. Trace repeats the Evidence boundary as a slogan while the event list itself remains difficult to scan."
+    },
+    "hierarchy": {
+      "score": 2.0,
+      "notes": "The 1px-rule grid is disciplined but indiscriminate. Masthead, navigation, verdict axes, evidence quadrants, fact rail, proof dock, inspector, receipts, and state labels all compete as peer regions. The orange accent marks both selected navigation and risk, weakening semantic priority. On Review, the contradiction should dominate support and gaps, yet it occupies the same box grammar. On Claims, the graph is centered but the claim question and selected causal path are not. On mobile, the long masthead and axis block delay the actual task, while bottom navigation permanently consumes working space."
+    },
+    "typography": {
+      "score": 2.0,
+      "notes": "Monospace is used as an atmosphere rather than for identifiers, code, timestamps, and locators. This makes conclusions and explanatory prose feel machine-produced and reduces reading speed. Uppercase micro-labels are repetitive and visually mechanical. The type system has too few expressive levels: route names, evidence labels, metadata, and proof semantics rely mainly on size changes inside the same technical voice. Several mobile lines wrap awkwardly, especially the conclusion, Verify subtitle, graph controls, and Trace heading."
+    },
+    "motion": {
+      "score": 2.5,
+      "notes": "Avoiding decorative motion is correct for this product, and reduced-motion behavior is implemented. However, state change is under-explained: selecting a claim or evidence node does not create a strong, continuous visual handoff from conclusion to contradiction to exact proof. Re-layout is a subtle displacement rather than a meaningful change in analytical projection. The experience therefore feels like static mechanism diagrams connected by route changes, not one review flow."
+    },
+    "brand": {
+      "score": 1.8,
+      "notes": "The visual language is a generic forensic-console costume: dark rail, thin rules, safety orange, E/R monogram, dense mono labels, and schematic boxes. It signals 'serious system' but not this product's specific intelligence. The UI could be relabeled for security, compliance, observability, or incident response without changing its character. Dependency-free text glyphs make the shell feel prototypical, while repeated evidence IDs and status vocabulary create the familiar AI-generated enterprise-dashboard effect."
+    }
+  },
+  "route_findings": {
+    "review": [
+      "The first screen is a taxonomy of evidence blocks, not a guided review decision.",
+      "Cause Verdict and Recommendation Readiness are correctly separate, but their oversized repeated masthead treatment competes with the conclusion on every route.",
+      "The proof dock duplicates facts already present in Case Facts and support evidence, increasing mechanism density without reducing interaction cost.",
+      "Support, contradiction, gap, and next action share one container grammar; the reviewer must read labels to discover priority."
+    ],
+    "claims": [
+      "The graph foregrounds node types and topology rather than the selected question and decisive path.",
+      "Controls resemble a generic schema explorer and consume the graph's strongest horizontal band.",
+      "Colored node outlines introduce multiple pseudo-accents beyond the declared orange system.",
+      "The inspector is comprehensive but reads like a database record. It does not translate provenance into why the claim changes or remains blocked."
+    ],
+    "verify": [
+      "The screen is proof-complete but comprehension-poor: authority metadata, receipts, code panes, summary, log, provenance, and ACL appear simultaneously.",
+      "The central conflict is not stated with enough visual force: deployed v73 is observed; candidate v74 is not_applied; neither alone proves the causal claim.",
+      "The evidence summary repeats information already encoded in the strips and panes.",
+      "On mobile, the reviewer reaches code only after a long sequence of metadata blocks."
+    ],
+    "trace": [
+      "The heading remains oversized relative to the task despite the dense table reconstruction.",
+      "The 'not Evidence' boundary is repeated in headline, paragraph, inspector copy, and footer; repetition feels defensive and machine-authored.",
+      "Rows are visually uniform, so the error, gap, retry, and linked evidence path do not form an immediate scan pattern.",
+      "On mobile, the transformed table becomes a long stack of mechanism records with weak temporal gestalt."
+    ]
+  },
+  "why_it_feels_ai_generated": [
+    "The product model is exposed verbatim as UI structure.",
+    "Every concept receives a label, border, ID, status, or metadata row.",
+    "The same seriousness cues are repeated across every route rather than composed differently around each task.",
+    "Copy describes categories and mechanisms instead of making a small number of decisive claims.",
+    "Visual consistency is achieved through uniform enclosure and typography, producing sameness rather than authorship.",
+    "Completeness is treated as a visual goal, so the interface displays nearly everything at once."
+  ],
+  "recommended_direction": {
+    "principle": "Design around one review decision at a time, not around the evidence schema.",
+    "changes": [
+      "Replace the permanent oversized case masthead with a compact case context bar after Review; preserve separate verdict/readiness axes without repeating them as the largest object on every route.",
+      "Make Review a single argumentative sequence: conclusion, decisive contradiction, why it matters, and one proof action. Move support, gaps, and receipts into progressive disclosure rather than four equal boxes.",
+      "Make Claims question-first. Show one selected claim and one decisive path; reveal the full graph, ontology, controls, and competing claims only when requested.",
+      "Make Verify authority-first in plain language. Show deployed truth, candidate status, and exact locator first; progressively reveal receipts, ACL, and validation log.",
+      "Make Trace a compact temporal narrative with three emphasized moments: failure, gap, and validated cross-link. Keep raw output secondary.",
+      "Use proportional sans for conclusions and reasoning; reserve mono for IDs, code, timestamps, hashes, and locators.",
+      "Reduce visible boxes, labels, and duplicated facts by at least half. Use whitespace and typographic contrast for grouping.",
+      "Reserve orange exclusively for the strongest contradiction and blocked consequence; use neutral selection styling elsewhere."
+    ]
+  },
+  "convergence": {
+    "passed": false,
+    "threshold": 4.0,
+    "reason": "The interface is mechanically coherent but still optimizes schema visibility over review comprehension and retains strong AI-enterprise-dashboard tells."
+  },
+  "human_gate": "P3 remains open. Only owner live acceptance can establish that the redesign improves observability and review efficiency."
+}

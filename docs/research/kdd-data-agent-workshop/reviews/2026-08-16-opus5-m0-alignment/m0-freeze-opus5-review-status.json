@@ -1,0 +1,241 @@
+{
+  "status": "done",
+  "verdict": "ACCEPT_WITH_CHANGES",
+  "reviewed_packet_path": "docs/research/kdd-data-agent-workshop/reviews/2026-08-16-opus5-m0-alignment/m0-m2-build-alignment-packet.md",
+  "reviewed_packet_sha256": "40c7234f3c0d85f18ebfba656e7aec2ab5ab71b86451a077ecad340eac779396",
+  "also_reviewed_digests": {
+    "owner-alignment-record.md": "0c717916c3a469a4aa56a522add09887c4735e244a3526b08d058b6963f8436a",
+    "opus5-review.md": "2b851aaf788f260267946daa2aa63ca483ddfa0a7e8fc225a235644e9265b0c0",
+    "m0-freeze-opus5-review-handoff.md": "3cd255c016e368405577b65ec57ba44aa0a555c19e523f0897b186b15db07ff0",
+    "kdd_data_agent_package_aggregate": "2f1001b93b19b2318c4c6419205ed2f7778ac23c02533e78a0c0899f15bf7d1e",
+    "kdd_data_agent_package_aggregate_note": "covers .py/.json/.md under the package excluding __pycache__, .pytest_cache, and .omc harness state; re-measured after every probe and after writing the report, unchanged"
+  },
+  "blockers": [
+    {
+      "id": "BLOCKER-1",
+      "title": "The packet presents a spent authorization as a live one",
+      "evidence": "m0-m2-build-alignment-packet.md:7 and :19 and owner-alignment-record.md:75 state that m0-codex-continuation-handoff.md permits M0-F1 through M0-F5 once the frozen path, revision, and SHA-256 binding arrive. That handoff's cap is exhausted: m0-codex-continuation-handoff.md:70-72 and :86-87 bind it to one non-recurring task expiring after a single run, and m0-codex-continuation-status.json:4,16,19 record the cap consumed and require a new Owner authorization.",
+      "consequence": "On acceptance the digest binding arrives and the frozen packet tells an implementer the last precondition for M0-F1 through M0-F5 is satisfied, silently renewing a consumed local cap.",
+      "minimal_fix": "Replace the 'permits only after binding' construction in all three places with an explicit statement that the m0-codex-continuation-20260817 authorization is exhausted and that M0-F1 through M0-F5 require a new Owner authorization and start receipt binding the accepted path, revision label, SHA-256, active-time cap, run/read/tool cap, expiry, and halt owner.",
+      "blocks_freeze": true
+    },
+    {
+      "id": "BLOCKER-2",
+      "title": "directional_only has no reachable trigger except the runtime check and its contract permission is undefined",
+      "evidence": "Candidate section 5.3:121 admits directional_only for an incomplete preregistered runtime 'or another frozen sufficiency rule'; no other sufficiency rule exists and none of the 18 checks in section 5.2 covers power, MDE, or precision. Corpus-wide grep for underpowered/MDE/minimum detectable/statistical power returns only final-architecture-spec.md:469 and enterprise-experiment-post-analysis-profile.md:386. final-architecture-spec.md:469 still gates directional_only on an ExperimentReadContract permission that candidate section 5.1:63-76 never defines; alignment/seams.py:140-141 names the same gap.",
+      "consequence": "A valid but underpowered read with the preregistered runtime complete passes all 18 checks and, under the closed combination table, can only be eligible + decision_grade. Two competent implementers diverge, firing candidate stop condition 9.",
+      "minimal_fix": "Either add a 19th preregistered power/MDE sufficiency check whose material failure maps to blocked + directional_only when no other blocker applies plus the matching section 5.1 contract field, or state that M0 performs no power assessment, that directional_only is reachable only through the runtime check, and delete the permission clause at final-architecture-spec.md:469.",
+      "blocks_freeze": true
+    },
+    {
+      "id": "BLOCKER-3",
+      "title": "spec:271 requires two ExperimentReadContract fields the candidate omits and no M0 check consumes arm parity",
+      "evidence": "final-architecture-spec.md:271 requires 'arm parity fields' and 'legal readiness-combination policy' in ExperimentReadContract. Candidate section 5.1:63-76 omits both. grep -ci 'arm parity' returns 0 for the candidate and 0 for implementation-sequencing.md rows M0-F1 and M0-F3, versus 2 for the spec (:271, :414). final-architecture-spec.md:414 makes arm parity across index generation, serving alias, ACL snapshot, and effective pipeline a required validity input.",
+      "consequence": "The freeze binds M0-F1 to a contract field list that contradicts the controlling spec and M0-F3 to an 18-check inventory with no arm-parity check. Accepted finding M9, audited EXACT, does not reach the funded slice. Treatment and control served by different index generations or ACL snapshots produce a real metric delta with no product cause and M0 cannot see it.",
+      "minimal_fix": "Rule arm parity M0 or M1 once and make both documents agree. If M0, add the arm-parity fields and the legal readiness-combination policy to candidate section 5.1 and add arm parity to check 5 or as check 19. If M1, delete 'arm parity fields' from final-architecture-spec.md:271 and record the deferral in candidate section 6.",
+      "blocks_freeze": true
+    }
+  ],
+  "major_findings": [
+    {
+      "id": "MAJOR-1",
+      "title": "Every alignment seam points at the superseded draft's section numbers",
+      "evidence": "alignment/seams.py packet_reference values track m0-build-alignment-packet-draft.md. Eight of ten misdirect against the candidate: seams.py:112, :143, :153, :163, :173, :195, :205. seams.py:119 still says the draft lists 14 checks (the candidate has 18) and :160-161 still describes the acceptance-ID collision C1 resolved.",
+      "consequence": "The seam registry is the Phase B binding map; its section numbers resolve to the wrong content in the document declared authoritative.",
+      "minimal_fix": "Update all ten packet_reference strings, correct 14 to 18 at :119, and rewrite :160-161 in the same change that records the accepted FrozenPacketBinding."
+    },
+    {
+      "id": "MAJOR-2",
+      "title": "The first-screen contract was dropped but is still referenced as accepted",
+      "evidence": "Draft section 7 has no successor in the candidate, yet candidate section 13:319 change-controls 'first-screen hierarchy' and VAL-UI-101 at section 11:251 says 'The accepted first-screen hierarchy'. alignment/seams.py:173 cites packet section 7, now Production Authority and Old SMA.",
+      "consequence": "Change control protects an artifact the packet does not contain and M0-F4 must render a hierarchy that was never frozen.",
+      "minimal_fix": "Restore a short first-screen subsection, or point section 11 and SEAM-M0-07 at prototype-observability-first-review-surface.md:23 and final-architecture-spec.md:581-587 as P3-gated, and change VAL-UI-101 to 'The P3-accepted'."
+    },
+    {
+      "id": "MAJOR-3",
+      "title": "Phase A code cites acceptance IDs that no longer exist",
+      "evidence": "adapters/outcomes.py:44-46 and core/identity.py:72-73 cite M0-SEC-001 and M0-READ-001 attributed to 'the alignment packet draft' and 'the CE plan'. Neither ID exists in docs/plans/2026-08-12-001-feat-kdd-data-agent-greenfield-plan.md since C1 renumbered that registry to VAL-*.",
+      "consequence": "A correct, mechanically enforced security invariant cites a superseded document and two dangling identifiers, so the next reader cannot verify it against a live document.",
+      "minimal_fix": "Repoint both docstrings at VAL-SEC-001 and VAL-M0-002 in the accepted packet section 11."
+    },
+    {
+      "id": "MAJOR-4",
+      "title": "CoverageGapKind exceeds the frozen taxonomy and was neither seamed nor reported",
+      "evidence": "core/coverage_gap.py:26-37 defines nine kinds against the five-item gloss at wayfinder/freeze-canonical-domain-policy-contracts.md:61, which outranks the spec. The four additions are supported by final-architecture-spec.md:829 and :156, but the continuation handoff section B required an explicit alignment seam or a reported unresolved contract, and m0-codex-continuation-receipt.md section 6 reports neither.",
+      "consequence": "Enum values are digest-bound through CoverageGap.to_canonical() and stable_id at coverage_gap.py:77-87, so every sealed Phase A digest already commits to an unfrozen taxonomy.",
+      "minimal_fix": "Add SEAM-M0-11-COVERAGE-GAP-TAXONOMY naming freeze:61 versus spec:829, or freeze the nine values in candidate section 5.2 and reconcile freeze:61."
+    },
+    {
+      "id": "MAJOR-5",
+      "title": "Three Phase A guards are not proven by the 225-case suite",
+      "evidence": "Mutation probes that left the suite at 225 passed: deleting the repeated-receipt-identity rejection at runner/hermetic.py:148-150; deleting self.verify_chain() from RevisionLog.seal() at core/revisions.py:184; making scan_package return () before its loop at tests/_import_graph.py:288.",
+      "consequence": "Latent rather than live: five end-to-end plants of real violations into runtime files were all caught, so the control works today. A future edit breaking the scanner file walk, or an adapter repeating a receipt identity, would land green.",
+      "minimal_fix": "Three tests: a stub adapter returning a duplicate receipt is rejected; seal() raises on a hand-broken chain; and scan_package is proven non-vacuous by injecting the per-file scanner and asserting one invocation per python_files entry."
+    },
+    {
+      "id": "MAJOR-6",
+      "title": "B3's reuse inventory still does not exist and it gates M0-F1",
+      "evidence": "No canonical document names metric_registry, schema_catalog, or business-table routing as candidate assets with a read-only reference / clean-room reimplement / direct reuse disposition; only generic basis-table mentions at enterprise-experiment-post-analysis-profile.md:34,95,112. SEAM-M0-08-FIXTURE-BASELINES records the open Owner decision honestly.",
+      "consequence": "Starting M0-F1 without the inventory means re-deriving assets that already exist, or reusing them without the interface, provenance, test, security, and license review O6 requires.",
+      "minimal_fix": "One page, one row per asset, three dispositions, plus the Owner's answer on whether M0 fixtures may be derived from those files. Prerequisite for M0-F1 start, not for packet acceptance."
+    },
+    {
+      "id": "MAJOR-7",
+      "title": "20 of 22 shared VAL-* IDs bind to no sequencing unit",
+      "evidence": "implementation-sequencing.md references only VAL-UI-001 and VAL-UI-101 at seq:59; eval-acceptance-plan.md and final-architecture-spec.md reference none. Candidate section 13 freeze requirement 3 demands every active requirement map to a startable unit and acceptance scenario.",
+      "consequence": "Freeze requirement 3 cannot be evidenced by identifier for 20 of 22 scenarios, so drift between a scenario and its unit is undetectable.",
+      "minimal_fix": "Add a VAL-* column to the M0-F0 through M0-F5 rows at seq:53-58, or one mapping table in the freeze record."
+    }
+  ],
+  "phase_a_verification": {
+    "verdict": "PASS_WITH_GAPS",
+    "independent": true,
+    "suite_reproduced": "225 passed in 0.21s from the repository root",
+    "package_aggregate_before_and_after": "2f1001b93b19b2318c4c6419205ed2f7778ac23c02533e78a0c0899f15bf7d1e",
+    "mutation_battery": {
+      "probes": 22,
+      "caught": 19,
+      "survived": 3,
+      "survivors": [
+        "duplicate receipt identity rejection (runner/hermetic.py:148-150)",
+        "seal() -> verify_chain() wiring (core/revisions.py:184)",
+        "scan_package non-vacuity (tests/_import_graph.py:288)"
+      ],
+      "wiring_probes_caught": [
+        "_enforce_body_policy unwired from read()",
+        "validate_case_id unwired from _case_path()",
+        "Coverage Gap requirement unwired"
+      ],
+      "end_to_end_plants_caught": [
+        "import socket in a runtime module",
+        "datetime.now() in a runtime module",
+        "path.write_text() in a runtime module",
+        "adapters/production/ directory created",
+        "unscanned .py file added to the package"
+      ]
+    },
+    "runtime_audit_hook": {
+      "write_events": 0,
+      "network_events": 0,
+      "subprocess_events": 0,
+      "file_reads_outside_package": 0,
+      "note": "sys.addaudithook over the full hermetic path; reads limited to stdlib/bytecode loading, the eight fixture files, and manifest.json"
+    },
+    "deterministic_replay": {
+      "hash_seeds": [
+        0,
+        1,
+        99991
+      ],
+      "identical": true,
+      "run_digest": "sha256:20e95ae095db7e3d54d9d8dfab2f95deebd6be9c0347bf9cacec67f7bce78b3b",
+      "revision_log_digest": "sha256:fde4b4c469e65cee89e05289b8337470a0515fd64a62d65d55e423480ad288c4",
+      "build_receipt_id": "rcpt-e4efd395da2cd5ba",
+      "serialized_bytes": 47092,
+      "note": "Digests differ from the continuation receipt because run_id and recorded_at differ; the claim tested is equality across processes and seeds."
+    },
+    "fixture_reachability": "8 of 8 manifest cases reached; each of the 8 typed read outcomes exercised exactly once; 7 Coverage Gaps",
+    "object_level_fault_injection": "all blocked: sentinel provenance and collision, unregistered sentinel decode, sentinel truthiness, duplicate JSON keys, NaN, sets, bytes, non-string keys, seven path-traversal shapes, materiality classification without a versioned rule_source, caller-supplied gap_id, append after seal, sealed-log and frozen-revision mutation, revision_digest overwrite, all ten seams, decide_readiness(), and three malformed FrozenPacketBinding forms",
+    "semantics_independence": "confirmed; no unfrozen readiness, check, packet, or UI meaning was chosen. Sole exception is the unratified nine-value CoverageGapKind (MAJOR-4).",
+    "untested_boundaries": [
+      "static AST scanning is not an OS or interpreter sandbox; the audit hook covers the executed hermetic path only",
+      "fixture-directory symlink replacement retains an environment-dependent TOCTOU residual",
+      "no production adapter, live company data, external service, host sandbox, cross-language digest implementation, UI, or M1/M2 path exists or was tested",
+      "canonical JSON sorts keys by Unicode code point rather than UTF-16 code unit, a documented RFC 8785 deviation that is a real cross-language boundary"
+    ]
+  },
+  "c1_c9": {
+    "C1": "satisfied",
+    "C2": "partial",
+    "C3": "satisfied",
+    "C4": "satisfied",
+    "C5": "satisfied",
+    "C6": "satisfied",
+    "C7": "satisfied",
+    "C8": "partial",
+    "C9": "satisfied"
+  },
+  "reconciliation_30_8": {
+    "accepted_30": "Prior tally of 22 EXACT, 5 SEMANTICALLY_EQUIVALENT, 3 PARTIAL, 0 MISSING, 0 OVERREACH holds for the rows re-verified, with one correction: M9 arm parity is spec-true but does not reach the funded M0 slice (BLOCKER-3). No finding was implemented as overreach.",
+    "adjudicated_8": {
+      "B2": "implemented",
+      "B3": "open - required reuse inventory not written (MAJOR-6)",
+      "B11": "implemented",
+      "M1": "partial - exit from confirmed exists at freeze:171-174, active-vs-closed-generation split still absent",
+      "M3": "implemented - spec:515 adds the human-review-surface channel condition",
+      "M18": "open - eight bare internal screenshot digests still unclassified at profile:27-34",
+      "M19": "open - pointer line at deepseek-harness-practices.md:286 not added",
+      "M20": "open - post-hoc narrowing of the Trace-dependent set still unprevented"
+    }
+  },
+  "freeze_eligibility": {
+    "sections_eligible": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5.2",
+      "6",
+      "7",
+      "8",
+      "9.2",
+      "10",
+      "11",
+      "11.1",
+      "11.2",
+      "12",
+      "13",
+      "14"
+    ],
+    "sections_blocked": {
+      "header line 7 and 1:19": "BLOCKER-1",
+      "5.1": "BLOCKER-2, BLOCKER-3",
+      "5.3": "BLOCKER-2",
+      "5.2 check inventory": "BLOCKER-3 if arm parity is ruled M0",
+      "9.1": "BLOCKER-1",
+      "11 VAL-UI-101 and 13 change control": "MAJOR-2"
+    },
+    "freeze_requirement_2_met": false
+  },
+  "remaining_gates": [
+    "P2 production evidence authority: sources, owners, credentials, ACL/tenant boundaries, retention, redaction, load ceilings, halt authority",
+    "P3 live review interaction contract with named real reviewers",
+    "P4 sealed fixtures, blind evaluation, adjudication, calibration, and any numeric GO thresholds",
+    "Experiment Review Committee acceptance for a real Flight",
+    "New Owner authorization and start receipt for M0-F1 through M0-F5 (BLOCKER-1)",
+    "Open product decisions at enterprise-experiment-post-analysis-profile.md:446-455 items 1-3 and 5-9",
+    "Unapplied adjudicated actions B3, M18, M19, M20"
+  ],
+  "four_proofs": {
+    "phase_a_foundation": "proven with gaps",
+    "local_fixture_backed_m0_mvp": "not proven and not started; all ten SEAM-M0-* still raise",
+    "production_authorization": "absent",
+    "experiment_review_committee_acceptance": "absent and not substitutable"
+  },
+  "boundaries_observed": {
+    "canonical_documents_modified": false,
+    "phase_a_package_source_or_tests_modified": false,
+    "package_source_aggregate_unchanged": "2f1001b93b19b2318c4c6419205ed2f7778ac23c02533e78a0c0899f15bf7d1e",
+    "tracked_worktree_changes_identical_to_session_start": true,
+    "unintended_write_disclosed": {
+      "paths": [
+        ".agents/skills/kdd_data_agent/.omc/state/sessions/4bda4e93-77b6-4361-acb1-37e9bbfbadc4/last-tool-error-state.json",
+        ".agents/skills/kdd_data_agent/.omc/state/sessions/4bda4e93-77b6-4361-acb1-37e9bbfbadc4/pre-tool-advisory-throttle.json"
+      ],
+      "cause": "an OMC pre-tool hook wrote session state relative to the working directory while a shell call in this review ran with cwd inside the package",
+      "content": "harness state only: a record of one of this review's own failed cd commands, and an advisory-message throttle; no package content",
+      "affects_source_aggregate": false,
+      "removal_attempted": true,
+      "removal_result": "denied by the environment permission classifier; files remain",
+      "owner_action_required": "delete the .omc directory inside .agents/skills/kdd_data_agent/ before the Continuity Checkpoint snapshot so the clean-checkout claim is literally true"
+    },
+    "mutations_run_on_isolated_copy": true,
+    "packet_declared_frozen": false,
+    "m0_f1_through_f5_implemented": false,
+    "commit_push_pr_install_production_deploy_message": false,
+    "unrelated_dirty_worktree_preserved": true
+  },
+  "session_id": "session_01YAshweqBjaqSc7S2SfufFS",
+  "model": "claude-opus-5",
+  "updated_at": "2026-08-18T02:27:48Z"
+}

@@ -1,0 +1,33 @@
+{
+  "system": "Evidence Room",
+  "case": "CASE A–017 · Search experiment miss · packet rev 5",
+  "references": [
+    "reference-assets/unified-review.png",
+    "reference-assets/unified-claims.png",
+    "reference-assets/unified-verify.png",
+    "reference-assets/unified-trace.png"
+  ],
+  "shared_contract": {
+    "cause_verdict": "Suspected",
+    "recommendation_readiness": "Blocked",
+    "deployed_sha": "9f71c2e",
+    "artifact": "blend_weights.bin v73",
+    "evidence_ids": ["EV-DEP-17", "EV-MET-19", "EV-IDX-02", "EV-ACL-04"],
+    "navigation": ["Review", "Claims", "Verify", "Trace"],
+    "palette": "graphite rail, bone workspace, safety-orange risk accent",
+    "typography": "technical sans plus mono",
+    "geometry": "square corners, disciplined rules, minimal elevation"
+  },
+  "checks": {
+    "same_case_across_modes": true,
+    "same_authority_across_modes": true,
+    "same_shell_across_modes": true,
+    "numeric_causal_confidence_absent": true,
+    "invented_slo_absent": true,
+    "unvalidated_time_estimate_absent": true,
+    "ambiguous_diff_absent": true,
+    "unrelated_incident_absent": true,
+    "trace_explicitly_not_evidence": true,
+    "candidate_literally_not_applied": true
+  }
+}

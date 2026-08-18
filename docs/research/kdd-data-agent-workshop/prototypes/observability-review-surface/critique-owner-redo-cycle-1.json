@@ -1,0 +1,8 @@
+{
+  "cycle": 1,
+  "score": 4.1,
+  "screens": ["review-artifacts/owner-redo-cycle-1-desktop.png", "review-artifacts/owner-redo-cycle-1-mobile.png"],
+  "axes": {"clarity": 4.4, "hierarchy": 4.4, "typography": 4.2, "motion": 4.2, "brand_consistency": 4.4, "graph_legibility": 4.2, "mobile": 4.0},
+  "findings": ["The decision header reconnects separate verdict and readiness axes to their blocking reasons.", "The strongest contradiction now precedes support on mobile and is fully visible in the first viewport.", "The authority trail explains the path from evidence ID to deployed SHA, locator, and receipt.", "Exact proof remains below support on mobile and should be directly reachable from the blocking contradiction.", "The stale variant query remains visually misleading even though the router ignores it."],
+  "revision": "Add direct proof navigation to the blocker and normalize legacy variant URLs to the Review route."
+}

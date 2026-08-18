@@ -1,0 +1,33 @@
+{
+  "schema_version": "m0-fixture-read/v0",
+  "case_id": "m0-read-unavailable-001",
+  "declared_outcome": "unavailable",
+  "source": {
+    "source_id": "fixture-metric-store",
+    "source_kind": "synthetic_metric_store",
+    "locator": "synthetic://metric-store/exp-1007/primary-read",
+    "snapshot_id": {"__kdd__": "UNKNOWN"},
+    "owner": "synthetic-experiment-platform-team"
+  },
+  "authorization": {
+    "state": "not_evaluated",
+    "recipient_scope": "m0-local-review",
+    "redaction": {"__kdd__": "UNKNOWN"}
+  },
+  "observed_interval": {
+    "start": {"__kdd__": "UNKNOWN"},
+    "end": {"__kdd__": "UNKNOWN"}
+  },
+  "recorded_at": "2026-08-16T00:00:00+00:00",
+  "body": {"__kdd__": "MISSING"},
+  "coverage_gaps": [
+    {
+      "kind": "unavailable_source",
+      "reason": "The synthetic source did not respond within its declared budget, so zero rows were read.",
+      "next_safe_check": "Retry the read against the same snapshot id once the source reports healthy, and record the retry as a separate receipt."
+    }
+  ],
+  "disagreements": [],
+  "expected_final_readiness": "alignment_pending",
+  "notes": "A timeout with zero reads. This is a Coverage Gap, never negative evidence: nothing here says the metric is fine or broken."
+}

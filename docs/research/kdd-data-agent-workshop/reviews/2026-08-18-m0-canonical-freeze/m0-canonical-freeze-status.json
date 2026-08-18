@@ -1,0 +1,31 @@
+{
+  "freeze_id": "m0-canonical-freeze-v1",
+  "status": "frozen_for_bounded_local_m0_implementation",
+  "packet": {
+    "path": "docs/research/kdd-data-agent-workshop/reviews/2026-08-16-opus5-m0-alignment/m0-m2-build-alignment-packet.md",
+    "revision": "m0-alignment-v1",
+    "sha256": "82747da96d66dd8851c03edc837f38597264a07794a2b145cd530ca0a5f07b19"
+  },
+  "architecture": {
+    "path": "docs/research/kdd-data-agent-workshop/final-architecture-spec.md",
+    "revision": "kdd-data-agent-architecture-v1",
+    "sha256": "9508b42979b5f708d3b0be7016ed414fd0b4c28d531b75fd0a4710eb46df8fc1"
+  },
+  "independent_review": {
+    "verdict": "ACCEPT_CANDIDATE_FOR_OWNER_WRITEBACK_REVIEW",
+    "report_sha256": "e1863ff5d7136e3995c8b223719e4d1ca74a402a4b06317973410708aef299f4",
+    "status_sha256": "30f49c556605f7f299cf7360007c843a379145309f41f4a885bbf5d515ec9f6b",
+    "checks_passed": 14,
+    "checks_total": 14
+  },
+  "phase_a": {
+    "verdict": "PASS_WITH_GAPS",
+    "aggregate_sha256": "2f1001b93b19b2318c4c6419205ed2f7778ac23c02533e78a0c0899f15bf7d1e",
+    "local_m0_complete": false
+  },
+  "implementation_handoff_id": "kdd-m0-f1-f5-local-build-20260818-r1",
+  "production_authorized": false,
+  "m1_m2_authorized": false,
+  "committee_accepted": false,
+  "recorded_at": "2026-08-18T01:25:46-07:00"
+}

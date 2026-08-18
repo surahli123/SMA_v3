@@ -1,0 +1,49 @@
+{
+  "schema_version": "m0-fixture-read/v0",
+  "case_id": "m0-read-stale-001",
+  "declared_outcome": "stale",
+  "source": {
+    "source_id": "fixture-metric-store",
+    "source_kind": "synthetic_metric_store",
+    "locator": "synthetic://metric-store/exp-1004/primary-read",
+    "snapshot_id": "snap-2026-07-02-0007",
+    "owner": "synthetic-experiment-platform-team"
+  },
+  "authorization": {
+    "state": "authorized",
+    "recipient_scope": "m0-local-review",
+    "redaction": "not_required"
+  },
+  "observed_interval": {
+    "start": "2026-06-18T00:00:00+00:00",
+    "end": "2026-07-02T00:00:00+00:00"
+  },
+  "recorded_at": "2026-08-16T00:00:00+00:00",
+  "body": {
+    "experiment_id": "exp-1004",
+    "variant_ids": ["control", "treatment"],
+    "metric_name": "synthetic_click_through_rate",
+    "metric_definition_version": "v2",
+    "numerator": 119800,
+    "denominator": 998300,
+    "value": 0.12000400681157968,
+    "unit": "ratio",
+    "assignment_unit": "user",
+    "analysis_unit": "user",
+    "estimator": "difference_in_means",
+    "variance_method": "delta_method",
+    "exposure_counts": {"control": 499100, "treatment": 499200},
+    "window": {"start": "2026-06-18T00:00:00+00:00", "end": "2026-07-02T00:00:00+00:00"},
+    "snapshot_age_days": 45
+  },
+  "coverage_gaps": [
+    {
+      "kind": "unchecked_plane",
+      "reason": "The newest available snapshot is 45 days old and predates the requested analysis window; the observation remains historically true but does not describe the current period.",
+      "next_safe_check": "Request a snapshot covering the analysis window, or record the freshness rule that makes this snapshot acceptable."
+    }
+  ],
+  "disagreements": [],
+  "expected_final_readiness": "alignment_pending",
+  "notes": "Stale read. Freshness thresholds are not encoded: the fixture states the observed age, and whether that age is acceptable is a materiality question (SEAM-M0-03-MATERIALITY-POLICY)."
+}

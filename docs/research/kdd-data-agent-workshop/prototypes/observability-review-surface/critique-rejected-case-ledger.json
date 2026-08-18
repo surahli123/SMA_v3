@@ -1,0 +1,52 @@
+{
+  "artifact": "Rejected Case Ledger baseline",
+  "reviewed_at": "2026-08-12",
+  "status": "rejected_by_owner",
+  "supersedes_agent_score": "4.3/5",
+  "screens": [
+    "review-artifacts/ledger-cycle-2-desktop-review.png",
+    "review-artifacts/ledger-cycle-2-mobile-review.png",
+    "review-artifacts/ledger-cycle-2-desktop-claims.png",
+    "review-artifacts/ledger-cycle-2-mobile-claims.png"
+  ],
+  "score": 2.1,
+  "axes": {
+    "review_clarity": {
+      "score": 2.5,
+      "finding": "The conclusion is visible, but its poster-scale headline overwhelms the actual decision: what is known, what blocks confirmation, and what the reviewer should inspect next."
+    },
+    "evidence_hierarchy": {
+      "score": 2.0,
+      "finding": "Support, contradiction, coverage, and selected evidence are distributed across similarly weighted ruled regions. The layout presents research statements instead of a deliberate review sequence."
+    },
+    "production_proof_discoverability": {
+      "score": 2.5,
+      "finding": "The locator exists but is visually detached from the conclusion and often below the desktop fold. The relationship between verdict, selected evidence, deployed code, and validator receipt is not spatially legible."
+    },
+    "graph_usefulness": {
+      "score": 2.0,
+      "finding": "Large-screen nodes are small and edge labels compete with grid lines. Mobile converts the graph into an exhaustive vertical chain without preserving competing-claim comparison, selection context, or an obvious answer path. Filters and re-layout resemble controls but do not create a strong investigation workflow."
+    },
+    "typography_material": {
+      "score": 2.0,
+      "finding": "The oversized heavy display face, condensed uppercase labels, dense mono metadata, cream paper, and repeated hairlines create a stylized dossier costume. It feels generated because the visual motif is applied everywhere instead of responding to evidence authority."
+    },
+    "accessibility_mobile": {
+      "score": 2.5,
+      "finding": "Text and focus affordances are generally readable, but mobile produces a very long scan, weak mode orientation, and delayed proof access. The graph becomes document flow rather than an interactive review projection."
+    },
+    "visual_distinctiveness": {
+      "score": 1.5,
+      "finding": "The screen avoids common blue dashboard styling, yet replaces it with another recognizable AI pattern: oversized editorial headline, mono eyebrow labels, repeated bordered regions, and red accent links. The result is themed rather than authored."
+    }
+  },
+  "why_it_feels_ai_generated": [
+    "A single visual recipe is repeated across every content type regardless of authority or task.",
+    "Large declarative copy substitutes for a compact decision model.",
+    "Controls, status labels, and metadata are plentiful, but their visual priority does not match review risk.",
+    "The evidence graph demonstrates coverage instead of helping the reviewer compare a claim, its strongest contradiction, and exact proof.",
+    "Mobile is a stacked transcription of desktop content rather than a purpose-built verification flow."
+  ],
+  "award_pattern_gap": "Team 1286 and Team 1401 mechanics are only partially represented. Grouping, typed edges, filters, detail inspection, source location, collapse/expand, and answer-path ideas appear, but the screen does not combine them into a concise question-driven review loop. The replacement must use these mechanics to move from verdict to contradiction and deployed proof, not as graph decoration.",
+  "replacement_direction": "Replace the ledger metaphor with a calm investigation canvas: a narrow persistent case rail, a decision strip with separate verdict and readiness, a central question-specific projection, and a proof dock that keeps exact source authority one action away. Use a neutral graphite and bone system with one safety-orange accent, restrained square geometry, technical sans and mono, and no decorative elevation."
+}

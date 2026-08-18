@@ -1,0 +1,22 @@
+{
+  "status": "PRESERVED_DRAFTS_RATE_LIMITED",
+  "recorded_by": "Codex main orchestrator",
+  "recorded_at": "2026-08-18T00:36:51-07:00",
+  "fable_session_state": "rate_limited_before_closeout",
+  "artifacts": {
+    "architecture-design-draft.md": "70a4fd230f5ce41137fb5d2c266098c6bf37a948a8739031cd0c03d077097f4e",
+    "architecture-decision-ledger.md": "8c156cbce9a6b2e262fbcebf30a4c29b13867848ccc8e3041b3320cdb47db03f",
+    "architecture-overview-draft.html": "fd2cfc6d463556355221f88bc9890e5133392ac5ea4a093eb2849ef27b3e9935",
+    "m0-review-flow-draft.html": "a612663070f1d778bbd150b7ee25b220625f91ab2a13650cc02c3772ba402f8a",
+    "architecture-finalization-status.json": "ebbeadb2b3217801855abd2e30c5c64692eb3b175943c2c454af172e054eee40",
+    "steelman-owner-alignment-handoff.md": "be360517fdd4beb5d0f76782d8372078c2b16ad940ac843447434122f842f8d3"
+  },
+  "missing_requested_output": "steelman-owner-alignment-status.json",
+  "artifact_state": "draft_not_frozen",
+  "status_file_stale_relative_to_draft": true,
+  "owner_decisions_observed_through": ["D8", "S8"],
+  "facilitator_rulings_are_owner_frozen": false,
+  "html_final_acceptance": false,
+  "implementation_authorized": false,
+  "next": "Continue Owner steelman alignment in the Codex main orchestrator, then create a superseding exact-digest candidate and independent review binding."
+}

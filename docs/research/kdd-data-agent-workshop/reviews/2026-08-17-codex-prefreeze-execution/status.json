@@ -1,0 +1,65 @@
+{
+  "handoff_id": "kdd-m0-prefreeze-execution-20260817",
+  "status": "completed_review_package_not_authorized",
+  "summary": "Completed one bounded pre-freeze execution-readiness run. Produced an unapplied canonical writeback candidate, a draft M0-F1-F5 start handoff, and a completion ledger. The candidate reconciles Owner decisions D1-D3 and the known residual drift, including declared runtime_only/runtime_and_sample sufficiency without post-hoc power, versioned arm-parity applicability, one stored analysis_use state with derived eligibility, and VAL-M0-002 propagation. No canonical document, product code, test, fixture, Git state, production state, or external state was changed.",
+  "evidence": {
+    "repository": {
+      "branch": "codex/kdd-data-agent-practices-research",
+      "head": "28cbbda6e4d4d7f08134952d38433e52d3ee8768",
+      "dirty_worktree_preserved": true
+    },
+    "observed_live_digests": {
+      "packet_sha256": "67c844d10dcafcf2637388bf579dfcd9866d7d69ea6f4d3b456fd6b6b15dfcfa",
+      "architecture_spec_sha256": "3b20c93859b78074b653d375fc29f60bd40993b3f3bcb4ee2ff481e8ba8706b8",
+      "ce_plan_sha256": "52ce2763a365eb35ea884dfbc7f19b8b3d012b85edac544a21b356638126499c",
+      "sequencing_sha256": "1d42e67c0ba5e2a1799960a3e151b12fa847a419f13b7a9f63362366dc3a29ee",
+      "eval_acceptance_plan_sha256": "5dce10ca451f7ccbbf5d86896cefed2b8dd8a5b5cae480da4d3ea030d5603194",
+      "phase_a_package_aggregate_historical_claim_sha256": "2f1001b93b19b2318c4c6419205ed2f7778ac23c02533e78a0c0899f15bf7d1e",
+      "phase_a_package_aggregate_current_status": "unverified: the historical aggregate was copied from prior receipts and was not reproducible with their published command; the live source tree is byte-identical to the retained Opus scratch copy when .omc and caches are excluded, but a new explicit manifest algorithm is required",
+      "alignment_seams_sha256": "d809f1929ee6c25c55a3701ccce9522348ddd90448851a6ce4382a38420a58b9"
+    },
+    "candidate_post_apply_digests": {
+      "packet_sha256": "9fbb3cc6d82d5aaf633dc84b3b5c2f8f936506a6f24e3192d88f498d49d23cc8",
+      "architecture_spec_sha256": "671611ef90672e13f33e7c7fcaa3890114297838ead4d923ab565e10fe1c730e",
+      "ce_plan_sha256": "8cc5c53e87eb722d48102bd4d7f0bbab2819cff2f535c98c2e976f298316b196",
+      "sequencing_sha256": "3157ef6035055b807da0f160f5f002a33e09f952d9ea84139e1a9ecbb0c65395",
+      "eval_acceptance_plan_sha256": "5ac1b662c43095e339c12f02763fd3917eb0e6c66eda21cde970e8482586b379"
+    },
+    "outputs": {
+      "candidate_patch": {
+        "path": "/Users/surahli/Documents/projects/SMA_v2/docs/research/kdd-data-agent-workshop/reviews/2026-08-17-codex-prefreeze-execution/candidate-canonical-writeback.patch",
+        "sha256": "6c17123aacfff7d1c867f3fee33d9873cf3d13195b89328b846b67f2cc309845",
+        "applied": false
+      },
+      "start_handoff_draft": {
+        "path": "/Users/surahli/Documents/projects/SMA_v2/docs/research/kdd-data-agent-workshop/reviews/2026-08-17-codex-prefreeze-execution/m0-f1-f5-start-handoff-draft.md",
+        "sha256": "6006a6f580d10b84168f2a3964cac8fd42a09ff97ce45b875bd5d41090f935f9"
+      },
+      "completion_ledger": {
+        "path": "/Users/surahli/Documents/projects/SMA_v2/docs/research/kdd-data-agent-workshop/reviews/2026-08-17-codex-prefreeze-execution/m0-f1-f5-completion-ledger.md",
+        "sha256": "74fd9ac139ecc8d451313f23d19ed059694af1931e11bf7a1652e400dcb77484"
+      }
+    },
+    "verification": {
+      "patch_hunks": 5,
+      "source_anchor_blocks": 5,
+      "git_apply_check": "pass",
+      "git_apply_check_whitespace_error_all": "pass",
+      "disposable_copy_apply": "pass",
+      "disposable_copy_digests_match_candidate": true,
+      "canonical_live_digests_unchanged": true,
+      "phase_a_package_aggregate_unchanged": "not_claimed: source equality to the retained review copy was observed, but the historical aggregate algorithm is not reproducible",
+      "tests_run": false,
+      "tests_not_run_reason": "This handoff authorized a review-only pre-freeze package and prohibited product/test/fixture changes; no implementation behavior was changed."
+    },
+    "blockers": [
+      "The packet/spec candidate bytes are not frozen and have no fresh exact-digest independent verdict.",
+      "The Phase A independent-verification directory currently contains only its handoff; no final independent verdict was observed in the declared repository path.",
+      "Owner acknowledgement of the final packet/spec path, revision, and digest binding is missing.",
+      "A fresh one-run M0-F1-F5 start receipt with named lead, caps, expiry, and halt owner is missing.",
+      "P2, P3, P4, production authorization, M1/M2 start, and Committee Acceptance remain separate and unresolved."
+    ]
+  },
+  "next_step": "Have independent reviewers evaluate the final candidate packet/spec bytes and Phase A aggregate, then obtain explicit Owner acknowledgement of the exact accepted bindings and a fresh bounded one-run start receipt. Only after those receipts exist may M0-F1 through M0-F5 start; do not infer authorization from this package or its passing dry-run.",
+  "updated_at": "2026-08-17T20:17:09-07:00"
+}

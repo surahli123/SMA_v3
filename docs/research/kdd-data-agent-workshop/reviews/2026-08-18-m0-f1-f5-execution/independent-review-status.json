@@ -1,0 +1,159 @@
+{
+  "schema_version": "m0-f1-f5-independent-review-status/v1",
+  "verdict": "REJECT_LOCAL_M0_EVIDENCE",
+  "completed_at": "2026-08-18T02:11:25-07:00",
+  "review_mode": "fresh_independent_report_only",
+  "reviewer_authorship": "did_not_author_implementation_bytes",
+  "subagents_started": 0,
+  "production_accesses": 0,
+  "binding": {
+    "handoff_sha256": "1ecfc9b6316d0cfc2b88230cf9509220de685607381fc72ecd55b413bb1d1584",
+    "target_package_aggregate_sha256": "30d6b47ca55f1444ef8ba596aedabd90db5f21af58e60d53ad2320a5fc94c196",
+    "recomputed_package_aggregate_sha256": "30d6b47ca55f1444ef8ba596aedabd90db5f21af58e60d53ad2320a5fc94c196",
+    "aggregate_match": true,
+    "packet_sha256": "82747da96d66dd8851c03edc837f38597264a07794a2b145cd530ca0a5f07b19",
+    "architecture_sha256": "9508b42979b5f708d3b0be7016ed414fd0b4c28d531b75fd0a4710eb46df8fc1",
+    "ce_plan_sha256": "2b4bbd3583e2f289303b8e47b255e3b53bd0f3307f0b699b33299b57aa9e1daf",
+    "sequencing_sha256": "8fec2f8c3c3d22aa9dc1b762769673789d007fd74dbbed9c34e5ea88fcd4725b",
+    "blocked_by_drift": false
+  },
+  "verification": {
+    "three_working_directory_suite": [
+      {
+        "working_directory": "repository_root",
+        "result": "314 passed in 0.45s"
+      },
+      {
+        "working_directory": "package_root",
+        "result": "314 passed in 0.45s"
+      },
+      {
+        "working_directory": "unrelated_private_tmp_with_explicit_pythonpath",
+        "result": "314 passed in 0.44s"
+      }
+    ],
+    "hash_seeds": ["0", "1", "42", "99991", "random"],
+    "actual_packet_bytes": 18772,
+    "actual_serialized_packet_sha256": "c8e4d7f4c813008793ad78ff8f79620673fa2492f6d89d4c25a0852bd25d58cc",
+    "actual_internal_packet_digest": "sha256:d51631746ee339681ac0c86d5ceb819dc587089d375274b03d7a5fdc65f9db79",
+    "claimed_packet_bytes": 18740,
+    "claimed_serialized_packet_sha256": "51b7bc3bdeebb9422d022dcf293b63bb29d10d21a34b305bbc7a6a8e44a4f0f9",
+    "packet_claim_reproduced": false,
+    "adversarial_probe": {
+      "false_readiness_replace_bypass": true,
+      "unauthorized_receipt_became_eligible": true,
+      "fixture_matrix_manifest_overlap": 0,
+      "fixture_matrix_entries": 13,
+      "manifest_entries": 8
+    }
+  },
+  "phase_a_mutations": [
+    {"class": "receipt_identity", "result": "killed", "focused_suite": "2 failed, 24 passed"},
+    {"class": "authorization_fail_open", "result": "killed", "focused_suite": "5 failed, 53 passed"},
+    {"class": "rule_resolution", "result": "killed", "focused_suite": "1 failed, 25 passed"},
+    {"class": "seal_verification", "result": "killed", "focused_suite": "2 failed, 17 passed"},
+    {"class": "relative_production_import", "result": "killed", "focused_suite": "1 failed, 60 passed"},
+    {"class": "symlink_scanning", "result": "killed", "focused_suite": "6 failed, 55 passed"},
+    {"class": "fixture_containment", "result": "killed", "focused_suite": "1 failed, 57 passed"},
+    {"class": "seam_authority", "result": "killed", "focused_suite": "targeted authority assertion failed"},
+    {"class": "body_policy", "result": "killed_with_defense_in_depth", "focused_suite": "2 failed, 82 passed"}
+  ],
+  "findings": [
+    {
+      "id": "IR-M0-01",
+      "severity": "BLOCKER",
+      "title": "Public packet reconstruction permits false readiness",
+      "anchors": [
+        ".agents/skills/kdd_data_agent/m0/packet.py:130-158",
+        ".agents/skills/kdd_data_agent/m0/packet.py:160-166",
+        ".agents/skills/kdd_data_agent/tests/test_m0_contracts.py:72-78"
+      ],
+      "impact": "A blocked packet retaining CHK-16 FAIL can be reconstructed as decision_grade and eligible.",
+      "minimal_correction": "Make packet construction factory-only or validate an exact readiness derivation from checks during construction."
+    },
+    {
+      "id": "IR-M0-02",
+      "severity": "BLOCKER",
+      "title": "Unauthorized source receipts are accepted as decision evidence",
+      "anchors": [
+        ".agents/skills/kdd_data_agent/m0/evaluator.py:33-45",
+        ".agents/skills/kdd_data_agent/m0/evaluator.py:57-111",
+        ".agents/skills/kdd_data_agent/m0/evaluator.py:147-175",
+        ".agents/skills/kdd_data_agent/m0/checks.py:225-226"
+      ],
+      "impact": "An unauthorized no-body fixture receipt produces CHK-16 PASS and an eligible decision-grade packet.",
+      "minimal_correction": "Admit and bind the reported ReadResult to the contract before recomputation; fail closed for any non-admitted or mismatched receipt."
+    },
+    {
+      "id": "IR-M0-03",
+      "severity": "BLOCKER",
+      "title": "Unimplemented material checks default to PASS",
+      "anchors": [
+        ".agents/skills/kdd_data_agent/m0/checks.py:180-226",
+        ".agents/skills/kdd_data_agent/m0/checks.py:244-260",
+        ".agents/skills/kdd_data_agent/tests/test_m0_checks.py:93-104"
+      ],
+      "impact": "Absent validators and evidence are represented as positive evidence for most of the nineteen-check contract.",
+      "minimal_correction": "Require explicit check-specific validator results and evidence; missing validation must be MISSING or UNKNOWN, never PASS."
+    },
+    {
+      "id": "IR-M0-04",
+      "severity": "MAJOR",
+      "title": "D4 and D6 comparison is a caller assertion",
+      "anchors": [
+        ".agents/skills/kdd_data_agent/m0/evaluator.py:48-63",
+        ".agents/skills/kdd_data_agent/m0/evaluator.py:66-110",
+        ".agents/skills/kdd_data_agent/m0/evaluator.py:155-168"
+      ],
+      "impact": "A recomputation can be marked matching without executing a comparison between reported and recomputed outputs.",
+      "minimal_correction": "Derive the result internally from typed outputs and the contract-bound versioned comparison rule; remove the public boolean."
+    },
+    {
+      "id": "IR-M0-05",
+      "severity": "BLOCKER",
+      "title": "F5 validation is disconnected metadata",
+      "anchors": [
+        ".agents/skills/kdd_data_agent/m0/validation.py:32-90",
+        ".agents/skills/kdd_data_agent/m0/validation.py:93-111",
+        ".agents/skills/kdd_data_agent/tests/test_m0_hard_vetoes.py:18-61",
+        ".agents/skills/kdd_data_agent/evals/fixtures/m0/manifest.json:1-44"
+      ],
+      "impact": "Fixture scenarios, trivial baselines, decoys, reviewer conflicts, and hard vetoes are not executed through the real evaluator.",
+      "minimal_correction": "Use one byte-bound executable planted-truth corpus and run every F5 class through the real evaluator and veto path."
+    },
+    {
+      "id": "IR-M0-06",
+      "severity": "MAJOR",
+      "title": "Canonical packet evidence in the receipt is false",
+      "anchors": [
+        "docs/research/kdd-data-agent-workshop/reviews/2026-08-18-m0-f1-f5-execution/independent-review-handoff.md:12",
+        "docs/research/kdd-data-agent-workshop/reviews/2026-08-18-m0-f1-f5-execution/implementation-receipt.md:42-45",
+        "docs/research/kdd-data-agent-workshop/reviews/2026-08-18-m0-f1-f5-execution/implementation-status.json:12-16",
+        ".agents/skills/kdd_data_agent/tests/_m0_fixtures.py:102-119"
+      ],
+      "impact": "The named builder does not reproduce the packet bytes or digest claimed by the handoff and receipt.",
+      "minimal_correction": "Regenerate and clearly distinguish the serialized-byte digest and internal packet digest from the exact canonical builder."
+    }
+  ],
+  "ledger_disposition": {
+    "phase_a_corrections": "VERIFIED_FOR_MANDATED_MUTATION_CLASSES",
+    "run_prerequisites_and_binding": "VERIFIED",
+    "M0-F1": "REJECTED",
+    "M0-F2": "REJECTED",
+    "M0-F3": "REJECTED",
+    "M0-F4": "REJECTED",
+    "M0-F5": "REJECTED"
+  },
+  "authority_not_established": [
+    "production_authorization",
+    "production_capability",
+    "P2",
+    "P3",
+    "P4",
+    "M1",
+    "M2",
+    "deployment",
+    "publication",
+    "committee_acceptance"
+  ]
+}

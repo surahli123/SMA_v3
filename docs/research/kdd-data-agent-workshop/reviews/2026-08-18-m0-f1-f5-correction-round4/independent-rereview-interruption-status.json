@@ -1,0 +1,22 @@
+{
+  "schema_version": "m0-round4-independent-rereview-interruption/v1",
+  "reviewed_package_aggregate_sha256": "29040a66a97a50a21b02178bf494d378f709bc991aefc6b36ac8ba10294f0a02",
+  "reviewer_task_id": "01a01441-064c-75b2-8259-d51e6762818e",
+  "terminal_coordination_state": "NOT_ACCEPTED_BLOCKING_FINDING_OBSERVED_REPORT_WRITE_INTERRUPTED",
+  "hard_gate": {
+    "manifest_file_count": 59,
+    "manifest_byte_match": true,
+    "package_aggregate_match": true,
+    "frozen_supporting_hashes_match": true
+  },
+  "blocking_finding": {
+    "id": "IR-M0-01-RR2",
+    "summary": "The admitted metric value is not recomputed from the authoritative synthetic source body at the public verification boundary.",
+    "observed": true,
+    "independent_report_saved": false
+  },
+  "classifier_interruptions": 2,
+  "independent_acceptance_claimed": false,
+  "round4_accepted": false,
+  "proof_states_promoted": []
+}

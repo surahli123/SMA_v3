@@ -1,0 +1,52 @@
+{
+  "handoff_id": "kdd-m0-canonical-candidate-v5-independent-review-20260818",
+  "status": "done",
+  "verdict": "REJECT_CANDIDATE",
+  "summary": "The exact v5 patch and all seven post-apply digests reproduced in a fresh disposable copy, but the candidate retains a direct S10 contradiction about blocked-Flight M1 investigation and writes an undefined ce-unified-plan/v1 artifact_readiness value.",
+  "patch_sha256": "a2844d700c997f445532dad32807a5239e02f61ce9b080a555d00d46a085e03a",
+  "live_input_digests": {
+    "docs/plans/2026-08-12-001-feat-kdd-data-agent-greenfield-plan.md": "52ce2763a365eb35ea884dfbc7f19b8b3d012b85edac544a21b356638126499c",
+    "docs/research/kdd-data-agent-workshop/enterprise-experiment-post-analysis-profile.md": "3da58196296c3eb164a598a67750e1d57bbc5936176edde2d743917b48d7f663",
+    "docs/research/kdd-data-agent-workshop/eval-acceptance-plan.md": "5dce10ca451f7ccbbf5d86896cefed2b8dd8a5b5cae480da4d3ea030d5603194",
+    "docs/research/kdd-data-agent-workshop/final-architecture-spec.md": "3b20c93859b78074b653d375fc29f60bd40993b3f3bcb4ee2ff481e8ba8706b8",
+    "docs/research/kdd-data-agent-workshop/implementation-sequencing.md": "1d42e67c0ba5e2a1799960a3e151b12fa847a419f13b7a9f63362366dc3a29ee",
+    "docs/research/kdd-data-agent-workshop/planning-decision-packet.md": "7e68ad675b988f2dfc3f53cf13e6e5e4bbd24194ce896c38df395e62b06bd37c",
+    "docs/research/kdd-data-agent-workshop/reviews/2026-08-16-opus5-m0-alignment/m0-m2-build-alignment-packet.md": "67c844d10dcafcf2637388bf579dfcd9866d7d69ea6f4d3b456fd6b6b15dfcfa"
+  },
+  "post_apply_digests": {
+    "docs/plans/2026-08-12-001-feat-kdd-data-agent-greenfield-plan.md": "e82779674e14013ed656d862877e7b2778b50fbd366f63960698d97e60ee19df",
+    "docs/research/kdd-data-agent-workshop/enterprise-experiment-post-analysis-profile.md": "9a5823d02aa4d26f5fe472f0f90f2c07bc378d4ea745145f7494f749710cf77e",
+    "docs/research/kdd-data-agent-workshop/eval-acceptance-plan.md": "2d4612e319e7c8dce209eeaee228638ec0abf69a0ee70a01697c30b96b40e965",
+    "docs/research/kdd-data-agent-workshop/final-architecture-spec.md": "9508b42979b5f708d3b0be7016ed414fd0b4c28d531b75fd0a4710eb46df8fc1",
+    "docs/research/kdd-data-agent-workshop/implementation-sequencing.md": "5b71ac04d58201f36acef3bc39443e00b348fb794ea4b131d19d206eb7529a22",
+    "docs/research/kdd-data-agent-workshop/planning-decision-packet.md": "1ba07b2587a491a3c6e3e45a3b9af2ef7f701f0de32674a74d2bcac6a8109497",
+    "docs/research/kdd-data-agent-workshop/reviews/2026-08-16-opus5-m0-alignment/m0-m2-build-alignment-packet.md": "9ab5097e31f3cd47fd6dc194a19aaa9af5ecf11fb18a7210bcbe523fca5e3761"
+  },
+  "findings": [
+    {
+      "id": "V5-01",
+      "anchor": "/private/tmp/kdd-v5-independent-review.Z3mxOK/docs/research/kdd-data-agent-workshop/reviews/2026-08-16-opus5-m0-alignment/m0-m2-build-alignment-packet.md:29",
+      "additional_anchor": "/private/tmp/kdd-v5-independent-review.Z3mxOK/docs/research/kdd-data-agent-workshop/implementation-sequencing.md:72",
+      "impact": "The candidate says M1 cannot start for a blocked Flight even though S10 and the same alignment packet at line 170 permit M1 investigation under separate authority with dependent claims capped. This weakens S10 and makes controlling documents contradictory.",
+      "minimal_correction": "Replace the absolute prohibition and M0-pass diagram edge with the S10 investigation-versus-publication-ceiling rule already stated at alignment-packet line 170."
+    },
+    {
+      "id": "V5-02",
+      "anchor": "/private/tmp/kdd-v5-independent-review.Z3mxOK/docs/plans/2026-08-12-001-feat-kdd-data-agent-greenfield-plan.md:6",
+      "impact": "The document declares ce-unified-plan/v1 but uses an undefined artifact_readiness value, preventing deterministic unified-plan classification and breaking the declared document contract.",
+      "minimal_correction": "Restore artifact_readiness: implementation-ready and keep the no-current-authority state in execution, authority_state, Readiness, and Stop Conditions."
+    }
+  ],
+  "evidence": [
+    "Fresh disposable root: /private/tmp/kdd-v5-independent-review.Z3mxOK.",
+    "git apply --check --whitespace=error-all succeeded against exact live targets and again in the disposable copy without fuzz.",
+    "All seven post-apply SHA-256 values exactly match the Round 5 status claims; patch stats are 268 insertions and 147 deletions across seven targets.",
+    "Acceptance registry verification found 26 rows, 26 unique owners, 26 referenced IDs, zero duplicate owners, and zero unowned references.",
+    "All local Markdown file links in the seven post-apply targets resolve against the live repository.",
+    "D1-D8 and S1-S11 are substantially present, but S10 is contradicted by alignment-packet line 29 and the implementation-sequencing M0-pass edge.",
+    "Phase A remains PASS_WITH_GAPS; implementation-only gaps and the versioned Coverage Gap registry decision remain open.",
+    "Branch codex/kdd-data-agent-practices-research, HEAD 28cbbda6e4d4d7f08134952d38433e52d3ee8768, live targets, patch, Fable artifacts, Phase A, prior review artifacts, index, and unrelated dirty state remained unchanged."
+  ],
+  "next_step": "Do not write back or freeze v5 and do not start M0-F1-M0-F5. Produce a superseding exact patch that corrects V5-01 and V5-02, then run a new independent exact-byte review before any Owner writeback decision.",
+  "updated_at": "2026-08-18T01:08:54-07:00"
+}

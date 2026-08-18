@@ -1,0 +1,129 @@
+{
+  "schema_version": "m0-f1-f5-independent-rereview-status/v1",
+  "verdict": "REJECT_LOCAL_M0_EVIDENCE",
+  "completed_at": "2026-08-18T02:50:25-07:00",
+  "review_mode": "fresh_independent_bounded_report_only",
+  "reviewer_authorship": "did_not_author_implementation_or_correction_bytes",
+  "subagents_started": 0,
+  "production_accesses": 0,
+  "binding": {
+    "handoff_sha256": "885784ad9df9550641e8b7322b1c35bb281ca4511e4a4b949a2a8356b2c4e10a",
+    "target_package_aggregate_sha256": "c9c2d30fe588ce68fa1f45f93b83df768090f3ce7c0992516e8d31b224d4c901",
+    "recomputed_package_aggregate_sha256": "c9c2d30fe588ce68fa1f45f93b83df768090f3ce7c0992516e8d31b224d4c901",
+    "aggregate_match": true,
+    "manifest_file_count": 59,
+    "source_manifest_after_match": true,
+    "packet_sha256": "82747da96d66dd8851c03edc837f38597264a07794a2b145cd530ca0a5f07b19",
+    "architecture_sha256": "9508b42979b5f708d3b0be7016ed414fd0b4c28d531b75fd0a4710eb46df8fc1",
+    "ce_plan_sha256": "2b4bbd3583e2f289303b8e47b255e3b53bd0f3307f0b699b33299b57aa9e1daf",
+    "sequencing_sha256": "8fec2f8c3c3d22aa9dc1b762769673789d007fd74dbbed9c34e5ea88fcd4725b",
+    "blocked_by_drift": false
+  },
+  "verification": {
+    "three_working_directory_suite": [
+      {"working_directory": "repository_root", "result": "313 passed in 0.50s"},
+      {"working_directory": "package_root", "result": "313 passed in 0.49s"},
+      {"working_directory": "unrelated_private_tmp_with_explicit_pythonpath", "result": "313 passed in 0.48s"}
+    ],
+    "suite_count_reconciliation": {
+      "before": 314,
+      "after": 313,
+      "renamed_semantically_equivalent": 3,
+      "removed_semantic_cases": 9,
+      "added_semantic_cases": 8,
+      "net_change": -1,
+      "semantic_coverage_weakened": true
+    },
+    "hash_seeds": ["0", "1", "42", "99991", "random"],
+    "serialized_packet_bytes": 20018,
+    "serialized_packet_sha256": "0c4ffe715eb18055cbeeec0e88ec3fcf180cc7307fa0298b0d7c6aaaf93e30d1",
+    "internal_packet_digest": "sha256:364ef4e04c8b440e6097f69179d8869fe98dcbf3c0336cdc6f75d808339ab828",
+    "canonical_evidence_seed_invariant": true,
+    "direct_reconstruction_promotion_rejected": true,
+    "unauthorized_no_body_fixture_not_permitted": true,
+    "digest_valid_nested_check_tamper_accepted": true,
+    "missing_binding_outcomes": {
+      "CHK-01_through_CHK-18": "MISSING_NOT_PERMITTED",
+      "CHK-19_runtime_only": "NOT_APPLICABLE_DECISION_GRADE",
+      "missing_became_pass": false
+    },
+    "contradictory_present_evidence": {
+      "pass_count": 18,
+      "not_applicable_count": 1,
+      "analysis_use": "decision_grade"
+    },
+    "comparison_boolean_public": false,
+    "typed_output_disagreement": "CHK-14_FAIL_NOT_PERMITTED",
+    "sealed_corpus_cases": 19,
+    "sealed_corpus_matches_planted_truth": true,
+    "trivial_baselines_contradicted": true,
+    "fixture_byte_mutation": "killed_by_pin_mismatch",
+    "planted_truth_mutation": "contradicted_by_public_evaluator",
+    "local_only_capability_boundary": "verified",
+    "production_adapter_present": false
+  },
+  "findings": [
+    {
+      "id": "IR-M0-01-RR",
+      "severity": "BLOCKER",
+      "title": "Deserialization does not verify sealed check digests",
+      "anchors": [
+        ".agents/skills/kdd_data_agent/m0/packet.py:295-320",
+        ".agents/skills/kdd_data_agent/m0/packet.py:321-355",
+        ".agents/skills/kdd_data_agent/tests/test_m0_packet.py:53-61",
+        ".agents/skills/kdd_data_agent/tests/test_m0_corrections.py:20-22"
+      ],
+      "impact": "A failed check can be rewritten to PASS with its stale result_digest and the serialized packet promoted to decision_grade after recomputing only the outer digest.",
+      "minimal_correction": "Reconstruct and validate typed nested records or recompute every nested digest and exact binding before deriving readiness; add a blocking-check mutation regression."
+    },
+    {
+      "id": "IR-M0-03-RR",
+      "severity": "BLOCKER",
+      "title": "Arbitrary present payloads are accepted as check-specific validator evidence",
+      "anchors": [
+        ".agents/skills/kdd_data_agent/m0/corrected_evaluator.py:208-220",
+        ".agents/skills/kdd_data_agent/m0/corrected_evaluator.py:231-263",
+        ".agents/skills/kdd_data_agent/evals/fixtures/m0/m0-read-trusted-001.json:39-50",
+        ".agents/skills/kdd_data_agent/tests/test_m0_checks.py:92-102"
+      ],
+      "impact": "Contradictory garbage evidence produces eighteen PASS outcomes and a decision-grade packet without genuine named validators.",
+      "minimal_correction": "Implement typed deterministic validators for every check and derive PASS only from validated check-specific fields and receipt lineage."
+    },
+    {
+      "id": "IR-M0-TEST-RR",
+      "severity": "MAJOR",
+      "title": "Prior named failure semantics were removed without equivalent public-evaluator coverage",
+      "anchors": [
+        ".agents/skills/kdd_data_agent/tests/test_m0_checks.py:92-102",
+        ".agents/skills/kdd_data_agent/tests/test_m0_packet.py:47-61",
+        ".agents/skills/kdd_data_agent/tests/test_m0_reads.py:75-86",
+        "docs/research/kdd-data-agent-workshop/reviews/2026-08-18-m0-f1-f5-correction/source-manifest-before.sha256:38-50",
+        "docs/research/kdd-data-agent-workshop/reviews/2026-08-18-m0-f1-f5-correction/source-manifest-after.sha256:40-54"
+      ],
+      "impact": "The green 313-test suite no longer proves named material-failure ceilings for several check classes and misses the reproduced evidence and nested-digest failures.",
+      "minimal_correction": "Restore equivalent behavior-driven public-evaluator tests for every material check, unknown materiality, contradictory evidence, and nested check tampering."
+    }
+  ],
+  "finding_disposition": {
+    "IR-M0-01": "REJECTED_REMAINS_OPEN_AT_DESERIALIZATION_BOUNDARY",
+    "IR-M0-02": "CORRECTED",
+    "IR-M0-03": "REJECTED_REMAINS_OPEN_FOR_GENUINE_VALIDATORS",
+    "IR-M0-04": "CORRECTED",
+    "IR-M0-05": "CORRECTED_WITH_REJECTING_EVALUATOR_DEPENDENCY",
+    "IR-M0-06": "CORRECTED"
+  },
+  "proof_states": {
+    "phase_a_evidence": "PRESERVED_SEPARATE_NOT_READJUDICATED",
+    "corrected_local_fixture_backed_m0": "REJECTED",
+    "production_authorization": "NOT_ESTABLISHED",
+    "production_m0_capability": "NOT_DEMONSTRATED",
+    "P2": "OPEN",
+    "P3": "OPEN",
+    "P4": "OPEN",
+    "M1": "NOT_IMPLEMENTED_OR_AUTHORIZED",
+    "M2": "NOT_IMPLEMENTED_OR_AUTHORIZED",
+    "deployment": "NOT_PERFORMED_OR_AUTHORIZED",
+    "publication": "NOT_PERFORMED_OR_AUTHORIZED",
+    "committee_acceptance": "NOT_ESTABLISHED"
+  }
+}

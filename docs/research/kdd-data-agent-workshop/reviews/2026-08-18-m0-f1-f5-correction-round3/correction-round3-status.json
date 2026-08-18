@@ -1,0 +1,68 @@
+{
+  "schema_version": "m0-f1-f5-correction-round3-status/v1",
+  "terminal_implementation_state": "CORRECTED_LOCAL_INTEGRITY_EVIDENCE_READY_FOR_INDEPENDENT_REREVIEW",
+  "completed_at": "2026-08-18T03:43:26-07:00",
+  "binding": {
+    "input_package_aggregate_sha256": "52d4c82e2a80ffc5a42bc80918165b33ebed0b03256a27c7c7bc78bd8046d2f6",
+    "corrected_package_aggregate_sha256": "f32404705d3c32a9b1e09ba932db080ae1b1e63b6a55132c526457cec9e7c8ab",
+    "manifest_file_count": 59,
+    "frozen_packet_sha256": "82747da96d66dd8851c03edc837f38597264a07794a2b145cd530ca0a5f07b19",
+    "frozen_architecture_sha256": "9508b42979b5f708d3b0be7016ed414fd0b4c28d531b75fd0a4710eb46df8fc1",
+    "ce_plan_sha256": "2b4bbd3583e2f289303b8e47b255e3b53bd0f3307f0b699b33299b57aa9e1daf",
+    "sequencing_sha256": "8fec2f8c3c3d22aa9dc1b762769673789d007fd74dbbed9c34e5ea88fcd4725b"
+  },
+  "finding_disposition": {
+    "IR-M0-01-RR": "CORRECTED_PENDING_INDEPENDENT_REREVIEW",
+    "IR-M0-TEST-RR": "CORRECTED_PENDING_INDEPENDENT_REREVIEW",
+    "IR-M0-03-RR": "PRESERVED_CORRECTED_IN_LIVE_EVALUATOR",
+    "IR-M0-02": "PRESERVED_CORRECTED",
+    "IR-M0-04": "PRESERVED_CORRECTED",
+    "IR-M0-05": "PLUMBING_PRESERVED_WITH_CORRECTED_SERIALIZATION_DEPENDENCY_PENDING_REREVIEW",
+    "IR-M0-06": "PRESERVED_CORRECTED"
+  },
+  "verification": {
+    "tests_passed": 358,
+    "working_directories": 3,
+    "round2_test_count": 344,
+    "round3_test_count": 358,
+    "round3_cases_added": 14,
+    "tests_removed": 0,
+    "focused_boundary_tests_passed": 37,
+    "hash_seeds": ["0", "1", "42", "99991", "random"],
+    "serialized_packet_bytes": 46628,
+    "serialized_packet_sha256": "47a3e56a7de91895087d2a7ce4437aae48daf39b2abdaf027390d4cc44676ddd",
+    "internal_packet_digest": "sha256:9a421e1c3d003db70e14c6c9a0f4cc0263111e5c31c926b269b2948a8ebf4838",
+    "named_semantic_validators": 19,
+    "sealed_corpus_cases": 19,
+    "disposable_mutation_classes_killed": 3,
+    "capability_tests_passed": 61,
+    "production_reads": 0,
+    "production_capability_expansion": false
+  },
+  "integrity_contract": {
+    "trusted_expected_packet_digest_required": true,
+    "unkeyed_self_consistent_reseal_distinguished_by_external_binding": true,
+    "secret_or_signature_added": false,
+    "authority_claimed": false
+  },
+  "proof_states": {
+    "phase_a_evidence": "PRESERVED_SEPARATE_NOT_READJUDICATED",
+    "corrected_local_fixture_backed_m0": "READY_FOR_INDEPENDENT_REREVIEW",
+    "production_authorization": "NOT_ESTABLISHED",
+    "production_m0_capability": "NOT_DEMONSTRATED",
+    "P2": "OPEN",
+    "P3": "OPEN",
+    "P4": "OPEN",
+    "M1": "NOT_AUTHORIZED_OR_COMPLETED",
+    "M2": "NOT_AUTHORIZED_OR_COMPLETED",
+    "deployment": "NOT_PERFORMED_OR_AUTHORIZED",
+    "publication": "NOT_PERFORMED_OR_AUTHORIZED",
+    "committee_acceptance": "NOT_ESTABLISHED"
+  },
+  "independent_acceptance_claimed": false,
+  "reviewer_started": false,
+  "git_mutated": false,
+  "commit_created": false,
+  "push_or_pr_performed": false,
+  "external_or_production_access": false
+}

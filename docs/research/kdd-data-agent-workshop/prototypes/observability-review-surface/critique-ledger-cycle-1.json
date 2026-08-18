@@ -1,0 +1,23 @@
+{
+  "kind": "critique-panel",
+  "iteration": 1,
+  "score": 3.8,
+  "screenshots": {
+    "desktop_review": "review-artifacts/ledger-cycle-1-desktop-review.png",
+    "mobile_review": "review-artifacts/ledger-cycle-1-mobile-review.png",
+    "desktop_claims": "review-artifacts/ledger-cycle-1-desktop-claims.png",
+    "mobile_claims": "review-artifacts/ledger-cycle-1-mobile-claims.png"
+  },
+  "axes": {
+    "clarity": {"score": 4.1, "notes": "Review aligns support, contradiction, ledger, and source proof. Mobile Claims still requires horizontal exploration to reach the high-risk contradiction."},
+    "hierarchy": {"score": 4.1, "notes": "Verdict and readiness are compact; the evidence ledger, not a headline, controls the review body."},
+    "typography": {"score": 4.0, "notes": "Sans and mono roles are disciplined. Mobile ledger metadata needs a clearer row hierarchy."},
+    "motion": {"score": 3.4, "notes": "Selection changes the source inspector in context, but mobile graph traversal lacks spatial clarity."},
+    "brand": {"score": 3.6, "notes": "The case-ledger instrument is distinct and restrained, but the mobile graph still feels like a desktop canvas clipped into a phone."}
+  },
+  "changes_required": [
+    "Replace mobile horizontal graph traversal with a complete vertical evidence path.",
+    "Keep typed relation labels and the high-risk contradiction visible in the mobile projection.",
+    "Clarify mobile evidence row metadata without adding boxes or tags."
+  ]
+}

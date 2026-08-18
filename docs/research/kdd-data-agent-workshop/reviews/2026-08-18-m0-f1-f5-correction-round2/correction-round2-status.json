@@ -1,0 +1,59 @@
+{
+  "schema_version": "m0-f1-f5-correction-round2-status/v1",
+  "terminal_implementation_state": "CORRECTED_LOCAL_FIXTURE_EVIDENCE_READY_FOR_INDEPENDENT_REREVIEW",
+  "completed_at": "2026-08-18T03:13:42-07:00",
+  "binding": {
+    "input_package_aggregate_sha256": "c9c2d30fe588ce68fa1f45f93b83df768090f3ce7c0992516e8d31b224d4c901",
+    "corrected_package_aggregate_sha256": "52d4c82e2a80ffc5a42bc80918165b33ebed0b03256a27c7c7bc78bd8046d2f6",
+    "manifest_file_count": 59,
+    "frozen_packet_sha256": "82747da96d66dd8851c03edc837f38597264a07794a2b145cd530ca0a5f07b19",
+    "frozen_architecture_sha256": "9508b42979b5f708d3b0be7016ed414fd0b4c28d531b75fd0a4710eb46df8fc1",
+    "ce_plan_sha256": "2b4bbd3583e2f289303b8e47b255e3b53bd0f3307f0b699b33299b57aa9e1daf",
+    "sequencing_sha256": "8fec2f8c3c3d22aa9dc1b762769673789d007fd74dbbed9c34e5ea88fcd4725b"
+  },
+  "finding_disposition": {
+    "IR-M0-01-RR": "CORRECTED_PENDING_INDEPENDENT_REREVIEW",
+    "IR-M0-03-RR": "CORRECTED_PENDING_INDEPENDENT_REREVIEW",
+    "IR-M0-TEST-RR": "CORRECTED_PENDING_INDEPENDENT_REREVIEW",
+    "IR-M0-02": "PRESERVED_PREVIOUSLY_INDEPENDENTLY_CORRECTED",
+    "IR-M0-04": "PRESERVED_PREVIOUSLY_INDEPENDENTLY_CORRECTED",
+    "IR-M0-05": "PLUMBING_PRESERVED_PENDING_REREVIEW_OF_SOUND_EVALUATOR_DEPENDENCY",
+    "IR-M0-06": "PRESERVED_PREVIOUSLY_INDEPENDENTLY_CORRECTED"
+  },
+  "verification": {
+    "tests_passed": 344,
+    "working_directories": 3,
+    "original_test_count": 314,
+    "round1_test_count": 313,
+    "round2_test_count": 344,
+    "round2_cases_added_over_round1": 31,
+    "net_cases_over_original": 30,
+    "hash_seeds": ["0", "1", "42", "99991", "random"],
+    "serialized_packet_bytes": 44044,
+    "serialized_packet_sha256": "cea0119be0588fe5746c2d6bd2da57c577332952c8ec17cf86171d9e8176dc4f",
+    "internal_packet_digest": "sha256:4135a724d70e0300d44ee431d1299fcdb9882b67a144b72e7cdaa4f88594c076",
+    "sealed_corpus_cases": 19,
+    "named_check_validators": 19,
+    "disposable_code_mutations_killed": 4,
+    "fixture_byte_mutation_killed": true,
+    "capability_tests_passed": 61,
+    "production_reads": 0
+  },
+  "proof_states": {
+    "phase_a_evidence": "PRESERVED_SEPARATE_INDEPENDENT_EVIDENCE",
+    "corrected_local_fixture_backed_m0": "READY_FOR_INDEPENDENT_REREVIEW",
+    "production_authorization": "NOT_ESTABLISHED",
+    "production_m0_capability": "NOT_DEMONSTRATED",
+    "P2": "OPEN",
+    "P3": "OPEN",
+    "P4": "OPEN",
+    "M1": "NOT_IMPLEMENTED_OR_AUTHORIZED",
+    "M2": "NOT_IMPLEMENTED_OR_AUTHORIZED",
+    "deployment": "NOT_PERFORMED_OR_AUTHORIZED",
+    "publication": "NOT_PERFORMED_OR_AUTHORIZED",
+    "committee_acceptance": "NOT_ESTABLISHED"
+  },
+  "independent_acceptance_claimed": false,
+  "commit_created": false,
+  "push_or_pr_performed": false
+}

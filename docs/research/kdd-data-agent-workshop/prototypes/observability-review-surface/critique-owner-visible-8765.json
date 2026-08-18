@@ -1,0 +1,17 @@
+{
+  "source": "http://127.0.0.1:8765/?variant=A",
+  "identity_check": "The served HTML and JavaScript hashes match canonical Evidence Room. The variant query is ignored by the current router.",
+  "status": "rejected_by_owner",
+  "score": 3.6,
+  "screens": ["review-artifacts/owner-visible-before-desktop.png", "review-artifacts/owner-visible-before-mobile.png"],
+  "axes": {
+    "clarity": {"score": 3.8, "finding": "The conclusion and proof action are clear, but the blocking contradiction is not part of the first decision unit."},
+    "hierarchy": {"score": 3.3, "finding": "The oversized conclusion dominates while Cause Verdict and Recommendation Readiness are visually remote from their reasons."},
+    "typography": {"score": 3.7, "finding": "The sans and mono pairing is disciplined, but display scale and repeated uppercase labels still feel authored by a design recipe."},
+    "motion": {"score": 4.2, "finding": "Motion is restrained and reduced-motion safe; selection feedback remains functional rather than decorative."},
+    "brand_consistency": {"score": 4.1, "finding": "The shell is coherent, but the fixed proof dock reads as generic application chrome instead of case-specific authority."},
+    "graph_legibility": {"score": 4.0, "finding": "Claims is substantially improved, but the Review screen does not expose how the selected contradiction maps into graph and proof context."},
+    "mobile": {"score": 3.0, "finding": "At 390 by 844 the strongest contradiction begins below the first viewport, so the most important blocker is delayed."}
+  },
+  "revision": "Replace the editorial Review composition with a compact decision header, visible separate axes and blocker reasons, support-versus-contradiction comparison, and an inline authority trail to exact proof. Prioritize the blocker on mobile."
+}

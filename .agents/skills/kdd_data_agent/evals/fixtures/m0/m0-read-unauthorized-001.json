@@ -1,0 +1,33 @@
+{
+  "schema_version": "m0-fixture-read/v0",
+  "case_id": "m0-read-unauthorized-001",
+  "declared_outcome": "unauthorized",
+  "source": {
+    "source_id": "fixture-metric-store",
+    "source_kind": "synthetic_metric_store",
+    "locator": "synthetic://metric-store/exp-1006/primary-read",
+    "snapshot_id": {"__kdd__": "UNKNOWN"},
+    "owner": "synthetic-partner-tenant-team"
+  },
+  "authorization": {
+    "state": "unauthorized",
+    "recipient_scope": "m0-local-review",
+    "redaction": {"__kdd__": "UNKNOWN"}
+  },
+  "observed_interval": {
+    "start": {"__kdd__": "UNKNOWN"},
+    "end": {"__kdd__": "UNKNOWN"}
+  },
+  "recorded_at": "2026-08-16T00:00:00+00:00",
+  "body": {"__kdd__": "MISSING"},
+  "coverage_gaps": [
+    {
+      "kind": "missing_authority",
+      "reason": "The requested experiment belongs to a different synthetic tenant than the reader's scope, so the read was refused by tenant ACL.",
+      "next_safe_check": "Confirm the correct tenant for this experiment, or obtain a cross-tenant grant from the named data owner before re-reading."
+    }
+  ],
+  "disagreements": [],
+  "expected_final_readiness": "alignment_pending",
+  "notes": "Cross-tenant ACL refusal. No body, no partial body, and no field values from the denied tenant are retained anywhere in the receipt."
+}

@@ -1,0 +1,42 @@
+{
+  "kind": "critique-panel",
+  "iteration": "before-redesign",
+  "score": 1.8,
+  "axes": {
+    "clarity": {
+      "score": 2,
+      "notes": "The conclusion is readable, but the next review action is not. Seven projection buttons, status chips, a graph, two axes, warnings, and metadata compete at once. Exact deployed proof is technically reachable but not visually inevitable."
+    },
+    "hierarchy": {
+      "score": 2,
+      "notes": "Variant A treats summary, warning, graph, status taxonomy, and inspector as peers. Variant B adds a dense three-column cockpit without a dominant task. Variant C duplicates timeline information and makes the contextual graph too small to review."
+    },
+    "typography": {
+      "score": 2,
+      "notes": "The oversized heavy headline reads like a marketing hero while the evidence metadata is cramped. Repeated uppercase eyebrow labels and pill text create visual chatter. Sans and mono roles are not disciplined enough to distinguish conclusion, evidence, and locator."
+    },
+    "motion": {
+      "score": 1,
+      "notes": "There is no meaningful state transition or spatial continuity when moving from verdict to proof. The persistent floating variant switcher obscures graph content. Focus, loading, empty, error, and reduced-motion behaviors are absent."
+    },
+    "brand": {
+      "score": 2,
+      "notes": "The interface resembles a generic AI dashboard assembled from cards, tags, dotted canvases, and colored status pills. It lacks the restrained precision-instrument and evidence-dossier character appropriate for forensic review."
+    }
+  },
+  "why_it_looks_like_ai_slop": [
+    "Research conclusions were converted directly into boxes and tags instead of a task-led review flow.",
+    "Every state receives its own colored pill, producing taxonomy soup rather than meaning.",
+    "The graph is visually decorative: sparse nodes float in a large dotted field while the proof path remains unclear.",
+    "Three variants rearrange the same components more than they rethink the reviewer journey.",
+    "Generic dashboard conventions substitute for a coherent visual identity and evidence-navigation model."
+  ],
+  "reviewer_task_failures": [
+    "The first screen does not present one obvious action to verify the verdict.",
+    "The strongest contradiction competes with status metadata instead of controlling the reading order.",
+    "Stale and incomplete evidence is visible as chips but its recomputation impact is not immediately legible.",
+    "Trace is labeled separately but visually styled like every other peer tab, weakening the conceptual separation.",
+    "The code, diff, and receipt path requires searching a generic tab row rather than following a proof dossier."
+  ],
+  "decision": "Replace A/B/C with one coherent evidence-dossier workspace. Use three task modes within the same visual system: Review, Claims, and Verify. The graph becomes a focused answer path in Claims; Verify uses code/diff/receipt as the primary projection; Trace remains a separate mode."
+}

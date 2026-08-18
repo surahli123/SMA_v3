@@ -1,0 +1,15 @@
+{
+  "kind": "critique-panel",
+  "score": 4.3,
+  "axes": {
+    "clarity": {"score": 4.5, "notes": "The current conclusion, independent decision axes, strongest support, strongest contradiction, evidence rows, and exact proof form one task flow."},
+    "hierarchy": {"score": 4.4, "notes": "Ledger and source inspector dominate Review; Claims, Verify, and Trace use projections fitted to their questions."},
+    "typography": {"score": 4.3, "notes": "The restrained sans and mono system keeps verdict language distinct from exact evidence identity."},
+    "motion": {"score": 4.0, "notes": "Motion is limited to review state changes and respects reduced motion."},
+    "brand": {"score": 4.3, "notes": "Disciplined rules, negative space, and evidence alignment establish a coherent forensic case-ledger identity."}
+  },
+  "remaining_gaps": [
+    "Production graph routing, data scale, and persistence are intentionally absent.",
+    "Owner live review must validate the mobile projection switch and measured task efficiency."
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "handoff_id": "kdd-m0-steelman-owner-alignment-20260818",
+  "status": "done_with_open_gates",
+  "summary": "Integrated Owner steelman decisions 1-11 (ledger S1-S11) and Codex-continuation S9-S11 (ledger S12-S14) plus D6 (check-14) into architecture-decision-ledger.md and architecture-design-draft.md v3; two Owner questions were asked and answered before the closeout order (D7 core-set floor, D8 laptop-scoped authorization receipt); blind-spot/pre-mortem table added (design §19); both HTML diagrams brought into semantic agreement and browser-rendered at 1280px and 480px; all durable artifacts English; artifacts remain DRAFT. Not design approval, not freeze, not implementation authority.",
+  "evidence": [
+    "architecture-decision-ledger.md sha256 9ecd416d90f8c04501b1d91984bc163cb2a9621f83be16f52d537a5ece3d7167 (working tree; HEAD 13e62af holds the pre-closeout English-translated version 0723b7d4…)",
+    "architecture-design-draft.md v3 sha256 ef51b40f2263f45698581e601224abd096e3c5c37608dac8413ba8d23779da4a (working tree; HEAD holds v2 70a4fd23…)",
+    "architecture-overview-draft.html sha256 6b25d1225d811b80899979a27f50ff87231b309561c1700523ac759c47896ea6",
+    "m0-review-flow-draft.html sha256 dae33ad69977f7201de9ec954a79882f8667d0269d09057f7bbe2b95b34f8e4d",
+    "browser render: /private/tmp/fable-diag-05b209ef/{overview,flow}-desktop-v3.png, overview-narrow-v3.png; no console errors",
+    "mechanical checks: git diff --check clean; no CJK in durable artifacts; HTML tag balance clean; markdown links: none relative",
+    "self-verification note: the Opus architecture-challenge lane failed on the Claude session limit and the Sonnet research lane returned nothing; the facilitator performed the challenge, taste gate, and mechanical checks personally"
+  ],
+  "attack_dispositions_summary": "design §19: false M0 completion (closed S1/S13/F12), core-check discretion (closed S11/S13), cherry-picking (closed S12+F24), unaccountable advisory (closed F21/F23, residual organizational), M2 optional (closed S8/F21), laptop boundary (partly closed F22/F25; retention/export policy PRODUCTION_BINDING_REQUIRED), independence attested-only residual, untracked-tree hazard now resolved by Codex commits 5fa6d4c/13e62af",
+  "remaining_owner_questions": [
+    "Confirm or reject facilitator rulings F1-F25 (notably F10 human_state, F11 registries, F12 evidence_class, F13 evaluation structure, F21 DS challenge record before Committee, F24 preregistered stream registry preference, F25 materialized snapshot receipt)",
+    "Confirm ADR set (ADR-0009..0013 candidates; amendments to ADR-0005/0008) — avoid inflation",
+    "Decide whether candidate v4 §5.3 is revised to D3 single-state + projection (Owner D3 vs applied reviewer option b)"
+  ],
+  "production_binding_gates": [
+    "Query Success component thresholds, timers, event schemas, table/catalog identities, owners (S3, S2)",
+    "per-arm index generation / ACL snapshot sources for CHK-05 arm parity (D2)",
+    "achievable independence_class and reporting-transform digest availability (D4/D6)",
+    "materiality/applicability rule registry, estimator registry, orthogonal-evidence stream registry contents (F11, F16, F24)",
+    "D8 laptop-scoped receipt: retention period, export redaction policy, security/privacy notification",
+    "P2 for V2 and beyond; P3; P4; new Owner start receipt for M0-F1..F5; Committee acceptance"
+  ],
+  "omitted_or_incomplete": [
+    "No independent (subagent) review of the v3 draft: lanes failed on quota; self-verification only",
+    "Phase 2 canonical writeback not performed (out of scope for this job per closeout; Codex owns reconciliation)",
+    "steelman-owner-alignment-status.json was not written before the rate limit; written now",
+    "v3 working-tree edits are uncommitted (this job may not commit); HEAD 13e62af holds v2 drafts"
+  ],
+  "next_step": "Codex: pick up the v3 working-tree drafts (digests above), reconcile into the exact-digest candidate (D3, CHK-19 semantics, D4/D6 fields, D7/D8, S1-S14), arrange independent exact-byte review, then commit. Owner: confirm F-rulings and ADR set at reconciliation review. No further Fable arbitration is required unless the reconciliation changes an Owner decision.",
+  "updated_at": "2026-08-18T17:15:00Z"
+}

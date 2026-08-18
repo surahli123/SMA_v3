@@ -1,0 +1,46 @@
+{
+  "schema_version": "m0-f1-f5-correction-status/v1",
+  "terminal_implementation_state": "CORRECTED_LOCAL_FIXTURE_EVIDENCE_READY_FOR_INDEPENDENT_REREVIEW",
+  "completed_at": "2026-08-18T02:36:09-07:00",
+  "binding": {
+    "input_package_aggregate_sha256": "30d6b47ca55f1444ef8ba596aedabd90db5f21af58e60d53ad2320a5fc94c196",
+    "corrected_package_aggregate_sha256": "c9c2d30fe588ce68fa1f45f93b83df768090f3ce7c0992516e8d31b224d4c901",
+    "frozen_packet_sha256": "82747da96d66dd8851c03edc837f38597264a07794a2b145cd530ca0a5f07b19",
+    "frozen_architecture_sha256": "9508b42979b5f708d3b0be7016ed414fd0b4c28d531b75fd0a4710eb46df8fc1",
+    "ce_plan_sha256": "2b4bbd3583e2f289303b8e47b255e3b53bd0f3307f0b699b33299b57aa9e1daf",
+    "sequencing_sha256": "8fec2f8c3c3d22aa9dc1b762769673789d007fd74dbbed9c34e5ea88fcd4725b"
+  },
+  "finding_disposition": {
+    "IR-M0-01": "CORRECTED_PENDING_INDEPENDENT_REREVIEW",
+    "IR-M0-02": "CORRECTED_PENDING_INDEPENDENT_REREVIEW",
+    "IR-M0-03": "CORRECTED_PENDING_INDEPENDENT_REREVIEW",
+    "IR-M0-04": "CORRECTED_PENDING_INDEPENDENT_REREVIEW",
+    "IR-M0-05": "CORRECTED_PENDING_INDEPENDENT_REREVIEW",
+    "IR-M0-06": "CORRECTED_PENDING_INDEPENDENT_REREVIEW"
+  },
+  "verification": {
+    "tests_passed": 313,
+    "working_directories": 3,
+    "hash_seeds": ["0", "1", "42", "99991", "random"],
+    "serialized_packet_bytes": 20018,
+    "serialized_packet_sha256": "0c4ffe715eb18055cbeeec0e88ec3fcf180cc7307fa0298b0d7c6aaaf93e30d1",
+    "internal_packet_digest": "sha256:364ef4e04c8b440e6097f69179d8869fe98dcbf3c0336cdc6f75d808339ab828",
+    "disposable_fault_classes_killed": 6,
+    "production_reads": 0
+  },
+  "proof_states": {
+    "phase_a_evidence": "PRESERVED_SEPARATE_INDEPENDENT_EVIDENCE",
+    "corrected_local_fixture_backed_m0": "READY_FOR_INDEPENDENT_REREVIEW",
+    "production_authorization": "NOT_ESTABLISHED",
+    "production_m0_capability": "NOT_DEMONSTRATED",
+    "P2": "OPEN",
+    "P3": "OPEN",
+    "P4": "OPEN",
+    "M1": "NOT_IMPLEMENTED_OR_AUTHORIZED",
+    "M2": "NOT_IMPLEMENTED_OR_AUTHORIZED",
+    "deployment": "NOT_PERFORMED_OR_AUTHORIZED",
+    "publication": "NOT_PERFORMED_OR_AUTHORIZED",
+    "committee_acceptance": "NOT_ESTABLISHED"
+  },
+  "independent_acceptance_claimed": false
+}

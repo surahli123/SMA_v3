@@ -1,0 +1,81 @@
+PROTOTYPE / THROWAWAY
+Iteration: faithful-owner-selected-reconstruction
+
+node --check app.js
+exit 0
+
+Browser: 1586x992 same-aspect comparison and 1440x1000 interaction checks
+Review, Claims, Verify, Trace rendered
+Open deployed proof -> ?view=verify
+Back to evidence in graph -> ?view=claims
+select EV-DEP-17 -> exact deployed support inspector
+press F1 through F4 -> Review, Claims, Verify, Trace
+literal visible backslash-n=false
+
+Browser: 390x844 Claims
+scrollWidth=390 innerWidth=390
+fixed route navigation bounds: x=0 y=780 width=390 height=64
+
+States rendered: loading, empty, error, permission
+Reduced motion CSS present; runtime media emulation is not claimed because the current agent-browser check did not make matchMedia report reduce
+Browser errors: none
+
+CJK scan: 0
+Machine-local path scan: 0
+Forbidden semantics scan: 0
+git diff --check: exit 0
+
+Project build/typecheck/lint/tests: skipped because the owned prototype has no package manifest, project-declared commands, or test runner. Static syntax, source scans, and real browser checks are the truthful equivalents.
+
+Reference comparisons:
+review-artifacts/reconstruction-comparison-review.png
+review-artifacts/reconstruction-comparison-claims.png
+review-artifacts/reconstruction-comparison-verify.png
+review-artifacts/reconstruction-comparison-trace.png
+
+P3 remains open pending explicit owner live acceptance.
+
+M17 bounded interaction repair
+
+Before:
+C-09 graph node data-evidence=EV-DEP-17
+C-09 click -> Validated support / EV-DEP-17 / Deployed blend artifact
+Show answer path -> no pressed state or graph change
+Verify Config -> Code remained active; no Config projection
+Trace Status: All -> no pressed state; 9 rows unchanged
+
+After:
+C-09 graph node data-claim=C-09; data-evidence absent
+C-09 click -> CLAIM INSPECTOR / Inconclusive / Index coverage
+C-22 rail click -> CLAIM INSPECTOR / Ruled out / Metric pipeline bias
+Show answer path -> aria-pressed=true / graph-stage path-answer / 6-node status
+Show evidence path -> mutually exclusive pressed state / metric-to-Claim status
+Verify Config -> visibly disabled / Unavailable
+Verify Diff -> focus #verify-diff / Diff projection focused
+Verify Receipts -> focus #verify-receipts / Receipts projection focused
+Trace Status: Attention -> 3 rows
+Trace Status: Attention + Evidence link: Linked -> 0 rows / empty state visible
+Trace search retry -> 1 row
+Trace reset -> 9 rows / empty search / disabled reset
+
+Final M17 browser verification:
+real Tab navigation -> Skip to workspace, then visible focused Contradictions control with solid outline
+C-09 click -> CLAIM INSPECTOR / C-09 / no EV-DEP-17 fallback
+Claims answer path -> aria-pressed=true / graph-stage path-answer / 6-node live status
+Verify Diff -> focus #verify-diff / Diff projection focused
+Verify Config -> disabled
+Trace Status: Attention -> 3 rows / aria-pressed=true
+
+Mobile 390x844:
+Claims scrollWidth=390 innerWidth=390
+Verify scrollWidth=390 innerWidth=390
+Trace scrollWidth=390 innerWidth=390
+
+node --check app.js: exit 0
+Browser console/errors: none
+M17 screenshots:
+review-artifacts/m17-before-claim-fallback.png
+review-artifacts/m17-after-claim-detail.png
+review-artifacts/m17-after-trace-filter.png
+
+Project build/typecheck/lint/tests remain skipped because this static prototype has no package manifest, project-declared commands, or test runner.
