@@ -1,0 +1,363 @@
+$ cd /private/tmp/SMA_v3-opus-m0
+$ /opt/homebrew/opt/python@3.14/bin/python3.14 /private/tmp/SMA_v3-opus-m0/prototypes/m0-flight-readiness-review/tools/bindings.py
+{
+  "bindings": [
+    {
+      "expected_sha256": "82747da96d66dd8851c03edc837f38597264a07794a2b145cd530ca0a5f07b19",
+      "observed_sha256": "82747da96d66dd8851c03edc837f38597264a07794a2b145cd530ca0a5f07b19",
+      "path": "docs/research/kdd-data-agent-workshop/reviews/2026-08-16-opus5-m0-alignment/m0-m2-build-alignment-packet.md",
+      "revision": "m0-alignment-v1",
+      "role": "M0 build contract"
+    },
+    {
+      "expected_sha256": "9508b42979b5f708d3b0be7016ed414fd0b4c28d531b75fd0a4710eb46df8fc1",
+      "observed_sha256": "9508b42979b5f708d3b0be7016ed414fd0b4c28d531b75fd0a4710eb46df8fc1",
+      "path": "docs/research/kdd-data-agent-workshop/final-architecture-spec.md",
+      "revision": "kdd-data-agent-architecture-v1",
+      "role": "Architecture"
+    },
+    {
+      "expected_sha256": "2b4bbd3583e2f289303b8e47b255e3b53bd0f3307f0b699b33299b57aa9e1daf",
+      "observed_sha256": "2b4bbd3583e2f289303b8e47b255e3b53bd0f3307f0b699b33299b57aa9e1daf",
+      "path": "docs/plans/2026-08-12-001-feat-kdd-data-agent-greenfield-plan.md",
+      "revision": "observed supporting plan",
+      "role": "CE plan"
+    },
+    {
+      "expected_sha256": "8fec2f8c3c3d22aa9dc1b762769673789d007fd74dbbed9c34e5ea88fcd4725b",
+      "observed_sha256": "8fec2f8c3c3d22aa9dc1b762769673789d007fd74dbbed9c34e5ea88fcd4725b",
+      "path": "docs/research/kdd-data-agent-workshop/implementation-sequencing.md",
+      "revision": "observed supporting sequence",
+      "role": "Sequencing"
+    },
+    {
+      "expected_sha256": "9eea3014cb74acc48e9bbd24a486d2b6a5a4a4f57ae76191f42d037a5988b19a",
+      "observed_sha256": "9eea3014cb74acc48e9bbd24a486d2b6a5a4a4f57ae76191f42d037a5988b19a",
+      "path": ".agents/skills/kdd_data_agent/",
+      "revision": "ACCEPT_LOCAL_M0_EVIDENCE",
+      "role": "Accepted M0 package"
+    }
+  ],
+  "package_file_count": 59,
+  "recipe": "sha256 over the concatenation of '<sha256>  <repository-relative-path>\\n' lines, ascending by path, for every .py, .json and .md file below .agents/skills/kdd_data_agent/, excluding __pycache__, .pytest_cache and .omc"
+}
+[exit 0 in 37 ms]
+
+$ cd /private/tmp/SMA_v3-opus-m0
+$ git status --porcelain -- .agents/skills/kdd_data_agent
+
+[exit 0 in 12 ms]
+
+$ cd /private/tmp/SMA_v3-opus-m0
+$ /opt/homebrew/opt/python@3.14/bin/python3.14 /private/tmp/SMA_v3-opus-m0/prototypes/m0-flight-readiness-review/tools/build_fixtures.py --check
+fixtures match a fresh build; model sha256 0c1ec29129a534b9b72948560437fe6487e375994e2b2630b7da89f97b8884c7
+[exit 0 in 120 ms]
+
+$ cd /private/tmp/SMA_v3-opus-m0/prototypes/m0-flight-readiness-review
+$ /opt/homebrew/opt/python@3.14/bin/python3.14 /private/tmp/SMA_v3-opus-m0/prototypes/m0-flight-readiness-review/tools/build_fixtures.py --check
+fixtures match a fresh build; model sha256 0c1ec29129a534b9b72948560437fe6487e375994e2b2630b7da89f97b8884c7
+[exit 0 in 107 ms]
+
+$ cd /private/tmp
+$ /opt/homebrew/opt/python@3.14/bin/python3.14 /private/tmp/SMA_v3-opus-m0/prototypes/m0-flight-readiness-review/tools/build_fixtures.py --check
+fixtures match a fresh build; model sha256 0c1ec29129a534b9b72948560437fe6487e375994e2b2630b7da89f97b8884c7
+[exit 0 in 99 ms]
+
+$ cd /private/tmp/SMA_v3-opus-m0
+$ /opt/homebrew/opt/python@3.14/bin/python3.14 /private/tmp/SMA_v3-opus-m0/prototypes/m0-flight-readiness-review/tools/build_fixtures.py --check
+[env {'PYTHONHASHSEED': '0'}]
+fixtures match a fresh build; model sha256 0c1ec29129a534b9b72948560437fe6487e375994e2b2630b7da89f97b8884c7
+[exit 0 in 105 ms]
+
+$ cd /private/tmp/SMA_v3-opus-m0
+$ /opt/homebrew/opt/python@3.14/bin/python3.14 /private/tmp/SMA_v3-opus-m0/prototypes/m0-flight-readiness-review/tools/build_fixtures.py --check
+[env {'PYTHONHASHSEED': '1'}]
+fixtures match a fresh build; model sha256 0c1ec29129a534b9b72948560437fe6487e375994e2b2630b7da89f97b8884c7
+[exit 0 in 103 ms]
+
+$ cd /private/tmp/SMA_v3-opus-m0
+$ /opt/homebrew/opt/python@3.14/bin/python3.14 /private/tmp/SMA_v3-opus-m0/prototypes/m0-flight-readiness-review/tools/build_fixtures.py --check
+[env {'PYTHONHASHSEED': '42'}]
+fixtures match a fresh build; model sha256 0c1ec29129a534b9b72948560437fe6487e375994e2b2630b7da89f97b8884c7
+[exit 0 in 102 ms]
+
+$ cd /private/tmp/SMA_v3-opus-m0
+$ /opt/homebrew/opt/python@3.14/bin/python3.14 /private/tmp/SMA_v3-opus-m0/prototypes/m0-flight-readiness-review/tools/build_fixtures.py --check
+[env {'PYTHONHASHSEED': '99991'}]
+fixtures match a fresh build; model sha256 0c1ec29129a534b9b72948560437fe6487e375994e2b2630b7da89f97b8884c7
+[exit 0 in 91 ms]
+
+$ cd /private/tmp/SMA_v3-opus-m0
+$ /opt/homebrew/opt/python@3.14/bin/python3.14 /private/tmp/SMA_v3-opus-m0/prototypes/m0-flight-readiness-review/tools/build_fixtures.py --check
+[env {'PYTHONHASHSEED': 'random'}]
+fixtures match a fresh build; model sha256 0c1ec29129a534b9b72948560437fe6487e375994e2b2630b7da89f97b8884c7
+[exit 0 in 90 ms]
+
+$ cd /private/tmp/SMA_v3-opus-m0/prototypes/m0-flight-readiness-review
+$ node --check /private/tmp/SMA_v3-opus-m0/prototypes/m0-flight-readiness-review/app.js
+
+[exit 0 in 38 ms]
+
+$ cd /private/tmp/SMA_v3-opus-m0/prototypes/m0-flight-readiness-review
+$ node --check /private/tmp/SMA_v3-opus-m0/prototypes/m0-flight-readiness-review/data/fixtures.js
+
+[exit 0 in 37 ms]
+
+$ cd /private/tmp/SMA_v3-opus-m0/prototypes/m0-flight-readiness-review
+$ node /private/tmp/SMA_v3-opus-m0/prototypes/m0-flight-readiness-review/tests/test_surface.js
+ok   the model carries every required scenario class
+ok   every scenario is an emitted fixture-class packet, never a production packet
+ok   the first screen carries the packet decision, why it is limited, and next_safe_action
+ok   stored analysis_use and derived eligibility are separately labelled
+ok   the first screen shows an ordered material-check summary with every required field
+ok   source-read and D4/D6 receipts open within two interactions, by keyboard
+ok   a sensitive subject only ever appears in a negated sentence
+ok   the surface never claims an authority it does not have
+ok   the boundaries route states every required limit
+ok   packet identity, revisions, expiry and supersession are on the first screen
+ok   supersession and acknowledgement invalidation are shown where recorded
+ok   blocked, unauthorized, stale and incomplete states never render as eligible
+ok   typed absence renders as UNKNOWN or MISSING, never blank or null
+ok   an unauthorized or redaction-blocked read never exposes a retained body
+ok   every graph-like relationship has a table or list path and no node diagram exists
+ok   view filters change the view only, never the packet
+ok   no control offers a write, apply, approve or re-evaluate action
+ok   scenario and route selection are read-only view changes
+ok   route tabs expose the standard keyboard tab pattern
+ok   the surface fails closed on an absent, unknown or malformed model
+ok   an unrecognised deep link falls back rather than failing
+ok   the renderer reaches no network, storage or navigation API
+
+22 passed, 0 failed, 22 total
+[exit 0 in 335 ms]
+
+$ cd /private/tmp/SMA_v3-opus-m0/prototypes/m0-flight-readiness-review
+$ sh /private/tmp/SMA_v3-opus-m0/prototypes/m0-flight-readiness-review/tools/check_overflow.sh
+PASS  390px  trusted-decision-grade/readiness
+PASS  480px  trusted-decision-grade/readiness
+PASS  760px  trusted-decision-grade/readiness
+PASS  900px  trusted-decision-grade/readiness
+PASS 1180px  trusted-decision-grade/readiness
+PASS 1440px  trusted-decision-grade/readiness
+PASS  390px  trusted-decision-grade/checks
+PASS  480px  trusted-decision-grade/checks
+PASS  760px  trusted-decision-grade/checks
+PASS  900px  trusted-decision-grade/checks
+PASS 1180px  trusted-decision-grade/checks
+PASS 1440px  trusted-decision-grade/checks
+PASS  390px  trusted-decision-grade/receipts
+PASS  480px  trusted-decision-grade/receipts
+PASS  760px  trusted-decision-grade/receipts
+PASS  900px  trusted-decision-grade/receipts
+PASS 1180px  trusted-decision-grade/receipts
+PASS 1440px  trusted-decision-grade/receipts
+PASS  390px  trusted-decision-grade/gaps
+PASS  480px  trusted-decision-grade/gaps
+PASS  760px  trusted-decision-grade/gaps
+PASS  900px  trusted-decision-grade/gaps
+PASS 1180px  trusted-decision-grade/gaps
+PASS 1440px  trusted-decision-grade/gaps
+PASS  390px  trusted-decision-grade/boundaries
+PASS  480px  trusted-decision-grade/boundaries
+PASS  760px  trusted-decision-grade/boundaries
+PASS  900px  trusted-decision-grade/boundaries
+PASS 1180px  trusted-decision-grade/boundaries
+PASS 1440px  trusted-decision-grade/boundaries
+PASS  390px  unauthorized-read/readiness
+PASS  480px  unauthorized-read/readiness
+PASS  760px  unauthorized-read/readiness
+PASS  900px  unauthorized-read/readiness
+PASS 1180px  unauthorized-read/readiness
+PASS 1440px  unauthorized-read/readiness
+PASS  390px  unauthorized-read/checks
+PASS  480px  unauthorized-read/checks
+PASS  760px  unauthorized-read/checks
+PASS  900px  unauthorized-read/checks
+PASS 1180px  unauthorized-read/checks
+PASS 1440px  unauthorized-read/checks
+PASS  390px  unauthorized-read/receipts
+PASS  480px  unauthorized-read/receipts
+PASS  760px  unauthorized-read/receipts
+PASS  900px  unauthorized-read/receipts
+PASS 1180px  unauthorized-read/receipts
+PASS 1440px  unauthorized-read/receipts
+PASS  390px  unauthorized-read/gaps
+PASS  480px  unauthorized-read/gaps
+PASS  760px  unauthorized-read/gaps
+PASS  900px  unauthorized-read/gaps
+PASS 1180px  unauthorized-read/gaps
+PASS 1440px  unauthorized-read/gaps
+PASS  390px  unauthorized-read/boundaries
+PASS  480px  unauthorized-read/boundaries
+PASS  760px  unauthorized-read/boundaries
+PASS  900px  unauthorized-read/boundaries
+PASS 1180px  unauthorized-read/boundaries
+PASS 1440px  unauthorized-read/boundaries
+PASS  390px  stale-superseded-read/readiness
+PASS  480px  stale-superseded-read/readiness
+PASS  760px  stale-superseded-read/readiness
+PASS  900px  stale-superseded-read/readiness
+PASS 1180px  stale-superseded-read/readiness
+PASS 1440px  stale-superseded-read/readiness
+PASS  390px  stale-superseded-read/checks
+PASS  480px  stale-superseded-read/checks
+PASS  760px  stale-superseded-read/checks
+PASS  900px  stale-superseded-read/checks
+PASS 1180px  stale-superseded-read/checks
+PASS 1440px  stale-superseded-read/checks
+PASS  390px  stale-superseded-read/receipts
+PASS  480px  stale-superseded-read/receipts
+PASS  760px  stale-superseded-read/receipts
+PASS  900px  stale-superseded-read/receipts
+PASS 1180px  stale-superseded-read/receipts
+PASS 1440px  stale-superseded-read/receipts
+PASS  390px  stale-superseded-read/gaps
+PASS  480px  stale-superseded-read/gaps
+PASS  760px  stale-superseded-read/gaps
+PASS  900px  stale-superseded-read/gaps
+PASS 1180px  stale-superseded-read/gaps
+PASS 1440px  stale-superseded-read/gaps
+PASS  390px  stale-superseded-read/boundaries
+PASS  480px  stale-superseded-read/boundaries
+PASS  760px  stale-superseded-read/boundaries
+PASS  900px  stale-superseded-read/boundaries
+PASS 1180px  stale-superseded-read/boundaries
+PASS 1440px  stale-superseded-read/boundaries
+PASS  390px  incomplete-observations/readiness
+PASS  480px  incomplete-observations/readiness
+PASS  760px  incomplete-observations/readiness
+PASS  900px  incomplete-observations/readiness
+PASS 1180px  incomplete-observations/readiness
+PASS 1440px  incomplete-observations/readiness
+PASS  390px  incomplete-observations/checks
+PASS  480px  incomplete-observations/checks
+PASS  760px  incomplete-observations/checks
+PASS  900px  incomplete-observations/checks
+PASS 1180px  incomplete-observations/checks
+PASS 1440px  incomplete-observations/checks
+PASS  390px  incomplete-observations/receipts
+PASS  480px  incomplete-observations/receipts
+PASS  760px  incomplete-observations/receipts
+PASS  900px  incomplete-observations/receipts
+PASS 1180px  incomplete-observations/receipts
+PASS 1440px  incomplete-observations/receipts
+PASS  390px  incomplete-observations/gaps
+PASS  480px  incomplete-observations/gaps
+PASS  760px  incomplete-observations/gaps
+PASS  900px  incomplete-observations/gaps
+PASS 1180px  incomplete-observations/gaps
+PASS 1440px  incomplete-observations/gaps
+PASS  390px  incomplete-observations/boundaries
+PASS  480px  incomplete-observations/boundaries
+PASS  760px  incomplete-observations/boundaries
+PASS  900px  incomplete-observations/boundaries
+PASS 1180px  incomplete-observations/boundaries
+PASS 1440px  incomplete-observations/boundaries
+DONE
+
+120 passed, 0 failed
+[exit 0 in 4136 ms]
+
+$ cd /private/tmp/SMA_v3-opus-m0
+$ /opt/homebrew/opt/python@3.14/bin/python3.14 /private/tmp/SMA_v3-opus-m0/prototypes/m0-flight-readiness-review/tools/verify.py
+PASS  exact input bindings                                       5 bound inputs match; package is 59 files
+PASS  accepted M0 package unmodified                             no working-tree change
+PASS  fixtures reproduce from the accepted package               fixtures match a fresh build; model sha256 0c1ec29129a534b9b72948560437fe6487e375994e2b2630b7da89f97b8884c7
+PASS  HTML tags balance                                          balanced
+PASS  HTML declares a document language                          
+PASS  HTML declares a viewport                                   
+PASS  HTML provides a skip link                                  
+PASS  HTML uses landmark elements                                
+PASS  HTML provides a noscript fallback                          
+PASS  HTML loads only its own local scripts                      data/fixtures.js, app.js
+PASS  CSS braces balance                                         185 open, 185 close
+PASS  CSS honours reduced motion                                 
+PASS  CSS provides a visible focus style                         
+PASS  CSS defines responsive breakpoints                         
+PASS  CSS exposes its palette as tokens                          17 custom properties
+PASS  contrast --ink on --paper                                  15.17:1 (needs 4.5:1) — body text on the workspace ground
+PASS  contrast --ink on --panel                                  15.83:1 (needs 4.5:1) — body text on a panel
+PASS  contrast --muted on --paper                                6.40:1 (needs 4.5:1) — secondary label on the workspace ground
+PASS  contrast --muted on --panel                                6.68:1 (needs 4.5:1) — secondary label on a panel
+PASS  contrast --muted on --soft                                 5.92:1 (needs 4.5:1) — secondary label on a hovered row
+PASS  contrast --accent on --paper                               4.93:1 (needs 4.5:1) — blocked state on the workspace ground
+PASS  contrast --accent on --panel                               5.14:1 (needs 4.5:1) — blocked state on a panel
+PASS  contrast --accent on --accent-wash                         4.76:1 (needs 4.5:1) — blocked state on its own wash
+PASS  contrast --ok on --panel                                   6.83:1 (needs 4.5:1) — validated state on a panel
+PASS  contrast --ok on --ok-wash                                 6.21:1 (needs 4.5:1) — validated state on its own wash
+PASS  contrast --warn on --panel                                 6.27:1 (needs 4.5:1) — unknown or missing state on a panel
+PASS  contrast --warn on --warn-wash                             5.75:1 (needs 4.5:1) — unknown or missing state on its own wash
+PASS  app.js parses                                              
+PASS  data/fixtures.js parses                                    
+PASS  app.js makes no network reference                          
+PASS  index.html makes no network reference                      
+PASS  styles.css makes no network reference                      
+PASS  app.js touches no client storage                           
+PASS  app.js builds no markup from data                          
+PASS  data/fixtures.js is inert data                             payload parses as JSON
+PASS  model schema is the expected revision                      
+PASS  model carries the required scenario classes                
+PASS  every scenario is fixture class                            
+PASS  every scenario carries a packet digest                     
+PASS  every scenario reaches a source and a D4/D6 receipt        
+PASS  every D4/D6 receipt names its decision bindings            
+PASS  no scenario carries a cause, recommendation or diff field  
+PASS  the accepted package projection is preserved verbatim      
+PASS  boundaries are stated                                      8 statements
+PASS  behaviour suite                                            22 passed, 0 failed, 22 total
+PASS  no horizontal page overflow at any width                   120 passed, 0 failed
+
+46 passed, 0 failed, 46 total
+[exit 0 in 4640 ms]
+
+$ cd /private/tmp
+$ /opt/homebrew/opt/python@3.14/bin/python3.14 /private/tmp/SMA_v3-opus-m0/prototypes/m0-flight-readiness-review/tools/verify.py
+PASS  exact input bindings                                       5 bound inputs match; package is 59 files
+PASS  accepted M0 package unmodified                             no working-tree change
+PASS  fixtures reproduce from the accepted package               fixtures match a fresh build; model sha256 0c1ec29129a534b9b72948560437fe6487e375994e2b2630b7da89f97b8884c7
+PASS  HTML tags balance                                          balanced
+PASS  HTML declares a document language                          
+PASS  HTML declares a viewport                                   
+PASS  HTML provides a skip link                                  
+PASS  HTML uses landmark elements                                
+PASS  HTML provides a noscript fallback                          
+PASS  HTML loads only its own local scripts                      data/fixtures.js, app.js
+PASS  CSS braces balance                                         185 open, 185 close
+PASS  CSS honours reduced motion                                 
+PASS  CSS provides a visible focus style                         
+PASS  CSS defines responsive breakpoints                         
+PASS  CSS exposes its palette as tokens                          17 custom properties
+PASS  contrast --ink on --paper                                  15.17:1 (needs 4.5:1) — body text on the workspace ground
+PASS  contrast --ink on --panel                                  15.83:1 (needs 4.5:1) — body text on a panel
+PASS  contrast --muted on --paper                                6.40:1 (needs 4.5:1) — secondary label on the workspace ground
+PASS  contrast --muted on --panel                                6.68:1 (needs 4.5:1) — secondary label on a panel
+PASS  contrast --muted on --soft                                 5.92:1 (needs 4.5:1) — secondary label on a hovered row
+PASS  contrast --accent on --paper                               4.93:1 (needs 4.5:1) — blocked state on the workspace ground
+PASS  contrast --accent on --panel                               5.14:1 (needs 4.5:1) — blocked state on a panel
+PASS  contrast --accent on --accent-wash                         4.76:1 (needs 4.5:1) — blocked state on its own wash
+PASS  contrast --ok on --panel                                   6.83:1 (needs 4.5:1) — validated state on a panel
+PASS  contrast --ok on --ok-wash                                 6.21:1 (needs 4.5:1) — validated state on its own wash
+PASS  contrast --warn on --panel                                 6.27:1 (needs 4.5:1) — unknown or missing state on a panel
+PASS  contrast --warn on --warn-wash                             5.75:1 (needs 4.5:1) — unknown or missing state on its own wash
+PASS  app.js parses                                              
+PASS  data/fixtures.js parses                                    
+PASS  app.js makes no network reference                          
+PASS  index.html makes no network reference                      
+PASS  styles.css makes no network reference                      
+PASS  app.js touches no client storage                           
+PASS  app.js builds no markup from data                          
+PASS  data/fixtures.js is inert data                             payload parses as JSON
+PASS  model schema is the expected revision                      
+PASS  model carries the required scenario classes                
+PASS  every scenario is fixture class                            
+PASS  every scenario carries a packet digest                     
+PASS  every scenario reaches a source and a D4/D6 receipt        
+PASS  every D4/D6 receipt names its decision bindings            
+PASS  no scenario carries a cause, recommendation or diff field  
+PASS  the accepted package projection is preserved verbatim      
+PASS  boundaries are stated                                      8 statements
+PASS  behaviour suite                                            22 passed, 0 failed, 22 total
+PASS  no horizontal page overflow at any width                   120 passed, 0 failed
+
+46 passed, 0 failed, 46 total
+[exit 0 in 4645 ms]

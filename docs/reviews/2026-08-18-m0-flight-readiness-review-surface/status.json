@@ -1,19 +1,117 @@
 {
   "handoff_id": "opus5-m0-review-surface-20260818",
-  "status": "not_started",
-  "verdict": "BLOCKED",
-  "summary": "Awaiting the bounded Claude Code Opus 5 implementation run.",
+  "continuation_handoff_id": "opus5-m0-review-surface-continuation-20260819",
+  "status": "done",
+  "verdict": "COMPLETE_LOCAL_PROTOTYPE",
+  "summary": "A local, static, dependency-free, read-only, pre-P3 M0 Flight Readiness review surface renders seven fixture-class FlightReadinessPacket projections, every one emitted by the accepted M0 package rather than hand-authored. The first screen carries the stored analysis_use, the separately labelled derived post_analysis_eligibility, why the Flight is limited, and the typed next safe action; the exact source-read and D4/D6 recomputation receipts open in one keyboard interaction. Verification was re-executed end to end by a second audit session against the final bytes: 16 of 16 build-test commands passed with none skipped, covering 46 mechanical checks, 22 behaviour tests, 120 layout measurements, five PYTHONHASHSEED values, and clean runs from the repository root and an unrelated working directory. Twelve captures at desktop and 390px were read by the implementing session and independently decoded by the audit session. This is a local fixture artifact ready for independent exact-byte review and nothing broader.",
+  "branch": "codex/m0-flight-readiness-review",
+  "base_commit": "5a04097565cce140dcccd3427234582ef00208da",
+  "committed": false,
+  "sessions": {
+    "implementing": "be43cb18-7161-44ea-9bb0-d8660934113e",
+    "audit_and_completion": "eb52e32f-64d7-4858-945d-2cbcf60182e8",
+    "note": "The two sessions overlapped between 23:15 and 23:24 on 2026-08-19, during which the implementing session was still writing into both owned roots and published a terminal status. The audit session halted rather than racing it; the Owner then confirmed the implementing session was stopped and no writers remained. Byte stability was re-established by two identical full-tree hashes of all 39 non-transient owned files at 23:34:28 and 23:39:19 before any correction was written."
+  },
   "input_bindings": {
     "m0_packet": "sha256:82747da96d66dd8851c03edc837f38597264a07794a2b145cd530ca0a5f07b19",
     "architecture": "sha256:9508b42979b5f708d3b0be7016ed414fd0b4c28d531b75fd0a4710eb46df8fc1",
-    "accepted_m0_package": "sha256:9eea3014cb74acc48e9bbd24a486d2b6a5a4a4f57ae76191f42d037a5988b19a"
+    "ce_plan": "sha256:2b4bbd3583e2f289303b8e47b255e3b53bd0f3307f0b699b33299b57aa9e1daf",
+    "sequencing": "sha256:8fec2f8c3c3d22aa9dc1b762769673789d007fd74dbbed9c34e5ea88fcd4725b",
+    "accepted_m0_package": "sha256:9eea3014cb74acc48e9bbd24a486d2b6a5a4a4f57ae76191f42d037a5988b19a",
+    "accepted_m0_package_file_count": 59,
+    "recomputed_before_semantic_work": true,
+    "recomputed_after_all_writes": true,
+    "independently_cross_checked_by_shell_pipeline": true,
+    "drift_detected": false
   },
-  "output_digest": "",
-  "changed_files": [],
-  "verification": [],
-  "coverage_gaps": [
-    "P3 live reviewer acceptance remains open"
+  "output_digest": "sha256:7a860b034edc15774ad59f2a678d2ca081003482da614f6bd313bba4edd4324d",
+  "output_binding": {
+    "file_count": 36,
+    "tool": "prototypes/m0-flight-readiness-review/tools/output_aggregate.py",
+    "recipe": "sha256 over the concatenation of '<sha256>  <repository-relative-path>\\n' lines, ascending by path, for every file under prototypes/m0-flight-readiness-review/ and docs/reviews/2026-08-18-m0-flight-readiness-review-surface/, excluding __pycache__, .pytest_cache, .omc, .chrome-profile and .DS_Store, and excluding the two self-referential outputs evidence-receipt.md and status.json",
+    "independently_cross_checked_by_shell_pipeline": true,
+    "excluded_self_referential": [
+      "docs/reviews/2026-08-18-m0-flight-readiness-review-surface/evidence-receipt.md",
+      "docs/reviews/2026-08-18-m0-flight-readiness-review-surface/status.json"
+    ],
+    "excluded_gitignored_state": [
+      "prototypes/m0-flight-readiness-review/.omc/",
+      "docs/reviews/2026-08-18-m0-flight-readiness-review-surface/.omc/",
+      "prototypes/m0-flight-readiness-review/tools/__pycache__/"
+    ]
+  },
+  "changed_files": [
+    "prototypes/m0-flight-readiness-review/README.md",
+    "prototypes/m0-flight-readiness-review/index.html",
+    "prototypes/m0-flight-readiness-review/styles.css",
+    "prototypes/m0-flight-readiness-review/app.js",
+    "prototypes/m0-flight-readiness-review/data/fixtures.json",
+    "prototypes/m0-flight-readiness-review/data/fixtures.js",
+    "prototypes/m0-flight-readiness-review/tools/bindings.py",
+    "prototypes/m0-flight-readiness-review/tools/build_fixtures.py",
+    "prototypes/m0-flight-readiness-review/tools/verify.py",
+    "prototypes/m0-flight-readiness-review/tools/capture.sh",
+    "prototypes/m0-flight-readiness-review/tools/check_overflow.sh",
+    "prototypes/m0-flight-readiness-review/tools/narrow-frame.html",
+    "prototypes/m0-flight-readiness-review/tools/run_build_test.py",
+    "prototypes/m0-flight-readiness-review/tools/output_aggregate.py",
+    "prototypes/m0-flight-readiness-review/tests/dom.js",
+    "prototypes/m0-flight-readiness-review/tests/test_surface.js",
+    "prototypes/m0-flight-readiness-review/tests/overflow.html",
+    "prototypes/m0-flight-readiness-review/evidence/trusted-desktop.png",
+    "prototypes/m0-flight-readiness-review/evidence/trusted-narrow.png",
+    "prototypes/m0-flight-readiness-review/evidence/blocked-desktop.png",
+    "prototypes/m0-flight-readiness-review/evidence/blocked-narrow.png",
+    "prototypes/m0-flight-readiness-review/evidence/invalidated-desktop.png",
+    "prototypes/m0-flight-readiness-review/evidence/invalidated-narrow.png",
+    "prototypes/m0-flight-readiness-review/evidence/incomplete-desktop.png",
+    "prototypes/m0-flight-readiness-review/evidence/incomplete-narrow.png",
+    "prototypes/m0-flight-readiness-review/evidence/receipts-desktop.png",
+    "prototypes/m0-flight-readiness-review/evidence/receipts-narrow.png",
+    "prototypes/m0-flight-readiness-review/evidence/boundaries-desktop.png",
+    "prototypes/m0-flight-readiness-review/evidence/boundaries-narrow.png",
+    "docs/reviews/2026-08-18-m0-flight-readiness-review-surface/completion-ledger.md",
+    "docs/reviews/2026-08-18-m0-flight-readiness-review-surface/evidence-receipt.md",
+    "docs/reviews/2026-08-18-m0-flight-readiness-review-surface/visual-critique.md",
+    "docs/reviews/2026-08-18-m0-flight-readiness-review-surface/design-critique.md",
+    "docs/reviews/2026-08-18-m0-flight-readiness-review-surface/critique.json",
+    "docs/reviews/2026-08-18-m0-flight-readiness-review-surface/build-test.json",
+    "docs/reviews/2026-08-18-m0-flight-readiness-review-surface/build-test.log",
+    "docs/reviews/2026-08-18-m0-flight-readiness-review-surface/status.json"
   ],
-  "next_step": "Launch one Opus 5 max-effort implementation session in the isolated SMA v3 feature worktree.",
-  "updated_at": "2026-08-18T14:33:32-07:00"
+  "only_tracked_file_modified": "docs/reviews/2026-08-18-m0-flight-readiness-review-surface/status.json",
+  "unchanged_by_this_run": [
+    ".agents/skills/kdd_data_agent/ (accepted M0 package, aggregate reverified against live bytes)",
+    "docs/reviews/2026-08-18-m0-flight-readiness-review-surface/opus5-continuation-handoff.md (written by the Owner-side orchestrator)",
+    "every path outside the two owned roots; git status --porcelain reports none dirty"
+  ],
+  "verification": [
+    "exact input bindings: five of five matched before semantic work and again after all writes; the 59-file accepted-package aggregate was additionally reproduced by an independent shell pipeline",
+    "accepted M0 package unmodified: git status empty for .agents/skills/kdd_data_agent; aggregate 9eea3014...b19a over 59 files",
+    "build-test battery, re-executed by the audit session against the final bytes: 16 commands, 16 passed, 0 failed, 0 skipped, 14707 ms",
+    "mechanical suite: 46 of 46 passed from the repository root, and again from a working directory outside the repository entirely",
+    "behaviour suite: 22 of 22 passed, executing the real app.js against the real generated model",
+    "layout: 120 of 120 horizontal-overflow measurements passed across four scenarios, five routes and six widths from 390px to 1440px",
+    "determinism: five PYTHONHASHSEED values (0, 1, 42, 99991, random) all reproduce model sha256 0c1ec291...84c7",
+    "accessibility: twelve WCAG AA contrast pairs from 4.76:1 to 15.83:1; visible focus, skip link, landmarks, noscript, tablist keyboard pattern, reduced motion",
+    "fail-closed: absent, foreign-schema, empty and truncated models each refuse and mount no route; typed absence never renders blank, null or a dash; no non-decision_grade scenario can render eligible",
+    "read-only: no write, apply, approve, acknowledge or re-evaluate control; no form; navigation and view filters leave the model byte-identical",
+    "offline: no network, storage, navigation or code-execution API in app.js; index.html loads only its two local scripts; styles.css has no remote asset",
+    "prohibited authority: two independent tests across five routes and seven scenarios; eight explicit boundaries rendered",
+    "visual evidence: twelve captures at desktop and a true 390px viewport; read directly by the implementing session, and independently decoded by the audit session, which confirmed all twelve are byte-distinct, IEND-complete rendered pages at the expected 2x geometry with 1054 to 1799 distinct colours",
+    "critique: critique.json scores clarity 4, hierarchy 4, typography 5, motion 5, brand 4, overall 4, converged",
+    "byte stability: two identical full-tree hashes of all 39 non-transient owned files taken five minutes apart before corrections; final 36-file aggregate cross-checked by an independent shell pipeline"
+  ],
+  "coverage_gaps": [
+    "Part of the implementation was produced after the original handoff cap expired and before the Owner-authorized replacement cap was issued; every artifact was re-verified under the replacement authority, but the sequencing is recorded rather than smoothed over",
+    "Two sessions touched this package with an overlapping window, and the implementing session published a terminal status inside that window; byte stability was re-established and every mechanical claim re-executed before this status was written, but the package was not produced by a single serialized run",
+    "The direct visual reading of the twelve captures is the implementing session's evidence; the audit session has no image-viewing capability and could confirm only that each capture is a genuine, complete, byte-distinct rendered page",
+    "A packet whose read was not admitted presents eighteen consequential rows restating one cause",
+    "Below roughly 620px the fifth route tab is off-screen with no visible scroll affordance; keyboard arrow navigation still reaches it",
+    "Coverage Gap identifiers are not cross-linked to the receipt index; matching is manual",
+    "No screen-reader and no cross-browser verification; only Chrome is installed locally and assistive technology is unavailable",
+    "No live reviewer has used the surface; VAL-UI-101 and P3 live interaction acceptance remain open external gates"
+  ],
+  "next_step": "Independent exact-byte review of the uncommitted package against aggregate sha256:7a860b034edc15774ad59f2a678d2ca081003482da614f6bd313bba4edd4324d over 36 files. The package is deliberately left uncommitted, per the continuation handoff, so the reviewer inspects the exact live bytes. Committing and uploading a first accepted version is the Owner's call and needs explicit authorization: no commit, push, branch change or PR was made by this run.",
+  "updated_at": "2026-08-20T00:05:00-07:00"
 }

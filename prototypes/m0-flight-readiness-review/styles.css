@@ -1,0 +1,527 @@
+/* M0 Flight Readiness review surface — local, static, read-only.
+
+   Visual baseline: the owner-selected iteration under
+   docs/research/kdd-data-agent-workshop/prototypes/observability-review-surface/
+   (owner-selected-design-contract.md and its four route references).
+
+   Rules carried over from that contract:
+     - a compact dark identity block anchors an otherwise light forensic workspace;
+     - thin rules and aligned rows carry hierarchy, not elevation or rounding;
+     - orange marks selection and blocked state, green marks a validated record,
+       and neither colour is decorative;
+     - technical sans carries navigation and explanation, monospace carries every
+       identifier, timestamp, locator, digest and receipt.
+
+   No gradient, glow, decorative motion, stock imagery or marketing composition
+   is used. Nothing here is loaded over the network: fonts are system stacks and
+   there is no external asset of any kind. */
+
+:root {
+  --ink: #1f2326;
+  --muted: #5a5d59;
+  --quiet: #74766f;
+  --paper: #fbfaf7;
+  --panel: #ffffff;
+  --soft: #f3f1ec;
+  --line: #d8d6d0;
+  --line-dark: #b3b1ab;
+  --accent: #c3410f;
+  --accent-wash: #fff4ee;
+  --ok: #14683c;
+  --ok-wash: #eef6f1;
+  --warn: #8a5406;
+  --warn-wash: #fdf4e6;
+  --sans: "Avenir Next", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --mono: "SF Mono", "SFMono-Regular", Menlo, Monaco, "Cascadia Mono", Consolas, monospace;
+  --rail: 232px;
+}
+
+* { box-sizing: border-box; }
+
+/* A grid or flex child defaults to min-width:auto, which refuses to shrink
+   below its content and pushes the page into a horizontal scroll. Every
+   container in this layout opts out, so wide content scrolls inside its own
+   .scroll box and the page body never scrolls sideways. */
+.shell, .body, .split, .split > *, .decision, .decision > *,
+.topbar, .topbar > *, .authority, .authority div,
+.rail-group dl div, .panel, .panel > header, .filters, .inspector,
+.inspector .state-line, .kv, .receipt > summary { min-width: 0; }
+
+html {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  -webkit-text-size-adjust: 100%;
+}
+
+body { margin: 0; min-width: 320px; font-size: 13px; line-height: 1.5; }
+
+h1, h2, h3, h4 { margin: 0; font-weight: 650; }
+
+button { color: inherit; font: inherit; cursor: pointer; }
+select { color: inherit; font: inherit; }
+code, pre, kbd, samp { font-family: var(--mono); }
+
+/* Verbatim packet bytes are shown unwrapped so a digest stays one token. Each
+   block therefore scrolls inside itself; none of them may widen the page. */
+pre { max-width: 100%; overflow-x: auto; }
+a { color: var(--ink); }
+[hidden] { display: none !important; }
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Tactile feedback on press, expressed as a tone change rather than a
+   transform: a dense table of expanders that nudged on every click would
+   read as jitter, and a transform is the one thing reduced-motion users
+   asked not to see. */
+button:active, summary:active { background: var(--soft); }
+.expander:active { color: var(--accent); }
+
+.skip {
+  position: fixed;
+  top: -60px;
+  left: 12px;
+  z-index: 60;
+  padding: 10px 14px;
+  background: var(--ink);
+  color: #fff;
+  text-decoration: none;
+}
+.skip:focus { top: 12px; }
+
+/* ---------------------------------------------------------------- shell */
+
+.shell { min-height: 100dvh; padding-left: var(--rail); }
+
+.rail {
+  position: fixed;
+  inset: 0 auto 0 0;
+  z-index: 20;
+  width: var(--rail);
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  background: var(--paper);
+  border-right: 1px solid var(--line);
+}
+
+.lockup {
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  align-items: stretch;
+  border-bottom: 1px solid var(--line);
+}
+.lockup .mark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #24282b;
+  color: #fff;
+  font: 650 15px/1 var(--mono);
+  letter-spacing: .04em;
+}
+.lockup > div { min-width: 0; align-self: center; padding: 12px 14px; }
+.lockup strong { display: block; font: 12px var(--mono); overflow-wrap: anywhere; }
+.lockup span { display: block; margin-top: 4px; color: var(--muted); font: 10px var(--mono); }
+
+.rail-group { padding: 16px 0 14px; border-bottom: 1px solid var(--line); }
+.rail-group h2 {
+  margin: 0 0 10px;
+  padding: 0 16px;
+  color: var(--muted);
+  font: 650 10px var(--mono);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+#scenario-list { margin: 0; padding: 0; list-style: none; }
+#scenario-list button {
+  width: 100%;
+  padding: 9px 16px 10px;
+  display: block;
+  border: 0;
+  border-left: 3px solid transparent;
+  background: transparent;
+  text-align: left;
+}
+#scenario-list button:hover { background: var(--soft); }
+#scenario-list button[aria-current="true"] {
+  border-left-color: var(--accent);
+  background: var(--accent-wash);
+}
+#scenario-list .name { display: block; font-size: 11.5px; }
+#scenario-list .use {
+  display: block;
+  margin-top: 3px;
+  color: var(--muted);
+  font: 9.5px var(--mono);
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+#scenario-list .use.not_permitted { color: var(--accent); }
+#scenario-list .use.directional_only { color: var(--warn); }
+#scenario-list .use.decision_grade { color: var(--ok); }
+
+.rail-question {
+  margin: 0 0 12px;
+  padding: 0 16px;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.45;
+}
+
+.rail-group dl { margin: 0; padding: 0 16px; }
+.rail-group dl div {
+  padding: 5px 0;
+  display: grid;
+  grid-template-columns: 88px 1fr;
+  gap: 8px;
+  align-items: baseline;
+}
+.rail-group dl div + div { border-top: 1px solid var(--line); }
+.rail-group dt { color: var(--muted); font-size: 10px; }
+.rail-group dd { margin: 0; font: 10px var(--mono); overflow-wrap: anywhere; }
+
+.rail footer {
+  margin-top: auto;
+  padding: 16px;
+  display: grid;
+  gap: 5px;
+  color: var(--muted);
+  font: 9.5px var(--mono);
+}
+
+/* --------------------------------------------------------------- topbar */
+
+.body { min-width: 0; }
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 420px);
+  background: var(--paper);
+  border-bottom: 1px solid var(--line);
+}
+
+.topbar nav { min-width: 0; }
+[role="tablist"] { display: flex; overflow-x: auto; }
+[role="tab"] {
+  min-width: 116px;
+  padding: 16px 18px 13px;
+  border: 0;
+  border-bottom: 3px solid transparent;
+  background: transparent;
+  white-space: nowrap;
+  font-size: 12px;
+}
+[role="tab"]:hover { background: var(--soft); }
+[role="tab"][aria-selected="true"] { border-bottom-color: var(--accent); font-weight: 650; }
+
+.authority { margin: 0; display: grid; grid-template-columns: 1fr 1fr; border-left: 1px solid var(--line); }
+.authority div { padding: 11px 16px; min-width: 0; }
+.authority div + div { border-left: 1px solid var(--line); }
+.authority dt { color: var(--muted); font-size: 9.5px; }
+.authority dt code { font-size: 9.5px; }
+.authority dd { margin: 6px 0 0; font: 650 13px var(--mono); letter-spacing: .02em; }
+.authority dd.blocked, .authority dd.not_permitted { color: var(--accent); }
+.authority dd.eligible, .authority dd.decision_grade { color: var(--ok); }
+.authority dd.directional_only { color: var(--warn); }
+
+/* ------------------------------------------------------------ workspace */
+
+#workspace { background: var(--panel); }
+.notice { padding: 24px 22px; max-width: 70ch; }
+.notice h1 { font-size: 16px; }
+.notice p { margin: 10px 0 0; }
+
+.route { display: block; }
+.route:focus-visible { outline-offset: -2px; }
+
+.split { display: grid; grid-template-columns: minmax(0, 1fr) 336px; }
+.split > .inspector { border-left: 1px solid var(--line); }
+
+/* Conclusion strip: decision, why limited, next safe action. */
+.decision {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+  border-bottom: 1px solid var(--line);
+}
+.decision > * { padding: 18px 22px 20px; min-width: 0; }
+.decision > * + * { border-left: 1px solid var(--line); }
+
+.eyebrow {
+  margin: 0 0 9px;
+  color: var(--muted);
+  font: 650 10px var(--mono);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.verdict { display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 14px; }
+.verdict .value { font: 650 21px/1.15 var(--mono); letter-spacing: .01em; }
+.verdict .value.not_permitted, .verdict .value.blocked { color: var(--accent); }
+.verdict .value.decision_grade, .verdict .value.eligible { color: var(--ok); }
+.verdict .value.directional_only { color: var(--warn); }
+.verdict .origin { color: var(--muted); font-size: 10.5px; }
+
+.derived {
+  margin-top: 14px;
+  padding-top: 13px;
+  border-top: 1px solid var(--line);
+}
+.derived .rule { margin: 6px 0 0; color: var(--muted); font-size: 10.5px; }
+
+.why { margin: 12px 0 0; max-width: 68ch; font-size: 13.5px; line-height: 1.55; }
+.authority-note { margin: 12px 0 0; max-width: 68ch; color: var(--muted); font-size: 11px; }
+
+.action dl { margin: 10px 0 0; }
+.action dl div { padding: 7px 0; display: grid; grid-template-columns: 104px 1fr; gap: 10px; }
+.action dl div + div { border-top: 1px solid var(--line); }
+.action dt { color: var(--muted); font-size: 10.5px; }
+.action dd { margin: 0; font-size: 11.5px; }
+.action dd.kind { font-family: var(--mono); font-weight: 650; }
+
+/* Generic panel. */
+.panel { border-bottom: 1px solid var(--line); }
+.panel > header {
+  padding: 13px 22px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 16px;
+  align-items: baseline;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--line);
+  background: var(--paper);
+}
+.panel > header h3 { font-size: 12.5px; }
+.panel > header .meta { color: var(--muted); font: 10px var(--mono); }
+.panel > .pad { padding: 16px 22px 20px; }
+.panel > .pad > p { margin: 0 0 10px; max-width: 74ch; }
+.panel > .pad > p:last-child { margin-bottom: 0; }
+
+/* Tables.
+
+   A dense evidence table scrolls inside its own container rather than widening
+   the page. The min-width is what makes that true: without it the table
+   compresses until identifiers break mid-word, which is unreadable and is not
+   the same as being scrollable. */
+.scroll { max-width: 100%; overflow-x: auto; }
+table { width: 100%; min-width: 860px; border-collapse: collapse; font-size: 11.5px; }
+caption { padding: 10px 22px; color: var(--muted); font-size: 10.5px; text-align: left; }
+th, td { padding: 8px 12px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--line); }
+th {
+  position: sticky;
+  top: 0;
+  background: var(--paper);
+  color: var(--muted);
+  font: 650 9.5px var(--mono);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+th:first-child, td:first-child { padding-left: 22px; min-width: 190px; }
+th:last-child, td:last-child { padding-right: 22px; }
+td.mono, td .mono { font-family: var(--mono); font-size: 10.5px; }
+/* Digests and receipt ids have no break points, so they may break anywhere.
+   A check title is prose and must not. */
+td.mono, td .mono.break, .kv dd, .receipt .rid { overflow-wrap: anywhere; }
+td:first-child .mono { overflow-wrap: normal; word-break: normal; }
+/* A short enum is one token. Breaking "derivation" into "deriv/ation" to save
+   forty pixels costs more legibility than the scroll it avoids. */
+td.token { white-space: nowrap; overflow-wrap: normal; }
+tbody tr.detail > td { background: var(--paper); }
+/* A blocking row is marked by a rule, not by elevation. The stylesheet
+   contains no box-shadow, no gradient and no keyframe anywhere. */
+tbody tr.blocking > td:first-child { border-left: 3px solid var(--accent); padding-left: 19px; }
+
+.outcome {
+  display: inline-block;
+  padding: 1px 6px 2px;
+  border: 1px solid var(--line-dark);
+  font: 650 9.5px var(--mono);
+  letter-spacing: .05em;
+}
+.outcome.PASS { border-color: var(--ok); color: var(--ok); background: var(--ok-wash); }
+.outcome.FAIL { border-color: var(--accent); color: var(--accent); background: var(--accent-wash); }
+.outcome.MISSING, .outcome.UNKNOWN { border-color: var(--warn); color: var(--warn); background: var(--warn-wash); }
+
+/* A typed absence is a fact the packet records, not an alarm. It is shown
+   literally and marked as unresolved by an underline, but it does not spend the
+   accent colour: orange stays reserved for a blocked state and a contradiction,
+   and a page where every MISSING is orange has no accent left. */
+.absent {
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 10.5px;
+  text-decoration: underline dotted var(--line-dark);
+  text-underline-offset: 3px;
+}
+
+.expander {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  font: 650 10.5px var(--mono);
+  text-align: left;
+}
+.expander::before { content: "+ "; color: var(--accent); }
+.expander[aria-expanded="true"]::before { content: "\2212 "; }
+
+.kv { margin: 0; display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 6px 16px; }
+.kv dt { color: var(--muted); font-size: 10.5px; }
+.kv dd { margin: 0; font: 10.5px var(--mono); overflow-wrap: anywhere; }
+
+/* Receipts. */
+.receipt { border: 1px solid var(--line); background: var(--panel); }
+.receipt + .receipt { margin-top: 14px; }
+.receipt > summary {
+  padding: 12px 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 14px;
+  align-items: baseline;
+  justify-content: space-between;
+  cursor: pointer;
+  background: var(--paper);
+  list-style: none;
+}
+.receipt > summary::-webkit-details-marker { display: none; }
+.receipt > summary::before { content: "+"; color: var(--accent); font: 650 12px var(--mono); }
+.receipt[open] > summary::before { content: "\2212"; }
+.receipt[open] > summary { border-bottom: 1px solid var(--line); }
+.receipt > summary .title { flex: 1 1 auto; font-size: 12px; font-weight: 650; }
+.receipt > summary .rid { font: 10.5px var(--mono); color: var(--muted); overflow-wrap: anywhere; }
+.receipt .inner { padding: 14px 16px 16px; }
+.receipt .inner h4 { margin: 14px 0 8px; color: var(--muted); font: 650 9.5px var(--mono); letter-spacing: .06em; text-transform: uppercase; }
+.receipt .inner h4:first-child { margin-top: 0; }
+.receipt pre {
+  margin: 0;
+  padding: 12px;
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  background: var(--paper);
+  font-size: 10.5px;
+  line-height: 1.5;
+}
+
+/* Neutral on purpose. This callout marks the path to the proof, which is not a
+   blocked state, and orange that appears on a decision_grade screen would read
+   as an alarm. The accent stays reserved for selection, contradiction and
+   blocked state. */
+.reach {
+  margin: 0 0 14px;
+  padding: 9px 12px;
+  border-left: 3px solid var(--line-dark);
+  background: var(--soft);
+  color: var(--muted);
+  font-size: 11px;
+}
+
+/* Inspector column. */
+.inspector { min-width: 0; }
+.inspector section { padding: 16px 20px 18px; border-bottom: 1px solid var(--line); }
+.inspector section:last-child { border-bottom: 0; }
+.inspector h3 {
+  margin: 0 0 11px;
+  color: var(--muted);
+  font: 650 9.5px var(--mono);
+  letter-spacing: .07em;
+  text-transform: uppercase;
+}
+.inspector .kv { grid-template-columns: 108px minmax(0, 1fr); gap: 8px 12px; }
+.inspector .state-line { display: flex; gap: 8px; align-items: baseline; justify-content: space-between; padding: 6px 0; }
+.inspector .state-line + .state-line { border-top: 1px solid var(--line); }
+.inspector .state-line b { font: 650 10.5px var(--mono); }
+.inspector .state-line b.flag { color: var(--accent); }
+.inspector .state-line b.clear { color: var(--ok); }
+.inspector .state-line span { color: var(--muted); font-size: 10.5px; }
+
+/* Filters — read-only view controls. */
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 18px;
+  align-items: center;
+  padding: 12px 22px;
+  border-bottom: 1px solid var(--line);
+  background: var(--paper);
+}
+.filters label { display: flex; gap: 7px; align-items: center; font-size: 11px; }
+.filters select { padding: 4px 6px; border: 1px solid var(--line-dark); background: var(--panel); font-size: 11px; }
+.filters .count { margin-left: auto; color: var(--muted); font: 10.5px var(--mono); }
+.filters .ro { color: var(--muted); font-size: 10.5px; }
+
+/* Boundaries. */
+.boundaries { margin: 0; padding: 0; list-style: none; max-width: 82ch; }
+.boundaries li { padding: 10px 0; display: grid; grid-template-columns: 22px 1fr; gap: 10px; font-size: 12.5px; }
+.boundaries li + li { border-top: 1px solid var(--line); }
+.boundaries li .no { color: var(--accent); font: 650 11px var(--mono); }
+
+.gap-empty { color: var(--muted); font-size: 12px; }
+
+/* ------------------------------------------------------------ responsive */
+
+@media (max-width: 1180px) {
+  .split { grid-template-columns: minmax(0, 1fr); }
+  .split > .inspector { border-left: 0; border-top: 1px solid var(--line); }
+}
+
+@media (max-width: 900px) {
+  .decision { grid-template-columns: minmax(0, 1fr); }
+  .decision > * + * { border-left: 0; border-top: 1px solid var(--line); }
+  .topbar { grid-template-columns: minmax(0, 1fr); }
+  .authority { border-left: 0; border-top: 1px solid var(--line); }
+}
+
+@media (max-width: 760px) {
+  .shell { padding-left: 0; }
+  /* Label-above-value: an ISO interval or a digest will not share a 390px row
+     with its label without either clipping or breaking mid-token. */
+  .rail-group dl div { grid-template-columns: minmax(0, 1fr); gap: 3px; }
+  .authority { grid-template-columns: minmax(0, 1fr); }
+  .authority div + div { border-left: 0; border-top: 1px solid var(--line); }
+  .action dl div { grid-template-columns: minmax(0, 1fr); gap: 3px; }
+  .kv, .inspector .kv { grid-template-columns: minmax(0, 1fr); gap: 3px 0; }
+  .kv dd { margin-bottom: 7px; }
+  .rail {
+    position: static;
+    width: auto;
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .rail-group { padding-bottom: 12px; }
+  #scenario-list { display: flex; overflow-x: auto; }
+  #scenario-list li { flex: 0 0 auto; }
+  #scenario-list button {
+    width: auto;
+    min-width: 168px;
+    border-left: 0;
+    border-bottom: 3px solid transparent;
+  }
+  #scenario-list button[aria-current="true"] { border-left-color: transparent; border-bottom-color: var(--accent); }
+  .rail footer { padding-top: 12px; }
+  th:first-child, td:first-child { padding-left: 16px; }
+  th:last-child, td:last-child { padding-right: 16px; }
+  .decision > * { padding: 16px; }
+  .panel > header, .panel > .pad, .filters, .inspector section { padding-left: 16px; padding-right: 16px; }
+  caption { padding-left: 16px; padding-right: 16px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@media print {
+  .rail, .topbar { position: static; }
+  .receipt > summary { break-inside: avoid; }
+}

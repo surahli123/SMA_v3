@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>M0 Flight Readiness — fixture review surface</title>
+<meta name="description" content="Local, static, read-only review surface for fixture-class M0 FlightReadinessPacket projections. Pre-P3. No production capability.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip" href="#packet-decision">Skip to the packet decision</a>
+
+<div class="shell">
+
+  <aside class="rail" aria-label="Fixture scenarios and Flight facts">
+    <div class="lockup">
+      <span class="mark" aria-hidden="true">M0</span>
+      <div>
+        <strong id="rail-flight-id">&nbsp;</strong>
+        <span id="rail-evidence-class">&nbsp;</span>
+      </div>
+    </div>
+
+    <nav class="rail-group" aria-label="Fixture scenarios">
+      <h2 id="scenario-rail-label">Fixture scenarios</h2>
+      <ul id="scenario-list" aria-labelledby="scenario-rail-label"></ul>
+    </nav>
+
+    <section class="rail-group" aria-labelledby="rail-facts-label">
+      <h2 id="rail-facts-label">Flight facts</h2>
+      <p id="rail-question" class="rail-question"></p>
+      <dl id="rail-facts"></dl>
+    </section>
+
+    <footer>
+      <span>Fixture-only projection · pre-P3</span>
+      <span id="rail-schema"></span>
+    </footer>
+  </aside>
+
+  <div class="body">
+
+    <header class="topbar">
+      <nav aria-label="Review routes">
+        <div role="tablist" aria-label="Review routes" id="route-tabs"></div>
+      </nav>
+      <dl class="authority" aria-label="Readiness authority strip">
+        <div>
+          <dt>Stored <code>analysis_use</code></dt>
+          <dd id="strip-analysis-use">&nbsp;</dd>
+        </div>
+        <div>
+          <dt>Derived <code>post_analysis_eligibility</code></dt>
+          <dd id="strip-eligibility">&nbsp;</dd>
+        </div>
+      </dl>
+    </header>
+
+    <main id="workspace">
+      <noscript>
+        <section class="notice" role="note">
+          <h1>This surface renders with JavaScript</h1>
+          <p>
+            The page has no server, no build step and no dependency: it reads the
+            generated model in <code>data/fixtures.js</code> and writes the DOM locally.
+            With scripting off, read the identical payload directly at
+            <a href="data/fixtures.json">data/fixtures.json</a>, or regenerate both from the
+            accepted M0 package with <code>python3 tools/build_fixtures.py</code>.
+          </p>
+        </section>
+      </noscript>
+      <div id="routes"></div>
+    </main>
+
+  </div>
+</div>
+
+<script src="data/fixtures.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

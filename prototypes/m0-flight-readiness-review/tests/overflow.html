@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>overflow probe</title>
+<style>
+  body { margin: 0; font: 13px monospace; }
+  iframe { border: 0; display: block; }
+</style>
+</head>
+<body>
+<pre id="out">measuring</pre>
+<script>
+/* Loads the surface at each width and reports whether the page itself scrolls
+   sideways. Wide content is allowed to scroll inside a container; the document
+   is not. Run through tools/check_overflow.sh, which needs Chrome's
+   --allow-file-access-from-files so the same-origin file:// iframe is readable.
+
+   A width passes when documentElement.scrollWidth fits the viewport, and when
+   no element's right edge lies outside it. The offending elements are named so
+   a failure is actionable rather than just a number. */
+(function () {
+  var WIDTHS = [390, 480, 760, 900, 1180, 1440];
+  var ROUTES = ["readiness", "checks", "receipts", "gaps", "boundaries"];
+  var SCENARIOS = ["trusted-decision-grade", "unauthorized-read", "stale-superseded-read", "incomplete-observations"];
+  var out = document.getElementById("out");
+  var lines = [];
+  var jobs = [];
+
+  SCENARIOS.forEach(function (scenario) {
+    ROUTES.forEach(function (route) {
+      WIDTHS.forEach(function (width) {
+        jobs.push({ scenario: scenario, route: route, width: width });
+      });
+    });
+  });
+
+  function describe(node) {
+    var name = node.tagName.toLowerCase();
+    if (node.id) name += "#" + node.id;
+    if (node.className && typeof node.className === "string") {
+      name += "." + node.className.trim().split(/\s+/).join(".");
+    }
+    return name;
+  }
+
+  function scrollable(node, doc) {
+    for (var walk = node; walk && walk !== doc.documentElement; walk = walk.parentElement) {
+      var overflow = doc.defaultView.getComputedStyle(walk).overflowX;
+      if (overflow === "auto" || overflow === "scroll") return true;
+    }
+    return false;
+  }
+
+  function run(index) {
+    if (index >= jobs.length) {
+      out.textContent = lines.join("\n") + "\nDONE";
+      return;
+    }
+    var job = jobs[index];
+    var frame = document.createElement("iframe");
+    frame.width = job.width;
+    frame.height = 1000;
+    frame.src = "../index.html#/" + job.scenario + "/" + job.route;
+    frame.addEventListener("load", function () {
+      var doc = frame.contentDocument;
+      var root = doc.documentElement;
+      var viewport = root.clientWidth;
+      var overflowBy = root.scrollWidth - viewport;
+
+      var culprits = [];
+      Array.prototype.slice.call(doc.body.querySelectorAll("*")).forEach(function (node) {
+        var box = node.getBoundingClientRect();
+        if (box.right <= viewport + 1) return;
+        if (scrollable(node, doc)) return;
+        culprits.push(describe(node) + " right=" + Math.round(box.right));
+      });
+
+      var ok = overflowBy <= 1 && culprits.length === 0;
+      lines.push(
+        (ok ? "PASS " : "FAIL ")
+          + String(job.width).padStart(4) + "px  "
+          + job.scenario + "/" + job.route
+          + (ok ? "" : "  overflow=" + overflowBy + "  " + culprits.slice(0, 4).join(" | "))
+      );
+      document.body.removeChild(frame);
+      run(index + 1);
+    });
+    document.body.appendChild(frame);
+  }
+
+  run(0);
+})();
+</script>
+</body>
+</html>

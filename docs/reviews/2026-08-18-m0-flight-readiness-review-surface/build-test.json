@@ -1,0 +1,191 @@
+{
+  "build": "passing",
+  "commandsRun": [
+    {
+      "command": "/opt/homebrew/opt/python@3.14/bin/python3.14 /private/tmp/SMA_v3-opus-m0/prototypes/m0-flight-readiness-review/tools/bindings.py",
+      "cwd": "/private/tmp/SMA_v3-opus-m0",
+      "duration_ms": 37,
+      "exit_code": 0,
+      "id": "bindings",
+      "label": "recompute the five exact input bindings",
+      "output_tail": "}",
+      "status": "passed"
+    },
+    {
+      "command": "git status --porcelain -- .agents/skills/kdd_data_agent",
+      "cwd": "/private/tmp/SMA_v3-opus-m0",
+      "duration_ms": 12,
+      "exit_code": 0,
+      "id": "accepted-package-unmodified",
+      "label": "confirm the accepted M0 package has no working-tree change",
+      "output_tail": "",
+      "status": "passed"
+    },
+    {
+      "command": "/opt/homebrew/opt/python@3.14/bin/python3.14 /private/tmp/SMA_v3-opus-m0/prototypes/m0-flight-readiness-review/tools/build_fixtures.py --check",
+      "cwd": "/private/tmp/SMA_v3-opus-m0",
+      "duration_ms": 120,
+      "exit_code": 0,
+      "id": "fixtures-check-root",
+      "label": "reproduce the fixtures from the repository root",
+      "output_tail": "fixtures match a fresh build; model sha256 0c1ec29129a534b9b72948560437fe6487e375994e2b2630b7da89f97b8884c7",
+      "status": "passed"
+    },
+    {
+      "command": "/opt/homebrew/opt/python@3.14/bin/python3.14 /private/tmp/SMA_v3-opus-m0/prototypes/m0-flight-readiness-review/tools/build_fixtures.py --check",
+      "cwd": "/private/tmp/SMA_v3-opus-m0/prototypes/m0-flight-readiness-review",
+      "duration_ms": 107,
+      "exit_code": 0,
+      "id": "fixtures-check-prototype-root",
+      "label": "reproduce the fixtures from the prototype root",
+      "output_tail": "fixtures match a fresh build; model sha256 0c1ec29129a534b9b72948560437fe6487e375994e2b2630b7da89f97b8884c7",
+      "status": "passed"
+    },
+    {
+      "command": "/opt/homebrew/opt/python@3.14/bin/python3.14 /private/tmp/SMA_v3-opus-m0/prototypes/m0-flight-readiness-review/tools/build_fixtures.py --check",
+      "cwd": "/private/tmp",
+      "duration_ms": 99,
+      "exit_code": 0,
+      "id": "fixtures-check-unrelated-cwd",
+      "label": "reproduce the fixtures from an unrelated working directory",
+      "output_tail": "fixtures match a fresh build; model sha256 0c1ec29129a534b9b72948560437fe6487e375994e2b2630b7da89f97b8884c7",
+      "status": "passed"
+    },
+    {
+      "command": "/opt/homebrew/opt/python@3.14/bin/python3.14 /private/tmp/SMA_v3-opus-m0/prototypes/m0-flight-readiness-review/tools/build_fixtures.py --check",
+      "cwd": "/private/tmp/SMA_v3-opus-m0",
+      "duration_ms": 105,
+      "env": {
+        "PYTHONHASHSEED": "0"
+      },
+      "exit_code": 0,
+      "id": "determinism-seed-0",
+      "label": "reproduce the fixtures with PYTHONHASHSEED=0",
+      "output_tail": "fixtures match a fresh build; model sha256 0c1ec29129a534b9b72948560437fe6487e375994e2b2630b7da89f97b8884c7",
+      "status": "passed"
+    },
+    {
+      "command": "/opt/homebrew/opt/python@3.14/bin/python3.14 /private/tmp/SMA_v3-opus-m0/prototypes/m0-flight-readiness-review/tools/build_fixtures.py --check",
+      "cwd": "/private/tmp/SMA_v3-opus-m0",
+      "duration_ms": 103,
+      "env": {
+        "PYTHONHASHSEED": "1"
+      },
+      "exit_code": 0,
+      "id": "determinism-seed-1",
+      "label": "reproduce the fixtures with PYTHONHASHSEED=1",
+      "output_tail": "fixtures match a fresh build; model sha256 0c1ec29129a534b9b72948560437fe6487e375994e2b2630b7da89f97b8884c7",
+      "status": "passed"
+    },
+    {
+      "command": "/opt/homebrew/opt/python@3.14/bin/python3.14 /private/tmp/SMA_v3-opus-m0/prototypes/m0-flight-readiness-review/tools/build_fixtures.py --check",
+      "cwd": "/private/tmp/SMA_v3-opus-m0",
+      "duration_ms": 102,
+      "env": {
+        "PYTHONHASHSEED": "42"
+      },
+      "exit_code": 0,
+      "id": "determinism-seed-42",
+      "label": "reproduce the fixtures with PYTHONHASHSEED=42",
+      "output_tail": "fixtures match a fresh build; model sha256 0c1ec29129a534b9b72948560437fe6487e375994e2b2630b7da89f97b8884c7",
+      "status": "passed"
+    },
+    {
+      "command": "/opt/homebrew/opt/python@3.14/bin/python3.14 /private/tmp/SMA_v3-opus-m0/prototypes/m0-flight-readiness-review/tools/build_fixtures.py --check",
+      "cwd": "/private/tmp/SMA_v3-opus-m0",
+      "duration_ms": 91,
+      "env": {
+        "PYTHONHASHSEED": "99991"
+      },
+      "exit_code": 0,
+      "id": "determinism-seed-99991",
+      "label": "reproduce the fixtures with PYTHONHASHSEED=99991",
+      "output_tail": "fixtures match a fresh build; model sha256 0c1ec29129a534b9b72948560437fe6487e375994e2b2630b7da89f97b8884c7",
+      "status": "passed"
+    },
+    {
+      "command": "/opt/homebrew/opt/python@3.14/bin/python3.14 /private/tmp/SMA_v3-opus-m0/prototypes/m0-flight-readiness-review/tools/build_fixtures.py --check",
+      "cwd": "/private/tmp/SMA_v3-opus-m0",
+      "duration_ms": 90,
+      "env": {
+        "PYTHONHASHSEED": "random"
+      },
+      "exit_code": 0,
+      "id": "determinism-seed-random",
+      "label": "reproduce the fixtures with PYTHONHASHSEED=random",
+      "output_tail": "fixtures match a fresh build; model sha256 0c1ec29129a534b9b72948560437fe6487e375994e2b2630b7da89f97b8884c7",
+      "status": "passed"
+    },
+    {
+      "command": "node --check /private/tmp/SMA_v3-opus-m0/prototypes/m0-flight-readiness-review/app.js",
+      "cwd": "/private/tmp/SMA_v3-opus-m0/prototypes/m0-flight-readiness-review",
+      "duration_ms": 38,
+      "exit_code": 0,
+      "id": "node-check-app",
+      "label": "parse app.js",
+      "output_tail": "",
+      "status": "passed"
+    },
+    {
+      "command": "node --check /private/tmp/SMA_v3-opus-m0/prototypes/m0-flight-readiness-review/data/fixtures.js",
+      "cwd": "/private/tmp/SMA_v3-opus-m0/prototypes/m0-flight-readiness-review",
+      "duration_ms": 37,
+      "exit_code": 0,
+      "id": "node-check-fixtures",
+      "label": "parse data/fixtures.js",
+      "output_tail": "",
+      "status": "passed"
+    },
+    {
+      "command": "node /private/tmp/SMA_v3-opus-m0/prototypes/m0-flight-readiness-review/tests/test_surface.js",
+      "cwd": "/private/tmp/SMA_v3-opus-m0/prototypes/m0-flight-readiness-review",
+      "duration_ms": 335,
+      "exit_code": 0,
+      "id": "behaviour-suite",
+      "label": "run the behaviour suite against the real app.js",
+      "output_tail": "22 passed, 0 failed, 22 total",
+      "status": "passed"
+    },
+    {
+      "command": "sh /private/tmp/SMA_v3-opus-m0/prototypes/m0-flight-readiness-review/tools/check_overflow.sh",
+      "cwd": "/private/tmp/SMA_v3-opus-m0/prototypes/m0-flight-readiness-review",
+      "duration_ms": 4136,
+      "exit_code": 0,
+      "id": "layout-overflow",
+      "label": "measure horizontal overflow at six widths",
+      "output_tail": "120 passed, 0 failed",
+      "status": "passed"
+    },
+    {
+      "command": "/opt/homebrew/opt/python@3.14/bin/python3.14 /private/tmp/SMA_v3-opus-m0/prototypes/m0-flight-readiness-review/tools/verify.py",
+      "cwd": "/private/tmp/SMA_v3-opus-m0",
+      "duration_ms": 4640,
+      "exit_code": 0,
+      "id": "verify-root",
+      "label": "run the full mechanical suite from the repository root",
+      "output_tail": "46 passed, 0 failed, 46 total",
+      "status": "passed"
+    },
+    {
+      "command": "/opt/homebrew/opt/python@3.14/bin/python3.14 /private/tmp/SMA_v3-opus-m0/prototypes/m0-flight-readiness-review/tools/verify.py",
+      "cwd": "/private/tmp",
+      "duration_ms": 4645,
+      "exit_code": 0,
+      "id": "verify-unrelated-cwd",
+      "label": "run the full mechanical suite from an unrelated working directory",
+      "output_tail": "46 passed, 0 failed, 46 total",
+      "status": "passed"
+    }
+  ],
+  "counts": {
+    "failed": 0,
+    "passed": 16,
+    "skipped": 0,
+    "total": 16
+  },
+  "durationMs": 14707,
+  "failures": [],
+  "kind": "build-test",
+  "notes": "Every command was executed in this run. No dependency was installed and no network request was made. A skipped entry carries a non-empty reason.",
+  "tests": "passing"
+}

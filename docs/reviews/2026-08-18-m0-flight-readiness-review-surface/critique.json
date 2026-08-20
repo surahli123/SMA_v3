@@ -1,0 +1,36 @@
+{
+  "kind": "critique-panel",
+  "subject": "prototypes/m0-flight-readiness-review",
+  "pass": 2,
+  "score": 4,
+  "axes": {
+    "clarity": {
+      "score": 4,
+      "notes": "The first screen answers its question without leaving the page: stored analysis_use, separately labelled derived post_analysis_eligibility with its derivation rule, one sentence naming the exact check that limits the Flight, and the typed next safe action with its reopen condition. Every value is traceable to a packet field. Held at 4 rather than 5 because a blocked packet still presents eighteen consequential rows that all restate one cause (CHK-16), so the reader does more scanning than the finding requires."
+    },
+    "hierarchy": {
+      "score": 4,
+      "notes": "Decision, then why it is limited, then next safe action, then the exact proof, then the ordered material checks. Two ordering defects found by reading the first render were fixed: the source-read and D4/D6 receipts had been placed after a nineteen-row table, and the Gaps route had buried its own supersession answer beneath twenty gap rows. Held at 4 because the Boundaries route leaves a wide unused right column at desktop width, where the provenance table could sit beside the list."
+    },
+    "typography": {
+      "score": 5,
+      "notes": "One sans and one mono, used as a register rather than as decoration: every identifier, digest, timestamp, locator, receipt id, rule source and enum is monospace, and every sentence is sans. No serif on a dashboard, no Inter, no gradient headline, no oversized H1 — the decision value carries weight at 21px rather than scale. Uppercase is confined to 9.5px mono micro-labels, matching the owner-selected reference, and never used for running text. Measures are bounded at 68 to 82ch."
+    },
+    "motion": {
+      "score": 5,
+      "notes": "Deliberately static. The stylesheet contains no keyframe, no transition, no transform and no animation of any kind, and prefers-reduced-motion is honoured regardless. Interaction feedback is a tone change on hover, focus and :active rather than movement, which suits a read-only forensic workspace and means nothing on the page can distract from an evidence value. Scored 5 for fitness to purpose, not for quantity of motion."
+    },
+    "brand": {
+      "score": 4,
+      "notes": "The owner-selected language is carried faithfully: dark identity block against a light forensic workspace, rail plus route nav plus workspace plus inspector, 1px rules instead of elevation, orange for selection and blocked state, green for validated. Two colour-discipline defects were fixed: every typed absence had been rendered in the warn colour until orange stopped meaning anything, and the receipt-reach callout used an orange wash that read as an alarm on a decision_grade screen. Held at 4 because a fourth semantic colour (amber for MISSING and UNKNOWN) exceeds the one-accent guidance; it is kept because collapsing those states into pass-green or block-orange would misreport a typed outcome."
+    }
+  },
+  "converged": true,
+  "convergence_rule": "score >= 4",
+  "iterations": 2,
+  "iteration_notes": [
+    "Pass 1 rendered the surface and read the captures against the owner-selected design contract; eight defects (D1 to D8) were found and fixed.",
+    "Pass 2 re-read the required design skills, found and fixed four further issues (orange spent on absence, orange on a non-blocked callout, an inset shadow standing in for a rule, short enums breaking mid-word), and added :active feedback."
+  ],
+  "boundary": "This panel scores a local fixture-only prototype. It establishes no production capability, no production authorization, no P3 closure and no Experiment Review Committee decision."
+}

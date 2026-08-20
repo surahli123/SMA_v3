@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>narrow capture frame</title>
+<style>
+  /* Headless Chrome clamps a window to 500px wide, so a --window-size of 390
+     still lays the page out at 500 and the screenshot merely crops it. Hosting
+     the surface in a fixed 390px iframe gives it a genuinely narrow layout
+     viewport, so the captured evidence is what a phone would actually show. */
+  html, body { margin: 0; background: #fff; }
+  iframe { display: block; border: 0; width: 390px; height: 2400px; }
+</style>
+</head>
+<body>
+<iframe id="frame" title="review surface at 390 CSS pixels"></iframe>
+<script>
+(function () {
+  var target = String(window.location.hash || "").replace(/^#/, "");
+  var parts = target.split("@");
+  var route = parts[0] || "/trusted-decision-grade/readiness";
+  var width = parts[1] || "390";
+  var frame = document.getElementById("frame");
+  frame.style.width = width + "px";
+  frame.src = "../index.html#" + route;
+})();
+</script>
+</body>
+</html>
