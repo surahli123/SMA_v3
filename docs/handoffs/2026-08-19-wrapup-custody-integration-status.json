@@ -1,0 +1,59 @@
+{
+  "handoff_id": "sma-v3-wrapup-custody-integration-20260819",
+  "status": "done",
+  "summary": "Archived six exact historical SMA v2 Claude wrapups with non-canonical custody metadata, corrected the SMA v3 migration status, and preserved the accepted M0 package and active Opus lane.",
+  "evidence": [
+    "current handoff SHA-256 matched 2440cc96503b90c1f459a6996ac9604465a701fe5bd01daa3f7d12ab58c2a553",
+    "pre-integration SMA v3 main was clean at 14222c460871215b0ab7fd1655850a8e10436385",
+    "GitHub independently reported private repository surahli123/SMA_v3 with default branch main",
+    "six archived SHA-256 values matched the current handoff bindings",
+    "local Markdown links and JSON parsing passed",
+    "git diff --check passed",
+    "accepted 59-file M0 aggregate remained 9eea3014cb74acc48e9bbd24a486d2b6a5a4a4f57ae76191f42d037a5988b19a",
+    "integration diff contained no active Opus prototype or accepted M0 package path",
+    "gitleaks 8.30.1 staged scan and an independent credential-pattern scan found no secrets",
+    "private-path scan found only required active-worktree and byte-preserved historical project, job, and hook references; no private-media path was present",
+    "global pre-commit guards for direct main and archived handover filenames were intentionally bypassed for this exact Commit A under explicit Owner authorization and private custody scope"
+  ],
+  "hook_exception": {
+    "scope": "this exact Commit A only",
+    "overridden_guards": [
+      "generic direct-main commit guard",
+      "generic handover session-artifact guard"
+    ],
+    "authorization": "explicit Owner authorization for private SMA v3 custody integration",
+    "global_hooks_modified": false,
+    "generalized": false
+  },
+  "copied_files": [
+    {
+      "path": "docs/archive/sma-v2-session-wrapups/2026-08-18/handover-2026-08-18-m0-foundation-and-freeze-review.md",
+      "sha256": "4637705704fbd804797c8fb5d7a9f573724f3f2caa71a9532cc76364fffaf087"
+    },
+    {
+      "path": "docs/archive/sma-v2-session-wrapups/2026-08-18/2026-08-18-m0-foundation-and-freeze-review-wrapup.md",
+      "sha256": "53ec38dcfa6adda10ff30328bf0ed463b521966a59240f7e34039fa50e2ae3fc"
+    },
+    {
+      "path": "docs/archive/sma-v2-session-wrapups/2026-08-18/handover-2026-08-18-fable5-architecture-facilitation.md",
+      "sha256": "0482137fcd1c19334472d05d090999f63dab04094889887e9f471aa328850171"
+    },
+    {
+      "path": "docs/archive/sma-v2-session-wrapups/2026-08-18/2026-08-18-fable5-architecture-facilitation-wrapup.md",
+      "sha256": "ea6d425a89b657f0f5ab1a0d260b856202159149e95c48860ccff8a1e2a971fb"
+    },
+    {
+      "path": "docs/archive/sma-v2-session-wrapups/2026-08-18/handover-2026-08-18-fable5-m0-adversarial-review.md",
+      "sha256": "5fa3bcc65d13083574278ddbe29ffa125d3d99d8aa395fb9234e2b1e42e383f2"
+    },
+    {
+      "path": "docs/archive/sma-v2-session-wrapups/2026-08-18/2026-08-18-fable5-m0-adversarial-review-wrapup.md",
+      "sha256": "d4ea4712f68a0df35e1a33ef2ea035f1398f063602f4d2f306ea4a7fba254ffa"
+    }
+  ],
+  "commit_sha": null,
+  "remote_sha": null,
+  "commit_identity_note": "The exact local and remote commit SHA are reported after push in the Owner-facing completion report because a commit cannot truthfully embed its own identity.",
+  "next_step": "Wait for the active Opus session's complete receipt, then run an independent exact-byte review before merge.",
+  "updated_at": "2026-08-19T22:53:30-07:00"
+}

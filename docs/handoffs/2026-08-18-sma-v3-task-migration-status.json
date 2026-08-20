@@ -1,17 +1,27 @@
 {
   "handoff_id": "sma-v3-task-migration-20260818",
-  "status": "in_progress",
-  "summary": "SMA v3 is registered as the new Codex project and the first isolated feature worktree is ready.",
-  "new_main_thread_id": "",
+  "status": "done",
+  "summary": "SMA v3 is the sole writable Data Agent repository; the new main orchestrator is active and all SMA v2 tasks remain read-only history.",
+  "new_main_thread_id": "01a016cd-b102-70f3-a27d-d0bb0e3426e8",
   "active_feature_worktrees": [
     "/private/tmp/SMA_v3-opus-m0"
   ],
+  "active_claude_sessions": [
+    {
+      "session_id": "be43cb18-7161-44ea-9bb0-d8660934113e",
+      "name": "sma-v3-m0-review-surface",
+      "worktree": "/private/tmp/SMA_v3-opus-m0",
+      "state": "active_unreviewed",
+      "acceptance": "not_accepted"
+    }
+  ],
   "evidence": [
-    "local main is clean at a6c1a528d910e3560b1e8ef1b917c26d498b0414",
+    "pre-integration main baseline is 14222c460871215b0ab7fd1655850a8e10436385",
     "origin is https://github.com/surahli123/SMA_v3.git",
     "authorized SMA v2 export roots contain no newer missing work",
-    "frozen packet, architecture, plan, sequencing, and accepted M0 aggregate hashes match"
+    "frozen packet, architecture, plan, sequencing, and accepted M0 aggregate hashes match",
+    "active Claude session remains unreviewed and not accepted"
   ],
-  "next_step": "Commit and push the migration and execution handoffs, then create the SMA v3 main task and launch the bounded Opus 5 implementation session.",
-  "updated_at": "2026-08-18T14:33:32-07:00"
+  "next_step": "Wait for the active Opus session's complete receipt, then run an independent exact-byte review before merge.",
+  "updated_at": "2026-08-19T22:41:01-07:00"
 }

@@ -26,6 +26,7 @@ This repository intentionally does not carry the legacy SMA application or its G
 ## Repository Map
 
 - `docs/research/kdd-data-agent-workshop/` — research, evidence manifests, owner decisions, architecture, reviews, prototypes, receipts, Wayfinder tickets, and complete grill-session records.
+- [`docs/archive/sma-v2-session-wrapups/`](docs/archive/sma-v2-session-wrapups/2026-08-18/MANIFEST.md) — custody-only historical SMA v2 Claude handovers and session logs; never active execution authority.
 - `docs/plans/` — the bounded engineering plan.
 - `docs/adr/` — owner-aligned architectural decisions for the M0–M2 validation program.
 - `.agents/skills/kdd_data_agent/` — fixture-only M0 implementation, fixtures, and tests.
