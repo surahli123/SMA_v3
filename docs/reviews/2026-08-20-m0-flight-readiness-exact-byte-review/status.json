@@ -1,0 +1,132 @@
+{
+  "handoff_id": "m0-flight-readiness-exact-byte-review-20260820",
+  "status": "done",
+  "verdict": "ACCEPT_EXACT_BYTES",
+  "summary": "Independent exact-byte acceptance of the uncommitted M0 Flight Readiness review surface. Both required aggregates were recomputed with a reviewer-written implementation before any semantic work and again immediately before this verdict, and matched exactly both times: 36 files at sha256:7a860b03...4324d and 59 files at sha256:9eea3014...b19a. Five of five frozen input bindings matched by direct hashing. The full recorded battery was re-executed and extended: eight PYTHONHASHSEED values instead of five, four working directories instead of three, an independent rebuild into a temp directory that produced byte-identical fixture payloads, and a runtime spy confirming seven genuine evaluate_flight invocations returning real FlightReadinessPacket objects. A reviewer-written DOM suite executing the real unmodified app.js passed 21 of 22 assertions covering receipt reach, the eligibility gate, typed absence, four fail-closed paths, read-only model stability across 35 route-views, and prohibited authority; its one failure, assertion G, surfaced NB-1 and revealed no read-only violation. All twelve PNG captures were opened and read directly, closing the package's third recorded Coverage Gap, which no prior session could attest to. WCAG contrast was recomputed independently and reproduced the claimed 4.76:1 floor and 15.83:1 ceiling. 37 checks run, 36 passed, 1 failed as written by the reviewer, 0 skipped; every check belonging to the package passed. Four non-blocking English-record findings, no blocking findings. The result remains a local fixture-only, read-only, pre-P3 prototype and nothing broader.",
+  "branch": "codex/m0-flight-readiness-review",
+  "head": "5a04097565cce140dcccd3427234582ef00208da",
+  "worktree": "/private/tmp/SMA_v3-opus-m0",
+  "reviewed_started_at": "2026-08-20T00:35:27-07:00",
+  "reviewed_completed_at": "2026-08-20T00:46:12-07:00",
+
+  "reviewed_output_digest": "sha256:7a860b034edc15774ad59f2a678d2ca081003482da614f6bd313bba4edd4324d",
+  "reviewed_output_file_count": 36,
+  "reviewed_m0_digest": "sha256:9eea3014cb74acc48e9bbd24a486d2b6a5a4a4f57ae76191f42d037a5988b19a",
+  "reviewed_m0_file_count": 59,
+  "expected_output_digest_matched": true,
+  "expected_m0_digest_matched": true,
+  "aggregates_recomputed_before_semantic_work": true,
+  "aggregates_recomputed_after_all_checks": true,
+  "aggregates_identical_both_times": true,
+  "aggregate_recomputed_by_reviewer_written_implementation": true,
+  "aggregate_cross_checked_with_package_tool": true,
+  "input_bindings_matched": "5 of 5",
+
+  "dirty_paths_before": [
+    "docs/reviews/2026-08-18-m0-flight-readiness-review-surface/status.json",
+    "docs/reviews/2026-08-18-m0-flight-readiness-review-surface/build-test.json",
+    "docs/reviews/2026-08-18-m0-flight-readiness-review-surface/build-test.log",
+    "docs/reviews/2026-08-18-m0-flight-readiness-review-surface/completion-ledger.md",
+    "docs/reviews/2026-08-18-m0-flight-readiness-review-surface/critique.json",
+    "docs/reviews/2026-08-18-m0-flight-readiness-review-surface/design-critique.md",
+    "docs/reviews/2026-08-18-m0-flight-readiness-review-surface/evidence-receipt.md",
+    "docs/reviews/2026-08-18-m0-flight-readiness-review-surface/opus5-continuation-handoff.md",
+    "docs/reviews/2026-08-18-m0-flight-readiness-review-surface/visual-critique.md",
+    "docs/reviews/2026-08-20-m0-flight-readiness-exact-byte-review/",
+    "prototypes/"
+  ],
+  "dirty_paths_after": [
+    "docs/reviews/2026-08-18-m0-flight-readiness-review-surface/status.json",
+    "docs/reviews/2026-08-18-m0-flight-readiness-review-surface/build-test.json",
+    "docs/reviews/2026-08-18-m0-flight-readiness-review-surface/build-test.log",
+    "docs/reviews/2026-08-18-m0-flight-readiness-review-surface/completion-ledger.md",
+    "docs/reviews/2026-08-18-m0-flight-readiness-review-surface/critique.json",
+    "docs/reviews/2026-08-18-m0-flight-readiness-review-surface/design-critique.md",
+    "docs/reviews/2026-08-18-m0-flight-readiness-review-surface/evidence-receipt.md",
+    "docs/reviews/2026-08-18-m0-flight-readiness-review-surface/opus5-continuation-handoff.md",
+    "docs/reviews/2026-08-18-m0-flight-readiness-review-surface/visual-critique.md",
+    "docs/reviews/2026-08-20-m0-flight-readiness-exact-byte-review/",
+    "prototypes/"
+  ],
+  "dirty_paths_unchanged_by_review": true,
+
+  "tests_run": 37,
+  "tests_passed": 36,
+  "tests_failed": 1,
+  "tests_skipped": 0,
+  "tests_failed_detail": "The single failure is one of the reviewer's own assertions, not an artifact check. Every check belonging to the package passed: bindings, fixtures, determinism, both node syntax checks, the behaviour suite, the overflow measurements and all three mechanical suite runs. Reviewer assertion G demanded that no <form>, <input>, <textarea> or <select> appear anywhere across 35 route-views; it failed because the Checks route renders three view-filter controls. That failure is the finding recorded as NB-1. It did not reveal a read-only violation and the verdict does not turn on it, but it failed and is counted as failed rather than folded into a clean number.",
+  "test_detail": {
+    "aggregate_recomputations": 5,
+    "binding_recomputations": 3,
+    "accepted_package_dirty_checks": 2,
+    "fixture_check_working_directories": 4,
+    "pythonhashseed_values": 8,
+    "pythonhashseed_values_beyond_recorded": 3,
+    "independent_temp_rebuild_byte_identical": true,
+    "node_syntax_checks": 2,
+    "package_behaviour_suite": "22 passed, 0 failed",
+    "reviewer_written_dom_suite": "21 passed, 1 failed as written (assertion G, which surfaced NB-1)",
+    "layout_overflow_measurements": "120 passed, 0 failed",
+    "mechanical_suite_runs": "46 of 46 passed from repository root and from two separate unrelated working directories",
+    "runtime_provenance_trace": "7 genuine evaluate_flight invocations, all returning FlightReadinessPacket",
+    "forbidden_api_scan": "0 hits across 23 APIs on comment-stripped app.js",
+    "wcag_contrast_pairs_recomputed": 14,
+    "wcag_contrast_lowest": "4.76:1",
+    "wcag_contrast_highest": "15.83:1",
+    "png_captures_decoded": 12,
+    "png_captures_read_directly_by_reviewer": 12,
+    "placeholder_and_fake_completion_scan": "0 matches",
+    "reviewer_harness_defect_disclosed": "The reviewer's first DOM-suite run reported 18 failures caused by querying the wrong node API in the reviewer's own harness, not by any artifact defect. It was corrected and rerun; only the corrected run is counted."
+  },
+
+  "blocking_findings": [],
+  "non_blocking_findings": [
+    "NB-1: evidence-receipt.md section 6 states 'there is no form and no data-entry control', but the Checks route renders two <select> view filters and one <input type=checkbox>, each label-associated. No <form>, no text entry, no submit; all three are view filters carrying the on-screen disclosure 'View filter only - no packet, check, evidence or source state changes', and the model is byte-identical after 35 navigations. The sentence understates the control inventory in the safe direction and contradicts the same document's own filter paragraph; README.md states it correctly.",
+    "NB-2: evidence-receipt.md section 6 attributes the lower row-ink density of receipts-narrow to 'the receipts route being shorter at 390px'. Direct visual inspection shows the actual cause is a five-column receipt table that scrolls horizontally inside its own container, leaving a wide empty right region per row at 390px. The observation was correctly logged as an observation rather than a defect, but the explanation was supplied without the capability to see it.",
+    "NB-3: Coverage Gap 5 understates its own consequence. It records that the fifth route tab is off-screen below roughly 620px with keyboard arrow navigation still reaching it. Direct inspection of boundaries-narrow.png shows that when the fifth route is the active one the tablist displays no selected tab at all, so at 390px there is no visible indication of which route is displayed.",
+    "NB-4: evidence-receipt.md states twelve WCAG foreground/background pairs were measured; modelling the palette as actually used yields fourteen pairs. Both stated bounds, 4.76:1 and 15.83:1, reproduce exactly."
+  ],
+  "accepted_disclosed_gaps": [
+    "Expiry overrun: part of the implementation was produced after the original cap expired and before the Owner-authorized replacement cap was issued. Disclosed as custody history; completion at 2026-08-20T00:05-07:00 falls inside the replacement cap of 2026-08-20T06:59:21-07:00.",
+    "Concurrent-writer window: two sessions overlapped between 23:15 and 23:24 on 2026-08-19 and the implementing session published a terminal status inside it. Byte stability was re-established and every mechanical claim re-executed; this reviewer re-executed them again from the live bytes and all hold.",
+    "Split attestation on the twelve captures: CLOSED BY THIS REVIEW. The audit session had no image-viewing capability; this reviewer opened and read all twelve directly and confirms real rendered content and the required desktop and narrow states.",
+    "Consequential-row repetition: a packet whose read was not admitted presents eighteen rows restating one cause. Visible in blocked-desktop, correctly ordered and explained, and reflected in the clarity score of 4.",
+    "Tablist scroll affordance below roughly 620px; keyboard arrow navigation still reaches every route. See NB-3.",
+    "Coverage Gap identifiers are not cross-linked to the receipt index; matching is manual.",
+    "No screen-reader and no cross-browser verification. Assistive technology is unavailable and only Chrome is installed. The record lists both as excluded with reasons and does not claim either passed.",
+    "No live reviewer has used the surface; VAL-UI-101 and P3 live interaction acceptance remain open external gates, stated on the Boundaries route itself."
+  ],
+
+  "durable_claims_overstate_evidence": false,
+  "claims_audit": "Across all 35 route-views no affirmative authority phrase appears for cause, recommendation, win/loss, production readiness, deployment, P3 closure or Committee acceptance. Eight explicit boundaries are rendered. Every readiness view refuses launch authority in a sentence rather than merely omitting it. The two claims overstated in earlier revisions, a battery duration belonging to a superseded run and an assertion that files outside the owned roots were changed, are both explicitly withdrawn and corrected in completion-ledger.md; this reviewer confirmed no path outside the two owned roots is dirty.",
+
+  "reviewed_roots_modified_by_reviewer": false,
+  "files_written_by_reviewer": [
+    "docs/reviews/2026-08-20-m0-flight-readiness-exact-byte-review/review.md",
+    "docs/reviews/2026-08-20-m0-flight-readiness-exact-byte-review/status.json"
+  ],
+  "handoff_md_unmodified": true,
+  "subagents_or_workflows_spawned": false,
+  "committed": false,
+  "pushed": false,
+  "network_requests": 0,
+  "production_reads": 0,
+
+  "production_authorized": false,
+  "p3_accepted": false,
+  "committee_accepted": false,
+  "m1_or_m2_started": false,
+  "deployment_or_publication": false,
+  "accepted_m0_package_modified": false,
+
+  "commit_b_permitted": true,
+  "commit_b_scope": "The exact reviewed implementation and evidence bytes: the 36 files under prototypes/m0-flight-readiness-review/ and docs/reviews/2026-08-18-m0-flight-readiness-review-surface/ aggregating to sha256:7a860b034edc15774ad59f2a678d2ca081003482da614f6bd313bba4edd4324d, plus the two self-referential records evidence-receipt.md and status.json that the aggregate recipe excludes by construction. The three gitignored state directories cannot enter a commit and must not be added.",
+  "commit_c_permitted": true,
+  "commit_c_scope": "This independent review record: review.md and status.json under docs/reviews/2026-08-20-m0-flight-readiness-exact-byte-review/, alongside the orchestrator-owned handoff.md.",
+  "commits_created_by_reviewer": 0,
+
+  "proof_boundary": "Establishes only that the exact 36 uncommitted files aggregating to sha256:7a860b03...4324d, on branch codex/m0-flight-readiness-review at HEAD 5a04097, are a local fixture-only, read-only, pre-P3 review prototype whose mechanical claims reproduce, whose bindings match, whose fixtures are deterministic and genuinely emitted by the accepted M0 package, whose visual evidence is real, and whose durable record does not overstate itself. Establishes no production M0 capability, no production authorization, no source authenticity, no P2/P3/P4 closure, no M1 or M2 completion, no deployment, no publication and no Experiment Review Committee Acceptance. Does not readjudicate Phase A and does not alter the accepted local M0 evidence package or its ACCEPT_LOCAL_M0_EVIDENCE verdict. Any byte change to any reviewed root invalidates this review and requires a fresh gate.",
+
+  "next_step": "Owner decision on committing and publishing the first transferable version. Commit B may carry the exact reviewed bytes and Commit C this review record; neither was created by this reviewer. The four non-blocking findings are corrections to English records rather than to code, and applying them would change bytes and therefore require a fresh exact-byte gate.",
+  "updated_at": "2026-08-20T00:46:12-07:00"
+}
